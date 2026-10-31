@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Extensions and repositories · Saikou docs</title>
+    <meta name="description" content="An extension adds one or more sources to Saikou. A repository is a list of extensions that someone publishes at a web address. Saikou ships with no repository…" />
+    <link rel="canonical" href="https://shinsaikou.com/docs/extensions" />
+    <link rel="icon" type="image/png" href="/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" />
+    <link rel="stylesheet" href="/docs/docs.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#doc-content">Skip to content</a>
+    <header class="site-header">
+      <div class="page">
+        <a class="brand" href="/">
+          <img src="/icon-192.png" alt="" width="32" height="32" />
+          <span class="wordmark">Saikou</span>
+          <span class="brand-sub">Docs</span>
+        </a>
+        <nav aria-label="Site">
+          <span class="chip">v0.0.1</span>
+          <a href="/#features">Features</a>
+          <a href="/#download">Download</a>
+          <a href="/docs/" aria-current="true">Docs</a>
+          <a href="/privacy-policy">Privacy policy</a>
+          <a href="https://github.com/ShinSaikou/saikou">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="docs-layout page">
+      <aside class="docs-sidebar" aria-label="Documentation"><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions" aria-current="page">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting">Troubleshooting</a></li></ul></div></nav></aside>
+      <main class="docs-main" id="doc-content">
+        <div class="docs-mobile">
+          <details class="docs-menu"><summary>Menu</summary><div><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions" aria-current="page">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting">Troubleshooting</a></li></ul></div></nav></div></details>
+          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#safety">Safety</a></li><li><a href="#adding-a-repository">Adding a repository</a></li><li><a href="#installing-and-updating">Installing and updating</a></li><li><a href="#an-extensions-page">An extension's page</a></li><li><a href="#uninstalling">Uninstalling</a></li><li><a href="#when-an-extension-does-not-load">When an extension does not load</a></li></ul></div></details>
+        </div>
+        <article class="doc">
+<h1 id="extensions-and-repositories">Extensions and repositories</h1>
+<p>An <strong>extension</strong> adds one or more sources to Saikou. A <strong>repository</strong> is a list of extensions that
+someone publishes at a web address. Saikou ships with no repository and no extension: you choose
+which repositories to add.</p>
+<p>Saikou reads extensions and repositories built for the Tachiyomi extension API (lib 1.4 and 1.6).</p>
+<h2 id="safety">Safety<a class="anchor" href="#safety" aria-label="Link to this section">#</a></h2>
+<p>Extensions are made by third parties, not by Saikou. An extension's code runs inside Saikou, with
+the same access to the app and its data that Saikou has, so an extension from an untrustworthy
+place could misbehave. Only add repositories you trust.</p>
+<p>Saikou checks every extension's signature before it runs:</p>
+<ul>
+<li>An extension signed with the key of one of your repositories is trusted without a question.</li>
+<li>An extension signed with any other key is held under <strong>Needs trust</strong>. Tapping it asks <strong>Trust
+this extension?</strong> and shows the signer. Trust it only if you recognise the signer.</li>
+<li>An unsigned file, or an update signed with a different key than the copy you have, is refused.</li>
+</ul>
+<p>More &gt; Settings &gt; Advanced &gt; <strong>Revoke trusted unknown extensions</strong> withdraws every trust you gave
+by hand. It takes effect the next time the app starts; the message offers <strong>Restart</strong>.</p>
+<h2 id="adding-a-repository">Adding a repository<a class="anchor" href="#adding-a-repository" aria-label="Link to this section">#</a></h2>
+<ol>
+<li>Open More &gt; <strong>Extension repositories</strong>. (Browse &gt; Extensions also offers the screen when no
+repository is configured, and the <strong>Repositories (N)</strong> button opens it later.)</li>
+<li>Under <strong>Add a repository</strong>, paste the address its maintainers publish into <strong>Repository
+address</strong>.</li>
+<li>Tap <strong>Add</strong>. Saikou reads the list and confirms with <strong>Repository added.</strong></li>
+</ol>
+<p>Some repository pages offer a link that opens Saikou directly. Such a link only fills in the
+address: Saikou still waits for you to read it and tap <strong>Add</strong>.</p>
+<p>The refresh button reloads every repository's list. To remove one, tap <strong>Remove</strong> next to it and
+confirm.</p>
+<h2 id="installing-and-updating">Installing and updating<a class="anchor" href="#installing-and-updating" aria-label="Link to this section">#</a></h2>
+<p><strong>Browse &gt; Extensions</strong> lists, in this order: <strong>Update available</strong>, <strong>Needs trust</strong>, <strong>Did not
+load</strong>, <strong>Installed</strong> and <strong>Available</strong>.</p>
+<ul>
+<li><strong>Install</strong> downloads and installs an extension. The row shows <strong>Pending</strong>, <strong>Downloading</strong> and
+<strong>Installing</strong>; <strong>Cancel install</strong> stops it.</li>
+<li><strong>Update</strong> installs a newer version; <strong>Update all</strong> updates every extension that has one.</li>
+<li><strong>Search extensions</strong> filters the list, and the <strong>Filter</strong> icon chooses which languages appear.</li>
+<li>Each row shows the version (<strong>v1.4.2</strong>), the extension library version (<strong>lib 1.4</strong>), the
+languages, and <strong>18+</strong> for extensions marked as mature.</li>
+</ul>
+<p>Saikou installs extensions inside the app. They do not appear in Android's app list and do not need
+the "Install unknown apps" permission.</p>
+<p>More &gt; Settings &gt; Advanced &gt; <strong>Check extension updates</strong> refreshes your repositories in the
+background so the <strong>Update available</strong> section stays current.</p>
+<h2 id="an-extensions-page">An extension's page<a class="anchor" href="#an-extensions-page" aria-label="Link to this section">#</a></h2>
+<p>Tap an installed extension to open its page:</p>
+<ul>
+<li><strong>Package</strong>, <strong>Version</strong>, <strong>Library</strong> and <strong>Signer</strong>.</li>
+<li><strong>Sources</strong>: each source it provides, with a switch. <strong>Enable all</strong> and <strong>Disable all</strong> switch
+them together.</li>
+<li><strong>Incognito</strong>: do not record reading history for this extension's sources.</li>
+<li><strong>Update</strong> (when one is available) and <strong>Uninstall</strong>.</li>
+<li><strong>Settings</strong> and <strong>Open in WebView</strong> for each source, when the source has them.</li>
+</ul>
+<h2 id="uninstalling">Uninstalling<a class="anchor" href="#uninstalling" aria-label="Link to this section">#</a></h2>
+<p>Tap <strong>Uninstall</strong> on the extension's page or in its row menu (<strong>More actions</strong>), then confirm
+("Remove ... and the sources it provides?"). Entries from its sources stay in your library, marked
+<strong>Source not installed</strong>, with their read chapters and downloads. Install the extension again, or
+<a href="/docs/migration">migrate</a> those entries to another source.</p>
+<h2 id="when-an-extension-does-not-load">When an extension does not load<a class="anchor" href="#when-an-extension-does-not-load" aria-label="Link to this section">#</a></h2>
+<p>Extensions that cannot run are listed under <strong>Did not load</strong>, with the reason:</p>
+<ul>
+<li><strong>Built for an unsupported library version</strong>: the extension targets an extension library
+version Saikou does not support. More &gt; Settings &gt; Advanced &gt; <strong>Extension library versions
+override</strong> accepts other versions (comma separated, for example <code>1.4,1.6,1.7</code>). Extensions
+already on disk are read again the next time the app starts; saving a changed value offers
+<strong>Restart</strong>. Only use this if you know the
+extension works with Saikou.</li>
+<li><strong>Not signed</strong>, <strong>Not an extension</strong>, <strong>The entry point is missing</strong>, <strong>The code could not be
+loaded</strong>, <strong>The entry point failed to start</strong>: the file is broken or not meant for this app.
+Update or reinstall it; if that does not help, the extension itself needs fixing.</li>
+<li><strong>Loaded before the app finished starting</strong>: restart the app.</li>
+</ul>
+        </article>
+        <nav class="pager" aria-label="Previous and next page"><a class="prev" href="/docs/browse"><span>Previous page</span>Browse and sources</a><a class="next" href="/docs/downloads"><span>Next page</span>Downloads</a></nav>
+      </main>
+      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#safety">Safety</a></li><li><a href="#adding-a-repository">Adding a repository</a></li><li><a href="#installing-and-updating">Installing and updating</a></li><li><a href="#an-extensions-page">An extension's page</a></li><li><a href="#uninstalling">Uninstalling</a></li><li><a href="#when-an-extension-does-not-load">When an extension does not load</a></li></ul></aside>
+    </div>
+
+    <footer class="site-footer">
+      <div class="page">
+        <div>
+          <p class="wordmark">Saikou</p>
+          <p class="footer-note">An open-source manga reader for Android.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/docs/">Docs</a>
+          <a href="/privacy-policy">Privacy policy</a>
+          <a href="https://github.com/ShinSaikou/saikou">GitHub</a>
+          <a href="mailto:shinsaikou@proton.me">shinsaikou@proton.me</a>
+          <span>© 2026 Saikou</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Library updates and the Updates tab · Saikou docs</title>
+    <meta name="description" content="A library update asks each source for the latest chapter list of your library entries. New chapters appear in the Updates tab and, if you want, download on…" />
+    <link rel="canonical" href="https://shinsaikou.com/docs/updates" />
+    <link rel="icon" type="image/png" href="/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" />
+    <link rel="stylesheet" href="/docs/docs.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#doc-content">Skip to content</a>
+    <header class="site-header">
+      <div class="page">
+        <a class="brand" href="/">
+          <img src="/icon-192.png" alt="" width="32" height="32" />
+          <span class="wordmark">Saikou</span>
+          <span class="brand-sub">Docs</span>
+        </a>
+        <nav aria-label="Site">
+          <span class="chip">v0.0.1</span>
+          <a href="/#features">Features</a>
+          <a href="/#download">Download</a>
+          <a href="/docs/" aria-current="true">Docs</a>
+          <a href="/privacy-policy">Privacy policy</a>
+          <a href="https://github.com/ShinSaikou/saikou">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="docs-layout page">
+      <aside class="docs-sidebar" aria-label="Documentation"><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates" aria-current="page">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting">Troubleshooting</a></li></ul></div></nav></aside>
+      <main class="docs-main" id="doc-content">
+        <div class="docs-mobile">
+          <details class="docs-menu"><summary>Menu</summary><div><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates" aria-current="page">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting">Troubleshooting</a></li></ul></div></nav></div></details>
+          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#updating-by-hand">Updating by hand</a></li><li><a href="#automatic-updates">Automatic updates</a><ul><li><a href="#other-update-settings">Other update settings</a></li></ul></li><li><a href="#how-saikou-treats-the-sites">How Saikou treats the sites</a></li><li><a href="#notifications">Notifications</a></li><li><a href="#the-updates-tab">The Updates tab</a><ul><li><a href="#update-errors">Update errors</a></li></ul></li></ul></div></details>
+        </div>
+        <article class="doc">
+<h1 id="library-updates-and-the-updates-tab">Library updates and the Updates tab</h1>
+<p>A library update asks each source for the latest chapter list of your library entries. New
+chapters appear in the <strong>Updates</strong> tab and, if you want, download on their own.</p>
+<h2 id="updating-by-hand">Updating by hand<a class="anchor" href="#updating-by-hand" aria-label="Link to this section">#</a></h2>
+<p>Any of these starts an update of the whole library:</p>
+<ul>
+<li>Pull down on the <strong>Library</strong> tab.</li>
+<li>Library &gt; overflow menu &gt; <strong>Update library</strong>.</li>
+<li>Pull down on the <strong>Updates</strong> tab.</li>
+</ul>
+<p><strong>Update category</strong> in the Library's overflow menu updates only the category tab you are on. While
+an update runs, the same menu offers <strong>Stop update</strong>. Starting a second update while one runs only
+shows <strong>A library update is already running</strong>.</p>
+<p>A manual update checks every entry in the categories you include for updates (see below). The
+<strong>Smart update</strong> rules do not apply to it, so a manual update is the way to check entries that
+smart update is holding back. The only entries a manual update leaves out are those whose source
+says their chapter list never changes.</p>
+<p>To refresh one entry, pull down on its page.</p>
+<h2 id="automatic-updates">Automatic updates<a class="anchor" href="#automatic-updates" aria-label="Link to this section">#</a></h2>
+<p>Set these in More &gt; Settings &gt; Library.</p>
+<ul>
+<li><strong>Automatic library update</strong>: <strong>Off</strong>, <strong>12 h</strong>, <strong>24 h</strong> or <strong>48 h</strong>. Off by default.</li>
+<li><strong>Automatic updates device restrictions</strong>: <strong>Only on Wi-Fi</strong> (on by default), <strong>Only on
+unmetered network</strong> and <strong>When charging</strong>. Available once automatic updates are on.</li>
+<li><strong>Categories</strong>: which categories an update includes and excludes. An entry in an excluded
+category is never updated, even if it is also in an included one. With nothing included, every
+category is.</li>
+<li><strong>Refresh entry details</strong>: also fetch the cover, description and status on automatic updates.
+Off by default; a manual update only fetches chapters.</li>
+<li><strong>Smart update</strong>: rules that skip entries on automatic updates, to save time, data and requests
+to the sites. All four are on by default:
+<ul>
+<li><strong>Skip entries with unread chapter(s)</strong></li>
+<li><strong>Skip unstarted entries</strong></li>
+<li><strong>Skip entries with "Completed" status</strong></li>
+<li><strong>Predict next release time</strong>: skip an entry until the time Saikou expects its next chapter,
+worked out from the gaps between its past chapters.</li>
+</ul></li>
+</ul>
+<p>An entry whose details were never fetched (for example one that just arrived through a migration
+or a sync) is always updated, whatever the rules say, so it gets its details.</p>
+<p>For automatic updates to run reliably, let Saikou run in the background: More &gt; Settings &gt; Advanced &gt;
+<strong>Allow background work</strong>. Some phone makers stop background apps even then; see
+<a href="/docs/troubleshooting#updates-or-backups-do-not-run-in-the-background">Troubleshooting</a>.</p>
+<h3 id="other-update-settings">Other update settings<a class="anchor" href="#other-update-settings" aria-label="Link to this section">#</a></h3>
+<p>Also in More &gt; Settings &gt; Library:</p>
+<ul>
+<li><strong>Mark duplicate read chapter as read</strong>: when a chapter has the same number as one you have
+read, mark it read too, <strong>After reading a chapter</strong> and/or <strong>After fetching new chapter</strong>.</li>
+</ul>
+<p>In More &gt; Settings &gt; Advanced:</p>
+<ul>
+<li><strong>Update library manga titles to match source</strong>: let an update replace the titles of library
+entries with the title the source uses now. Your own titles from <strong>Edit details</strong> are kept either
+way.</li>
+<li><strong>Refresh library covers</strong>: runs a full library update that also refreshes every entry's cover
+and details.</li>
+</ul>
+<h2 id="how-saikou-treats-the-sites">How Saikou treats the sites<a class="anchor" href="#how-saikou-treats-the-sites" aria-label="Link to this section">#</a></h2>
+<p>Saikou updates several sources at the same time and adjusts how fast it asks each site. When a site
+starts refusing requests or slowing down, Saikou halves its pace for that site, and waits as long
+as the site asks when it says so. If a site pushes back three times during one update, Saikou stops
+asking it until the next update. Other sources carry on.</p>
+<p>The entries it did not check are listed in the update errors as <strong>Not checked</strong>, naming the site,
+under a line that says how many were not checked and why, with an <strong>Open library settings</strong>
+button. It opens More &gt; Settings &gt; Library, where the <strong>Categories</strong> row after <strong>Automatic library
+update</strong> chooses which categories update, so fewer entries from one site are asked at once.</p>
+<h2 id="notifications">Notifications<a class="anchor" href="#notifications" aria-label="Link to this section">#</a></h2>
+<ul>
+<li><strong>Updating library</strong> shows progress while an update runs.</li>
+<li><strong>New chapters found</strong> lists the entries with new chapters, with <strong>Mark as read</strong> and <strong>View
+chapters</strong> actions.</li>
+<li><strong>N update(s) failed</strong> appears when some entries could not be updated. Tap it (<strong>Show errors</strong>)
+to open the Updates tab with the error list.</li>
+</ul>
+<p>Each kind has its own notification channel (<strong>Library progress</strong>, <strong>New chapters</strong>, <strong>Library
+update errors</strong>), so you can silence one in Android's settings without the others.</p>
+<h2 id="the-updates-tab">The Updates tab<a class="anchor" href="#the-updates-tab" aria-label="Link to this section">#</a></h2>
+<p>The <strong>Updates</strong> tab lists new chapters from your library, newest first, under day headers
+(<strong>Today</strong>, <strong>Yesterday</strong>, <strong>N days ago</strong>). Several new chapters of one entry on one day are folded
+into one row showing <strong>N chapters</strong>; tap it to show or hide them.</p>
+<p>Chapters that were already out when you added an entry are not new. When an entry joins your
+library before its chapters are loaded (added from a source's list, or restored from a backup
+without chapters), its first update loads the whole list but counts only the chapters released
+after you added it. The rest go straight to the entry's page, unread, with no notification and no
+automatic download. A chapter the site gives no date counts as already out.</p>
+<ul>
+<li>Tap a chapter to read it, or use its download control to queue it.</li>
+<li><strong>Filter</strong> chooses what the list shows: <strong>Downloaded</strong>, <strong>Unread</strong>, <strong>Started</strong>, <strong>Bookmarked</strong>,
+<strong>Filter excluded scanlators</strong> (hide chapters from groups you excluded on an entry's page), and
+<strong>Categories</strong>. Chapters of entries in an excluded category are never shown, even if the entry
+is also in an included category.</li>
+<li>Long press to select. As on an entry's page, a second long press further away selects every
+chapter in between. The bar offers <strong>Mark as read</strong>, <strong>Mark as unread</strong>, <strong>Bookmark chapter</strong>,
+<strong>Unbookmark chapter</strong>, <strong>Select all</strong>, <strong>Invert selection</strong> and <strong>Deselect all</strong>.</li>
+</ul>
+<h3 id="update-errors">Update errors<a class="anchor" href="#update-errors" aria-label="Link to this section">#</a></h3>
+<p>When the last update had failures, the Updates tab's top bar shows an error button with the count.
+It opens <strong>Update errors</strong>: the failed entries grouped by source, each with the reason. Tap an
+entry to open its page, where pulling down tries it again.</p>
+<p>When the update stopped asking a site, a line above the list says how many entries were not
+checked, with <strong>Open library settings</strong>. The Library tab's error button opens the same list.</p>
+<p>Common reasons:</p>
+<ul>
+<li><strong>Not checked: ... refused or timed out three times during this update</strong>: the site pushed back,
+see above. The next update tries again.</li>
+<li><strong>HTTP error 403</strong>, <strong>HTTP error 429</strong>, <strong>This site asked for a browser check that could not be
+completed</strong>: see <a href="/docs/troubleshooting">Troubleshooting</a>.</li>
+<li><strong>That source is not installed</strong>: install the entry's extension again, or
+<a href="/docs/migration">migrate</a> the entry.</li>
+</ul>
+        </article>
+        <nav class="pager" aria-label="Previous and next page"><a class="prev" href="/docs/entry"><span>Previous page</span>An entry's page</a><a class="next" href="/docs/history"><span>Next page</span>History and statistics</a></nav>
+      </main>
+      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#updating-by-hand">Updating by hand</a></li><li><a href="#automatic-updates">Automatic updates</a><ul><li><a href="#other-update-settings">Other update settings</a></li></ul></li><li><a href="#how-saikou-treats-the-sites">How Saikou treats the sites</a></li><li><a href="#notifications">Notifications</a></li><li><a href="#the-updates-tab">The Updates tab</a><ul><li><a href="#update-errors">Update errors</a></li></ul></li></ul></aside>
+    </div>
+
+    <footer class="site-footer">
+      <div class="page">
+        <div>
+          <p class="wordmark">Saikou</p>
+          <p class="footer-note">An open-source manga reader for Android.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/docs/">Docs</a>
+          <a href="/privacy-policy">Privacy policy</a>
+          <a href="https://github.com/ShinSaikou/saikou">GitHub</a>
+          <a href="mailto:shinsaikou@proton.me">shinsaikou@proton.me</a>
+          <span>© 2026 Saikou</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Troubleshooting · Saikou docs</title>
+    <meta name="description" content="Most problems come from a site (slow, down, blocking, or changed), not from the app. Work through the first section, then look up the message you see." />
+    <link rel="canonical" href="https://shinsaikou.com/docs/troubleshooting" />
+    <link rel="icon" type="image/png" href="/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" />
+    <link rel="stylesheet" href="/docs/docs.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#doc-content">Skip to content</a>
+    <header class="site-header">
+      <div class="page">
+        <a class="brand" href="/">
+          <img src="/icon-192.png" alt="" width="32" height="32" />
+          <span class="wordmark">Saikou</span>
+          <span class="brand-sub">Docs</span>
+        </a>
+        <nav aria-label="Site">
+          <span class="chip">v0.0.1</span>
+          <a href="/#features">Features</a>
+          <a href="/#download">Download</a>
+          <a href="/docs/" aria-current="true">Docs</a>
+          <a href="/privacy-policy">Privacy policy</a>
+          <a href="https://github.com/ShinSaikou/saikou">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="docs-layout page">
+      <aside class="docs-sidebar" aria-label="Documentation"><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting" aria-current="page">Troubleshooting</a></li></ul></div></nav></aside>
+      <main class="docs-main" id="doc-content">
+        <div class="docs-mobile">
+          <details class="docs-menu"><summary>Menu</summary><div><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting" aria-current="page">Troubleshooting</a></li></ul></div></nav></div></details>
+          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#first-steps">First steps</a></li><li><a href="#webview">WebView</a></li><li><a href="#browser-checks">Browser checks</a></li><li><a href="#network-errors">Network errors</a><ul><li><a href="#http-errors">HTTP errors</a></li><li><a href="#sites-that-push-back">Sites that push back</a></li></ul></li><li><a href="#updates-or-backups-do-not-run-in-the-background">Updates or backups do not run in the background</a></li><li><a href="#reading-problems">Reading problems</a></li><li><a href="#crash-logs">Crash logs</a></li><li><a href="#reinstalling-saikou">Reinstalling Saikou</a></li></ul></div></details>
+        </div>
+        <article class="doc">
+<h1 id="troubleshooting">Troubleshooting</h1>
+<p>Most problems come from a site (slow, down, blocking, or changed), not from the app. Work through
+the first section, then look up the message you see.</p>
+<h2 id="first-steps">First steps<a class="anchor" href="#first-steps" aria-label="Link to this section">#</a></h2>
+<ol>
+<li><strong>Update your extensions.</strong> Browse &gt; Extensions should show nothing under <strong>Update available</strong>.
+A broken source is often fixed by an extension update; there is no telling when one will come.</li>
+<li><strong>Refresh the entry.</strong> Pull down on its page.</li>
+<li><strong>Try another entry from the same source</strong>, to tell a problem with one series from a problem
+with the whole source.</li>
+<li><strong>Open the site in WebView.</strong> Entry page &gt; overflow &gt; <strong>Open in WebView</strong>, or while browsing a
+source, overflow &gt; <strong>Open in WebView</strong>. If the site does not work there either, it is down or is
+blocking you. Wait for a browser check to pass if one appears.</li>
+<li><strong>Change networks.</strong> Switch between Wi-Fi and mobile data.</li>
+<li><strong>Clear caches.</strong> More &gt; Settings &gt; Data &gt; <strong>Clear chapter cache</strong>, and More &gt; Settings &gt;
+Advanced &gt; <strong>Clear WebView data</strong>.</li>
+<li><strong>Restart Saikou.</strong> Close it from the recent apps view, or force stop it in Android's app
+settings, and open it again.</li>
+</ol>
+<p>If only you have the problem, the site may be limiting you: see <a href="#sites-that-push-back">Sites that push back</a>.
+If everyone using that source has it, the site or the extension needs fixing, and waiting is the
+only option.</p>
+<h2 id="webview">WebView<a class="anchor" href="#webview" aria-label="Link to this section">#</a></h2>
+<p>Saikou uses Android's WebView to open sites inside the app and to pass browser checks. The WebView
+screen has <strong>Back in page history</strong>, <strong>Forward in page history</strong>, <strong>Reload</strong> / <strong>Stop loading</strong>,
+and in its menu <strong>Clear cookies for this site</strong> and <strong>Open in browser</strong>.</p>
+<ul>
+<li>"<strong>WebView is required for the app to function</strong>": the device has no working WebView. Install or
+enable <strong>Android System WebView</strong> (on Android 8 and 9, Chrome provides it).</li>
+<li>"<strong>Please update the WebView app for better compatibility</strong>": update Android System WebView (or
+Chrome) from your app store.</li>
+<li>Android's Developer options let you see and change which WebView the device uses. Use the standard Android System WebView or Chrome; other WebView providers can make
+sites misbehave or crash the app.</li>
+</ul>
+<h2 id="browser-checks">Browser checks<a class="anchor" href="#browser-checks" aria-label="Link to this section">#</a></h2>
+<p>Some sites show a check page ("checking your browser") before letting anyone in. Saikou passes most
+of these on its own: while it works on one, a banner says <strong>Browser check for</strong> the site with a
+seconds counter, and how many requests are waiting on it.</p>
+<p>When it fails:</p>
+<ul>
+<li>"<strong>This site asked for a browser check that could not be completed</strong>": open the site in WebView
+(entry page or source &gt; overflow &gt; <strong>Open in WebView</strong>) and complete the check there, then go back
+and retry. If you sign in to the site, do it there too.</li>
+<li>"<strong>This request waited too long for another request's browser check on the same site, so it was
+stopped</strong>": another request was solving the check and this one gave up waiting. Retry.</li>
+<li>If the check keeps looping, try a different <strong>Default user agent string</strong> in More &gt; Settings &gt;
+Advanced (any current browser's user agent), restart the app, and open WebView again.</li>
+<li>You can also copy a working <code>Cookie</code> header from a browser on another device into the source's
+<strong>Source settings &gt; Cookies &gt; Import</strong>. See <a href="/docs/browse#source-settings">Browse and sources</a>.</li>
+<li>If nothing works, the site has raised its protection. Wait, or <a href="/docs/migration">migrate</a> to
+another source.</li>
+</ul>
+<h2 id="network-errors">Network errors<a class="anchor" href="#network-errors" aria-label="Link to this section">#</a></h2>
+<ul>
+<li>"<strong>No network connection</strong>" / "<strong>The request timed out</strong>": check the connection, switch between
+Wi-Fi and mobile data, or try a VPN. A site can also be down or blocked by your network.</li>
+<li>Try More &gt; Settings &gt; Advanced &gt; <strong>DNS over HTTPS (DoH)</strong>: choose a provider, or a different one if
+it is already on, or turn it off. Then tap <strong>Restart</strong> on the message.</li>
+<li>If you know your router well, its security settings may be blocking the site. If you do not,
+stick to the steps above.</li>
+<li>Certificate errors: check that the device's date and time are right, clear WebView data, and try
+another network.</li>
+</ul>
+<p>Some settings, such as DNS over HTTPS, the user agent, <strong>Verbose logging</strong> and <strong>Revoke trusted
+unknown extensions</strong>, say "Requires app restart to take effect" and offer <strong>Restart</strong>, which
+restarts Saikou and brings you back to Settings &gt; Advanced.</p>
+<h3 id="http-errors">HTTP errors<a class="anchor" href="#http-errors" aria-label="Link to this section">#</a></h3>
+<ul>
+<li><strong>HTTP error 400 / 401</strong>: the request was refused. Open the page in WebView to check it. For
+tracker errors, sign in again in More &gt; Settings &gt; Tracking.</li>
+<li><strong>HTTP error 403</strong>: forbidden. Often a browser check (see above), or the site removed the series
+or is blocking you. Check in WebView.</li>
+<li><strong>HTTP error 404</strong>: not found. The series or chapter is gone from the site. Check in WebView, and
+consider another source.</li>
+<li><strong>HTTP error 429</strong>: too many requests. Pause downloads, take a break for a few hours, then try
+again.</li>
+<li><strong>HTTP error 500</strong> and other 5xx errors: the site itself has a problem. Check it in WebView and
+wait.</li>
+</ul>
+<h3 id="sites-that-push-back">Sites that push back<a class="anchor" href="#sites-that-push-back" aria-label="Link to this section">#</a></h3>
+<p>Every site has its own limits and does not publish them. If one source keeps failing for you only:</p>
+<ul>
+<li>Download less from it at once, and lower More &gt; Settings &gt; Downloads &gt; <strong>Pages downloaded at
+once</strong>.</li>
+<li>Keep fewer entries from it in your automatic updates (put rarely read ones in a category you
+exclude). See <a href="/docs/updates#how-saikou-treats-the-sites">Library updates</a>.</li>
+</ul>
+<h2 id="updates-or-backups-do-not-run-in-the-background">Updates or backups do not run in the background<a class="anchor" href="#updates-or-backups-do-not-run-in-the-background" aria-label="Link to this section">#</a></h2>
+<ol>
+<li>More &gt; Settings &gt; Advanced &gt; <strong>Allow background work</strong>, and allow it.</li>
+<li>If you use sync, also tap <strong>Allow background sync</strong> in More &gt; Settings &gt; Sync when it is shown.</li>
+<li>Some phone makers stop background apps anyway. Look up your phone's brand on
+<a href="https://dontkillmyapp.com">https://dontkillmyapp.com</a> for the extra settings to change.</li>
+</ol>
+<h2 id="reading-problems">Reading problems<a class="anchor" href="#reading-problems" aria-label="Link to this section">#</a></h2>
+<ul>
+<li>A page does not load: leave the chapter and open it again. See <a href="/docs/reader#when-a-page-does-not-load">The reader</a>.</li>
+<li>Reading feels slow or stutters: very large pages are usually the cause. Closing other apps helps.</li>
+<li>A badge or count in the library looks wrong: More &gt; Settings &gt; Advanced &gt; <strong>Rebuild library
+counts</strong>.</li>
+<li>Covers are blank or broken: More &gt; Settings &gt; Advanced &gt; <strong>Refresh library covers</strong>.</li>
+</ul>
+<h2 id="crash-logs">Crash logs<a class="anchor" href="#crash-logs" aria-label="Link to this section">#</a></h2>
+<p>If Saikou closes unexpectedly, the next launch shows "Saikou closed unexpectedly. A crash log was
+saved on this device." with <strong>Export</strong> and <strong>Dismiss</strong>. All saved logs are in More &gt; <strong>Crash logs</strong>,
+where each can be shared or deleted, and <strong>Clear all</strong> removes them. Crash logs never leave the
+device unless you share them.</p>
+<p>When reporting a problem, include:</p>
+<ul>
+<li>The version: More &gt; Settings &gt; Advanced &gt; <strong>Version</strong> (tap to copy).</li>
+<li>The crash log, if there is one.</li>
+<li>What you did just before, and whether it happens every time.</li>
+</ul>
+<p>For problems that do not crash, turn on More &gt; Settings &gt; Advanced &gt; <strong>Verbose logging</strong>, restart,
+reproduce the problem, then turn it off again.</p>
+<h2 id="reinstalling-saikou">Reinstalling Saikou<a class="anchor" href="#reinstalling-saikou" aria-label="Link to this section">#</a></h2>
+<p>If an update will not install over the version you have (Android reports that the signatures do
+not match), the only way forward is to uninstall and install again. Uninstalling deletes everything
+stored in Saikou's app storage: your library, settings, downloaded chapters, automatic backups and
+the Local source's <code>local</code> folder (unless a Storage location is set, which keeps those two). Before
+uninstalling:</p>
+<ol>
+<li>Make sure a <strong>Storage location</strong> is set (More &gt; Settings &gt; Data). Your automatic backups and
+Local series are then already outside the app. Otherwise, create a backup by hand and save it
+outside the app (More &gt; <strong>Backup</strong> &gt; <strong>Create backup</strong>, or <strong>Save a copy</strong> of an automatic one).</li>
+<li>Run More &gt; Settings &gt; Downloads &gt; <strong>Export downloads</strong> to copy your downloads into the storage
+location.</li>
+<li>After reinstalling, choose the same folder as the <strong>Storage location</strong>, restore a backup from
+More &gt; <strong>Backup</strong> &gt; <strong>Automatic backups</strong> (or <strong>Restore backup</strong>), then bring the downloads
+back with <strong>Copy downloads from a folder</strong>.</li>
+</ol>
+        </article>
+        <nav class="pager" aria-label="Previous and next page"><a class="prev" href="/docs/faq"><span>Previous page</span>Frequently asked questions</a></nav>
+      </main>
+      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#first-steps">First steps</a></li><li><a href="#webview">WebView</a></li><li><a href="#browser-checks">Browser checks</a></li><li><a href="#network-errors">Network errors</a><ul><li><a href="#http-errors">HTTP errors</a></li><li><a href="#sites-that-push-back">Sites that push back</a></li></ul></li><li><a href="#updates-or-backups-do-not-run-in-the-background">Updates or backups do not run in the background</a></li><li><a href="#reading-problems">Reading problems</a></li><li><a href="#crash-logs">Crash logs</a></li><li><a href="#reinstalling-saikou">Reinstalling Saikou</a></li></ul></aside>
+    </div>
+
+    <footer class="site-footer">
+      <div class="page">
+        <div>
+          <p class="wordmark">Saikou</p>
+          <p class="footer-note">An open-source manga reader for Android.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/docs/">Docs</a>
+          <a href="/privacy-policy">Privacy policy</a>
+          <a href="https://github.com/ShinSaikou/saikou">GitHub</a>
+          <a href="mailto:shinsaikou@proton.me">shinsaikou@proton.me</a>
+          <span>© 2026 Saikou</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

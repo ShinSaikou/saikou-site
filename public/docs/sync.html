@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Sync between devices · Saikou docs</title>
+    <meta name="description" content="Sync keeps your library the same on your phone, tablet and any other device running Saikou. Read a chapter on one and the others know. This is one of Saikou&#x27;s…" />
+    <link rel="canonical" href="https://shinsaikou.com/docs/sync" />
+    <link rel="icon" type="image/png" href="/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" />
+    <link rel="stylesheet" href="/docs/docs.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#doc-content">Skip to content</a>
+    <header class="site-header">
+      <div class="page">
+        <a class="brand" href="/">
+          <img src="/icon-192.png" alt="" width="32" height="32" />
+          <span class="wordmark">Saikou</span>
+          <span class="brand-sub">Docs</span>
+        </a>
+        <nav aria-label="Site">
+          <span class="chip">v0.0.1</span>
+          <a href="/#features">Features</a>
+          <a href="/#download">Download</a>
+          <a href="/docs/" aria-current="true">Docs</a>
+          <a href="/privacy-policy">Privacy policy</a>
+          <a href="https://github.com/ShinSaikou/saikou">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="docs-layout page">
+      <aside class="docs-sidebar" aria-label="Documentation"><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync" aria-current="page">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting">Troubleshooting</a></li></ul></div></nav></aside>
+      <main class="docs-main" id="doc-content">
+        <div class="docs-mobile">
+          <details class="docs-menu"><summary>Menu</summary><div><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync" aria-current="page">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting">Troubleshooting</a></li></ul></div></nav></div></details>
+          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#what-sync-carries">What sync carries</a></li><li><a href="#setting-it-up">Setting it up</a><ul><li><a href="#google-drive">Google Drive</a></li><li><a href="#webdav">WebDAV</a></li></ul></li><li><a href="#when-sync-runs">When sync runs</a></li><li><a href="#the-first-sync">The first sync</a><ul><li><a href="#the-safety-backup">The safety backup</a></li></ul></li><li><a href="#sync-reports">Sync reports</a></li><li><a href="#checking-that-two-devices-agree">Checking that two devices agree</a></li><li><a href="#signing-out">Signing out</a></li><li><a href="#messages-you-may-see">Messages you may see</a></li></ul></div></details>
+        </div>
+        <article class="doc">
+<h1 id="sync-between-devices">Sync between devices</h1>
+<p>Sync keeps your library the same on your phone, tablet and any other device running Saikou. Read a
+chapter on one and the others know. This is one of Saikou's own features.</p>
+<p>Sync goes through storage you already own: your Google Drive, or a WebDAV server. Saikou has no
+server of its own.</p>
+<h2 id="what-sync-carries">What sync carries<a class="anchor" href="#what-sync-carries" aria-label="Link to this section">#</a></h2>
+<ul>
+<li>Your library entries, with each entry's notes, manual order, reading mode and chapter list
+settings.</li>
+<li>Categories.</li>
+<li>Chapter progress (read, page reached), reading history, bookmarks and page notes.</li>
+<li>Tracking links.</li>
+<li>Each entry's scanlator filter and group ranking.</li>
+</ul>
+<p>What stays on each device: settings, extensions and their repositories, source settings, tracker
+sign-ins and downloaded chapters. Install the extensions you need on each device.</p>
+<h2 id="setting-it-up">Setting it up<a class="anchor" href="#setting-it-up" aria-label="Link to this section">#</a></h2>
+<p>Open More &gt; Settings &gt; <strong>Sync</strong> and choose a <strong>Sync service</strong>.</p>
+<h3 id="google-drive">Google Drive<a class="anchor" href="#google-drive" aria-label="Link to this section">#</a></h3>
+<ol>
+<li>Choose <strong>Google Drive</strong> and tap <strong>Sign in with Google</strong>.</li>
+<li>Google's sign-in page opens in your browser. Sign in and approve. A notification lets you jump
+back to Saikou.</li>
+<li>Back in Saikou, the <strong>Google account</strong> row shows the account.</li>
+</ol>
+<p>Saikou asks only for access to its own hidden app folder in your Drive. It cannot see or change your
+other files, and the folder does not appear in your Drive's file list.</p>
+<p>A Google sign-in does not expire. If you signed in during testing, before 24 October 2026, Saikou
+still shows an end date for that sign-in: "Google's sign-in for this device expires on ...". A
+day before that date Saikou posts a notification, <strong>Google sign-in for sync ends soon</strong>; tap
+<strong>Sign in again</strong> to open the sync settings, then tap <strong>Sign in with Google again</strong> once and the
+date goes away for good. Signing in again with the same account continues where the device left
+off.</p>
+<p>The Google Drive choice appears when this build of Saikou offers it.</p>
+<h3 id="webdav">WebDAV<a class="anchor" href="#webdav" aria-label="Link to this section">#</a></h3>
+<p>For your own server or a storage provider that offers WebDAV.</p>
+<ol>
+<li>Choose <strong>WebDAV</strong>.</li>
+<li>Enter the <strong>Server address</strong> (it must start with <code>https://</code>), your <strong>User name</strong> and
+<strong>Password</strong>.</li>
+<li>Tap <strong>Sign in</strong>.</li>
+</ol>
+<p>Saikou only accepts certificates your device trusts, and never sends your library over plain
+<code>http://</code>. If the server redirects to another address, Saikou says so; enter the final address
+instead.</p>
+<h2 id="when-sync-runs">When sync runs<a class="anchor" href="#when-sync-runs" aria-label="Link to this section">#</a></h2>
+<ul>
+<li>On the schedule set in <strong>Automatic sync</strong>: <strong>Off</strong>, <strong>1 h</strong>, <strong>6 h</strong> (the default), <strong>12 h</strong> or
+<strong>24 h</strong>.</li>
+<li>When you open the app, if the last successful sync is more than a few minutes old.</li>
+<li>When you leave the app with changes not yet sent.</li>
+<li>Shortly after you close the reader.</li>
+<li>When you tap <strong>Sync now</strong>.</li>
+</ul>
+<p>If background syncs do not run, tap <strong>Allow background sync</strong> (shown until Saikou may ignore battery
+optimisation).</p>
+<p><strong>Last sync</strong> shows when the last run finished, or when and why it failed, with the last successful
+sync below it.</p>
+<p>When a background sync stops for a reason you can fix, Saikou posts a <strong>Sync stopped</strong>
+notification saying why: the device lost its sign-in, Google no longer accepts it, the server
+refused the saved password, or Google Drive is full. Tap it (or <strong>Sign in again</strong> / <strong>Open sync
+settings</strong>) to go to the sync settings. Each reason is posted once, and the notification goes
+away after the next successful sync. A sync that failed because the network or the server was
+down posts nothing: the next sync tries again. A sync you start with <strong>Sync now</strong> shows its error
+under <strong>Last sync</strong> instead.</p>
+<p>A running sync and these notices have their own notification channels (<strong>Sync progress</strong> and
+<strong>Sync errors</strong>), so you can silence one in Android's settings without the other.</p>
+<h2 id="the-first-sync">The first sync<a class="anchor" href="#the-first-sync" aria-label="Link to this section">#</a></h2>
+<p>The first time a device syncs with an account or server, it pulls everything already there, merges
+it into its own library, then uploads its whole library once. After that, each sync sends and
+receives only what changed.</p>
+<p>When two devices change the same thing between syncs, both end up with the same result:</p>
+<ul>
+<li>Reading progress takes the side that got further. A chapter read on either device stays read.</li>
+<li>Settings you choose on an entry (its categories, reading mode, notes) take the most recent change.</li>
+<li>Details that come from the source are settled by the same rule on every device, so both end up
+with the same copy.</li>
+</ul>
+<h3 id="the-safety-backup">The safety backup<a class="anchor" href="#the-safety-backup" aria-label="Link to this section">#</a></h3>
+<p>Before a device's first sync, Saikou writes a backup of that device's library into its automatic
+backup folder, so nothing can be lost by joining. The Sync section names the file. Saikou keeps it
+until two later sign-ins have each written a newer one.</p>
+<p>The notice in More &gt; Settings &gt; Sync ends with <strong>Save a copy</strong>, which opens Android's save dialog
+and copies the file wherever you choose. The file is also listed under More &gt; <strong>Backup</strong> &gt;
+<strong>Automatic backups</strong> as a <strong>Sync safety backup</strong>, to restore or copy. With a <strong>Storage
+location</strong> set, the automatic backup folder is its <code>autobackup</code> folder, which you can open
+yourself. See <a href="/docs/backups#storage-location">Storage location</a>.</p>
+<h2 id="sync-reports">Sync reports<a class="anchor" href="#sync-reports" aria-label="Link to this section">#</a></h2>
+<ul>
+<li><strong>Last sync report</strong> shows the library before and after the run (entries, categories, read
+chapters, bookmarks), how many routine merges there were, and any <strong>conflicts</strong>: changes made on
+this device that met a change from another device, each naming the entry and the fields where the
+other device's value won.</li>
+<li><strong>Earlier runs</strong> keeps the reports of previous syncs.</li>
+</ul>
+<h2 id="checking-that-two-devices-agree">Checking that two devices agree<a class="anchor" href="#checking-that-two-devices-agree" aria-label="Link to this section">#</a></h2>
+<p><strong>Library fingerprint</strong>: tap it to compute a short code from everything this device syncs. Two
+devices that have both finished syncing show the same code. If they differ, tap <strong>Sync now</strong> on
+both and compare again.</p>
+<h2 id="signing-out">Signing out<a class="anchor" href="#signing-out" aria-label="Link to this section">#</a></h2>
+<p><strong>Sign out</strong> ("Stop syncing this device") forgets the account or server details on this device.
+Your library on this device and Saikou's files in your Drive or on your server stay as they are.
+For Google Drive, signing out also revokes Saikou's access to your account.</p>
+<p>If you sign in again later, this device joins as a new device: it pulls everything from that
+account or server, then uploads its whole library once. A different Google account, server or
+user name works the same way.</p>
+<h2 id="messages-you-may-see">Messages you may see<a class="anchor" href="#messages-you-may-see" aria-label="Link to this section">#</a></h2>
+<ul>
+<li><strong>Update Saikou on this device to keep syncing</strong>: another device wrote a newer sync format.</li>
+<li><strong>Signed out of the sync server. Sign in again to keep syncing.</strong> / <strong>The server refused the saved
+password.</strong>: enter the password again; the device keeps its place on the server.</li>
+<li><strong>Google no longer accepts this device's sign-in</strong>: tap <strong>Sign in with Google again</strong>.</li>
+<li><strong>Google Drive is full</strong>: free some space in the Google account, then sync again.</li>
+<li><strong>The sync server did not answer</strong>: check that the server is running and reachable from this
+device.</li>
+<li><strong>The backup Saikou writes before the first sync could not be written</strong>: nothing was synced. Check
+free space on the device, then sync again.</li>
+</ul>
+        </article>
+        <nav class="pager" aria-label="Previous and next page"><a class="prev" href="/docs/backups"><span>Previous page</span>Backups and restore</a><a class="next" href="/docs/migration"><span>Next page</span>Migration</a></nav>
+      </main>
+      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#what-sync-carries">What sync carries</a></li><li><a href="#setting-it-up">Setting it up</a><ul><li><a href="#google-drive">Google Drive</a></li><li><a href="#webdav">WebDAV</a></li></ul></li><li><a href="#when-sync-runs">When sync runs</a></li><li><a href="#the-first-sync">The first sync</a><ul><li><a href="#the-safety-backup">The safety backup</a></li></ul></li><li><a href="#sync-reports">Sync reports</a></li><li><a href="#checking-that-two-devices-agree">Checking that two devices agree</a></li><li><a href="#signing-out">Signing out</a></li><li><a href="#messages-you-may-see">Messages you may see</a></li></ul></aside>
+    </div>
+
+    <footer class="site-footer">
+      <div class="page">
+        <div>
+          <p class="wordmark">Saikou</p>
+          <p class="footer-note">An open-source manga reader for Android.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/docs/">Docs</a>
+          <a href="/privacy-policy">Privacy policy</a>
+          <a href="https://github.com/ShinSaikou/saikou">GitHub</a>
+          <a href="mailto:shinsaikou@proton.me">shinsaikou@proton.me</a>
+          <span>© 2026 Saikou</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

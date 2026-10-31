@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Saikou Privacy Policy | ShinSaikou</title>
+    <meta name="description" content="Privacy policy for Saikou, a personal Android reading app with optional Google Drive sync and optional MyAnimeList tracking." />
+    <link rel="icon" type="image/png" href="/icon-192.png" />
+    <style>
+      :root {
+        --ink: #16181d;
+        --muted: #5b6070;
+        --rule: #e3e5ea;
+        --bg: #fbfbfc;
+        --accent: #b3381b;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0 auto;
+        padding: 3rem 1.25rem 5rem;
+        max-width: 46rem;
+        background: var(--bg);
+        color: var(--ink);
+        font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 0.35rem; }
+      .sub { color: var(--muted); margin: 0 0 2rem; }
+      h2 { font-size: 1.1rem; margin: 2.4rem 0 0.6rem; }
+      p, li { color: #23262e; }
+      ul { padding-left: 1.2rem; }
+      li { margin: 0.45rem 0; }
+      code { font-size: 0.92em; overflow-wrap: anywhere; }
+      .lead {
+        border-left: 3px solid var(--accent);
+        padding: 0.1rem 0 0.1rem 1rem;
+        font-size: 1.05rem;
+      }
+      hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0 1.5rem; }
+      footer { color: var(--muted); font-size: 0.9rem; }
+      a { color: var(--accent); }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #eceef2; --muted: #9aa1b2; --rule: #2b2f38; --bg: #14161a; --accent: #f28b6f; }
+        p, li { color: #d8dbe2; }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Saikou Privacy Policy</h1>
+    <p class="sub">Effective date: 1 November 2026</p>
+
+    <h2>In plain English</h2>
+    <p class="lead">
+      Saikou has no account, no server, no ads and no analytics. The developer receives no data from
+      the app. If you turn on Google Drive sync, your library data goes to your own Google Drive and
+      nowhere else. If you sign in to MyAnimeList, the reading progress of the titles you choose to
+      link goes to your own MyAnimeList list and nowhere else.
+    </p>
+
+    <h2>1. Who is responsible</h2>
+    <p>
+      Saikou is made by an individual developer. For any privacy question, write to <a href="mailto:shinsaikou@proton.me">shinsaikou@proton.me</a>.
+    </p>
+
+    <h2>2. What stays on your device</h2>
+    <p>
+      Your library, categories, reading progress, reading history, bookmarks, downloaded chapters
+      and settings are stored in the app's private storage on your device. Backups you create are
+      files you choose where to save. None of this is sent to the developer.
+    </p>
+    <p>
+      If you use MyAnimeList tracking, the link between a library entry and its MyAnimeList entry,
+      with the status, chapter count, score and dates MyAnimeList last answered, is stored on your
+      device too. So is your MyAnimeList sign-in: a token, and the account name shown in Settings.
+      A backup file includes that sign-in only when you tick "Private settings" when creating it;
+      otherwise the file holds no tracker login.
+    </p>
+
+    <h2>3. What the app sends over the network</h2>
+    <ul>
+      <li>
+        <strong>Content you browse and read.</strong> Saikou fetches pages and images directly from
+        the third-party websites you choose to add. Those websites receive your requests and your IP
+        address, as they would from a web browser, and handle them under their own policies.
+      </li>
+      <li>
+        <strong>Google Drive sync, if you turn it on.</strong> Described in section 4.
+      </li>
+      <li>
+        <strong>WebDAV sync, if you turn it on.</strong> Your library data is sent to the WebDAV
+        server address you enter, with the credentials you enter. The developer does not operate
+        that server.
+      </li>
+      <li>
+        <strong>MyAnimeList tracking, if you sign in.</strong> Described in section 5. Nothing is
+        sent until you sign in, and then only about the titles you choose to link.
+      </li>
+      <li><strong>Nothing to the developer.</strong> There is no server run for Saikou.</li>
+    </ul>
+
+    <h2>4. Google Drive sync and your Google data</h2>
+    <ul>
+      <li>
+        <strong>Permission requested.</strong> Only
+        <code>https://www.googleapis.com/auth/drive.appdata</code>. It lets Saikou create, read,
+        change and delete files in its own hidden app data folder in your Google Drive. It gives no
+        access to any other file in your Drive, and those files are not visible in the Drive app.
+      </li>
+      <li>
+        <strong>What is stored there.</strong> Your library with each entry's notes, display
+        settings and any title or description you edited, your categories, chapter progress,
+        reading history, bookmarks and tracking entries. Settings, passwords, logins, installed
+        extensions, custom covers and downloaded chapters are not synced.
+      </li>
+      <li>
+        <strong>Your account's email address.</strong> After you sign in, Saikou asks Drive for the
+        email address of the signed-in account, so the Sync settings screen can show which account
+        each device uses. It is kept on the device and not sent anywhere else.
+      </li>
+      <li>
+        <strong>Sign-in tokens.</strong> Google issues Saikou a token that lets it reach your app data
+        folder without asking you to sign in each time. The token is stored on your device,
+        encrypted with a key held in the Android Keystore, and is never sent to anyone but Google.
+      </li>
+      <li>
+        <strong>Limited Use.</strong> Saikou's use and transfer of information received from Google
+        APIs adheres to the
+        <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API
+        Services User Data Policy</a>, including the Limited Use requirements. Data from Google is
+        used only to sync your library between your own devices. It is not transferred to anyone,
+        not used for advertising, and not read by any person.
+      </li>
+      <li>
+        <strong>Stopping sync.</strong> Sign out in Saikou's Sync settings, or remove Saikou from your
+        Google Account's
+        <a href="https://myaccount.google.com/connections">third-party connections</a> page. To
+        delete the synced copy, open Google Drive on the web, go to Settings, then Manage apps, find
+        Saikou and choose "Delete hidden app data".
+      </li>
+    </ul>
+
+    <h2>5. MyAnimeList tracking</h2>
+    <ul>
+      <li>
+        <strong>Off until you sign in.</strong> Tracking does nothing, and sends nothing, until you
+        sign in to MyAnimeList in Saikou's Tracking settings. MyAnimeList is the only tracking
+        service Saikou supports.
+      </li>
+      <li>
+        <strong>Signing in.</strong> Saikou opens MyAnimeList's sign-in page in your browser. You
+        enter your MyAnimeList password there, on MyAnimeList's own site, never in Saikou. The
+        browser hands a one-time code back to Saikou on the device itself. Saikou exchanges it with
+        MyAnimeList for a sign-in token and asks MyAnimeList for the account's name, so the Tracking
+        settings can show who is signed in.
+      </li>
+      <li>
+        <strong>What is sent to MyAnimeList.</strong> When you link a title: the search text (the
+        entry's title, or what you type) and then, for the entry you pick, its status, the number
+        of chapters read, the score, the start and finish dates and whether you are rereading.
+        After that, each chapter you finish in the reader, and each chapter you mark as read, is
+        sent as a new chapter count, in the background once the device has a connection, with
+        retries if it fails. Edits you make in an entry's tracking sheet (status, chapters, score,
+        dates) are sent at once. Both automatic updates can be turned off in Settings, under
+        Tracking. Nothing is sent about titles you have not linked.
+      </li>
+      <li>
+        <strong>What is read from MyAnimeList.</strong> Search results, with their cover images
+        loaded from MyAnimeList, and the current state of a linked entry when you open its tracking
+        sheet or an automatic update runs. If a linked entry is no longer on your MyAnimeList list,
+        that reading adds it back with the status and progress Saikou holds.
+      </li>
+      <li>
+        <strong>Your IP address.</strong> Every request goes from your device straight to
+        MyAnimeList, which receives your IP address as it would from a web browser and handles it
+        under its own policies.
+      </li>
+      <li>
+        <strong>The sign-in token.</strong> MyAnimeList issues Saikou a token that lets it reach your
+        list without asking you to sign in each time. It is stored in the app's private storage on
+        your device, alongside its settings, and is sent to no one but MyAnimeList. Unlike the
+        Google sign-in token in section 4, it is not additionally encrypted with an Android Keystore
+        key. When it expires, Saikou renews it with MyAnimeList; if MyAnimeList refuses the renewal,
+        Saikou stops sending until you sign in again.
+      </li>
+      <li>
+        <strong>Sync and backups.</strong> Google Drive sync and WebDAV sync carry your tracking
+        entries between your devices, as section 4 says, but never the MyAnimeList sign-in, which
+        stays on each device. A backup file includes the sign-in only when you tick "Private
+        settings" when creating it.
+      </li>
+      <li>
+        <strong>Nothing to the developer.</strong> Tracking calls go from your device to
+        MyAnimeList and nowhere else. The developer sees none of them.
+      </li>
+      <li>
+        <strong>Stopping tracking.</strong> Sign out in Saikou's Tracking settings. That deletes the
+        token from your device and Saikou stops sending; a copy of the account name may stay in the
+        app's settings until you sign in again or clear the app's storage. Your entries on
+        MyAnimeList stay as they are. Removing a title's tracking in Saikou deletes the link on the
+        device only, unless you tick "Also remove from MyAnimeList", which also deletes that entry
+        from your MyAnimeList list.
+      </li>
+    </ul>
+
+    <h2>6. What the developer collects</h2>
+    <p>
+      Nothing. Saikou contains no analytics, no crash reporting, no advertising and no advertising
+      identifiers, and it has no user accounts.
+    </p>
+
+    <h2>7. Keeping and deleting data</h2>
+    <p>
+      Data on your device stays until you delete it in the app, clear the app's storage, or
+      uninstall Saikou. Data in your Google Drive app data folder stays until you delete it as
+      described in section 4. Data on a WebDAV server stays until you delete it from that server.
+      Your MyAnimeList sign-in stays on your device until you sign out in Saikou, clear the app's
+      storage or uninstall Saikou. Entries on your MyAnimeList list stay until you delete them there,
+      or from Saikou as described in section 5.
+    </p>
+
+    <h2>8. Children</h2>
+    <p>Saikou is not directed at children and does not knowingly collect data from them.</p>
+
+    <h2>9. Your rights</h2>
+    <p>
+      The developer holds no personal data about you, so there is nothing for the developer to give
+      you a copy of or delete. Your data is on your devices and in storage you control. If you
+      believe your data is being handled unlawfully, you can complain to the data protection
+      authority in your country.
+    </p>
+
+    <h2>10. Changes</h2>
+    <p>
+      If this policy changes, the new version is published on this page with a new effective date.
+    </p>
+
+    <h2>11. Contact</h2>
+    <p>
+      <a href="mailto:shinsaikou@proton.me">shinsaikou@proton.me</a>
+    </p>
+
+    <hr />
+    <footer><a href="/">Saikou</a> is an independent app, built and maintained by one developer. <a href="/docs/">Read the docs</a>.</footer>
+  </body>
+</html>

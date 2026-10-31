@@ -1,0 +1,1247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Shin Saikou | An open-source manga reader for Android</title>
+    <meta name="description" content="Shin Saikou is an open-source manga reader for Android: a library that syncs through storage you own, downloads that survive, a smooth long-strip reader, and no account, ads or analytics." />
+    <meta name="theme-color" content="#F8EBE6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#110B09" media="(prefers-color-scheme: dark)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://shinsaikou.com/" />
+    <meta property="og:title" content="Shin Saikou: your library, in step" />
+    <meta property="og:description" content="An open-source manga reader for Android, with sync through storage you own, downloads that survive and a smooth long-strip reader." />
+    <link rel="icon" type="image/png" href="icon-192.png" />
+    <script>
+      (function () {
+        var root = document.documentElement;
+        try {
+          var saved = localStorage.getItem("saikou-theme");
+          if (saved === "light" || saved === "dark") root.dataset.theme = saved;
+        } catch (e) {}
+        root.classList.add("js");
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: light-dark(#F8EBE6, #110B09);
+        --bg-2: light-dark(#F3E2DB, #160E0C);
+        --panel: light-dark(#FFF8F5, #1B1210);
+        --panel-2: light-dark(#F1E0D9, #251A16);
+        --ink: light-dark(#21110C, #F3E6E0);
+        --ink-2: light-dark(#6B5A54, #B39C94);
+        --rule: light-dark(rgba(33, 17, 12, 0.12), rgba(243, 230, 224, 0.1));
+        --rule-2: light-dark(rgba(33, 17, 12, 0.2), rgba(243, 230, 224, 0.18));
+        --accent: light-dark(#C43B20, #F0623F);
+        --accent-ink: light-dark(#FFF8F5, #1A0D09);
+        --link: light-dark(#B3381B, #F08A6C);
+        --glow: light-dark(rgba(227, 75, 41, 0.26), rgba(240, 98, 63, 0.28));
+        --shadow-c: light-dark(rgba(60, 22, 12, 0.32), rgba(0, 0, 0, 0.75));
+        --glass: light-dark(rgba(255, 248, 245, 0.86), rgba(30, 20, 17, 0.84));
+        --tone-c: light-dark(rgba(33, 17, 12, 0.5), rgba(243, 230, 224, 0.22));
+        --name-a: light-dark(#A82D17, #E34B29);
+        --name-b: light-dark(#D23E21, #F0623F);
+        --name-c: light-dark(#E8663F, #FFA27A);
+        --cmp-1: light-dark(#2A78D6, #3987E5);
+        --cmp-2: light-dark(#EB6834, #D95926);
+        /* fixed, never change with theme: the brand field, the mark and the phone bezel */
+        --field-a: #DA4223;
+        --field-b: #E34B29;
+        --field-deep: #A82D17;
+        --mark-ink: #21110C;
+        --mark-paper: #F8EBE6;
+        --bezel: #0D0807;
+        --radius: 24px;
+        --container: 1180px;
+        --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+        --font-display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+        --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      }
+      :root[data-theme="light"] { color-scheme: light; }
+      :root[data-theme="dark"] { color-scheme: dark; }
+
+      *, *::before, *::after { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-size: 1.0625rem;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        cursor: default;
+      }
+      html, body { overflow-x: clip; }
+      h1, h2, h3, p, ul, ol, figure { margin: 0; }
+      ul, ol { padding: 0; list-style: none; }
+      h1, h2, h3, .wordmark { font-family: var(--font-display); }
+      h2 {
+        font-stretch: 85%;
+        font-weight: 800;
+        font-size: clamp(2.2rem, 4.6vw, 3.6rem);
+        line-height: 1;
+        letter-spacing: -0.015em;
+        text-wrap: balance;
+      }
+      h3 {
+        font-stretch: 88%;
+        font-weight: 800;
+        font-size: clamp(1.6rem, 2.8vw, 2.3rem);
+        line-height: 1.05;
+        letter-spacing: -0.01em;
+        text-wrap: balance;
+      }
+      a { color: var(--link); text-decoration-thickness: 1.5px; text-underline-offset: 0.15em; }
+      a:hover { text-decoration-thickness: 2.5px; }
+      :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+      code { font-family: var(--font-mono); font-size: 0.92em; }
+      img { max-width: 100%; }
+      .sr-only {
+        position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+        overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+      }
+      .skip-link {
+        position: absolute; left: 1rem; top: -4rem; z-index: 100;
+        background: var(--accent); color: var(--accent-ink);
+        padding: 0.6rem 1rem; border-radius: 999px; font-weight: 600; text-decoration: none;
+      }
+      .skip-link:focus { top: 1rem; }
+      .container { max-width: var(--container); margin-inline: auto; padding-inline: clamp(18px, 4vw, 40px); }
+      .section { padding-block: clamp(4.5rem, 10vw, 8rem); scroll-margin-top: 5rem; position: relative; }
+      .eyebrow {
+        display: inline-flex; align-items: center; gap: 0.55rem;
+        font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+        color: var(--accent);
+      }
+      .eyebrow::before {
+        content: ""; width: 18px; height: 2px; border-radius: 2px; background: currentColor;
+      }
+      .section-head { display: grid; gap: 1rem; max-width: 46rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+      .section-head > p:not(.eyebrow) { color: var(--ink-2); font-size: 1.15rem; max-width: 60ch; }
+      .section-head.center { margin-inline: auto; text-align: center; justify-items: center; }
+      .accent-text {
+        background: linear-gradient(100deg, var(--name-a), var(--name-b) 45%, var(--name-c));
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+      }
+
+      /* Screentone: the dot ramp from the icon, as a reusable texture */
+      .tone {
+        position: absolute; pointer-events: none;
+        background-image: radial-gradient(circle, var(--tone-c) 0 1.7px, transparent 2.1px);
+        background-size: 11px 11px;
+        -webkit-mask-image: linear-gradient(45deg, #000 10%, transparent 75%);
+        mask-image: linear-gradient(45deg, #000 10%, transparent 75%);
+      }
+
+      /* Buttons */
+      .btn {
+        position: relative; isolation: isolate; overflow: hidden;
+        display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
+        padding: 0.8rem 1.35rem; border-radius: 999px; border: 1.5px solid transparent;
+        font-family: var(--font-body); font-weight: 600; font-size: 1rem; line-height: 1.2;
+        text-decoration: none; white-space: nowrap; cursor: pointer;
+        transition: background-color 0.2s ease, box-shadow 0.25s ease, border-color 0.2s ease;
+      }
+      .btn svg { width: 18px; height: 18px; flex: none; }
+      .btn-lg { padding: 1rem 1.6rem; font-size: 1.05rem; }
+      .btn-sm { padding: 0.55rem 1rem; font-size: 0.92rem; }
+      .btn-primary {
+        background: var(--accent); color: var(--accent-ink);
+        box-shadow: 0 10px 30px -10px var(--glow), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+      }
+      .btn-primary:hover { box-shadow: 0 16px 40px -10px var(--glow), inset 0 1px 0 rgba(255, 255, 255, 0.18); }
+      .btn-ghost { border-color: var(--rule-2); color: var(--ink); background: var(--glass); backdrop-filter: blur(8px); }
+      .btn-ghost:hover { border-color: var(--ink); }
+
+      /* 1. Navigation: a floating glass bar */
+      .nav-wrap {
+        position: sticky; top: 0; z-index: 50;
+        padding: 12px clamp(10px, 3vw, 24px) 0;
+      }
+      .nav {
+        max-width: var(--container); margin-inline: auto;
+        display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+        padding: 8px 8px 8px 16px; border-radius: 999px;
+        border: 1px solid transparent;
+        transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+      .nav-wrap.scrolled .nav {
+        background: var(--glass); border-color: var(--rule);
+        backdrop-filter: blur(16px) saturate(1.4); -webkit-backdrop-filter: blur(16px) saturate(1.4);
+        box-shadow: 0 10px 30px -18px var(--shadow-c);
+      }
+      .brand { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--ink); text-decoration: none; }
+      .brand img { display: block; width: 30px; height: 30px; border-radius: 8px; }
+      .wordmark { font-stretch: 80%; font-weight: 800; font-size: 1.3rem; letter-spacing: -0.01em; line-height: 1; }
+      .nav-links { display: flex; gap: 0.25rem; }
+      .nav-links a {
+        color: var(--ink); text-decoration: none; font-weight: 500; font-size: 0.97rem;
+        padding: 0.45rem 0.85rem; border-radius: 999px; transition: background-color 0.2s ease;
+      }
+      .nav-links a:hover { background: var(--panel-2); }
+      .nav-end { display: flex; align-items: center; gap: 0.35rem; }
+      .icon-btn {
+        display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 999px;
+        border: 0; background: transparent; color: var(--ink); cursor: pointer;
+        transition: background-color 0.2s ease, transform 0.3s var(--ease-out);
+      }
+      .icon-btn:hover { background: var(--panel-2); }
+      .icon-btn svg { width: 20px; height: 20px; }
+      .theme-toggle .moon { display: none; }
+      :root[data-theme="dark"] .theme-toggle .sun { display: none; }
+      :root[data-theme="dark"] .theme-toggle .moon { display: block; }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) .theme-toggle .sun { display: none; }
+        :root:not([data-theme="light"]) .theme-toggle .moon { display: block; }
+      }
+      .theme-toggle:active { transform: rotate(40deg); }
+      .menu { position: relative; display: none; }
+      .menu summary { list-style: none; }
+      .menu summary::-webkit-details-marker { display: none; }
+      .menu-panel {
+        position: absolute; right: 0; top: calc(100% + 10px); min-width: 210px;
+        display: grid; padding: 8px; border-radius: 18px;
+        background: var(--panel); border: 1px solid var(--rule); box-shadow: 0 20px 40px -20px var(--shadow-c);
+      }
+      .menu-panel a { color: var(--ink); text-decoration: none; padding: 0.65rem 0.9rem; border-radius: 12px; font-weight: 500; }
+      .menu-panel a:hover { background: var(--panel-2); }
+
+      /* 2. Hero */
+      .hero { position: relative; padding-top: clamp(1.75rem, 4vw, 3rem); text-align: center; overflow-x: clip; }
+      .hero-bg { position: absolute; inset: -80px 0 0; pointer-events: none; overflow: hidden; }
+      .hero-bg .glow {
+        position: absolute; left: 50%; top: 46%; width: min(1100px, 130vw); aspect-ratio: 1.5;
+        translate: -50% -20%;
+        background: radial-gradient(closest-side, var(--glow), transparent 72%);
+        animation: breathe 9s ease-in-out infinite;
+      }
+      .hero-bg .tone-a { left: 0; top: 4%; width: 34vw; height: 520px; }
+      .hero-bg .tone-b {
+        right: 0; top: 30%; width: 30vw; height: 520px;
+        -webkit-mask-image: linear-gradient(225deg, #000 10%, transparent 70%);
+        mask-image: linear-gradient(225deg, #000 10%, transparent 70%);
+      }
+      .hero-copy { position: relative; display: grid; justify-items: center; gap: 1.35rem; }
+      .hero h1 { display: grid; justify-items: center; }
+      .h1-name {
+        font-stretch: 74%; font-weight: 900;
+        font-size: clamp(4.6rem, 12.5vw, 9.6rem); line-height: 0.84; letter-spacing: -0.03em;
+        padding-bottom: 0.16em;
+      }
+      .h1-line {
+        font-stretch: 86%; font-weight: 800;
+        font-size: clamp(2rem, 5vw, 3.9rem); line-height: 1; letter-spacing: -0.015em;
+      }
+      .lede { max-width: 40ch; font-size: clamp(1.1rem, 1.6vw, 1.3rem); color: var(--ink-2); text-wrap: pretty; }
+      .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+      .meta { font-size: 0.9rem; color: var(--ink-2); display: flex; flex-wrap: wrap; justify-content: center; gap: 0.35rem 1.1rem; }
+      .meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
+      .meta svg { width: 15px; height: 15px; color: var(--accent); }
+
+      /* The stage: three phones fanned out, with floating labels */
+      .stage {
+        position: relative; height: clamp(440px, 50vw, 640px); margin-top: clamp(2rem, 4vw, 3rem);
+        -webkit-mask-image: linear-gradient(#000 72%, transparent 98%);
+        mask-image: linear-gradient(#000 72%, transparent 98%);
+      }
+      .slot { position: absolute; left: 50%; top: 0; margin-left: calc(var(--w) / -2); }
+      .slot-center { --w: clamp(230px, 24vw, 310px); z-index: 3; }
+      .slot-left, .slot-right { --w: clamp(185px, 19vw, 255px); z-index: 2; top: clamp(40px, 5vw, 70px); }
+      .slot-left { translate: calc(clamp(150px, 19vw, 270px) * -1) 0; rotate: -9deg; }
+      .slot-right { translate: clamp(150px, 19vw, 270px) 0; rotate: 9deg; }
+      .slot { animation: fan-in 1.3s var(--ease-out) 0.25s both; }
+      .slot-center { animation-name: rise-in; animation-delay: 0.1s; }
+      .slot-left .phone { animation: bob 7s ease-in-out 1.6s infinite; }
+      .slot-right .phone { animation: bob 7s ease-in-out 2.6s infinite reverse; }
+
+      .phone {
+        --w: 280px;
+        position: relative; width: var(--w);
+        padding: calc(var(--w) * 0.03);
+        border-radius: calc(var(--w) * 0.16);
+        background: linear-gradient(150deg, #3A2924, var(--bezel) 30%, #1C1311 80%, #3A2924);
+        box-shadow:
+          inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+          0 0 0 1px var(--rule),
+          0 50px 90px -40px var(--shadow-c),
+          0 24px 40px -24px var(--shadow-c);
+      }
+      .slot .phone, .row-visual .phone, .gal-track .phone, .cta-phone .phone, .panel .phone { --w: inherit; }
+      .phone img, .phone picture { display: block; width: 100%; height: auto; border-radius: calc(var(--w) * 0.13); }
+      .phone::after {
+        content: ""; position: absolute; left: 50%; top: calc(var(--w) * 0.058);
+        width: calc(var(--w) * 0.034); aspect-ratio: 1; border-radius: 50%;
+        background: #050303; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.07); translate: -50% 0;
+      }
+
+      .float { position: absolute; z-index: 4; animation: pop 0.8s var(--ease-out) var(--in, 1s) both; }
+      .float > * { animation: bob 6s ease-in-out var(--bob, 0s) infinite; }
+      .ui-card {
+        display: flex; align-items: center; gap: 0.75rem; text-align: left;
+        padding: 0.75rem 1rem 0.75rem 0.75rem; border-radius: 18px;
+        background: var(--panel); border: 1px solid var(--rule-2);
+        box-shadow: 0 20px 40px -20px var(--shadow-c);
+      }
+      .ui-card b { display: block; font-weight: 600; font-size: 0.95rem; line-height: 1.25; }
+      .ui-card small { display: block; font-size: 0.82rem; color: var(--ink-2); }
+      .ui-ic {
+        display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; flex: none;
+        background: var(--accent); color: var(--accent-ink);
+      }
+      .ui-ic svg { width: 21px; height: 21px; }
+      .sticker {
+        display: block; font-family: var(--font-display); font-weight: 900; font-stretch: 78%;
+        text-transform: uppercase; line-height: 0.95; font-size: 1.2rem; letter-spacing: 0.01em;
+        padding: 0.65rem 0.9rem; border-radius: 14px;
+        background: var(--mark-paper); color: var(--mark-ink);
+        border: 3px solid var(--mark-ink);
+        box-shadow: 0 0 0 4px var(--mark-paper), 0 18px 30px -12px var(--shadow-c);
+      }
+      .sticker.hot { background: var(--field-b); color: var(--mark-paper); border-color: var(--mark-ink); box-shadow: 0 0 0 4px var(--mark-paper), 0 18px 30px -12px var(--shadow-c); }
+      .f1 { left: calc(50% - clamp(330px, 36vw, 520px)); top: 16%; --in: 1.1s; --bob: 0.3s; }
+      .f2 { left: calc(50% + clamp(170px, 19vw, 300px)); top: 52%; --in: 1.3s; --bob: 1.2s; }
+      .s1 { left: calc(50% + clamp(190px, 22vw, 330px)); top: 9%; rotate: 8deg; --in: 1.5s; --bob: 2s; }
+      .s2 { left: calc(50% - clamp(300px, 31vw, 440px)); top: 58%; rotate: -10deg; --in: 1.7s; --bob: 0.8s; }
+
+      /* Marquee band */
+      .band-wrap { position: relative; z-index: 6; margin-top: -3.5rem; overflow-x: clip; padding-block: 1.5rem; }
+      .band {
+        position: relative; width: 106%; margin-left: -3%;
+        rotate: -2deg; overflow: hidden;
+        background: linear-gradient(90deg, var(--field-deep), var(--field-a) 30%, var(--field-b) 70%, var(--field-deep));
+        color: var(--mark-paper);
+        box-shadow: 0 20px 50px -20px var(--shadow-c);
+        border-block: 3px solid var(--mark-ink);
+      }
+      .band-track { display: flex; width: max-content; animation: marquee 46s linear infinite; }
+      .band-group { display: flex; align-items: center; }
+      .band-group span {
+        display: inline-flex; align-items: center; gap: 1.6rem; padding: 0.95rem 0 0.95rem 1.6rem;
+        font-family: var(--font-display); font-weight: 800; font-stretch: 82%; text-transform: uppercase;
+        font-size: clamp(1.05rem, 1.8vw, 1.45rem); letter-spacing: 0.02em; white-space: nowrap;
+      }
+      .band-group svg { width: 13px; height: 14px; fill: var(--mark-ink); flex: none; }
+
+      /* 3. Numbers */
+      .stats { padding-top: clamp(4.5rem, 9vw, 7rem); }
+      .stat-grid {
+        display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px;
+        background: var(--rule); border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden;
+      }
+      .stat { background: var(--panel); padding: clamp(1.5rem, 3vw, 2.25rem); display: grid; gap: 0.6rem; align-content: start; position: relative; }
+      .stat-num {
+        font-family: var(--font-display); font-weight: 900; font-stretch: 76%;
+        font-size: clamp(3.2rem, 6.4vw, 5.2rem); line-height: 0.9; letter-spacing: -0.02em;
+        font-variant-numeric: tabular-nums;
+      }
+      .stat-num .unit { font-size: 0.55em; margin-left: 0.04em; }
+      .stat-label { font-weight: 600; font-size: 1.05rem; }
+      .stat-sub { color: var(--ink-2); font-size: 0.9rem; }
+      .stat:nth-child(1) { --d: 0s; } .stat:nth-child(2) { --d: 0.08s; } .stat:nth-child(3) { --d: 0.16s; } .stat:nth-child(4) { --d: 0.24s; }
+
+      /* 4. Feature rows, alternating */
+      .row {
+        display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); align-items: center;
+        gap: clamp(2.5rem, 6vw, 6rem); padding-block: clamp(2rem, 5vw, 3.5rem);
+      }
+      .row.flip .row-copy { order: 2; }
+      .row-copy { display: grid; gap: 1.25rem; justify-items: start; }
+      .row-copy > p { color: var(--ink-2); font-size: 1.12rem; max-width: 50ch; }
+      .row-num { font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.06em; color: var(--accent); }
+      .ticks { display: grid; gap: 0.6rem; }
+      .ticks li { display: flex; gap: 0.7rem; align-items: flex-start; font-weight: 500; }
+      .ticks li::before {
+        content: ""; flex: none; width: 20px; height: 20px; margin-top: 0.2rem; border-radius: 6px;
+        background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 13px no-repeat;
+      }
+      .more {
+        display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; text-decoration: none; color: var(--link);
+      }
+      .more svg { width: 16px; height: 16px; }
+      .row-visual {
+        position: relative; display: grid; place-items: center; min-height: clamp(440px, 48vw, 600px);
+        border-radius: 32px; background: var(--bg-2); border: 1px solid var(--rule); overflow: hidden; isolation: isolate;
+      }
+      .row-visual::before {
+        content: ""; position: absolute; inset: 0; z-index: -1;
+        background: radial-gradient(60% 60% at 50% 55%, var(--glow), transparent 70%);
+      }
+      .row-visual .tone { inset: 0; }
+      .duo { position: relative; width: 100%; height: 100%; display: grid; place-items: center; }
+      .duo .p { position: absolute; --w: clamp(170px, 17vw, 225px); top: 12%; }
+      .duo .p-a { translate: -46% 0; rotate: -7deg; left: 32%; }
+      .duo .p-b { translate: -54% 9%; rotate: 6deg; left: 68%; }
+      .row-visual .badge {
+        position: absolute; z-index: 5; left: 50%; top: 46%; translate: -50% -50%;
+        display: grid; place-items: center; width: 70px; height: 70px; border-radius: 50%;
+        background: var(--accent); color: var(--accent-ink);
+        box-shadow: 0 0 0 8px var(--bg-2), 0 0 0 9px var(--rule), 0 20px 40px -10px var(--glow);
+      }
+      .row-visual .badge svg { width: 30px; height: 30px; animation: spin 6s linear infinite; }
+      .dl-card {
+        position: absolute; z-index: 5; left: 6%; bottom: 9%; width: min(300px, 78%);
+        padding: 1rem 1.1rem; border-radius: 18px; display: grid; gap: 0.4rem;
+        background: var(--glass); border: 1px solid var(--rule-2);
+        backdrop-filter: blur(14px) saturate(1.3); -webkit-backdrop-filter: blur(14px) saturate(1.3);
+        box-shadow: 0 24px 50px -24px var(--shadow-c);
+      }
+      .dl-head { display: flex; align-items: center; gap: 0.6rem; font-weight: 600; font-size: 0.95rem; }
+      .dl-head svg { width: 18px; height: 18px; color: var(--accent); flex: none; }
+      .dl-card small { color: var(--ink-2); font-size: 0.82rem; }
+      .progress { height: 7px; border-radius: 99px; background: var(--panel-2); overflow: hidden; }
+      .progress span {
+        display: block; height: 100%; border-radius: inherit;
+        background: linear-gradient(90deg, var(--field-a), var(--field-b));
+        animation: fill 5s var(--ease-out) infinite;
+      }
+      .side-sticker { position: absolute; z-index: 5; right: 6%; top: 8%; rotate: 7deg; }
+      .side-sticker .sticker { font-size: 1.05rem; }
+      .side-sticker > * { animation: bob 6s ease-in-out infinite; }
+
+      /* 5. Bento: panels laid out like a manga page */
+      .bento {
+        display: grid; gap: 14px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-areas:
+          "themes privacy privacy"
+          "themes restore track"
+          "library library empty"
+          "library library oss";
+      }
+      .panel {
+        position: relative; overflow: hidden; isolation: isolate;
+        display: flex; flex-direction: column; gap: 0.75rem;
+        padding: clamp(1.4rem, 2.6vw, 2rem); min-height: 250px;
+        background: var(--panel); border: 1px solid var(--rule); border-radius: var(--radius);
+      }
+      .panel h3 { font-size: clamp(1.4rem, 2.2vw, 1.85rem); }
+      .panel p { color: var(--ink-2); max-width: 46ch; }
+      .panel .more { margin-top: auto; }
+      .panel .tone { right: 0; bottom: 0; width: 70%; height: 80%; z-index: -1;
+        -webkit-mask-image: linear-gradient(315deg, #000 5%, transparent 65%); mask-image: linear-gradient(315deg, #000 5%, transparent 65%); }
+      .p-themes { grid-area: themes; padding-bottom: 0; }
+      .p-themes .shot { --w: clamp(190px, 19vw, 240px); margin: 1rem auto 0; translate: 0 6%; }
+      .p-privacy { grid-area: privacy; justify-content: center; }
+      .p-privacy h3 { font-size: clamp(2rem, 4.2vw, 3.3rem); font-weight: 900; font-stretch: 78%; line-height: 0.95; }
+      .p-privacy h3 span { display: block; }
+      .p-privacy h3 span:nth-child(2) { color: var(--accent); }
+      .p-restore { grid-area: restore; }
+      .p-track { grid-area: track; }
+      .p-library { grid-area: library; display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 2rem; padding-bottom: 0; }
+      .p-library .copy { display: flex; flex-direction: column; gap: 0.75rem; padding-bottom: 2rem; }
+      .p-library .shot { --w: clamp(200px, 20vw, 255px); align-self: end; translate: 0 8%; rotate: 4deg; }
+      .p-empty { grid-area: empty; }
+      .p-oss { grid-area: oss; }
+      .file-chip {
+        display: flex; align-items: center; gap: 0.6rem; margin-top: auto;
+        font-family: var(--font-mono); font-size: 0.85rem;
+      }
+      .file-chip > span {
+        display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.45rem 0.7rem;
+        border-radius: 10px; background: var(--panel-2); border: 1px solid var(--rule);
+      }
+      .file-chip svg { width: 16px; height: 16px; flex: none; }
+      .file-chip .arrow { color: var(--accent); animation: nudge 1.8s ease-in-out infinite; }
+      .file-chip img { width: 22px; height: 22px; border-radius: 6px; display: block; }
+      .icon-tile {
+        width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center;
+        background: var(--panel-2); color: var(--accent);
+      }
+      .icon-tile svg { width: 23px; height: 23px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .shelf { display: flex; gap: 10px; margin-top: auto; }
+      .shelf span { flex: 1; aspect-ratio: 0.7; border-radius: 10px; border: 2px dashed var(--rule-2); }
+      .shelf span:nth-child(2) { animation: blink 3s ease-in-out infinite; }
+      .shelf span:nth-child(3) { animation: blink 3s ease-in-out 0.5s infinite; }
+      .oss-big {
+        font-family: var(--font-display); font-weight: 900; font-stretch: 76%;
+        font-size: clamp(2.2rem, 3.6vw, 3rem); line-height: 0.9; letter-spacing: -0.01em;
+      }
+
+      /* 6. Gallery: a horizontal strip of screens */
+      .gal-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: clamp(2rem, 4vw, 3rem); }
+      .gal-head .section-head { margin: 0; }
+      .gal-nav { display: flex; gap: 0.5rem; }
+      .gal-nav button {
+        width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--rule-2);
+        background: var(--panel); color: var(--ink); cursor: pointer; display: grid; place-items: center;
+        transition: background-color 0.2s ease, opacity 0.2s ease;
+      }
+      .gal-nav button:hover:not(:disabled) { background: var(--panel-2); }
+      .gal-nav button:disabled { opacity: 0.35; cursor: default; }
+      .gal-nav svg { width: 20px; height: 20px; }
+      .gal-track {
+        --pad: max(clamp(18px, 4vw, 40px), calc((100vw - var(--container)) / 2 + clamp(18px, 4vw, 40px)));
+        display: flex; gap: clamp(16px, 2.4vw, 28px); overflow-x: auto; overscroll-behavior-x: contain;
+        padding: 1rem var(--pad) 1.5rem; scroll-padding-inline: var(--pad);
+        scroll-snap-type: x mandatory; scrollbar-width: none;
+      }
+      .gal-track::-webkit-scrollbar { display: none; }
+      .gal-track li { flex: none; scroll-snap-align: start; --w: clamp(200px, 20vw, 250px); width: var(--w); }
+      .gal-track img { -webkit-user-drag: none; user-select: none; }
+      .gal-track figcaption { margin-top: 1.1rem; font-size: 0.95rem; color: var(--ink-2); }
+      .gal-track figcaption b { display: block; color: var(--ink); font-weight: 600; }
+      .credits { margin-top: 1.5rem; color: var(--ink-2); font-size: 0.85rem; max-width: 90ch; }
+
+      /* 7. How it compares */
+      .chart-card {
+        background: var(--panel); border: 1px solid var(--rule); border-radius: var(--radius);
+        padding: clamp(18px, 3.4vw, 36px);
+      }
+      .chart-card svg { display: block; width: 100%; height: auto; }
+      .cmp-text { fill: var(--ink); }
+      .cmp-muted { fill: var(--ink-2); }
+      .cmp-rule-line { stroke: var(--rule-2); }
+      .cmp-s1 { fill: var(--cmp-1); }
+      .cmp-s2 { fill: var(--cmp-2); }
+      .chart-card .bar { transform-box: fill-box; transform-origin: left center; }
+      .js .chart-card.reveal .bar { transform: scaleX(0); transition: transform 1.1s var(--ease-out) 0.25s; }
+      .js .chart-card.reveal.in .bar { transform: scaleX(1); }
+      .compare h3 { margin: clamp(3rem, 6vw, 4.5rem) 0 1.25rem; font-size: clamp(1.5rem, 2.4vw, 2rem); }
+      .table-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--panel); }
+      .compare-table { border-collapse: collapse; width: 100%; font-size: 0.95rem; min-width: 900px; }
+      .compare-table th, .compare-table td { text-align: left; vertical-align: top; padding: 0.85rem 1rem; border-bottom: 1px solid var(--rule); }
+      .compare-table tr:last-child th, .compare-table tr:last-child td { border-bottom: 0; }
+      .compare-table thead th { color: var(--ink-2); font-weight: 600; }
+      .compare-table tbody th { font-weight: 600; white-space: nowrap; }
+      .compare-table .us { background: color-mix(in srgb, var(--accent) 9%, transparent); color: var(--ink); }
+      .compare-table thead .us { color: var(--accent); }
+      .aside-note { margin-top: 1rem; color: var(--ink-2); font-size: 0.9rem; }
+
+      /* 8. Google Drive */
+      .drive-card {
+        display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3.5rem);
+        padding: clamp(1.75rem, 5vw, 3.5rem); border-radius: 32px;
+        background: var(--panel); border: 1px solid var(--rule); position: relative; overflow: hidden; isolation: isolate;
+      }
+      .drive-card .tone { right: 0; top: 0; width: 45%; height: 100%; z-index: -1;
+        -webkit-mask-image: linear-gradient(225deg, #000 0%, transparent 60%); mask-image: linear-gradient(225deg, #000 0%, transparent 60%); }
+      .drive-icon {
+        width: 76px; height: 76px; border-radius: 22px; display: grid; place-items: center;
+        background: var(--accent); color: var(--accent-ink); box-shadow: 0 20px 40px -16px var(--glow);
+      }
+      .drive-icon svg { width: 38px; height: 38px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+      .prose { display: grid; gap: 1rem; }
+      .prose h2 { font-size: clamp(1.9rem, 3.6vw, 2.7rem); margin-bottom: 0.25rem; }
+      .prose p { max-width: 65ch; color: var(--ink-2); }
+      .prose code { color: var(--ink); background: var(--panel-2); padding: 0.1em 0.4em; border-radius: 6px; }
+
+      /* 9. Download */
+      .cta { padding-top: 0; }
+      .cta-panel {
+        position: relative; overflow: hidden; isolation: isolate;
+        display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); align-items: center; gap: 2rem;
+        padding: clamp(2.25rem, 6vw, 5rem); border-radius: 40px;
+        background: linear-gradient(150deg, #C7401F, #B23219 45%, #8F2412);
+        color: var(--mark-paper);
+        box-shadow: 0 40px 80px -40px rgba(168, 45, 23, 0.7);
+      }
+      .cta-panel .tone {
+        --tone-c: rgba(33, 17, 12, 0.55); left: 0; bottom: 0; width: 60%; height: 100%; z-index: -1;
+        -webkit-mask-image: linear-gradient(45deg, #000 0%, transparent 60%); mask-image: linear-gradient(45deg, #000 0%, transparent 60%);
+      }
+      .cta-copy { display: grid; gap: 1.4rem; justify-items: start; }
+      .cta-copy .eyebrow { color: var(--mark-paper); }
+      .cta-copy h2 { font-size: clamp(3.2rem, 8vw, 6.4rem); font-weight: 900; font-stretch: 74%; line-height: 0.85; letter-spacing: -0.03em; }
+      .cta-copy > p { font-size: 1.15rem; max-width: 44ch; color: rgba(248, 235, 230, 0.92); }
+      .cta-panel .actions { justify-content: flex-start; }
+      .btn-paper { background: var(--mark-paper); color: var(--mark-ink); box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.5); }
+      .btn-outline-paper { border-color: rgba(248, 235, 230, 0.55); color: var(--mark-paper); }
+      .btn-outline-paper:hover { border-color: var(--mark-paper); background: rgba(248, 235, 230, 0.08); }
+      .release {
+        display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.25rem;
+        padding: 0.9rem 1.2rem; border-radius: 18px;
+        background: rgba(33, 17, 12, 0.28); border: 1px solid rgba(248, 235, 230, 0.2);
+        font-size: 0.92rem;
+      }
+      .release b { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; font-stretch: 85%; }
+      .release .label { text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.72rem; font-weight: 600; opacity: 0.8; display: block; }
+      .release a { color: var(--mark-paper); }
+      .cta-phone { position: relative; align-self: stretch; min-height: 320px; }
+      .cta-phone .phone {
+        --w: clamp(210px, 21vw, 270px); position: absolute; left: 50%; top: 50%;
+        translate: -50% -26%; rotate: 10deg; margin-bottom: -40%;
+      }
+
+      /* 10. Footer */
+      .site-footer { position: relative; overflow: hidden; border-top: 1px solid var(--rule); padding-top: clamp(3rem, 6vw, 4.5rem); }
+      .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2.5rem; }
+      .footer-top > div:first-child p { margin-top: 0.75rem; color: var(--ink-2); max-width: 30ch; }
+      .footer-cols { display: flex; flex-wrap: wrap; gap: clamp(2rem, 6vw, 5rem); }
+      .footer-cols div { display: grid; gap: 0.55rem; align-content: start; }
+      .footer-cols .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; color: var(--ink-2); margin-bottom: 0.25rem; }
+      .footer-cols a { color: var(--ink); text-decoration: none; font-size: 0.97rem; }
+      .footer-cols a:hover { color: var(--accent); }
+      .footer-giant {
+        font-family: var(--font-display); font-weight: 900; font-stretch: 70%;
+        font-size: clamp(9rem, 36vw, 30rem); line-height: 0.78; letter-spacing: -0.04em; text-align: center;
+        margin: clamp(2rem, 5vw, 4rem) 0 -0.16em; user-select: none;
+        background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 34%, transparent), transparent 82%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+      }
+      .footer-bottom {
+        position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem;
+        padding-block: 1.25rem 1.75rem; border-top: 1px solid var(--rule); color: var(--ink-2); font-size: 0.88rem;
+      }
+
+      /* Scroll reveal, only when the script runs */
+      .js .reveal { opacity: 0; translate: 0 32px; transition: opacity 0.9s ease var(--d, 0s), translate 0.9s var(--ease-out) var(--d, 0s); }
+      .js .reveal.in { opacity: 1; translate: 0 0; }
+      .js .reveal-scale { scale: 0.94; transition: opacity 0.9s ease var(--d, 0s), translate 0.9s var(--ease-out) var(--d, 0s), scale 1s var(--ease-out) var(--d, 0s); }
+      .js .reveal-scale.in { scale: 1; }
+
+      /* Scroll-driven motion where the browser has it */
+      @supports (animation-timeline: view()) {
+        @media (prefers-reduced-motion: no-preference) {
+          .spread { animation: spread linear both; animation-timeline: scroll(root); animation-range: 0 75vh; }
+          .slot-left .spread { --sx: -40px; --sr: -5deg; }
+          .slot-right .spread { --sx: 40px; --sr: 5deg; }
+          .slot-center .spread { --sx: 0px; --sr: 0deg; --sy: -24px; }
+          .drift { animation: drift linear both; animation-timeline: view(); animation-range: cover; }
+          .drift-slow { --dy: 26px; }
+          .drift-fast { --dy: 70px; }
+          .footer-giant { animation: giant linear both; animation-timeline: view(); animation-range: entry 0% cover 60%; }
+        }
+      }
+
+      @keyframes rise-in { from { opacity: 0; translate: 0 120px; scale: 0.92; } }
+      @keyframes fan-in { from { opacity: 0; translate: 0 140px; rotate: 0deg; } }
+      @keyframes pop { from { opacity: 0; scale: 0.6; } }
+      @keyframes bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -12px; } }
+      @keyframes breathe { 0%, 100% { opacity: 0.85; scale: 1; } 50% { opacity: 1; scale: 1.06; } }
+      @keyframes marquee { to { translate: -50% 0; } }
+      @keyframes spin { to { rotate: 360deg; } }
+      @keyframes fill { 0% { width: 6%; } 70%, 100% { width: 100%; } }
+      @keyframes nudge { 0%, 100% { translate: 0 0; } 50% { translate: 4px 0; } }
+      @keyframes blink { 0%, 100% { border-color: var(--rule-2); } 50% { border-color: var(--accent); } }
+      @keyframes spread { to { transform: translate(var(--sx, 0), var(--sy, 0)) rotate(var(--sr, 0deg)); } }
+      @keyframes drift { from { transform: translateY(var(--dy, 40px)); } to { transform: translateY(calc(var(--dy, 40px) * -1)); } }
+      @keyframes giant { from { letter-spacing: 0.06em; opacity: 0.3; } to { letter-spacing: -0.04em; opacity: 1; } }
+
+      @media (max-width: 1020px) {
+        .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .f1 { left: 2%; }
+        .s2 { left: 4%; }
+        .f2 { left: auto; right: 2%; }
+        .s1 { left: auto; right: 4%; }
+      }
+      @media (max-width: 880px) {
+        .nav-links { display: none; }
+        .menu { display: block; }
+        .row, .cta-panel { grid-template-columns: minmax(0, 1fr); }
+        .row.flip .row-copy { order: 0; }
+        .bento {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          grid-template-areas:
+            "privacy privacy"
+            "themes restore"
+            "themes track"
+            "library library"
+            "empty oss";
+        }
+        .cta-phone { min-height: 300px; margin-bottom: -6rem; }
+        .cta-phone .phone { translate: -50% -14%; }
+        .gal-head { flex-direction: column; align-items: start; }
+      }
+      @media (max-width: 640px) {
+        .nav .btn-sm { display: none; }
+        .stage { height: 460px; }
+        .slot-center { --w: 210px; }
+        .slot-left, .slot-right { --w: 165px; }
+        .slot-left { translate: -112px 0; }
+        .slot-right { translate: 112px 0; }
+        .f1, .s2, .hero-bg .tone-b { display: none; }
+        .hero-bg .tone-a { width: 46vw; height: 260px; top: 0; }
+        .f2 { right: 0; top: 66%; }
+        .s1 { right: 0; top: 4%; }
+        .s1 .sticker { font-size: 1rem; }
+        .stat-grid { grid-template-columns: minmax(0, 1fr); }
+        .bento { grid-template-columns: minmax(0, 1fr); grid-template-areas: "privacy" "themes" "restore" "track" "library" "empty" "oss"; }
+        .p-library { grid-template-columns: minmax(0, 1fr); }
+        .p-library .shot { justify-self: center; }
+        .drive-card { grid-template-columns: minmax(0, 1fr); }
+        .duo .p { --w: 150px; }
+        .dl-card { left: 4%; bottom: 5%; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { animation: none !important; transition: none !important; }
+        .js .reveal { opacity: 1; translate: none; scale: none; }
+        .js .chart-card.reveal .bar { transform: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="nav-wrap" id="top">
+      <nav class="nav" aria-label="Site">
+        <a class="brand" href="#top">
+          <img src="icon-192.png" alt="" width="30" height="30" />
+          <span class="wordmark">Shin Saikou</span>
+        </a>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#screens">Screens</a>
+          <a href="#compare">Compare</a>
+          <a href="/docs/">Docs</a>
+        </div>
+        <div class="nav-end">
+          <a class="icon-btn" href="https://github.com/ShinSaikou/saikou" aria-label="Saikou on GitHub">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          </a>
+          <button class="icon-btn theme-toggle" type="button" aria-label="Switch theme">
+            <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+            <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>
+          </button>
+          <a class="btn btn-primary btn-sm" href="https://github.com/ShinSaikou/saikou/releases/latest/download/app-release.apk">Download</a>
+          <details class="menu">
+            <summary class="icon-btn" aria-label="Menu">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </summary>
+            <div class="menu-panel">
+              <a href="#features">Features</a>
+              <a href="#screens">Screens</a>
+              <a href="#compare">Compare</a>
+              <a href="/docs/">Docs</a>
+              <a href="https://github.com/ShinSaikou/saikou/releases/latest/download/app-release.apk">Download</a>
+            </div>
+          </details>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="h1">
+        <div class="hero-bg" aria-hidden="true">
+          <div class="glow"></div>
+          <div class="tone tone-a"></div>
+          <div class="tone tone-b"></div>
+        </div>
+        <div class="container hero-copy">
+          <h1 id="h1" class="reveal" style="--d: 0.08s">
+            <span class="h1-name accent-text">Shin Saikou</span>
+            <span class="h1-line">Your library, in step.</span>
+          </h1>
+          <p class="lede reveal" style="--d: 0.16s">Read manga, webtoons and comics on Android, with a library that follows you from phone to tablet and downloads that survive anything.</p>
+          <div class="actions reveal" style="--d: 0.24s">
+            <a class="btn btn-primary btn-lg" href="https://github.com/ShinSaikou/saikou/releases/latest/download/app-release.apk">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+              Download for Android
+            </a>
+            <a class="btn btn-ghost btn-lg" href="#features">See what it does</a>
+          </div>
+          <p class="meta reveal" style="--d: 0.32s">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free and open source</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Android 8.0 and later</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>No account needed</span>
+          </p>
+        </div>
+
+        <div class="stage">
+          <div class="slot slot-left"><div class="spread"><div class="phone">
+            <img src="img/entry-2.webp" width="720" height="1616" alt="An entry's page with its cover, author, description, genres and chapters" />
+          </div></div></div>
+          <div class="slot slot-center"><div class="spread"><div class="phone">
+            <picture>
+              <source media="(prefers-color-scheme: dark)" srcset="img/library-dark.webp" data-themed />
+              <img src="img/library.webp" width="720" height="1616" alt="Saikou's Library tab: a grid of covers with unread and download counts" fetchpriority="high" />
+            </picture>
+          </div></div></div>
+          <div class="slot slot-right"><div class="spread"><div class="phone">
+            <img src="img/long-strip.webp" width="720" height="1616" alt="The long-strip reader in the middle of a webtoon chapter" />
+          </div></div></div>
+
+          <div class="float f1" aria-hidden="true">
+            <div class="ui-card">
+              <span class="ui-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span>
+              <span><b>Every device, one library</b><small>Google Drive or WebDAV</small></span>
+            </div>
+          </div>
+          <div class="float f2" aria-hidden="true">
+            <div class="ui-card">
+              <span class="ui-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></span>
+              <span><b>Downloads that survive</b><small>Back after a reboot</small></span>
+            </div>
+          </div>
+          <div class="float s1" aria-hidden="true"><span class="sticker hot">No ads.<br />No analytics.</span></div>
+          <div class="float s2" aria-hidden="true"><span class="sticker">Open<br />source</span></div>
+        </div>
+      </section>
+
+      <div class="band-wrap" aria-hidden="true"><div class="band">
+        <div class="band-track">
+          <div class="band-group"><span>No account<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>No ads<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>No analytics<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>Google Drive sync<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>WebDAV<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>.tachibk backups<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>Long strip<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>Paged reader<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>Downloads that survive<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>MyAnimeList<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>Two-pane tablets<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>Apache-2.0<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span></div>
+          <div class="band-group"><span>No account<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>No ads<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>No analytics<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>Google Drive sync<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>WebDAV<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>.tachibk backups<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>Long strip<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>Paged reader<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>Downloads that survive<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>MyAnimeList<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>Two-pane tablets<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span><span>Apache-2.0<svg viewBox="0 0 10 11" aria-hidden="true"><rect width="4.6" height="11" rx="0.8"/><rect x="5.4" width="4.6" height="5.1" rx="0.8"/><rect x="5.4" y="5.9" width="4.6" height="5.1" rx="0.8"/></svg></span></div>
+        </div>
+      </div></div>
+
+      <section class="stats section" id="numbers" aria-labelledby="stats-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Measured, not claimed</p>
+            <h2 id="stats-title">Fast where libraries <span class="accent-text">get big.</span></h2>
+            <p>Timed against Mihon v0.21.0 with the same 20,124-entry library on the same Android emulator. <a href="#compare">Every number is below</a>, including the one Saikou loses.</p>
+          </div>
+          <ul class="stat-grid">
+            <li class="stat reveal">
+              <span class="stat-num accent-text" aria-hidden="true"><span data-count="6.2" data-decimals="1">6.2</span><span class="unit">×</span></span>
+              <span class="stat-label"><span class="sr-only">6.2 times </span>faster library update</span>
+              <span class="stat-sub">41.5 s against 255.3 s, for 2,000 entries across 20 sources</span>
+            </li>
+            <li class="stat reveal">
+              <span class="stat-num accent-text" aria-hidden="true"><span data-count="6.9" data-decimals="1">6.9</span><span class="unit">×</span></span>
+              <span class="stat-label"><span class="sr-only">6.9 times </span>faster Statistics screen</span>
+              <span class="stat-sub">0.20 s against 1.38 s</span>
+            </li>
+            <li class="stat reveal">
+              <span class="stat-num accent-text" aria-hidden="true"><span data-count="1.4" data-decimals="1">1.4</span><span class="unit">×</span></span>
+              <span class="stat-label"><span class="sr-only">1.4 times </span>faster cold start</span>
+              <span class="stat-sub">1.24 s against 1.78 s, straight to the library</span>
+            </li>
+            <li class="stat reveal">
+              <span class="stat-num accent-text" aria-hidden="true"><span data-count="87">87</span><span class="unit">MB</span></span>
+              <span class="stat-label"><span class="sr-only">87 MB </span>backup, restored in one go</span>
+              <span class="stat-sub">139.3 s in Saikou. Mihon runs out of memory before it starts.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="features section" id="features" aria-labelledby="features-title">
+        <div class="container">
+          <div class="section-head center reveal">
+            <p class="eyebrow">Features</p>
+            <h2 id="features-title">Built for the parts that <span class="accent-text">usually break.</span></h2>
+          </div>
+
+          <article class="row">
+            <div class="row-copy reveal">
+              <span class="row-num">01 · Sync</span>
+              <h3>Every device, one library.</h3>
+              <p>Progress, bookmarks, categories and history merge field by field through your own Google Drive app folder or a WebDAV server you run. Nothing is deleted by absence, and there is no hosted service in the middle.</p>
+              <ul class="ticks">
+                <li>Google Drive app folder or your own WebDAV</li>
+                <li>Merges field by field, never by overwrite</li>
+                <li>A safety backup before a device's first sync</li>
+              </ul>
+              <a class="more" href="/docs/sync">How sync works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+            <div class="row-visual reveal reveal-scale" style="--d: 0.1s">
+              <div class="tone" aria-hidden="true"></div>
+              <div class="duo">
+                <div class="p p-a"><div class="drift drift-slow"><div class="phone"><img src="img/library.webp" width="720" height="1616" loading="lazy" alt="The Library on one device, in the light theme" /></div></div></div>
+                <div class="p p-b"><div class="drift drift-fast"><div class="phone"><img src="img/library-dark.webp" width="720" height="1616" loading="lazy" alt="The same library on a second device, in the dark theme" /></div></div></div>
+              </div>
+              <span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span>
+            </div>
+          </article>
+
+          <article class="row flip">
+            <div class="row-copy reveal">
+              <span class="row-num">02 · Reader</span>
+              <h3>Smooth on long strips.</h3>
+              <p>Paged and vertical modes, tall pages split before they reach the screen, a preload that works to a memory budget, and a pure black theme. Each title remembers its own mode.</p>
+              <ul class="ticks">
+                <li>Paged, or one long vertical strip</li>
+                <li>Tall pages split before they reach the screen</li>
+                <li>Preload that works to a memory budget</li>
+              </ul>
+              <a class="more" href="/docs/reader">Inside the reader <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+            <div class="row-visual reveal reveal-scale" style="--d: 0.1s">
+              <div class="tone" aria-hidden="true"></div>
+              <div class="duo">
+                <div class="p p-a"><div class="drift drift-fast"><div class="phone"><img src="img/reader.webp" width="720" height="1616" loading="lazy" alt="The reader with its controls open" /></div></div></div>
+                <div class="p p-b"><div class="drift drift-slow"><div class="phone"><img src="img/long-strip.webp" width="720" height="1616" loading="lazy" alt="The long-strip reader in the middle of a webtoon chapter" /></div></div></div>
+              </div>
+              <div class="side-sticker" aria-hidden="true"><span class="sticker">Each title<br />keeps its mode</span></div>
+            </div>
+          </article>
+
+          <article class="row">
+            <div class="row-copy reveal">
+              <span class="row-num">03 · Downloads</span>
+              <h3>Downloads that survive.</h3>
+              <p>The queue lives in the database and returns after a force-stop or reboot. Interrupted images resume mid-file. Chapters stay readable after they disappear from the website they came from, and each folder carries its cover and a ComicInfo.xml.</p>
+              <ul class="ticks">
+                <li>The queue comes back after a reboot</li>
+                <li>Interrupted images resume mid-file</li>
+                <li>A cover and ComicInfo.xml in every folder</li>
+              </ul>
+              <a class="more" href="/docs/downloads">About downloads <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+            <div class="row-visual reveal reveal-scale" style="--d: 0.1s">
+              <div class="tone" aria-hidden="true"></div>
+              <div class="duo">
+                <div class="p p-b" style="left: 58%"><div class="drift drift-slow"><div class="phone"><img src="img/entry.webp" width="720" height="1616" loading="lazy" alt="An entry's page with cover, author, status, description, genres and chapters" /></div></div></div>
+              </div>
+              <div class="dl-card" aria-hidden="true">
+                <div class="dl-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Chapter 336</div>
+                <small>Page 12 of 18</small>
+                <div class="progress"><span></span></div>
+                <small>Resumes where it stopped, even after a reboot</small>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="more" aria-labelledby="more-title" style="padding-top: 0">
+        <div class="container">
+          <div class="section-head center reveal">
+            <p class="eyebrow">And the rest</p>
+            <h2 id="more-title">Every panel in its place.</h2>
+          </div>
+          <div class="bento">
+            <article class="panel p-themes reveal">
+              <div class="tone" aria-hidden="true"></div>
+              <h3>Make it yours.</h3>
+              <p>Saikou's own theme and named themes such as Catppuccin, light or dark, pure black for OLED screens, and two-pane layouts on tablets.</p>
+              <div class="phone shot">
+                <picture>
+                  <source media="(prefers-color-scheme: dark)" srcset="img/themes-dark.webp" data-themed />
+                  <img src="img/themes.webp" width="720" height="1616" loading="lazy" alt="The Appearance settings: theme picker, light and dark, pure black and two-pane layout" />
+                </picture>
+              </div>
+            </article>
+            <article class="panel p-privacy reveal" style="--d: 0.06s">
+              <div class="tone" aria-hidden="true"></div>
+              <h3><span>No account.</span><span>No ads.</span><span>No analytics.</span></h3>
+              <p>There is no server behind Saikou and no telemetry in it. Your data stays on your device unless you turn on sync to storage you own.</p>
+              <a class="more" href="/privacy-policy">Read the privacy policy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+            <article class="panel p-restore reveal" style="--d: 0.12s">
+              <h3>Bring your library.</h3>
+              <p>Coming from a similar reader? Your <code>.tachibk</code> backup imports losslessly, with categories, progress, history and reader settings, and exports the same way.</p>
+              <div class="file-chip" aria-hidden="true">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>.tachibk</span>
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                <img src="icon-192.png" alt="" width="22" height="22" />
+              </div>
+            </article>
+            <article class="panel p-track reveal" style="--d: 0.18s">
+              <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 15l3.5-4 3 2.5L20 7"/></svg></div>
+              <h3>Track what you read.</h3>
+              <p>Link a title to MyAnimeList, and each chapter you finish updates your list.</p>
+              <a class="more" href="/docs/tracking">Tracking <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+            <article class="panel p-library reveal">
+              <div class="copy">
+                <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+                <h3>A library that keeps up.</h3>
+                <p>Categories, badges, filters and query search. Updates and History tabs, cancellable library updates with a per-title error list, and two-pane layouts on tablets.</p>
+                <a class="more" href="/docs/library">The library <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+              <div class="phone shot"><img src="img/history.webp" width="720" height="1616" loading="lazy" alt="The History tab with Resume buttons" /></div>
+            </article>
+            <article class="panel p-empty reveal" style="--d: 0.06s">
+              <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8z"/></svg></div>
+              <h3>Ships with nothing installed.</h3>
+              <p>Saikou bundles no content and no sources. It supports third-party extensions you choose to install, and fetches pages with your device as a browser would.</p>
+              <div class="shelf" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            </article>
+            <article class="panel p-oss reveal" style="--d: 0.12s">
+              <div class="tone" aria-hidden="true"></div>
+              <h3 class="oss-big">Open source.</h3>
+              <p>The code is on GitHub under the Apache License 2.0, ready for other people to build on.</p>
+              <a class="more" href="https://github.com/ShinSaikou/saikou">ShinSaikou/saikou <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="screens" aria-labelledby="screens-title" style="padding-top: 0">
+        <div class="container gal-head">
+          <div class="section-head reveal">
+            <p class="eyebrow">The app</p>
+            <h2 id="screens-title">Every screen, as it ships.</h2>
+          </div>
+          <div class="gal-nav reveal">
+            <button type="button" class="gal-prev" aria-label="Previous screenshots"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+            <button type="button" class="gal-next" aria-label="Next screenshots"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </div>
+        </div>
+        <ul class="gal-track reveal" tabindex="0" aria-label="Screenshots of Saikou">
+          <li><figure><div class="phone"><img src="img/library.webp" width="720" height="1616" loading="lazy" alt="The Library tab: a grid of covers with unread and download counts" /></div><figcaption><b>Library</b>Covers, unread counts and download badges.</figcaption></figure></li>
+          <li><figure><div class="phone"><img src="img/entry.webp" width="720" height="1616" loading="lazy" alt="An entry's page with cover, author, status, description, genres and chapters" /></div><figcaption><b>Entry</b>Details, genres and chapters.</figcaption></figure></li>
+          <li><figure><div class="phone"><img src="img/reader.webp" width="720" height="1616" loading="lazy" alt="The reader with its controls open" /></div><figcaption><b>Reader</b>Controls open, page slider at the bottom.</figcaption></figure></li>
+          <li><figure><div class="phone"><img src="img/long-strip.webp" width="720" height="1616" loading="lazy" alt="The long-strip reader in the middle of a webtoon chapter" /></div><figcaption><b>Long strip</b>For webtoons and colour comics.</figcaption></figure></li>
+          <li><figure><div class="phone"><img src="img/history.webp" width="720" height="1616" loading="lazy" alt="The History tab with Resume buttons" /></div><figcaption><b>History</b>Pick up where you left off.</figcaption></figure></li>
+          <li><figure><div class="phone"><img src="img/themes.webp" width="720" height="1616" loading="lazy" alt="The Appearance settings: theme picker, light and dark, pure black and two-pane layout" /></div><figcaption><b>Appearance</b>Themes, light and dark, two-pane layouts.</figcaption></figure></li>
+          <li><figure><div class="phone"><img src="img/settings.webp" width="720" height="1616" loading="lazy" alt="The Settings screen and its groups" /></div><figcaption><b>Settings</b>Everything in plain groups.</figcaption></figure></li>
+          <li><figure><div class="phone"><img src="img/library-dark.webp" width="720" height="1616" loading="lazy" alt="The Library tab in the dark theme" /></div><figcaption><b>Dark theme</b>The same library, after dark.</figcaption></figure></li>
+          <li><figure><div class="phone"><img src="img/entry-2.webp" width="720" height="1616" loading="lazy" alt="An entry's chapter list with read, unread and downloaded chapters" /></div><figcaption><b>Chapters</b>Read, unread and downloaded at a glance.</figcaption></figure></li>
+        </ul>
+        <div class="container">
+          <p class="credits">Screenshots of Saikou 0.0.1 on Android, with popular titles from an extension installed for the purpose. Covers, pages, titles and descriptions are blurred in these screenshots; every series belongs to its creators and publishers.</p>
+        </div>
+      </section>
+
+      <section class="compare section" id="compare" aria-labelledby="compare-title" style="padding-top: 0">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">How it compares</p>
+            <h2 id="compare-title">Measured, not claimed.</h2>
+            <p>The same 20,124-entry library and the same steps, timed on the same Android emulator: Saikou 0.0.1 against Mihon v0.21.0, the reader most people come from. Lower is better everywhere, and the one place Saikou loses, storage, stays in.</p>
+          </div>
+          <figure class="chart-card reveal">
+<svg xmlns="http://www.w3.org/2000/svg" class="cmp-chart" width="720" height="540" viewBox="0 0 720 540" role="img" aria-labelledby="cmp-title cmp-desc" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<title id="cmp-title">Saikou 0.0.1 compared with Mihon v0.21.0</title>
+<desc id="cmp-desc">Library update (2,000 entries across 20 sources): Saikou 0.0.1 41.5 s, Mihon v0.21.0 255.3 s. Cold start to library (20,124 entries): Saikou 0.0.1 1.24 s, Mihon v0.21.0 1.78 s. Statistics screen (20,124 entries): Saikou 0.0.1 0.20 s, Mihon v0.21.0 1.38 s. Restore one backup (87 MB file, 20,124 entries): Saikou 0.0.1 139.3 s, Mihon v0.21.0 Runs out of memory before it starts. Memory with the library open (PSS, 20,124 entries): Saikou 0.0.1 141 MB, Mihon v0.21.0 151 MB. Storage after the restore (20,124 entries): Saikou 0.0.1 1,461 MB, Mihon v0.21.0 987 MB. Lower is better in every panel. Mihon restored the eleven smaller backups in 86.5 s in total; Saikou was not timed on them. Storage was measured before schema 4 dropped unused chapter indexes, about 300 MB at this size. Mihon v0.20.4 took 246.0 s on the same library update bench. Mihon releases after v0.21.0 were not measured.</desc>
+<rect x="0" y="4" width="12" height="12" rx="3" class="cmp-s1"/>
+<text x="18" y="14.5" font-size="13" class="cmp-text">Saikou 0.0.1</text>
+<rect x="123" y="4" width="12" height="12" rx="3" class="cmp-s2"/>
+<text x="141" y="14.5" font-size="13" class="cmp-text">Mihon v0.21.0</text>
+<text x="0" y="50" font-size="13" font-weight="600" class="cmp-text">Library update</text>
+<text x="0" y="67" font-size="12" class="cmp-muted">2,000 entries across 20 sources</text>
+<line x1="59.5" y1="76" x2="59.5" y2="130" stroke-width="1" class="cmp-rule-line"/>
+<text x="0" y="93" font-size="12" class="cmp-muted">Saikou</text>
+<path d="M60.0,80.0 h29.5 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-29.5 Z" class="cmp-s1 bar"><title>Saikou 0.0.1: 41.5 s</title></path>
+<text x="99.5" y="93" font-size="12" font-variant-numeric="tabular-nums" class="cmp-text">41.5 s</text>
+<text x="0" y="121" font-size="12" class="cmp-muted">Mihon</text>
+<path d="M60.0,108.0 h202.0 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-202.0 Z" class="cmp-s2 bar"><title>Mihon v0.21.0: 255.3 s</title></path>
+<text x="272.0" y="121" font-size="12" font-variant-numeric="tabular-nums" class="cmp-text">255.3 s</text>
+<text x="380" y="50" font-size="13" font-weight="600" class="cmp-text">Cold start to library</text>
+<text x="380" y="67" font-size="12" class="cmp-muted">20,124 entries</text>
+<line x1="439.5" y1="76" x2="439.5" y2="130" stroke-width="1" class="cmp-rule-line"/>
+<text x="380" y="93" font-size="12" class="cmp-muted">Saikou</text>
+<path d="M440.0,80.0 h139.4 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-139.4 Z" class="cmp-s1 bar"><title>Saikou 0.0.1: 1.24 s</title></path>
+<text x="589.4" y="93" font-size="12" font-variant-numeric="tabular-nums" class="cmp-text">1.24 s</text>
+<text x="380" y="121" font-size="12" class="cmp-muted">Mihon</text>
+<path d="M440.0,108.0 h202.0 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-202.0 Z" class="cmp-s2 bar"><title>Mihon v0.21.0: 1.78 s</title></path>
+<text x="652.0" y="121" font-size="12" font-variant-numeric="tabular-nums" class="cmp-text">1.78 s</text>
+<text x="0" y="162" font-size="13" font-weight="600" class="cmp-text">Statistics screen</text>
+<text x="0" y="179" font-size="12" class="cmp-muted">20,124 entries</text>
+<line x1="59.5" y1="188" x2="59.5" y2="242" stroke-width="1" class="cmp-rule-line"/>
+<text x="0" y="205" font-size="12" class="cmp-muted">Saikou</text>
+<path d="M60.0,192.0 h26.2 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-26.2 Z" class="cmp-s1 bar"><title>Saikou 0.0.1: 0.20 s</title></path>
+<text x="96.2" y="205" font-size="12" font-variant-numeric="tabular-nums" class="cmp-text">0.20 s</text>
+<text x="0" y="233" font-size="12" class="cmp-muted">Mihon</text>
+<path d="M60.0,220.0 h202.0 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-202.0 Z" class="cmp-s2 bar"><title>Mihon v0.21.0: 1.38 s</title></path>
+<text x="272.0" y="233" font-size="12" font-variant-numeric="tabular-nums" class="cmp-text">1.38 s</text>
+<text x="380" y="162" font-size="13" font-weight="600" class="cmp-text">Restore one backup</text>
+<text x="380" y="179" font-size="12" class="cmp-muted">87 MB file, 20,124 entries</text>
+<line x1="439.5" y1="188" x2="439.5" y2="242" stroke-width="1" class="cmp-rule-line"/>
+<text x="380" y="205" font-size="12" class="cmp-muted">Saikou</text>
+<path d="M440.0,192.0 h202.0 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-202.0 Z" class="cmp-s1 bar"><title>Saikou 0.0.1: 139.3 s</title></path>
+<text x="652.0" y="205" font-size="12" font-variant-numeric="tabular-nums" class="cmp-text">139.3 s</text>
+<text x="380" y="233" font-size="12" class="cmp-muted">Mihon</text>
+<text x="446" y="233" font-size="12" font-style="italic" class="cmp-muted">Runs out of memory before it starts</text>
+<text x="0" y="274" font-size="13" font-weight="600" class="cmp-text">Memory with the library open</text>
+<text x="0" y="291" font-size="12" class="cmp-muted">PSS, 20,124 entries</text>
+<line x1="59.5" y1="300" x2="59.5" y2="354" stroke-width="1" class="cmp-rule-line"/>
+<text x="0" y="317" font-size="12" class="cmp-muted">Saikou</text>
+<path d="M60.0,304.0 h188.4 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-188.4 Z" class="cmp-s1 bar"><title>Saikou 0.0.1: 141 MB</title></path>
+<text x="258.4" y="317" font-size="12" font-variant-numeric="tabular-nums" class="cmp-text">141 MB</text>
+<text x="0" y="345" font-size="12" class="cmp-muted">Mihon</text>
+<path d="M60.0,332.0 h202.0 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-202.0 Z" class="cmp-s2 bar"><title>Mihon v0.21.0: 151 MB</title></path>
+<text x="272.0" y="345" font-size="12" font-variant-numeric="tabular-nums" class="cmp-text">151 MB</text>
+<text x="380" y="274" font-size="13" font-weight="600" class="cmp-text">Storage after the restore</text>
+<text x="380" y="291" font-size="12" class="cmp-muted">20,124 entries</text>
+<line x1="439.5" y1="300" x2="439.5" y2="354" stroke-width="1" class="cmp-rule-line"/>
+<text x="380" y="317" font-size="12" class="cmp-muted">Saikou</text>
+<path d="M440.0,304.0 h202.0 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-202.0 Z" class="cmp-s1 bar"><title>Saikou 0.0.1: 1,461 MB</title></path>
+<text x="652.0" y="317" font-size="12" font-variant-numeric="tabular-nums" class="cmp-text">1,461 MB</text>
+<text x="380" y="345" font-size="12" class="cmp-muted">Mihon</text>
+<path d="M440.0,332.0 h135.2 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-135.2 Z" class="cmp-s2 bar"><title>Mihon v0.21.0: 987 MB</title></path>
+<text x="585.2" y="345" font-size="12" font-variant-numeric="tabular-nums" class="cmp-text">987 MB</text>
+<text x="0" y="392" font-size="11" class="cmp-muted">Lower is better in every panel.</text>
+<text x="0" y="408" font-size="11" class="cmp-muted">Mihon restored the eleven smaller backups in 86.5 s in total; Saikou was not timed on them.</text>
+<text x="0" y="424" font-size="11" class="cmp-muted">Storage was measured before schema 4 dropped unused chapter indexes, about 300 MB at this size.</text>
+<text x="0" y="440" font-size="11" class="cmp-muted">Mihon v0.20.4 took 246.0 s on the same library update bench. Mihon releases after v0.21.0 were not measured.</text>
+<text x="0" y="456" font-size="11" class="cmp-muted">Measured 2026-10-14. Android emulator, Pixel 9 profile (API 36, 4 GB), network off. Saikou 0.0.1 release build</text>
+<text x="0" y="472" font-size="11" class="cmp-muted">against the official Mihon v0.21.0 APK. Library: 20,124 entries and about 3.6 million chapters from one 87 MB</text>
+<text x="0" y="488" font-size="11" class="cmp-muted">backup; Saikou restored that file, Mihon (which runs out of memory on it) restored the same data split into</text>
+<text x="0" y="504" font-size="11" class="cmp-muted">eleven backups. Memory and storage were measured after each app&#x27;s restore. One sample per scenario, except the</text>
+<text x="0" y="520" font-size="11" class="cmp-muted">library update: two runs each, against a local test server that answers in 0.4 to 0.8 s and allows 5 requests</text>
+<text x="0" y="536" font-size="11" class="cmp-muted">per second per source.</text>
+</svg>
+          </figure>
+          <h3 class="reveal">Next to other readers</h3>
+          <div class="table-wrap reveal">
+            <table class="compare-table">
+              <thead><tr><th scope="col"><span class="sr-only">Feature</span></th><th scope="col" class="us">Saikou</th><th scope="col">Mihon</th><th scope="col">Komikku</th><th scope="col">TachiyomiSY</th><th scope="col">Mangayomi</th><th scope="col">Aidoku</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Platforms</th><td class="us">Android</td><td>Android</td><td>Android</td><td>Android</td><td>Android, iOS, Windows, macOS, Linux</td><td>iOS, iPadOS, macOS</td></tr>
+                <tr><th scope="row">Reads Tachiyomi extensions</th><td class="us">Yes, lib 1.4 and 1.6</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes, one of several engines</td><td>No, its own sources</td></tr>
+                <tr><th scope="row">Sync between devices</th><td class="us">Built in: Google Drive or WebDAV</td><td>No</td><td>Google Drive, WebDAV or a SyncYomi server</td><td>Google Drive or a SyncYomi server</td><td>A self-hosted sync server</td><td>iCloud</td></tr>
+                <tr><th scope="row">License</th><td class="us">Apache-2.0</td><td>Apache-2.0</td><td>Apache-2.0</td><td>Apache-2.0</td><td>Apache-2.0</td><td>GPL-3.0</td></tr>
+                <tr><th scope="row">Latest release</th><td class="us">0.0.1</td><td>v0.21.3, 2026-10-25</td><td>v1.14.1, 2026-07-17</td><td>1.13.2, 2026-07-13</td><td>v0.9.9, 2026-10-12</td><td>v0.9-4, 2026-10-16</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="aside-note">Features as each project documents them (checked 2026-09-10); licenses and releases read from each project's GitHub repository on 2026-10-30.</p>
+        </div>
+      </section>
+
+      <section class="section" id="drive" aria-labelledby="drive-title" style="padding-top: 0">
+        <div class="container">
+          <div class="drive-card reveal">
+            <div class="tone" aria-hidden="true"></div>
+            <div class="drive-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 8.5a4.5 4.5 0 0 1-.5 9.5z"/><rect x="9.5" y="11.5" width="5" height="4" rx="1"/><path d="M10.5 11.5v-1a1.5 1.5 0 0 1 3 0v1"/></svg></div>
+            <div class="prose">
+              <h2 id="drive-title">Optional sync with Google Drive.</h2>
+              <p>Saikou can keep your devices in step by storing a copy of your library in your own Google Drive, inside the hidden app data folder that only Saikou can see. It asks Google for a single permission, <code>drive.appdata</code>, which gives it no access to any other file in your Drive. The data goes from your device to your Drive and nowhere else.</p>
+              <p>You can end that access at any time from your Google Account's <a href="https://myaccount.google.com/connections">third-party connections</a> page. The <a href="/privacy-policy">privacy policy</a> lists exactly what sync carries.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta section" id="download" aria-labelledby="cta-title">
+        <div class="container">
+          <div class="cta-panel reveal reveal-scale">
+            <div class="tone" aria-hidden="true"></div>
+            <div class="cta-copy">
+              <p class="eyebrow">Available now</p>
+              <h2 id="cta-title">Get Saikou.</h2>
+              <p>Free and open source, for Android 8.0 and later. Every release is published on GitHub, with notes. If you already keep a library in a similar reader, your backup comes with you.</p>
+              <div class="actions">
+                <a class="btn btn-paper btn-lg" href="https://github.com/ShinSaikou/saikou/releases/latest/download/app-release.apk">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+                  Download for Android
+                </a>
+                <a class="btn btn-outline-paper btn-lg" href="/docs/getting-started">Getting started</a>
+              </div>
+              <div class="release">
+                <span><span class="label">Latest release</span><b>Saikou v0.0.1</b></span>
+                <a href="https://github.com/ShinSaikou/saikou/releases">All releases</a>
+                <a href="https://github.com/ShinSaikou/saikou">Source code</a>
+              </div>
+            </div>
+            <div class="cta-phone" aria-hidden="true">
+              <div class="phone"><img src="img/reader.webp" width="720" height="1616" loading="lazy" alt="" /></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <div>
+          <a class="brand" href="#top"><img src="icon-192.png" alt="" width="30" height="30" /><span class="wordmark">Shin Saikou</span></a>
+          <p>An open-source manga reader for Android.</p>
+        </div>
+        <nav class="footer-cols" aria-label="Footer">
+          <div>
+            <p class="label">App</p>
+            <a href="#features">Features</a>
+            <a href="#screens">Screens</a>
+            <a href="#compare">Compare</a>
+            <a href="https://github.com/ShinSaikou/saikou/releases/latest/download/app-release.apk">Download</a>
+          </div>
+          <div>
+            <p class="label">Help</p>
+            <a href="/docs/">Docs</a>
+            <a href="/docs/getting-started">Getting started</a>
+            <a href="/docs/faq">FAQ</a>
+          </div>
+          <div>
+            <p class="label">Project</p>
+            <a href="https://github.com/ShinSaikou/saikou">GitHub</a>
+            <a href="/privacy-policy">Privacy policy</a>
+            <a href="mailto:shinsaikou@proton.me">shinsaikou@proton.me</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-giant" aria-hidden="true">Saikou</div>
+      <div class="container footer-bottom">
+        <span>© 2026 Saikou</span>
+        <span>Apache License 2.0</span>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+        // Theme: follows the system until the toggle picks one, and the screenshots follow too.
+        var toggle = document.querySelector(".theme-toggle");
+        function current() { return root.dataset.theme || (systemDark.matches ? "dark" : "light"); }
+        function applyTheme() {
+          var chosen = root.dataset.theme;
+          document.querySelectorAll("source[data-themed]").forEach(function (s) {
+            s.media = chosen === "dark" ? "all" : chosen === "light" ? "not all" : "(prefers-color-scheme: dark)";
+          });
+          toggle.setAttribute("aria-label", current() === "dark" ? "Switch to the light theme" : "Switch to the dark theme");
+        }
+        toggle.addEventListener("click", function () {
+          root.dataset.theme = current() === "dark" ? "light" : "dark";
+          try { localStorage.setItem("saikou-theme", root.dataset.theme); } catch (e) {}
+          applyTheme();
+        });
+        systemDark.addEventListener("change", applyTheme);
+        applyTheme();
+
+        // The navigation bar turns to glass once the page moves.
+        var nav = document.querySelector(".nav-wrap");
+        function onScroll() { nav.classList.toggle("scrolled", window.scrollY > 8); }
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+
+        document.querySelectorAll(".menu a").forEach(function (a) {
+          a.addEventListener("click", function () { a.closest("details").open = false; });
+        });
+
+        // Numbers count up the first time they are seen.
+        function countUp(el) {
+          var end = parseFloat(el.dataset.count);
+          var decimals = Number(el.dataset.decimals || 0);
+          var start = null;
+          function fmt(v) { return v.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals }); }
+          el.textContent = fmt(0);
+          function step(t) {
+            if (start === null) start = t;
+            var p = Math.min(1, (t - start) / 1400);
+            el.textContent = fmt(end * (1 - Math.pow(1 - p, 3)));
+            if (p < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        }
+
+        // Sections fade in as they arrive.
+        var items = document.querySelectorAll(".reveal");
+        if (reduce || !("IntersectionObserver" in window)) {
+          items.forEach(function (el) { el.classList.add("in"); });
+        } else {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("in");
+              entry.target.querySelectorAll("[data-count]").forEach(countUp);
+              io.unobserve(entry.target);
+            });
+          }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
+          items.forEach(function (el) { io.observe(el); });
+        }
+
+        // The screenshot strip's buttons.
+        var track = document.querySelector(".gal-track");
+        var prev = document.querySelector(".gal-prev");
+        var next = document.querySelector(".gal-next");
+        function stepSize() {
+          var li = track.querySelector("li");
+          return li ? (li.getBoundingClientRect().width + 24) * 2 : 500;
+        }
+        function ends() {
+          prev.disabled = track.scrollLeft < 4;
+          next.disabled = track.scrollLeft + track.clientWidth > track.scrollWidth - 4;
+        }
+        prev.addEventListener("click", function () { track.scrollBy({ left: -stepSize(), behavior: reduce ? "auto" : "smooth" }); });
+        next.addEventListener("click", function () { track.scrollBy({ left: stepSize(), behavior: reduce ? "auto" : "smooth" }); });
+        track.addEventListener("scroll", ends, { passive: true });
+        window.addEventListener("resize", ends);
+        ends();
+      })();
+    </script>
+  </body>
+</html>

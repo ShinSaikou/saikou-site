@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>The Local source · Saikou docs</title>
+    <meta name="description" content="The Local source reads comics and manga stored on your device: folders of images and comic archives you already have. It is built in and needs no extension.…" />
+    <link rel="canonical" href="https://shinsaikou.com/docs/local-source" />
+    <link rel="icon" type="image/png" href="/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" />
+    <link rel="stylesheet" href="/docs/docs.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#doc-content">Skip to content</a>
+    <header class="site-header">
+      <div class="page">
+        <a class="brand" href="/">
+          <img src="/icon-192.png" alt="" width="32" height="32" />
+          <span class="wordmark">Saikou</span>
+          <span class="brand-sub">Docs</span>
+        </a>
+        <nav aria-label="Site">
+          <span class="chip">v0.0.1</span>
+          <a href="/#features">Features</a>
+          <a href="/#download">Download</a>
+          <a href="/docs/" aria-current="true">Docs</a>
+          <a href="/privacy-policy">Privacy policy</a>
+          <a href="https://github.com/ShinSaikou/saikou">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="docs-layout page">
+      <aside class="docs-sidebar" aria-label="Documentation"><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/local-source" aria-current="page">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting">Troubleshooting</a></li></ul></div></nav></aside>
+      <main class="docs-main" id="doc-content">
+        <div class="docs-mobile">
+          <details class="docs-menu"><summary>Menu</summary><div><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/local-source" aria-current="page">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting">Troubleshooting</a></li></ul></div></nav></div></details>
+          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#where-saikou-looks">Where Saikou looks</a><ul><li><a href="#without-a-storage-location">Without a storage location</a></li></ul></li><li><a href="#folder-layout">Folder layout</a></li><li><a href="#covers">Covers</a></li><li><a href="#series-details">Series details</a></li><li><a href="#sorting-the-local-source">Sorting the Local source</a></li><li><a href="#questions">Questions</a></li></ul></div></details>
+        </div>
+        <article class="doc">
+<h1 id="the-local-source">The Local source</h1>
+<p>The <strong>Local source</strong> reads comics and manga stored on your device: folders of images and comic
+archives you already have. It is built in and needs no extension. You find it under <strong>Browse &gt;
+Sources &gt; Local source</strong>, and its entries can be added to your library like any other, marked with
+the <strong>Local</strong> badge.</p>
+<h2 id="where-saikou-looks">Where Saikou looks<a class="anchor" href="#where-saikou-looks" aria-label="Link to this section">#</a></h2>
+<p>With a <strong>Storage location</strong> set (More &gt; Settings &gt; Data &gt; <strong>Storage location</strong>), Saikou reads the
+<code>local</code> folder inside it, for example <code>Saikou/local</code>. Any file manager can open it, and it stays
+when Saikou is uninstalled. Choosing the storage location moves the series already in Saikou's own
+folder there; entries in your library keep working, covers included. If you later choose a
+different folder, Saikou moves the backups, Local series and exported downloads it put in the first
+folder into the new one, and tells you first how much that is. On the same storage this is
+immediate; across storages it copies in the background with a notification. Entries in your
+library keep working, covers included. See <a href="/docs/backups#storage-location">Storage location</a>.</p>
+<p>Without one, Saikou reads <code>Android/data/com.shinsaikou/files/local</code>, which many file managers cannot
+open on Android 11 and later and which is deleted with the app.</p>
+<p>When the Local source has nothing to show, its listing says which folder it reads ("No Local
+series in &lt;folder&gt;. Put series folders there, or choose another folder.") with a <strong>Choose
+folder</strong> button.</p>
+<p>Put one folder per series inside <code>local</code>.</p>
+<h3 id="without-a-storage-location">Without a storage location<a class="anchor" href="#without-a-storage-location" aria-label="Link to this section">#</a></h3>
+<p>Ways to get files into <code>Android/data/com.shinsaikou/files/local</code>:</p>
+<ul>
+<li>Connect the phone to a computer with a USB cable and copy the files into that folder from the
+computer; this often works where on-phone file managers cannot.</li>
+<li>Use a file manager that can still open <code>Android/data</code> on your device.</li>
+</ul>
+<h2 id="folder-layout">Folder layout<a class="anchor" href="#folder-layout" aria-label="Link to this section">#</a></h2>
+<p>Each series is a folder inside <code>local</code>, named after the series. Each chapter is either a folder of
+images or one archive file inside the series folder.</p>
+<pre><code>local/
+  Series title/
+    cover.jpg
+    ComicInfo.xml          (optional, see below)
+    Chapter 1/
+      001.jpg
+      002.jpg
+    Chapter 2.cbz
+    Chapter 3.zip</code></pre>
+<ul>
+<li><strong>Image folders</strong>: a folder of pictures is one chapter.</li>
+<li><strong>Archives</strong>: <code>.zip</code>, <code>.cbz</code>, <code>.rar</code>, <code>.cbr</code>, <code>.7z</code>, <code>.cb7</code>, <code>.tar</code> and <code>.cbt</code>. One archive is one
+chapter, named after the file. Folders inside an archive are ignored; every image in it becomes a
+page of that chapter.</li>
+<li><strong>EPUB</strong>: an <code>.epub</code> file is read as one chapter of images. Saikou does not split an EPUB into
+several chapters.</li>
+</ul>
+<p>Image folders and <code>.zip</code> / <code>.cbz</code> archives open the fastest.</p>
+<p>When you add files to a series later, pull down on its page to read the folder again and see the
+new chapters.</p>
+<h2 id="covers">Covers<a class="anchor" href="#covers" aria-label="Link to this section">#</a></h2>
+<p>Put an image named <code>cover</code> (for example <code>cover.jpg</code> or <code>cover.png</code>) in the series folder and Saikou
+uses it as the cover. Without one, Saikou takes the first page of the first chapter.</p>
+<p>You can also set a cover from inside the app: on the entry's page, tap the cover, then <strong>Edit
+cover &gt; Choose an image</strong>, or long press a page in the reader and tap <strong>Set as cover</strong>. For a Local
+source entry, Saikou writes the chosen image into the series folder as its cover.</p>
+<h2 id="series-details">Series details<a class="anchor" href="#series-details" aria-label="Link to this section">#</a></h2>
+<p>Saikou reads a series' title, author, artist, description, genres and status from a <code>ComicInfo.xml</code>
+file, the standard metadata file many comic tools write. It looks in this order:</p>
+<ol>
+<li>A <code>ComicInfo.xml</code> in the series folder.</li>
+<li>A JSON details file in the series folder (an older format, often named
+<code>details.json</code>). Saikou converts it to <code>ComicInfo.xml</code> the first time it reads it, then removes
+the JSON file.</li>
+<li>The first <code>ComicInfo.xml</code> found inside one of the chapters. Saikou copies it into the series
+folder.</li>
+</ol>
+<p>A JSON details file looks like this:</p>
+<pre><code class="language-json">{
+  "title": "Example Title",
+  "author": "Example Author",
+  "artist": "Example Artist",
+  "description": "Example description.",
+  "genre": ["genre 1", "genre 2"],
+  "status": 1
+}</code></pre>
+<p><code>status</code> is a number: 0 Unknown, 1 Ongoing, 2 Completed, 3 Licensed, 4 Publishing finished,
+5 Cancelled, 6 On hiatus.</p>
+<p>If a series folder has no details file at all, Saikou leaves a small <code>.noxml</code> marker file there so
+it does not search the chapters again on every refresh. Adding a <code>ComicInfo.xml</code> later replaces
+the marker.</p>
+<h2 id="sorting-the-local-source">Sorting the Local source<a class="anchor" href="#sorting-the-local-source" aria-label="Link to this section">#</a></h2>
+<p>Browsing the Local source lists every series at once. Its <strong>Filter</strong> offers <strong>Order by</strong> <strong>Title</strong>
+or <strong>Date</strong>.</p>
+<h2 id="questions">Questions<a class="anchor" href="#questions" aria-label="Link to this section">#</a></h2>
+<p><strong>The series does not show up.</strong> Check that each series is a folder directly inside <code>local</code>, and
+that the chapters are folders of images or supported archives inside the series folder.</p>
+<p><strong>A cover is missing or wrong.</strong> Check that the series opens and its chapters read. Then add a
+<code>cover</code> image to the series folder, or set one from the entry's page, and pull down on the page to
+refresh.</p>
+        </article>
+        <nav class="pager" aria-label="Previous and next page"><a class="prev" href="/docs/migration"><span>Previous page</span>Migration</a><a class="next" href="/docs/security-and-privacy"><span>Next page</span>Security and privacy</a></nav>
+      </main>
+      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#where-saikou-looks">Where Saikou looks</a><ul><li><a href="#without-a-storage-location">Without a storage location</a></li></ul></li><li><a href="#folder-layout">Folder layout</a></li><li><a href="#covers">Covers</a></li><li><a href="#series-details">Series details</a></li><li><a href="#sorting-the-local-source">Sorting the Local source</a></li><li><a href="#questions">Questions</a></li></ul></aside>
+    </div>
+
+    <footer class="site-footer">
+      <div class="page">
+        <div>
+          <p class="wordmark">Saikou</p>
+          <p class="footer-note">An open-source manga reader for Android.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/docs/">Docs</a>
+          <a href="/privacy-policy">Privacy policy</a>
+          <a href="https://github.com/ShinSaikou/saikou">GitHub</a>
+          <a href="mailto:shinsaikou@proton.me">shinsaikou@proton.me</a>
+          <span>© 2026 Saikou</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

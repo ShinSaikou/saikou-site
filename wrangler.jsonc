@@ -1,0 +1,38 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "saikou-site",
+  "compatibility_date": "2026-09-26",
+
+  // One host, the apex of shinsaikou.com, in the Cloudflare account that holds that zone.
+  // tools/deploy.sh supplies that account's token, so the global wrangler login is never used.
+  // `custom_domain: true` provisions the proxied DNS record and the edge certificate, which a
+  // bare route does not.
+  //
+  // Why this site exists: Google Auth Platform will not move an External OAuth app to
+  // "In production" without a public home page URL and privacy policy URL on an authorized
+  // domain, and Testing mode expires refresh tokens after seven days, so Drive sync needs
+  // production. Google's Branding page lists this host's `/` and `/privacy-policy`, with
+  // shinsaikou.com as the authorized domain. Changing either URL means updating that page too.
+  "routes": [
+    { "pattern": "shinsaikou.com", "custom_domain": true }
+  ],
+
+  // No workers.dev address and no preview URLs: the site answers only on its own domain.
+  "workers_dev": false,
+  "preview_urls": false,
+
+  // Assets-only Worker, no script. public/ is served one-to-one from the host
+  // root. The default html_handling serves public/privacy-policy.html at
+  // /privacy-policy, which is the URL Google has.
+  //
+  // Anything placed in ./public is world-readable. No source, catalog or
+  // extension name may appear in it (tools/forbidden-words.txt applies here as
+  // it does to the app's repository).
+  "assets": {
+    "directory": "./public"
+  },
+
+  "observability": {
+    "enabled": true
+  }
+}
