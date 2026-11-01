@@ -32,7 +32,7 @@ script. Google Search Console reads the sitemap at `https://shinsaikou.com/sitem
 missing from the index, a table, an em dash, or an HTML comment that would ship. The
 `<!-- FIXABLE: F<n> -->` markers in the Markdown are stripped from the HTML; each names an item in
 `design/plans/docs/fixable-warnings.md` that the app should fix rather than warn about, and goes
-when its fix lands. The version label ("v0.0.1") is in both `public/index.html` and
+when its fix lands. The version label ("v0.1.0") is in both `public/index.html` and
 the script; change both together.
 
 ## How it is served
@@ -78,13 +78,15 @@ change:
 - **Where the refresh token lives** (the Android Keystore, via `KeystoreSecretStore`).
 - **Network use.** Saikou has no analytics, crash reporting or server of its own. Adding any of them
   needs a new section.
-- **MyAnimeList tracking.** Section 5 (added 2026-10-01, after T1 to T3 merged) states that
-  MyAnimeList is the only tracker, what a link, a finished chapter and a sheet edit send
-  (`MyAnimeListApi.updateItem` in `saikou/tracking`), that the token lives in the ordinary
-  preference file under a private key (`TrackPreferences.trackToken`, not `KeystoreSecretStore`)
-  and so enters a backup only with private settings, and that sync never carries it
-  (`sync_carries_note`). A second tracker, a move of the token into the Keystore, or a change to
-  what is sent means editing section 5.
+- **Tracking.** Section 5 covers MyAnimeList (added 2026-10-01) and section 6 covers AniList
+  (added 2026-11-01). Each states what a link, a finished chapter and a sheet edit send
+  (`MyAnimeListApi.updateItem` and `AnilistApi.addLibManga`/`updateLibManga` in `saikou/tracking`),
+  that the token lives in the ordinary preference file under a private key
+  (`TrackPreferences.trackToken`, not `KeystoreSecretStore`) and so enters a backup only with
+  private settings, and that sync never carries it (`sync_carries_note`). Section 6 also states
+  that AniList's token lasts a year and can't be renewed (`Anilist.TOKEN_LIFETIME`,
+  `AnilistInterceptor`). A third tracker, a move of a token into the Keystore, or a change to what
+  is sent means editing these sections and sections 2, 3 and 8.
 
 ## Google's side
 

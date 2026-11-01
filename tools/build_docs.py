@@ -42,6 +42,8 @@ DOCS_OUT = PUBLIC / "docs"
 FORBIDDEN_WORDS = Path(os.environ.get("SAIKOU_FORBIDDEN_WORDS_FILE") or SITE.parent / "tools" / "forbidden-words.txt")
 
 HOST = "https://shinsaikou.com"
+# The community server, linked beside GitHub in the header and footer (as on public/index.html).
+DISCORD = "https://discord.gg/dH4rgaMqU"
 # The hand-written pages outside docs/, listed in the sitemap ahead of the docs.
 SITE_PAGES = ["/", "/privacy-policy"]
 INDEX_PAGE = "README"
@@ -319,7 +321,7 @@ class Page:
 # The site around each page
 
 OVERVIEW_LABEL = "Overview"
-VERSION_CHIP = "v0.0.1"  # as in public/index.html's hero; change both together
+VERSION_CHIP = "v0.1.0"  # as in public/index.html's hero; change both together
 FONTS = (
     "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900"
     "&family=Instrument+Sans:wght@400;500;600&display=swap"
@@ -451,6 +453,7 @@ def render_page(page, groups, order, labels):
           <a href="/docs/" aria-current="{docs_current}">Docs</a>
           <a href="/privacy-policy">Privacy policy</a>
           <a href="https://github.com/ShinSaikou/saikou">GitHub</a>
+          <a href="{DISCORD}">Discord</a>
         </nav>
       </div>
     </header>
@@ -480,6 +483,7 @@ def render_page(page, groups, order, labels):
           <a href="/docs/">Docs</a>
           <a href="/privacy-policy">Privacy policy</a>
           <a href="https://github.com/ShinSaikou/saikou">GitHub</a>
+          <a href="{DISCORD}">Discord</a>
           <a href="mailto:shinsaikou@proton.me">shinsaikou@proton.me</a>
           <span>© 2026 Saikou</span>
         </div>

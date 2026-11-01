@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Saikou Privacy Policy | ShinSaikou</title>
-    <meta name="description" content="Privacy policy for Saikou, a personal Android reading app with optional Google Drive sync and optional MyAnimeList tracking." />
+    <meta name="description" content="Privacy policy for Saikou, a personal Android reading app with optional Google Drive sync and optional MyAnimeList and AniList tracking." />
     <link rel="icon" type="image/png" href="/icon-192.png" />
     <style>
       :root {
@@ -53,8 +53,8 @@
     <p class="lead">
       Saikou has no account, no server, no ads and no analytics. The developer receives no data from
       the app. If you turn on Google Drive sync, your library data goes to your own Google Drive and
-      nowhere else. If you sign in to MyAnimeList, the reading progress of the titles you choose to
-      link goes to your own MyAnimeList list and nowhere else.
+      nowhere else. If you sign in to MyAnimeList or AniList, the reading progress of the titles you
+      choose to link goes to your own list on that site and nowhere else.
     </p>
 
     <h2>1. Who is responsible</h2>
@@ -69,11 +69,12 @@
       files you choose where to save. None of this is sent to the developer.
     </p>
     <p>
-      If you use MyAnimeList tracking, the link between a library entry and its MyAnimeList entry,
-      with the status, chapter count, score and dates MyAnimeList last answered, is stored on your
-      device too. So is your MyAnimeList sign-in: a token, and the account name shown in Settings.
-      A backup file includes that sign-in only when you tick "Private settings" when creating it;
-      otherwise the file holds no tracker login.
+      If you use MyAnimeList or AniList tracking, the link between a library entry and its entry on
+      that site, with the status, chapter count, score and dates the site last answered, is stored on
+      your device too. So is each sign-in: a token, and the account name shown in Settings, plus, for
+      AniList, the account's AniList id and the scoring system your list uses. A backup file includes
+      those sign-ins only when you tick "Private settings" when creating it; otherwise the file holds
+      no tracker login.
     </p>
 
     <h2>3. What the app sends over the network</h2>
@@ -94,6 +95,10 @@
       <li>
         <strong>MyAnimeList tracking, if you sign in.</strong> Described in section 5. Nothing is
         sent until you sign in, and then only about the titles you choose to link.
+      </li>
+      <li>
+        <strong>AniList tracking, if you sign in.</strong> Described in section 6. Nothing is sent
+        until you sign in, and then only about the titles you choose to link.
       </li>
       <li><strong>Nothing to the developer.</strong> There is no server run for Saikou.</li>
     </ul>
@@ -142,9 +147,8 @@
     <h2>5. MyAnimeList tracking</h2>
     <ul>
       <li>
-        <strong>Off until you sign in.</strong> Tracking does nothing, and sends nothing, until you
-        sign in to MyAnimeList in Saikou's Tracking settings. MyAnimeList is the only tracking
-        service Saikou supports.
+        <strong>Off until you sign in.</strong> MyAnimeList tracking does nothing, and sends
+        nothing, until you sign in to MyAnimeList in Saikou's Tracking settings.
       </li>
       <li>
         <strong>Signing in.</strong> Saikou opens MyAnimeList's sign-in page in your browser. You
@@ -202,26 +206,91 @@
       </li>
     </ul>
 
-    <h2>6. What the developer collects</h2>
+    <h2>6. AniList tracking</h2>
+    <ul>
+      <li>
+        <strong>Off until you sign in.</strong> AniList tracking does nothing, and sends nothing,
+        until you sign in to AniList in Saikou's Tracking settings. Signing in to MyAnimeList does
+        not sign you in to AniList, or the other way round.
+      </li>
+      <li>
+        <strong>Signing in.</strong> Saikou opens AniList's sign-in page in your browser. You enter
+        your AniList password there, on AniList's own site, never in Saikou. When you approve Saikou,
+        the browser hands a sign-in token back to Saikou on the device itself. Saikou then asks
+        AniList for the account's id, name and the scoring system your list uses, so the Tracking
+        settings can show who is signed in and scores appear the way your list shows them.
+      </li>
+      <li>
+        <strong>What is sent to AniList.</strong> When you link a title: the search text (the
+        entry's title, or what you type) and then, for the entry you pick, its status, the number
+        of chapters read and whether the entry is private on your list; if the entry is already on
+        your list, its score and its start and finish dates are sent back with it. After that, each
+        chapter you finish in the reader, and each chapter you mark as read, is sent as a new chapter
+        count, together with the entry's status, score, dates and privacy, in the background once the
+        device has a connection, with retries if it fails. Edits you make in an entry's tracking
+        sheet (status, chapters, score, dates, and "Track privately" or "Track publicly") are sent at
+        once. Both automatic updates can be turned off in Settings, under Tracking. Nothing is sent
+        about titles you have not linked.
+      </li>
+      <li>
+        <strong>What is read from AniList.</strong> Search results, with their cover images loaded
+        from AniList, and the current state of a linked entry on your list when you link it, open its
+        tracking sheet or an automatic update runs. If a linked entry is no longer on your AniList
+        list, that reading adds it back with the status and progress Saikou holds.
+      </li>
+      <li>
+        <strong>Your IP address.</strong> Every request goes from your device straight to AniList,
+        which receives your IP address as it would from a web browser and handles it under its own
+        policies.
+      </li>
+      <li>
+        <strong>The sign-in token.</strong> AniList issues Saikou a token that lets it reach your
+        list without asking you to sign in each time. It is stored in the app's private storage on
+        your device, alongside its settings, and is sent to no one but AniList. Like the MyAnimeList
+        token, it is not additionally encrypted with an Android Keystore key. AniList's token cannot
+        be renewed: a year after you sign in, or as soon as AniList refuses it, Saikou stops sending
+        and asks you to sign in again. Updates still waiting are kept and sent after you do.
+      </li>
+      <li>
+        <strong>Sync and backups.</strong> Google Drive sync and WebDAV sync carry your tracking
+        entries between your devices, as section 4 says, but never the AniList sign-in, which stays
+        on each device. A backup file includes the sign-in only when you tick "Private settings" when
+        creating it.
+      </li>
+      <li>
+        <strong>Nothing to the developer.</strong> Tracking calls go from your device to AniList and
+        nowhere else. The developer sees none of them.
+      </li>
+      <li>
+        <strong>Stopping tracking.</strong> Sign out in Saikou's Tracking settings. That deletes the
+        token and the account's id from your device and Saikou stops sending; a copy of the account
+        name and its scoring system may stay in the app's settings until you sign in again or clear
+        the app's storage. Your entries on AniList stay as they are. Removing a title's tracking in
+        Saikou deletes the link on the device only, unless you tick "Also remove from AniList", which
+        also deletes that entry from your AniList list.
+      </li>
+    </ul>
+
+    <h2>7. What the developer collects</h2>
     <p>
       Nothing. Saikou contains no analytics, no crash reporting, no advertising and no advertising
       identifiers, and it has no user accounts.
     </p>
 
-    <h2>7. Keeping and deleting data</h2>
+    <h2>8. Keeping and deleting data</h2>
     <p>
       Data on your device stays until you delete it in the app, clear the app's storage, or
       uninstall Saikou. Data in your Google Drive app data folder stays until you delete it as
       described in section 4. Data on a WebDAV server stays until you delete it from that server.
-      Your MyAnimeList sign-in stays on your device until you sign out in Saikou, clear the app's
-      storage or uninstall Saikou. Entries on your MyAnimeList list stay until you delete them there,
-      or from Saikou as described in section 5.
+      Your MyAnimeList and AniList sign-ins stay on your device until you sign out in Saikou, clear
+      the app's storage or uninstall Saikou. Entries on your MyAnimeList or AniList list stay until
+      you delete them there, or from Saikou as described in sections 5 and 6.
     </p>
 
-    <h2>8. Children</h2>
+    <h2>9. Children</h2>
     <p>Saikou is not directed at children and does not knowingly collect data from them.</p>
 
-    <h2>9. Your rights</h2>
+    <h2>10. Your rights</h2>
     <p>
       The developer holds no personal data about you, so there is nothing for the developer to give
       you a copy of or delete. Your data is on your devices and in storage you control. If you
@@ -229,12 +298,12 @@
       authority in your country.
     </p>
 
-    <h2>10. Changes</h2>
+    <h2>11. Changes</h2>
     <p>
       If this policy changes, the new version is published on this page with a new effective date.
     </p>
 
-    <h2>11. Contact</h2>
+    <h2>12. Contact</h2>
     <p>
       <a href="mailto:shinsaikou@proton.me">shinsaikou@proton.me</a>
     </p>

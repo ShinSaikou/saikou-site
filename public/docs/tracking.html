@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Tracking · Saikou docs</title>
-    <meta name="description" content="Tracking keeps your list on a tracking site up to date as you read. Saikou supports MyAnimeList." />
+    <meta name="description" content="Tracking keeps your list on a tracking site up to date as you read. Saikou supports MyAnimeList and AniList. You can sign in to either or both, and link each…" />
     <link rel="canonical" href="https://shinsaikou.com/docs/tracking" />
     <link rel="icon" type="image/png" href="/icon-192.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,12 +22,13 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.0.1</span>
+          <span class="chip">v0.1.0</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
           <a href="/privacy-policy">Privacy policy</a>
           <a href="https://github.com/ShinSaikou/saikou">GitHub</a>
+          <a href="https://discord.gg/dH4rgaMqU">Discord</a>
         </nav>
       </div>
     </header>
@@ -42,37 +43,43 @@
         <article class="doc">
 <h1 id="tracking">Tracking</h1>
 <p>Tracking keeps your list on a tracking site up to date as you read. Saikou supports
-<strong>MyAnimeList</strong>.</p>
+<strong>MyAnimeList</strong> and <strong>AniList</strong>. You can sign in to either or both, and link each entry to each.</p>
 <p>The Tracking section appears in More &gt; Settings when this build of Saikou offers a tracker.</p>
 <h2 id="signing-in">Signing in<a class="anchor" href="#signing-in" aria-label="Link to this section">#</a></h2>
 <ol>
 <li>Open More &gt; Settings &gt; <strong>Tracking</strong>.</li>
-<li>Under <strong>Trackers</strong>, tap <strong>Sign in</strong> next to MyAnimeList.</li>
-<li>Your browser opens MyAnimeList's sign-in page. While you sign in there, Saikou shows "Waiting
+<li>Under <strong>Trackers</strong>, tap <strong>Sign in</strong> next to MyAnimeList or AniList.</li>
+<li>Your browser opens that site's sign-in page. While you sign in there, Saikou shows "Waiting
 for the browser. Finish signing in there, then switch back to Saikou", and a notification lets
 you jump back.</li>
-<li>Approve the sign-in and switch back. The row now says <strong>Signed in as</strong> your name.</li>
+<li>Sign in on the site and approve <strong>Saikou</strong>. The browser then shows "Signed in. Switch back to
+Saikou to finish." It does not switch back by itself: return to Saikou yourself, or tap the
+<strong>Signed in, tap to return</strong> notification. The row now says <strong>Signed in as</strong> your name.</li>
 </ol>
 <p>If sign-in is not finished in the browser within five minutes, start again. If Saikou says
 "Another app is using port N on this device", close that app (the sign-in needs the port for a
 moment to hear back from the browser) and sign in again. <strong>Sign out</strong> stops Saikou
-from sending progress; your list on MyAnimeList stays as it is.</p>
+from sending progress to that tracker; your list on the site stays as it is.</p>
 <h2 id="linking-an-entry">Linking an entry<a class="anchor" href="#linking-an-entry" aria-label="Link to this section">#</a></h2>
 <ol>
 <li>Open the entry's page and tap the <strong>Tracking</strong> button in the header.</li>
-<li>Tap <strong>Add tracking</strong> for MyAnimeList.</li>
+<li>Tap <strong>Add tracking</strong> for MyAnimeList or AniList.</li>
 <li>Search, then tap the right result.</li>
 </ol>
 <p>If the search finds nothing, try another title (romanized, English, or shorter). You can also look
-the series up on MyAnimeList and search for <code>id:</code> followed by the number in its address, or search
-your own list with <code>my:</code> followed by part of the title.</p>
+the series up on the site and paste its address, or search for <code>id:</code> followed by the number in its
+address. On MyAnimeList you can also search your own list with <code>my:</code> followed by part of the title.</p>
 <p>Once linked, the tracking sheet shows the entry's <strong>Status</strong>, <strong>Chapters</strong>, <strong>Score</strong>, <strong>Start
-date</strong> and <strong>Finish date</strong> on MyAnimeList. Tap any of them to change it. <strong>Copy link</strong> copies the
-entry's MyAnimeList address.</p>
-<p>To unlink, remove the tracking from the sheet. <strong>Remove MyAnimeList tracking?</strong> removes the link in
-Saikou; tick <strong>Also remove from MyAnimeList</strong> to delete the entry from your list there as well.</p>
+date</strong> and <strong>Finish date</strong> on the tracker. Tap any of them to change it. On AniList the score uses
+the scoring system your AniList list is set to (for example 100 points, 10 points or 5 stars). The
+sheet's menu has <strong>Open in browser</strong> and <strong>Copy link</strong> for the entry's address on the tracker, and,
+for AniList, <strong>Track privately</strong> or <strong>Track publicly</strong>, which sets whether the entry is private on
+your AniList list.</p>
+<p>To unlink, remove the tracking from the sheet. <strong>Remove MyAnimeList tracking?</strong> (or <strong>Remove
+AniList tracking?</strong>) removes the link in Saikou; tick <strong>Also remove from MyAnimeList</strong> (or <strong>Also
+remove from AniList</strong>) to delete the entry from your list there as well.</p>
 <h2 id="what-saikou-sends">What Saikou sends<a class="anchor" href="#what-saikou-sends" aria-label="Link to this section">#</a></h2>
-<p>Tracking goes one way, from Saikou to MyAnimeList, except when you run a comparison (below).</p>
+<p>Tracking goes one way, from Saikou to your trackers, except when you run a comparison (below).</p>
 <ul>
 <li><strong>Update progress after reading</strong> (More &gt; Settings &gt; Tracking): when you finish a chapter in the
 reader, its number is sent to the entry's trackers.</li>
@@ -89,7 +96,8 @@ chapter N").</li>
 <h2 id="compare-with-myanimelist">Compare with MyAnimeList<a class="anchor" href="#compare-with-myanimelist" aria-label="Link to this section">#</a></h2>
 <p>Reading on several apps or devices can leave MyAnimeList and Saikou disagreeing. More &gt; Settings &gt;
 Tracking &gt; <strong>Compare with MyAnimeList</strong> finds those entries and lets you choose, entry by entry,
-which side to keep. Nothing changes until you confirm.</p>
+which side to keep. Nothing changes until you confirm. Comparing is available for MyAnimeList only,
+not for AniList.</p>
 <p>If sync is set up, Saikou first syncs with your other devices ("Syncing with your other device"),
 so their reading counts. Then it reads your MyAnimeList list and checks each tracked library entry.
 The result is grouped:</p>
@@ -114,11 +122,13 @@ because you marked chapters read by mistake, mark them unread on the entry's pag
 <strong>Changed since you compared</strong> and <strong>Failed</strong> counts. <strong>Compare again</strong> runs a fresh comparison.</p>
 <h2 id="sign-in-and-privacy">Sign-in and privacy<a class="anchor" href="#sign-in-and-privacy" aria-label="Link to this section">#</a></h2>
 <ul>
-<li>The MyAnimeList sign-in is stored on this device only. Sync never carries it.</li>
-<li>A backup includes it only when you tick <strong>Private settings</strong> while creating the backup. Without
-it, a restored device shows MyAnimeList as signed out, and you sign in again.</li>
-<li>If MyAnimeList stops accepting the sign-in ("The tracker no longer accepts this device's
+<li>Each tracker sign-in is stored on this device only. Sync never carries it.</li>
+<li>A backup includes the sign-ins only when you tick <strong>Private settings</strong> while creating the
+backup. Without it, a restored device shows the trackers as signed out, and you sign in again.</li>
+<li>If a tracker stops accepting the sign-in ("The tracker no longer accepts this device's
 sign-in"), tap <strong>Sign in again</strong> in the Tracking settings.</li>
+<li>An AniList sign-in lasts a year and can't be renewed, so a year after you sign in, Saikou asks
+you to sign in to AniList again. Updates waiting to be sent go out once you do.</li>
 </ul>
         </article>
         <nav class="pager" aria-label="Previous and next page"><a class="prev" href="/docs/reader"><span>Previous page</span>The reader</a><a class="next" href="/docs/backups"><span>Next page</span>Backups and restore</a></nav>
@@ -136,6 +146,7 @@ sign-in"), tap <strong>Sign in again</strong> in the Tracking settings.</li>
           <a href="/docs/">Docs</a>
           <a href="/privacy-policy">Privacy policy</a>
           <a href="https://github.com/ShinSaikou/saikou">GitHub</a>
+          <a href="https://discord.gg/dH4rgaMqU">Discord</a>
           <a href="mailto:shinsaikou@proton.me">shinsaikou@proton.me</a>
           <span>© 2026 Saikou</span>
         </div>

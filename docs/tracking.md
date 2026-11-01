@@ -1,44 +1,50 @@
 # Tracking
 
 Tracking keeps your list on a tracking site up to date as you read. Saikou supports
-**MyAnimeList**.
+**MyAnimeList** and **AniList**. You can sign in to either or both, and link each entry to each.
 
 The Tracking section appears in More > Settings when this build of Saikou offers a tracker.
 
 ## Signing in
 
 1. Open More > Settings > **Tracking**.
-2. Under **Trackers**, tap **Sign in** next to MyAnimeList.
-3. Your browser opens MyAnimeList's sign-in page. While you sign in there, Saikou shows "Waiting
+2. Under **Trackers**, tap **Sign in** next to MyAnimeList or AniList.
+3. Your browser opens that site's sign-in page. While you sign in there, Saikou shows "Waiting
    for the browser. Finish signing in there, then switch back to Saikou", and a notification lets
    you jump back.
-4. Approve the sign-in and switch back. The row now says **Signed in as** your name.
+4. Sign in on the site and approve **Saikou**. The browser then shows "Signed in. Switch back to
+   Saikou to finish." It does not switch back by itself: return to Saikou yourself, or tap the
+   **Signed in, tap to return** notification. The row now says **Signed in as** your name.
 
 If sign-in is not finished in the browser within five minutes, start again. If Saikou says
 "Another app is using port N on this device", close that app (the sign-in needs the port for a
 moment to hear back from the browser) and sign in again. **Sign out** stops Saikou
-from sending progress; your list on MyAnimeList stays as it is.
+from sending progress to that tracker; your list on the site stays as it is.
 
 ## Linking an entry
 
 1. Open the entry's page and tap the **Tracking** button in the header.
-2. Tap **Add tracking** for MyAnimeList.
+2. Tap **Add tracking** for MyAnimeList or AniList.
 3. Search, then tap the right result.
 
 If the search finds nothing, try another title (romanized, English, or shorter). You can also look
-the series up on MyAnimeList and search for `id:` followed by the number in its address, or search
-your own list with `my:` followed by part of the title.
+the series up on the site and paste its address, or search for `id:` followed by the number in its
+address. On MyAnimeList you can also search your own list with `my:` followed by part of the title.
 
 Once linked, the tracking sheet shows the entry's **Status**, **Chapters**, **Score**, **Start
-date** and **Finish date** on MyAnimeList. Tap any of them to change it. **Copy link** copies the
-entry's MyAnimeList address.
+date** and **Finish date** on the tracker. Tap any of them to change it. On AniList the score uses
+the scoring system your AniList list is set to (for example 100 points, 10 points or 5 stars). The
+sheet's menu has **Open in browser** and **Copy link** for the entry's address on the tracker, and,
+for AniList, **Track privately** or **Track publicly**, which sets whether the entry is private on
+your AniList list.
 
-To unlink, remove the tracking from the sheet. **Remove MyAnimeList tracking?** removes the link in
-Saikou; tick **Also remove from MyAnimeList** to delete the entry from your list there as well.
+To unlink, remove the tracking from the sheet. **Remove MyAnimeList tracking?** (or **Remove
+AniList tracking?**) removes the link in Saikou; tick **Also remove from MyAnimeList** (or **Also
+remove from AniList**) to delete the entry from your list there as well.
 
 ## What Saikou sends
 
-Tracking goes one way, from Saikou to MyAnimeList, except when you run a comparison (below).
+Tracking goes one way, from Saikou to your trackers, except when you run a comparison (below).
 
 - **Update progress after reading** (More > Settings > Tracking): when you finish a chapter in the
   reader, its number is sent to the entry's trackers.
@@ -57,7 +63,8 @@ In the library, the **Tracked** filter and the **Tracker score** sort use your t
 
 Reading on several apps or devices can leave MyAnimeList and Saikou disagreeing. More > Settings >
 Tracking > **Compare with MyAnimeList** finds those entries and lets you choose, entry by entry,
-which side to keep. Nothing changes until you confirm.
+which side to keep. Nothing changes until you confirm. Comparing is available for MyAnimeList only,
+not for AniList.
 
 If sync is set up, Saikou first syncs with your other devices ("Syncing with your other device"),
 so their reading counts. Then it reads your MyAnimeList list and checks each tracked library entry.
@@ -87,8 +94,10 @@ After you confirm (**Apply N changes?**), Saikou applies them one by one and rep
 
 ## Sign-in and privacy
 
-- The MyAnimeList sign-in is stored on this device only. Sync never carries it.
-- A backup includes it only when you tick **Private settings** while creating the backup. Without
-  it, a restored device shows MyAnimeList as signed out, and you sign in again.
-- If MyAnimeList stops accepting the sign-in ("The tracker no longer accepts this device's
+- Each tracker sign-in is stored on this device only. Sync never carries it.
+- A backup includes the sign-ins only when you tick **Private settings** while creating the
+  backup. Without it, a restored device shows the trackers as signed out, and you sign in again.
+- If a tracker stops accepting the sign-in ("The tracker no longer accepts this device's
   sign-in"), tap **Sign in again** in the Tracking settings.
+- An AniList sign-in lasts a year and can't be renewed, so a year after you sign in, Saikou asks
+  you to sign in to AniList again. Updates waiting to be sent go out once you do.

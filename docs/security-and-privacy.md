@@ -40,8 +40,8 @@ things you set up:
 - **Extensions** contact the sites they read from, when you browse, update, read or download.
 - **Repositories** are fetched when you refresh them, or in the background with More > Settings >
   Advanced > **Check extension updates**.
-- **Tracking** sends the chapters you read to MyAnimeList, once you sign in. See
-  [Tracking](tracking.md).
+- **Tracking** sends the chapters you read to MyAnimeList or AniList, once you sign in to it.
+  See [Tracking](tracking.md).
 - **Sync** exchanges your library with your Google Drive or your WebDAV server, once you set it up.
   See [Sync between devices](sync.md).
 
@@ -51,8 +51,8 @@ The public privacy policy is at <https://shinsaikou.com/privacy-policy>.
 
 - Sync credentials (the Google sign-in, the WebDAV password) are stored encrypted with the Android
   Keystore. Sync, backups and restores never carry them.
-- The MyAnimeList sign-in is stored in the app's private settings. It enters a backup only when you
-  tick **Private settings**, and sync never carries it.
+- The MyAnimeList and AniList sign-ins are stored in the app's private settings. They enter a
+  backup only when you tick **Private settings**, and sync never carries them.
 - Cookies that sites set, or that you import under a source's **Source settings > Cookies**, stay
   in the app. Remove them per source under **Source settings > Cookies > Clear**, or per site from
   the WebView's menu (**Clear cookies for this site**). More > Settings > Advanced > **Clear WebView

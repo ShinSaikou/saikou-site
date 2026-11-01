@@ -32,7 +32,7 @@ Screens and settings are named the way the app labels them. A path such as
   deletes, storage, copying downloads from another reader.
 - [The reader](reader.md): reading modes, the reader's settings sheet, page actions, bookmarks and
   page notes.
-- [Tracking](tracking.md): MyAnimeList, linking entries, and comparing your list with the app.
+- [Tracking](tracking.md): MyAnimeList and AniList, linking entries, and comparing your list with the app.
 - [Backups and restore](backups.md): creating, scheduling and restoring backups, including
   ones from other readers.
 - [Sync between devices](sync.md): Google Drive and WebDAV sync, what it carries, sync reports.
