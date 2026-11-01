@@ -43,7 +43,7 @@ FORBIDDEN_WORDS = Path(os.environ.get("SAIKOU_FORBIDDEN_WORDS_FILE") or SITE.par
 
 HOST = "https://shinsaikou.com"
 # The community server, linked beside GitHub in the header and footer (as on public/index.html).
-DISCORD = "https://discord.gg/dH4rgaMqU"
+DISCORD = "https://discord.gg/VupfVKYquZ"
 # The hand-written pages outside docs/, listed in the sitemap ahead of the docs.
 SITE_PAGES = ["/", "/privacy-policy"]
 INDEX_PAGE = "README"
