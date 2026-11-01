@@ -9,7 +9,8 @@ Run from anywhere, whenever the Markdown changes:
 docs/README.md becomes public/docs/index.html (served at /docs/); docs/foo.md becomes
 public/docs/foo.html (served at /docs/foo by the Worker's default auto-trailing-slash handling,
 which redirects /docs/foo.html and /docs/foo/ to it). The sidebar lists every page in the order
-README.md links them, grouped by its "##" sections.
+README.md links them, grouped by its "##" sections. public/sitemap.xml (the home page, the
+privacy policy and every docs page) and public/robots.txt (which points to it) are written too.
 
 Nothing is written unless every check passes:
   - every internal link and #anchor resolves (checked on the rendered HTML);
@@ -41,6 +42,8 @@ DOCS_OUT = PUBLIC / "docs"
 FORBIDDEN_WORDS = Path(os.environ.get("SAIKOU_FORBIDDEN_WORDS_FILE") or SITE.parent / "tools" / "forbidden-words.txt")
 
 HOST = "https://shinsaikou.com"
+# The hand-written pages outside docs/, listed in the sitemap ahead of the docs.
+SITE_PAGES = ["/", "/privacy-policy"]
 INDEX_PAGE = "README"
 EM_DASH = chr(0x2014)
 DESCRIPTION_LIMIT = 160
@@ -653,6 +656,21 @@ def build():
     return rendered
 
 
+def sitemap_xml(rendered):
+    """Every public page, by its served URL: SITE_PAGES, then the docs in sidebar order."""
+    docs = ["/docs/" if file_name == "index.html" else f"/docs/{file_name[:-len('.html')]}" for file_name in rendered]
+    urls = "".join(f"  <url><loc>{HOST}{path}</loc></url>\n" for path in SITE_PAGES + docs)
+    return (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"{urls}</urlset>\n"
+    )
+
+
+def robots_txt():
+    return f"User-agent: *\nAllow: /\n\nSitemap: {HOST}/sitemap.xml\n"
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("--check", action="store_true", help="build and check, write nothing")
@@ -684,8 +702,13 @@ def main():
             print(f"build_docs: removed stale public/docs/{stale.name}")
     for file_name, text in rendered.items():
         (DOCS_OUT / file_name).write_text(text, encoding="utf-8")
+    (PUBLIC / "sitemap.xml").write_text(sitemap_xml(rendered), encoding="utf-8")
+    (PUBLIC / "robots.txt").write_text(robots_txt(), encoding="utf-8")
     count = "skipped" if forbidden is None else forbidden[0]
-    print(f"build_docs: wrote {len(rendered)} pages to public/docs/; links checked; forbidden-words count: {count}")
+    print(
+        f"build_docs: wrote {len(rendered)} pages to public/docs/, and public/sitemap.xml and "
+        f"public/robots.txt; links checked; forbidden-words count: {count}"
+    )
     return 0
 
 

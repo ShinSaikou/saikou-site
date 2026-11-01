@@ -24,6 +24,10 @@ this folder:
 python3 tools/build_docs.py
 ```
 
+The same run writes `public/sitemap.xml` (the home page, the privacy policy and every docs page)
+and `public/robots.txt`, which points to it; a new hand-written page goes in `SITE_PAGES` in the
+script. Google Search Console reads the sitemap at `https://shinsaikou.com/sitemap.xml`.
+
 `--check` builds without writing. The build refuses to write on a broken link or anchor, a page
 missing from the index, a table, an em dash, or an HTML comment that would ship. The
 `<!-- FIXABLE: F<n> -->` markers in the Markdown are stripped from the HTML; each names an item in
@@ -84,13 +88,17 @@ change:
 
 ## Google's side
 
-Not set up yet. Drive sync needs a Google Cloud project owned by the Shin Saikou Google account, with
-Google Auth Platform > Branding listing:
+Google Cloud project `saikou-513412`, owned by the Shin Saikou Google account, with the Google Drive
+API enabled and one OAuth client, "Saikou Drive sync" (Desktop app). Google Auth Platform > Branding
+lists:
 
-- Application home page: `https://shinsaikou.com/`
+- Application home page: `https://shinsaikou.com`
 - Application privacy policy link: `https://shinsaikou.com/privacy-policy`
-- Authorized domain: `shinsaikou.com`, verified with a DNS TXT record in Cloudflare
+- Authorized domain: `shinsaikou.com`, verified in Search Console with a DNS TXT record in Cloudflare
+- No logo
 
-Until the app is published to "In production", Google expires refresh tokens after seven days.
-Moving either URL later means editing Branding too. Branding without a logo stays unverified, so the
-consent screen won't show the name Saikou; adding a logo makes verification mandatory.
+Data Access holds the one scope, `drive.appdata`, which Google files as non-sensitive. Publishing
+status: **In production** since 2026-11-01, with no verification asked, so refresh tokens don't
+expire after seven days. Google's sign-in page names the app ("to continue to Saikou") without brand
+verification. Adding a logo makes verification mandatory. Moving either URL means editing Branding
+too.
