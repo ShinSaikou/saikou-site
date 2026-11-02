@@ -71,13 +71,15 @@ The **Settings** button in the reader opens a sheet with three tabs. Changes app
 
 ## Reader settings in Settings
 
-More > Settings > Reader holds the defaults and the rows that are not in the sheet:
+More > Settings > Reader holds every reader option, the sheet's included, in groups (**Display**,
+**E-Ink**, **Reading**, **Paged**, **Long strip**, **Navigation** and **Actions**), so you can set
+the tap zones, scale type, crop borders and the rest without opening a chapter. See
+[Settings](settings.md#reader). The rows the sheet does not have:
 
 - **Default reading mode** and **Default rotation**.
 - **Double tap animation speed**: **No animation**, **Normal** or **Fast**.
 - **Show reading mode**: briefly show the current mode when the reader opens.
 - **Show tap zones overlay**: briefly show the tap zones when the reader opens.
-- **Fullscreen**, **Keep screen on** (off by default) and **Show page number**.
 - **Skip chapters marked read**, **Skip filtered chapters** (on by default) and **Skip duplicate
   chapters**: which chapters the reader passes over when moving to the next one. When it skips,
   the transition page says how many chapters it skipped.

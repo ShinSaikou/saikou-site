@@ -26,8 +26,8 @@ Open More > Settings > **Sync** and choose a **Sync service**.
 ### Google Drive
 
 1. Choose **Google Drive** and tap **Sign in with Google**.
-2. Google's sign-in page opens in your browser. Sign in and approve. A notification lets you jump
-   back to Saikou.
+2. Google's sign-in page opens in your browser. Sign in and approve, then tap **Return to Saikou**
+   on the page that follows, or the notification.
 3. Back in Saikou, the **Google account** row shows the account.
 
 Saikou asks only for access to its own hidden app folder in your Drive. It cannot see or change your

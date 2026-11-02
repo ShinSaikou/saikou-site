@@ -115,6 +115,11 @@ saved on this device." with **Export** and **Dismiss**. All saved logs are in Mo
 where each can be shared or deleted, and **Clear all** removes them. Crash logs never leave the
 device unless you share them.
 
+If an extension makes Saikou close at every start, tap **Start without extensions** on the crash
+screen. Until Saikou restarts, no extension runs, library updates and downloads wait, and a banner
+says so, with **Restart**. The Extensions tab still lists every extension, so you can uninstall or
+update the one at fault.
+
 When reporting a problem, include:
 
 - The version: More > Settings > Advanced > **Version** (tap to copy).

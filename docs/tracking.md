@@ -13,8 +13,8 @@ The Tracking section appears in More > Settings when this build of Saikou offers
    for the browser. Finish signing in there, then switch back to Saikou", and a notification lets
    you jump back.
 4. Sign in on the site and approve **Saikou**. The browser then shows "Signed in. Switch back to
-   Saikou to finish." It does not switch back by itself: return to Saikou yourself, or tap the
-   **Signed in, tap to return** notification. The row now says **Signed in as** your name.
+   Saikou to finish." Tap **Return to Saikou** on that page, or the **Signed in, tap to return**
+   notification. The row now says **Signed in as** your name.
 
 If sign-in is not finished in the browser within five minutes, start again. If Saikou says
 "Another app is using port N on this device", close that app (the sign-in needs the port for a

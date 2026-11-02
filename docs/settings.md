@@ -35,13 +35,29 @@ See [Library and categories](library.md) and [Library updates](updates.md).
 
 ## Reader
 
-See [The reader](reader.md).
+See [The reader](reader.md). Every reader option is here, the reader's own sheet included. A row
+that depends on another is greyed out while that one is off, and a slider shows only while it
+applies.
 
 **Default reading mode**, **Double tap animation speed**, **Show reading mode**, **Show tap zones
-overlay**, **Default rotation**, **Fullscreen**, **Keep screen on**, **Show page number**, **Skip
-chapters marked read**, **Skip filtered chapters**, **Skip duplicate chapters**, **Sensitivity for
-hiding menu on scroll**, **Volume keys**, **Invert volume keys**, **Save pages into separate
-folders**.
+overlay**, **Animate page transitions**, then:
+
+- **Display**: **Default rotation**, **Background color**, **Fullscreen**, **Show content in cutout
+  area** (on a screen with a cutout), **Keep screen on**, **Show page number**.
+- **E-Ink**: **Flash on page change**, with **Flash duration**, **Flash every** and **Flash with**.
+- **Reading**: **Skip chapters marked read**, **Skip filtered chapters**, **Skip duplicate
+  chapters**, **Always show chapter transition**.
+- **Paged**: **Tap zones**, **Invert tap zones**, **Scale type**, **Zoom start position**, **Crop
+  borders**, **Automatically zoom into wide images**, **Pan wide images**, **Split wide pages**,
+  **Invert split page placement**, **Rotate wide pages to fit**, **Flip orientation of rotated wide
+  pages**.
+- **Long strip**: **Tap zones**, **Invert tap zones**, **Side padding**, **Sensitivity for hiding
+  menu on scroll**, **Crop borders**, **Split wide pages**, **Invert split page placement**,
+  **Rotate wide pages to fit**, **Flip orientation of rotated wide pages**, **Double tap to zoom**,
+  **Disable zoom out**.
+- **Navigation**: **Volume keys**, **Invert volume keys**, **Use vertical chapter navigator in**,
+  **Place vertical navigator on the left side**, **Vertical navigator height**.
+- **Actions**: **Show actions on long tap**, **Save pages into separate folders**.
 
 ## Downloads
 
@@ -119,3 +135,13 @@ See [Security and privacy](security-and-privacy.md).
   [The reader](reader.md#when-a-page-does-not-load).
 - **Revoke trusted unknown extensions**: withdraw every trust you gave by hand. Takes effect after a
   restart; the message offers **Restart**.
+
+## Experimental
+
+Behaviour that may not suit every source or device. Each switch is off until you turn it on, and
+turning it off again puts things back as they were.
+
+- **Load pages in parallel**: an online chapter fetches up to three pages at a time instead of one,
+  so the pages ahead are ready sooner. A source that limits how often it may be asked can answer
+  more slowly or refuse a page, which then shows its retry button. It applies to chapters opened
+  after the change.

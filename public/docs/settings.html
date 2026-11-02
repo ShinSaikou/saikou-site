@@ -22,7 +22,7 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.1.0</span>
+          <span class="chip">v0.1.1</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
@@ -38,7 +38,7 @@
       <main class="docs-main" id="doc-content">
         <div class="docs-mobile">
           <details class="docs-menu"><summary>Menu</summary><div><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings" aria-current="page">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting">Troubleshooting</a></li></ul></div></nav></div></details>
-          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#appearance">Appearance</a></li><li><a href="#library">Library</a></li><li><a href="#reader">Reader</a></li><li><a href="#downloads">Downloads</a></li><li><a href="#tracking">Tracking</a></li><li><a href="#browse">Browse</a></li><li><a href="#data">Data</a></li><li><a href="#sync">Sync</a></li><li><a href="#security-and-privacy">Security and privacy</a></li><li><a href="#advanced">Advanced</a></li></ul></div></details>
+          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#appearance">Appearance</a></li><li><a href="#library">Library</a></li><li><a href="#reader">Reader</a></li><li><a href="#downloads">Downloads</a></li><li><a href="#tracking">Tracking</a></li><li><a href="#browse">Browse</a></li><li><a href="#data">Data</a></li><li><a href="#sync">Sync</a></li><li><a href="#security-and-privacy">Security and privacy</a></li><li><a href="#advanced">Advanced</a></li><li><a href="#experimental">Experimental</a></li></ul></div></details>
         </div>
         <article class="doc">
 <h1 id="settings-reference">Settings reference</h1>
@@ -73,12 +73,29 @@ details side by side.</li>
 <li><strong>Mark duplicate read chapter as read</strong>.</li>
 </ul>
 <h2 id="reader">Reader<a class="anchor" href="#reader" aria-label="Link to this section">#</a></h2>
-<p>See <a href="/docs/reader">The reader</a>.</p>
+<p>See <a href="/docs/reader">The reader</a>. Every reader option is here, the reader's own sheet included. A row
+that depends on another is greyed out while that one is off, and a slider shows only while it
+applies.</p>
 <p><strong>Default reading mode</strong>, <strong>Double tap animation speed</strong>, <strong>Show reading mode</strong>, <strong>Show tap zones
-overlay</strong>, <strong>Default rotation</strong>, <strong>Fullscreen</strong>, <strong>Keep screen on</strong>, <strong>Show page number</strong>, <strong>Skip
-chapters marked read</strong>, <strong>Skip filtered chapters</strong>, <strong>Skip duplicate chapters</strong>, <strong>Sensitivity for
-hiding menu on scroll</strong>, <strong>Volume keys</strong>, <strong>Invert volume keys</strong>, <strong>Save pages into separate
-folders</strong>.</p>
+overlay</strong>, <strong>Animate page transitions</strong>, then:</p>
+<ul>
+<li><strong>Display</strong>: <strong>Default rotation</strong>, <strong>Background color</strong>, <strong>Fullscreen</strong>, <strong>Show content in cutout
+area</strong> (on a screen with a cutout), <strong>Keep screen on</strong>, <strong>Show page number</strong>.</li>
+<li><strong>E-Ink</strong>: <strong>Flash on page change</strong>, with <strong>Flash duration</strong>, <strong>Flash every</strong> and <strong>Flash with</strong>.</li>
+<li><strong>Reading</strong>: <strong>Skip chapters marked read</strong>, <strong>Skip filtered chapters</strong>, <strong>Skip duplicate
+chapters</strong>, <strong>Always show chapter transition</strong>.</li>
+<li><strong>Paged</strong>: <strong>Tap zones</strong>, <strong>Invert tap zones</strong>, <strong>Scale type</strong>, <strong>Zoom start position</strong>, <strong>Crop
+borders</strong>, <strong>Automatically zoom into wide images</strong>, <strong>Pan wide images</strong>, <strong>Split wide pages</strong>,
+<strong>Invert split page placement</strong>, <strong>Rotate wide pages to fit</strong>, <strong>Flip orientation of rotated wide
+pages</strong>.</li>
+<li><strong>Long strip</strong>: <strong>Tap zones</strong>, <strong>Invert tap zones</strong>, <strong>Side padding</strong>, <strong>Sensitivity for hiding
+menu on scroll</strong>, <strong>Crop borders</strong>, <strong>Split wide pages</strong>, <strong>Invert split page placement</strong>,
+<strong>Rotate wide pages to fit</strong>, <strong>Flip orientation of rotated wide pages</strong>, <strong>Double tap to zoom</strong>,
+<strong>Disable zoom out</strong>.</li>
+<li><strong>Navigation</strong>: <strong>Volume keys</strong>, <strong>Invert volume keys</strong>, <strong>Use vertical chapter navigator in</strong>,
+<strong>Place vertical navigator on the left side</strong>, <strong>Vertical navigator height</strong>.</li>
+<li><strong>Actions</strong>: <strong>Show actions on long tap</strong>, <strong>Save pages into separate folders</strong>.</li>
+</ul>
 <h2 id="downloads">Downloads<a class="anchor" href="#downloads" aria-label="Link to this section">#</a></h2>
 <p>See <a href="/docs/downloads">Downloads</a>.</p>
 <p><strong>Only download over Wi-Fi</strong>, <strong>Pages downloaded at once</strong>, the <strong>Delete chapters</strong> group, <strong>Download
@@ -142,10 +159,19 @@ way.</li>
 <li><strong>Revoke trusted unknown extensions</strong>: withdraw every trust you gave by hand. Takes effect after a
 restart; the message offers <strong>Restart</strong>.</li>
 </ul>
+<h2 id="experimental">Experimental<a class="anchor" href="#experimental" aria-label="Link to this section">#</a></h2>
+<p>Behaviour that may not suit every source or device. Each switch is off until you turn it on, and
+turning it off again puts things back as they were.</p>
+<ul>
+<li><strong>Load pages in parallel</strong>: an online chapter fetches up to three pages at a time instead of one,
+so the pages ahead are ready sooner. A source that limits how often it may be asked can answer
+more slowly or refuse a page, which then shows its retry button. It applies to chapters opened
+after the change.</li>
+</ul>
         </article>
         <nav class="pager" aria-label="Previous and next page"><a class="prev" href="/docs/security-and-privacy"><span>Previous page</span>Security and privacy</a><a class="next" href="/docs/faq"><span>Next page</span>Frequently asked questions</a></nav>
       </main>
-      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#appearance">Appearance</a></li><li><a href="#library">Library</a></li><li><a href="#reader">Reader</a></li><li><a href="#downloads">Downloads</a></li><li><a href="#tracking">Tracking</a></li><li><a href="#browse">Browse</a></li><li><a href="#data">Data</a></li><li><a href="#sync">Sync</a></li><li><a href="#security-and-privacy">Security and privacy</a></li><li><a href="#advanced">Advanced</a></li></ul></aside>
+      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#appearance">Appearance</a></li><li><a href="#library">Library</a></li><li><a href="#reader">Reader</a></li><li><a href="#downloads">Downloads</a></li><li><a href="#tracking">Tracking</a></li><li><a href="#browse">Browse</a></li><li><a href="#data">Data</a></li><li><a href="#sync">Sync</a></li><li><a href="#security-and-privacy">Security and privacy</a></li><li><a href="#advanced">Advanced</a></li><li><a href="#experimental">Experimental</a></li></ul></aside>
     </div>
 
     <footer class="site-footer">
