@@ -1,7 +1,7 @@
 # Saikou documentation
 
-Saikou is an open-source manga reader for Android. Releases and the source code are on GitHub.
-These pages describe the app as it is built today (version 0.0.1).
+Saikou is an open-source manga reader for Android, called Shin Saikou on your phone. Releases and
+the source code are on GitHub. These pages describe the app as it is built today (version 0.1.2).
 
 Saikou brings no content of its own. You read what is on your device through the Local source, or
 add extensions from repositories you choose.
@@ -22,7 +22,7 @@ Screens and settings are named the way the app labels them. A path such as
 - [An entry's page](entry.md): chapters, chapter filters and sorting, editing the title and
   description, custom covers, per-entry reading mode.
 - [Library updates and the Updates tab](updates.md): automatic and manual updates, smart update,
-  update errors, notifications.
+  an entry's update interval, Upcoming, update errors, notifications.
 - [History and statistics](history.md): reading history, incognito, the Statistics screen.
 - [Browse and sources](browse.md): the Sources tab, pinned sources, global search, source filters,
   source settings and cookies.
@@ -41,10 +41,11 @@ Screens and settings are named the way the app labels them. A path such as
   covers.
 - [Security and privacy](security-and-privacy.md): app lock, secure screen, notifications,
   incognito, and what Saikou sends over the network.
-- [Settings reference](settings.md): every section of More > Settings, row by row.
+- [Settings reference](settings.md): searching settings, the About screen, and every section of
+  More > Settings, row by row.
 
 ## Help
 
 - [Frequently asked questions](faq.md)
 - [Troubleshooting](troubleshooting.md): network and site errors, WebView, browser checks, crash
-  logs.
+  logs, reporting a problem.

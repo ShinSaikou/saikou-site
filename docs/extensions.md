@@ -25,34 +25,50 @@ by hand. It takes effect the next time the app starts; the message offers **Rest
 ## Adding a repository
 
 1. Open More > **Extension repositories**. (Browse > Extensions also offers the screen when no
-   repository is configured, and the **Repositories (N)** button opens it later.)
+   repository is configured, and later **Repositories (N)** in the menu of that page's top bar
+   opens it.)
 2. Under **Add a repository**, paste the address its maintainers publish into **Repository
    address**.
-3. Tap **Add**. Saikou reads the list and confirms with **Repository added.**
+3. Tap **Add**. Saikou reads the list and confirms with **Repository added.** Its extensions appear
+   on the Extensions page right away, without pulling to refresh, and the repository's row shows a
+   spinner while they load.
 
 Some repository pages offer a link that opens Saikou directly. Such a link only fills in the
 address: Saikou still waits for you to read it and tap **Add**.
 
 The refresh button reloads every repository's list. To remove one, tap **Remove** next to it and
-confirm.
+confirm; its extensions leave the Extensions page the same way. Adding a repository you already
+have, even under another form of its address (with `http` or a trailing slash), says **That
+repository is already configured**.
 
 ## Installing and updating
 
-**Browse > Extensions** lists, in this order: **Update available**, **Needs trust**, **Did not
-load**, **Installed** and **Available**.
+**Browse > Extensions** lists, in this order: **Updates pending**, with its **Update all** button
+in the heading, **Installed**, **Needs trust**, **Did not load**, and then what you can install,
+under a heading per language.
 
-- **Install** downloads and installs an extension. The row shows **Pending**, **Downloading** and
-  **Installing**; **Cancel install** stops it.
-- **Update** installs a newer version; **Update all** updates every extension that has one.
-- **Search extensions** filters the list, and the **Filter** icon chooses which languages appear.
-- Each row shows the version (**v1.4.2**), the extension library version (**lib 1.4**), the
-  languages, and **18+** for extensions marked as mature.
+Each row shows the extension's icon, its name, and one line with its language, its version, the
+extension library version (**lib 1.4**) and any warning in red: **18+** for extensions marked as
+mature, **OBSOLETE** or **UNTRUSTED**. Under a language heading the line leaves out the language.
+
+- **Install**, **Update**, **Trust** and the settings of an installed extension are icon buttons at
+  the end of the row. Tapping a row you can install installs it too.
+- While an extension downloads or installs, a ring turns around its icon, the line shows
+  **Pending**, **Downloading** or **Installing**, and the row's button (**Cancel install**) cancels
+  it.
+- **Update all** updates every extension that has an update.
+- The top bar has the search button (**Search extensions**), which searches the extensions, and the
+  **Filter** icon, which chooses which languages appear. Its menu has **Repositories (N)**. Global
+  search is on the **Sources** tab. See [Browse and sources](browse.md#global-search).
+
+The sources of your installed extensions appear on the **Sources** tab and in global search, with
+the Local source after them.
 
 Saikou installs extensions inside the app. They do not appear in Android's app list and do not need
 the "Install unknown apps" permission.
 
 More > Settings > Advanced > **Check extension updates** refreshes your repositories in the
-background so the **Update available** section stays current.
+background so the **Updates pending** section stays current.
 
 ## An extension's page
 
@@ -67,10 +83,10 @@ Tap an installed extension to open its page:
 
 ## Uninstalling
 
-Tap **Uninstall** on the extension's page or in its row menu (**More actions**), then confirm
-("Remove ... and the sources it provides?"). Entries from its sources stay in your library, marked
-**Source not installed**, with their read chapters and downloads. Install the extension again, or
-[migrate](migration.md) those entries to another source.
+Long press an installed extension on Browse > Extensions, or tap **Uninstall** on its page, then
+confirm ("Remove ... and the sources it provides?"). Entries from its sources stay in your library,
+marked **Source not installed**, with their read chapters and downloads. Install the extension
+again, or [migrate](migration.md) those entries to another source.
 
 ## When an extension does not load
 

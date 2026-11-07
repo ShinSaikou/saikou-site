@@ -7,10 +7,12 @@ after a lost phone, a reinstall or a mistake.
 Saikou's backups use the common `.tachibk` format: Saikou restores backups from other readers that use
 it, and those readers can restore Saikou's.
 
+The **Backup** screen has two tabs, **Create** and **Restore**.
+
 ## Creating a backup
 
 1. Open More > **Backup** (also reachable from More > Settings > Data > **Create backup**).
-2. Under **Create backup**, tick what to include. Everything except **Private settings** is ticked
+2. On the **Create** tab, tick what to include. Everything except **Private settings** is ticked
    by default:
    - **Library entries**, **Categories**, **Chapters** (which you have read and bookmarked),
      **Tracking**, **Reading history**
@@ -21,11 +23,14 @@ it, and those readers can restore Saikou's.
 3. Tap **Create backup** and choose where to save the file, for example a folder that your cloud
    storage app uploads, or your Downloads folder to copy to a computer.
 
-A notification says **Backup created**, with **Share** to send the file somewhere straight away.
+A moving bar under the button shows for as long as the backup is waiting or working, and the tab
+then says whether it finished or failed. A notification says **Backup created**, with **Share** to
+send the file somewhere straight away.
 
 ### What a backup does not contain
 
-- The extensions themselves (only the list of repositories, with **Extension stores**).
+- The extensions themselves (only the list of repositories, with **Extension stores**). A restore
+  can install them again, see [Install extensions](#install-extensions).
 - Downloaded chapters. See [Downloads](downloads.md#where-downloads-are-kept).
 - Custom covers you set on entries.
 - Your sync settings and sign-ins.
@@ -39,14 +44,14 @@ keeps the newest four.
 Automatic backups go to the `autobackup` folder of your **Storage location** (More > Settings >
 Data > **Storage location**), a folder on your phone that you choose and that stays when Saikou
 is uninstalled. Until you choose one, they are kept inside Saikou's app storage and are deleted
-with the app; the Backup screen says so, with a **Choose folder** button.
+with the app; the **Restore** tab says so, with a **Choose folder** button.
 
-More > **Backup** > **Automatic backups** lists the kept files, newest first, each with its date,
-its kind (**Automatic backup** or **Sync safety backup**) and its size. Tap one to **Restore** it
-(the same restore as a picked file, with the options ticked under **Restore backup**) or to
-**Save a copy** somewhere else. This works with or without a storage location. On a new phone or
-after a reinstall, choose the same folder as the storage location, or pick a file from its
-`autobackup` folder with **Restore backup**.
+The **Restore** tab of More > **Backup** lists the kept files under **Automatic backups**, newest
+first, each with its date, its kind (**Automatic backup** or **Sync safety backup**) and its size.
+Tap one to **Restore** it (the same restore as a picked file, with the options ticked at the top of
+the tab) or to **Save a copy** somewhere else. This works with or without a storage location. On a
+new phone or after a reinstall, choose the same folder as the storage location, or pick a file from
+its `autobackup` folder with **Restore backup**.
 
 If the folder cannot be reached any more (deleted, or access removed), backups are written inside
 the app again and nothing is lost; the **Storage location** row says "<folder> cannot be reached.
@@ -74,31 +79,64 @@ out.
 
 ## Restoring a backup
 
-1. Before restoring on a new install, add your extension repositories and install the extensions
-   your library uses, if you can. Entries restore either way; those whose extension is missing
-   show **Source not installed** until you install it.
-2. Open More > **Backup**. Under **Restore backup**, tick what to restore: **Library entries**,
-   **Categories**, **App settings**, **Extension stores**, **Source settings**.
+1. Before restoring on a new install, [add the extension repositories](extensions.md#adding-a-repository)
+   you trust, if you can:
+   [Install extensions](#install-extensions) only installs from repositories that were there before
+   the restore. Entries restore either way; those whose extension is missing show **Source not
+   installed** until you install it.
+2. Open More > **Backup** and go to the **Restore** tab. Tick what to restore: **Library entries**,
+   **Categories**, **App settings**, **Extension stores**, **Source settings** and **Install
+   extensions**.
 3. Tap **Restore backup** and pick the file (`.tachibk`, or `.proto.gz` as some exports are
-   named). Opening a `.tachibk` file with Saikou from a file manager does the same. Saikou reads the
-   file, then shows what it found with **Restore** and **Cancel**; the restore starts only on
-   **Restore**.
+   named). The restore starts right away, with the options ticked above the button. Extensions and
+   tracker sign-ins the backup needs are listed in the [restore report](#the-restore-report)
+   afterwards.
+
+Opening a `.tachibk` file with Saikou from a file manager opens the **Restore** tab and asks first.
+Saikou reads the file, then shows it with the sources and trackers it refers to that this device
+lacks or is not signed in to, and **Restore** and **Cancel**. The restore starts only on
+**Restore**.
 
 The restore runs in the background with a **Restoring backup** notification, which has **Cancel**.
-The Backup screen shows how far it is (**Categories**, **Settings**, **Extension stores**,
-**Entries**). If Android stops the app part way, the restore carries on from where it was.
+A moving bar under the button shows for as long as the restore is waiting or working, with its own
+**Cancel**, and says how far it is (**Categories**, **Settings**, **Extension stores**, **Entries**,
+**Installing extensions**). The tab then says whether it finished, failed or was cancelled. If
+Android stops the app part way, the restore carries on from where it was.
 
 Restoring into a library that already has entries merges the two. Read chapters, bookmarks and
 reading progress never go backwards, so restoring an older backup cannot undo reading you did
 since. Restoring the same file twice changes nothing the second time.
 
-Before a restore starts, Saikou lists the sources and trackers the file refers to that this
-device lacks or is not signed in to, and you choose **Restore** or **Cancel**. When it ends, the
-notification says **Restore complete**, how many entries could not be restored, or how many
-sources need an extension. Tap it, or open More > Backup > **Restore report**, for the counts,
-the sources with no extension (each with **Install** when one of your repositories offers it,
-or **Open Extensions**), the trackers to sign in to (**Sign in**), and the errors, with
-**Export error log**.
+### Install extensions
+
+**Install extensions** on the **Restore** tab is on by default. Once the library is back, the
+restore reads your repositories (called extension stores on this screen) and installs each
+extension the backup's sources come from that it finds there, one after another, showing which of
+how many it is on.
+
+It installs only from the repositories you had before the restore, so a backup someone else made
+cannot install anything on its own. An extension that only a repository added by the backup offers
+is not installed: the **Restore** tab and the restore report name that repository and its address,
+and **Install all** installs those extensions once you have checked it.
+
+### The restore report
+
+When a restore ends, the notification says **Restore complete**, how many entries could not be
+restored, how many extensions were installed or wait for **Install all**, or how many sources need
+an extension. Tap it, or tap **Restore report** on the **Restore** tab, for:
+
+- The counts: entries restored, merged with entries already in the library, and not restored.
+- **Extensions**, when **Install extensions** was on: what was installed (**Installed**), what
+  could not be (**Could not be installed**), the sources no repository lists, by name, so you know
+  what to search for (**Not in any extension store**), and the extensions waiting under **From
+  stores this backup added**, with each repository's name and address and **Install all**.
+- **Missing sources**: the sources with no extension, each with **Install** when one of your
+  repositories offers it, or **Open Extensions**. When several can be installed, **Install all**
+  above the list installs whatever is still offered, for a restore made with **Install extensions**
+  off too.
+- **Trackers not logged into**, each with **Sign in**.
+- **Copy downloads from a folder**, since a backup holds no downloads.
+- **Errors**, with **Export error log**.
 
 After a restore:
 
@@ -125,4 +163,4 @@ backup automatically, see [Sync between devices](sync.md#the-safety-backup).
 - Create a backup by hand before big changes: a migration of many entries, a restore, setting up
   sync, or moving to a new phone.
 - Keep at least one backup off the phone.
-- Saikou is young (version 0.0.1). Back up regularly so a problem in a new release costs you nothing.
+- Saikou is young (version 0.1.2). Back up regularly so a problem in a new release costs you nothing.

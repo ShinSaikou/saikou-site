@@ -22,7 +22,7 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.1.1</span>
+          <span class="chip">v0.1.2</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
@@ -38,7 +38,7 @@
       <main class="docs-main" id="doc-content">
         <div class="docs-mobile">
           <details class="docs-menu"><summary>Menu</summary><div><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups" aria-current="page">Backups and restore</a></li><li><a href="/docs/sync">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting">Troubleshooting</a></li></ul></div></nav></div></details>
-          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#creating-a-backup">Creating a backup</a><ul><li><a href="#what-a-backup-does-not-contain">What a backup does not contain</a></li></ul></li><li><a href="#automatic-backups">Automatic backups</a><ul><li><a href="#storage-location">Storage location</a></li></ul></li><li><a href="#restoring-a-backup">Restoring a backup</a><ul><li><a href="#files-saikou-cannot-restore">Files Saikou cannot restore</a></li></ul></li><li><a href="#backups-and-sync">Backups and sync</a></li><li><a href="#good-habits">Good habits</a></li></ul></div></details>
+          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#creating-a-backup">Creating a backup</a><ul><li><a href="#what-a-backup-does-not-contain">What a backup does not contain</a></li></ul></li><li><a href="#automatic-backups">Automatic backups</a><ul><li><a href="#storage-location">Storage location</a></li></ul></li><li><a href="#restoring-a-backup">Restoring a backup</a><ul><li><a href="#install-extensions">Install extensions</a></li><li><a href="#the-restore-report">The restore report</a></li><li><a href="#files-saikou-cannot-restore">Files Saikou cannot restore</a></li></ul></li><li><a href="#backups-and-sync">Backups and sync</a></li><li><a href="#good-habits">Good habits</a></li></ul></div></details>
         </div>
         <article class="doc">
 <h1 id="backups-and-restore">Backups and restore</h1>
@@ -47,10 +47,11 @@ settings. Keep a recent one somewhere other than your phone: it is what brings e
 after a lost phone, a reinstall or a mistake.</p>
 <p>Saikou's backups use the common <code>.tachibk</code> format: Saikou restores backups from other readers that use
 it, and those readers can restore Saikou's.</p>
+<p>The <strong>Backup</strong> screen has two tabs, <strong>Create</strong> and <strong>Restore</strong>.</p>
 <h2 id="creating-a-backup">Creating a backup<a class="anchor" href="#creating-a-backup" aria-label="Link to this section">#</a></h2>
 <ol>
 <li>Open More &gt; <strong>Backup</strong> (also reachable from More &gt; Settings &gt; Data &gt; <strong>Create backup</strong>).</li>
-<li>Under <strong>Create backup</strong>, tick what to include. Everything except <strong>Private settings</strong> is ticked
+<li>On the <strong>Create</strong> tab, tick what to include. Everything except <strong>Private settings</strong> is ticked
 by default:
 <ul>
 <li><strong>Library entries</strong>, <strong>Categories</strong>, <strong>Chapters</strong> (which you have read and bookmarked),
@@ -63,10 +64,13 @@ looks the same as never having signed in.</li>
 <li>Tap <strong>Create backup</strong> and choose where to save the file, for example a folder that your cloud
 storage app uploads, or your Downloads folder to copy to a computer.</li>
 </ol>
-<p>A notification says <strong>Backup created</strong>, with <strong>Share</strong> to send the file somewhere straight away.</p>
+<p>A moving bar under the button shows for as long as the backup is waiting or working, and the tab
+then says whether it finished or failed. A notification says <strong>Backup created</strong>, with <strong>Share</strong> to
+send the file somewhere straight away.</p>
 <h3 id="what-a-backup-does-not-contain">What a backup does not contain<a class="anchor" href="#what-a-backup-does-not-contain" aria-label="Link to this section">#</a></h3>
 <ul>
-<li>The extensions themselves (only the list of repositories, with <strong>Extension stores</strong>).</li>
+<li>The extensions themselves (only the list of repositories, with <strong>Extension stores</strong>). A restore
+can install them again, see <a href="#install-extensions">Install extensions</a>.</li>
 <li>Downloaded chapters. See <a href="/docs/downloads#where-downloads-are-kept">Downloads</a>.</li>
 <li>Custom covers you set on entries.</li>
 <li>Your sync settings and sign-ins.</li>
@@ -78,13 +82,13 @@ keeps the newest four.</p>
 <p>Automatic backups go to the <code>autobackup</code> folder of your <strong>Storage location</strong> (More &gt; Settings &gt;
 Data &gt; <strong>Storage location</strong>), a folder on your phone that you choose and that stays when Saikou
 is uninstalled. Until you choose one, they are kept inside Saikou's app storage and are deleted
-with the app; the Backup screen says so, with a <strong>Choose folder</strong> button.</p>
-<p>More &gt; <strong>Backup</strong> &gt; <strong>Automatic backups</strong> lists the kept files, newest first, each with its date,
-its kind (<strong>Automatic backup</strong> or <strong>Sync safety backup</strong>) and its size. Tap one to <strong>Restore</strong> it
-(the same restore as a picked file, with the options ticked under <strong>Restore backup</strong>) or to
-<strong>Save a copy</strong> somewhere else. This works with or without a storage location. On a new phone or
-after a reinstall, choose the same folder as the storage location, or pick a file from its
-<code>autobackup</code> folder with <strong>Restore backup</strong>.</p>
+with the app; the <strong>Restore</strong> tab says so, with a <strong>Choose folder</strong> button.</p>
+<p>The <strong>Restore</strong> tab of More &gt; <strong>Backup</strong> lists the kept files under <strong>Automatic backups</strong>, newest
+first, each with its date, its kind (<strong>Automatic backup</strong> or <strong>Sync safety backup</strong>) and its size.
+Tap one to <strong>Restore</strong> it (the same restore as a picked file, with the options ticked at the top of
+the tab) or to <strong>Save a copy</strong> somewhere else. This works with or without a storage location. On a
+new phone or after a reinstall, choose the same folder as the storage location, or pick a file from
+its <code>autobackup</code> folder with <strong>Restore backup</strong>.</p>
 <p>If the folder cannot be reached any more (deleted, or access removed), backups are written inside
 the app again and nothing is lost; the <strong>Storage location</strong> row says "&lt;folder&gt; cannot be reached.
 Tap to choose it again".</p>
@@ -106,29 +110,58 @@ to try again. Downloads themselves stay in the app; see <a href="/docs/downloads
 out.</p>
 <h2 id="restoring-a-backup">Restoring a backup<a class="anchor" href="#restoring-a-backup" aria-label="Link to this section">#</a></h2>
 <ol>
-<li>Before restoring on a new install, add your extension repositories and install the extensions
-your library uses, if you can. Entries restore either way; those whose extension is missing
-show <strong>Source not installed</strong> until you install it.</li>
-<li>Open More &gt; <strong>Backup</strong>. Under <strong>Restore backup</strong>, tick what to restore: <strong>Library entries</strong>,
-<strong>Categories</strong>, <strong>App settings</strong>, <strong>Extension stores</strong>, <strong>Source settings</strong>.</li>
+<li>Before restoring on a new install, <a href="/docs/extensions#adding-a-repository">add the extension repositories</a>
+you trust, if you can:
+<a href="#install-extensions">Install extensions</a> only installs from repositories that were there before
+the restore. Entries restore either way; those whose extension is missing show <strong>Source not
+installed</strong> until you install it.</li>
+<li>Open More &gt; <strong>Backup</strong> and go to the <strong>Restore</strong> tab. Tick what to restore: <strong>Library entries</strong>,
+<strong>Categories</strong>, <strong>App settings</strong>, <strong>Extension stores</strong>, <strong>Source settings</strong> and <strong>Install
+extensions</strong>.</li>
 <li>Tap <strong>Restore backup</strong> and pick the file (<code>.tachibk</code>, or <code>.proto.gz</code> as some exports are
-named). Opening a <code>.tachibk</code> file with Saikou from a file manager does the same. Saikou reads the
-file, then shows what it found with <strong>Restore</strong> and <strong>Cancel</strong>; the restore starts only on
-<strong>Restore</strong>.</li>
+named). The restore starts right away, with the options ticked above the button. Extensions and
+tracker sign-ins the backup needs are listed in the <a href="#the-restore-report">restore report</a>
+afterwards.</li>
 </ol>
+<p>Opening a <code>.tachibk</code> file with Saikou from a file manager opens the <strong>Restore</strong> tab and asks first.
+Saikou reads the file, then shows it with the sources and trackers it refers to that this device
+lacks or is not signed in to, and <strong>Restore</strong> and <strong>Cancel</strong>. The restore starts only on
+<strong>Restore</strong>.</p>
 <p>The restore runs in the background with a <strong>Restoring backup</strong> notification, which has <strong>Cancel</strong>.
-The Backup screen shows how far it is (<strong>Categories</strong>, <strong>Settings</strong>, <strong>Extension stores</strong>,
-<strong>Entries</strong>). If Android stops the app part way, the restore carries on from where it was.</p>
+A moving bar under the button shows for as long as the restore is waiting or working, with its own
+<strong>Cancel</strong>, and says how far it is (<strong>Categories</strong>, <strong>Settings</strong>, <strong>Extension stores</strong>, <strong>Entries</strong>,
+<strong>Installing extensions</strong>). The tab then says whether it finished, failed or was cancelled. If
+Android stops the app part way, the restore carries on from where it was.</p>
 <p>Restoring into a library that already has entries merges the two. Read chapters, bookmarks and
 reading progress never go backwards, so restoring an older backup cannot undo reading you did
 since. Restoring the same file twice changes nothing the second time.</p>
-<p>Before a restore starts, Saikou lists the sources and trackers the file refers to that this
-device lacks or is not signed in to, and you choose <strong>Restore</strong> or <strong>Cancel</strong>. When it ends, the
-notification says <strong>Restore complete</strong>, how many entries could not be restored, or how many
-sources need an extension. Tap it, or open More &gt; Backup &gt; <strong>Restore report</strong>, for the counts,
-the sources with no extension (each with <strong>Install</strong> when one of your repositories offers it,
-or <strong>Open Extensions</strong>), the trackers to sign in to (<strong>Sign in</strong>), and the errors, with
-<strong>Export error log</strong>.</p>
+<h3 id="install-extensions">Install extensions<a class="anchor" href="#install-extensions" aria-label="Link to this section">#</a></h3>
+<p><strong>Install extensions</strong> on the <strong>Restore</strong> tab is on by default. Once the library is back, the
+restore reads your repositories (called extension stores on this screen) and installs each
+extension the backup's sources come from that it finds there, one after another, showing which of
+how many it is on.</p>
+<p>It installs only from the repositories you had before the restore, so a backup someone else made
+cannot install anything on its own. An extension that only a repository added by the backup offers
+is not installed: the <strong>Restore</strong> tab and the restore report name that repository and its address,
+and <strong>Install all</strong> installs those extensions once you have checked it.</p>
+<h3 id="the-restore-report">The restore report<a class="anchor" href="#the-restore-report" aria-label="Link to this section">#</a></h3>
+<p>When a restore ends, the notification says <strong>Restore complete</strong>, how many entries could not be
+restored, how many extensions were installed or wait for <strong>Install all</strong>, or how many sources need
+an extension. Tap it, or tap <strong>Restore report</strong> on the <strong>Restore</strong> tab, for:</p>
+<ul>
+<li>The counts: entries restored, merged with entries already in the library, and not restored.</li>
+<li><strong>Extensions</strong>, when <strong>Install extensions</strong> was on: what was installed (<strong>Installed</strong>), what
+could not be (<strong>Could not be installed</strong>), the sources no repository lists, by name, so you know
+what to search for (<strong>Not in any extension store</strong>), and the extensions waiting under <strong>From
+stores this backup added</strong>, with each repository's name and address and <strong>Install all</strong>.</li>
+<li><strong>Missing sources</strong>: the sources with no extension, each with <strong>Install</strong> when one of your
+repositories offers it, or <strong>Open Extensions</strong>. When several can be installed, <strong>Install all</strong>
+above the list installs whatever is still offered, for a restore made with <strong>Install extensions</strong>
+off too.</li>
+<li><strong>Trackers not logged into</strong>, each with <strong>Sign in</strong>.</li>
+<li><strong>Copy downloads from a folder</strong>, since a backup holds no downloads.</li>
+<li><strong>Errors</strong>, with <strong>Export error log</strong>.</li>
+</ul>
 <p>After a restore:</p>
 <ul>
 <li>If you also had downloads in another reader, or exported Saikou's own, copy them now with More &gt; Settings &gt;
@@ -152,12 +185,12 @@ backup automatically, see <a href="/docs/sync#the-safety-backup">Sync between de
 <li>Create a backup by hand before big changes: a migration of many entries, a restore, setting up
 sync, or moving to a new phone.</li>
 <li>Keep at least one backup off the phone.</li>
-<li>Saikou is young (version 0.0.1). Back up regularly so a problem in a new release costs you nothing.</li>
+<li>Saikou is young (version 0.1.2). Back up regularly so a problem in a new release costs you nothing.</li>
 </ul>
         </article>
         <nav class="pager" aria-label="Previous and next page"><a class="prev" href="/docs/tracking"><span>Previous page</span>Tracking</a><a class="next" href="/docs/sync"><span>Next page</span>Sync between devices</a></nav>
       </main>
-      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#creating-a-backup">Creating a backup</a><ul><li><a href="#what-a-backup-does-not-contain">What a backup does not contain</a></li></ul></li><li><a href="#automatic-backups">Automatic backups</a><ul><li><a href="#storage-location">Storage location</a></li></ul></li><li><a href="#restoring-a-backup">Restoring a backup</a><ul><li><a href="#files-saikou-cannot-restore">Files Saikou cannot restore</a></li></ul></li><li><a href="#backups-and-sync">Backups and sync</a></li><li><a href="#good-habits">Good habits</a></li></ul></aside>
+      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#creating-a-backup">Creating a backup</a><ul><li><a href="#what-a-backup-does-not-contain">What a backup does not contain</a></li></ul></li><li><a href="#automatic-backups">Automatic backups</a><ul><li><a href="#storage-location">Storage location</a></li></ul></li><li><a href="#restoring-a-backup">Restoring a backup</a><ul><li><a href="#install-extensions">Install extensions</a></li><li><a href="#the-restore-report">The restore report</a></li><li><a href="#files-saikou-cannot-restore">Files Saikou cannot restore</a></li></ul></li><li><a href="#backups-and-sync">Backups and sync</a></li><li><a href="#good-habits">Good habits</a></li></ul></aside>
     </div>
 
     <footer class="site-footer">

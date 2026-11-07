@@ -10,7 +10,7 @@ on your device, is built in. See [The Local source](local-source.md).
 ## The Sources tab
 
 Sources are grouped under **Last used**, **Pinned** and the rest (**Other**), each with its
-language.
+language. The Local source comes after every extension's sources.
 
 - Tap a source to browse it.
 - **Latest**, at the end of a row, opens the source's latest updates directly (shown when the
@@ -67,8 +67,15 @@ Chapters an entry already had when you added it do not count as new in **Updates
 ## Global search
 
 **Search all sources** (the search icon on Browse) searches every enabled source at once. Results
-come in source by source as each one answers; **More from this source** opens one source's full
-results. A source with nothing shows **No results**.
+come in source by source as each one answers, with the Local source last; **More from this source**
+opens one source's full results. A source with nothing shows **No results**.
+
+The button is on the **Sources** and **Migrate** tabs. On the **Extensions** tab the search button
+searches the extensions instead.
+
+Two other places start the same search with the words filled in: **Search all sources for "..."**
+above the results of a [library search](library.md#the-library-tab), and a tap on the title or
+author on [an entry's page](entry.md#the-header).
 
 ## Source settings
 

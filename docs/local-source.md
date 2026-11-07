@@ -2,8 +2,8 @@
 
 The **Local source** reads comics and manga stored on your device: folders of images and comic
 archives you already have. It is built in and needs no extension. You find it under **Browse >
-Sources > Local source**, and its entries can be added to your library like any other, marked with
-the **Local** badge.
+Sources > Local source**, after every extension's sources, and its entries can be added to your
+library like any other, marked with the **Local** badge.
 
 ## Where Saikou looks
 

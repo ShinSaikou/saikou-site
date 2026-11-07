@@ -12,6 +12,10 @@ Tachiyomi extension API, and adds features of its own such as sync between devic
 From its releases page on GitHub, <https://github.com/ShinSaikou/saikou/releases>. The source
 code is there too. See [Getting started](getting-started.md#installing-saikou).
 
+### I installed it. Why can I not find Saikou on my phone?
+
+On your phone the app is called **Shin Saikou**. Search for that name.
+
 ### Is there an iOS version?
 
 No. Saikou is an Android app (Android 8.0 and later).
@@ -51,8 +55,8 @@ Keep automatic backups on, and now and then create a backup by hand and keep it 
 **Smart update** skips entries with unread chapters, entries you have not started, entries marked
 **Completed**, and entries not expected to have a new chapter yet. This saves time and keeps the
 sites from limiting you. A manual update (pull down on the Library) ignores those rules and checks
-every entry in the categories you update. See
-[Library updates](updates.md).
+every entry in the categories you update. The update interval button on an entry's page says when
+it is next checked, or why it is not. See [Library updates](updates.md).
 
 ### Why am I warned about updating many entries from one source?
 
@@ -135,10 +139,20 @@ No. Saikou installs extensions inside the app, without Android's package install
 
 ### How do I uninstall an extension?
 
-Browse > Extensions, open the extension and tap **Uninstall**. See
+On Browse > Extensions, long press the extension, or open it and tap **Uninstall**. See
 [Extensions and repositories](extensions.md#uninstalling).
 
 ## Settings
+
+### How do I find a setting?
+
+Tap the search button above the list in More > **Settings** and type. See
+[Settings reference](settings.md#searching-settings).
+
+### How do I report a bug?
+
+Tap the logo at the top of the More tab to open **About**, then **Share bug report**, **Copy device
+info** or **Report an issue**. See [Reporting a problem](troubleshooting.md#reporting-a-problem).
 
 ### Why are screenshots blocked?
 

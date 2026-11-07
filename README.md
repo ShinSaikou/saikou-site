@@ -32,7 +32,7 @@ script. Google Search Console reads the sitemap at `https://shinsaikou.com/sitem
 missing from the index, a table, an em dash, or an HTML comment that would ship. The
 `<!-- FIXABLE: F<n> -->` markers in the Markdown are stripped from the HTML; each names an item in
 `design/plans/docs/fixable-warnings.md` that the app should fix rather than warn about, and goes
-when its fix lands. The version label ("v0.1.1") is in both `public/index.html` and
+when its fix lands. The version label ("v0.1.2") is in both `public/index.html` and
 the script; change both together.
 
 ## How it is served

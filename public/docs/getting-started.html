@@ -22,7 +22,7 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.1.1</span>
+          <span class="chip">v0.1.2</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
@@ -48,6 +48,8 @@
 and open it. The first time, Android asks you to allow the app you opened it from (usually your
 browser or file manager) to install apps. Release notes and earlier versions are on GitHub,
 <a href="https://github.com/ShinSaikou/saikou/releases">https://github.com/ShinSaikou/saikou/releases</a>.</p>
+<p>On your phone the app is called <strong>Shin Saikou</strong>, so look for that name on your home screen, in your
+app list or in the phone's search. These pages call it Saikou.</p>
 <p>Saikou needs Android 8.0 or later.</p>
 <h2 id="the-first-launch">The first launch<a class="anchor" href="#the-first-launch" aria-label="Link to this section">#</a></h2>
 <p>Two questions may appear:</p>
@@ -61,18 +63,21 @@ Android can stop them to save power. <strong>Allow</strong> asks Android to let 
 <strong>Allow background work</strong>.</li>
 </ul>
 <p>The app opens on the <strong>Library</strong> tab, which is empty at first. The bottom bar has five tabs:
-<strong>Library</strong>, <strong>Updates</strong>, <strong>History</strong>, <strong>Browse</strong> and <strong>More</strong>.</p>
+<strong>Library</strong>, <strong>Updates</strong>, <strong>History</strong>, <strong>Browse</strong> and <strong>More</strong>. A long press on the app icon offers
+shortcuts to Library, Updates, History and Browse.</p>
 <h2 id="coming-from-another-reader">Coming from another reader<a class="anchor" href="#coming-from-another-reader" aria-label="Link to this section">#</a></h2>
 <p>If you already use a reader that makes <code>.tachibk</code> backups, you do not have to start over:</p>
 <ol>
 <li>In that reader, create a backup (usually More &gt; Settings &gt; Data and storage &gt; Create backup).</li>
-<li>In Saikou, open More &gt; Backup &gt; <strong>Restore backup</strong> and pick that <code>.tachibk</code> file. Opening the
-file with Saikou from a file manager also works: it opens the Backup screen and starts the
-restore. See
+<li>In Saikou, open More &gt; <strong>Backup</strong>, go to the <strong>Restore</strong> tab, tap <strong>Restore backup</strong> and pick
+that <code>.tachibk</code> file. The restore starts right away. Opening the file with Saikou from a file
+manager also works: it opens the <strong>Restore</strong> tab and asks first. See
 <a href="/docs/backups">Backups and restore</a>.</li>
-<li>Add the same extension repositories in Saikou and install the extensions your library uses (the
-backup carries your repositories when <strong>Extension stores</strong> was included). See
-<a href="/docs/extensions">Extensions and repositories</a>.</li>
+<li>Get the extensions your library uses. The backup carries your repositories when <strong>Extension
+stores</strong> was included. Once you have checked them, <strong>Install all</strong> on the <strong>Restore</strong> tab
+installs their extensions. If you add a repository in Saikou before restoring, <strong>Install
+extensions</strong> installs from it during the restore. See
+<a href="/docs/backups#install-extensions">Install extensions</a>.</li>
 <li>To bring your downloaded chapters over as well, open More &gt; Settings &gt; Downloads &gt;
 <strong>Copy downloads from a folder</strong> and pick that reader's folder. Do this after the restore: only
 chapters of entries already in your library are copied. See
@@ -91,7 +96,8 @@ which are lists of extensions published by third parties.</p>
 repository is configured).</li>
 <li>Under <strong>Add a repository</strong>, paste the repository's address into <strong>Repository address</strong> and tap
 <strong>Add</strong>.</li>
-<li>Go to <strong>Browse &gt; Extensions</strong> and tap <strong>Install</strong> next to an extension.</li>
+<li>Go to <strong>Browse &gt; Extensions</strong>, where its extensions are already listed, and tap the install
+button at the end of an extension's row.</li>
 </ol>
 <p>Extensions and repositories are made by third parties. An extension runs its code inside Saikou
 and can see what Saikou can see, so only add repositories and extensions you trust. Saikou helps
@@ -110,7 +116,8 @@ entry in. If an entry with the same title is already in your library from anothe
 says so and offers <strong>Add anyway</strong>, <strong>View chapters</strong> (open the one you have) or <strong>Migrate</strong> (move
 your progress to this source). See <a href="/docs/migration">Migration</a>.</p>
 <h2 id="searching-every-source-at-once">Searching every source at once<a class="anchor" href="#searching-every-source-at-once" aria-label="Link to this section">#</a></h2>
-<p>On <strong>Browse</strong>, tap the search icon in the top bar (<strong>Search all sources</strong>). Type a title and Saikou
+<p>On the <strong>Sources</strong> tab of <strong>Browse</strong>, tap the search icon in the top bar (<strong>Search all sources</strong>).
+Type a title and Saikou
 searches every enabled source and shows the results source by source. <strong>More from this source</strong>
 opens the full results of one source.</p>
 <p>If you cannot find a title:</p>

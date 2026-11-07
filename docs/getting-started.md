@@ -9,6 +9,9 @@ and open it. The first time, Android asks you to allow the app you opened it fro
 browser or file manager) to install apps. Release notes and earlier versions are on GitHub,
 <https://github.com/ShinSaikou/saikou/releases>.
 
+On your phone the app is called **Shin Saikou**, so look for that name on your home screen, in your
+app list or in the phone's search. These pages call it Saikou.
+
 Saikou needs Android 8.0 or later.
 
 ## The first launch
@@ -24,20 +27,23 @@ Two questions may appear:
   **Allow background work**.
 
 The app opens on the **Library** tab, which is empty at first. The bottom bar has five tabs:
-**Library**, **Updates**, **History**, **Browse** and **More**.
+**Library**, **Updates**, **History**, **Browse** and **More**. A long press on the app icon offers
+shortcuts to Library, Updates, History and Browse.
 
 ## Coming from another reader
 
 If you already use a reader that makes `.tachibk` backups, you do not have to start over:
 
 1. In that reader, create a backup (usually More > Settings > Data and storage > Create backup).
-2. In Saikou, open More > Backup > **Restore backup** and pick that `.tachibk` file. Opening the
-   file with Saikou from a file manager also works: it opens the Backup screen and starts the
-   restore. See
+2. In Saikou, open More > **Backup**, go to the **Restore** tab, tap **Restore backup** and pick
+   that `.tachibk` file. The restore starts right away. Opening the file with Saikou from a file
+   manager also works: it opens the **Restore** tab and asks first. See
    [Backups and restore](backups.md).
-3. Add the same extension repositories in Saikou and install the extensions your library uses (the
-   backup carries your repositories when **Extension stores** was included). See
-   [Extensions and repositories](extensions.md).
+3. Get the extensions your library uses. The backup carries your repositories when **Extension
+   stores** was included. Once you have checked them, **Install all** on the **Restore** tab
+   installs their extensions. If you add a repository in Saikou before restoring, **Install
+   extensions** installs from it during the restore. See
+   [Install extensions](backups.md#install-extensions).
 4. To bring your downloaded chapters over as well, open More > Settings > Downloads >
    **Copy downloads from a folder** and pick that reader's folder. Do this after the restore: only
    chapters of entries already in your library are copied. See
@@ -61,7 +67,8 @@ which are lists of extensions published by third parties.
    repository is configured).
 2. Under **Add a repository**, paste the repository's address into **Repository address** and tap
    **Add**.
-3. Go to **Browse > Extensions** and tap **Install** next to an extension.
+3. Go to **Browse > Extensions**, where its extensions are already listed, and tap the install
+   button at the end of an extension's row.
 
 Extensions and repositories are made by third parties. An extension runs its code inside Saikou
 and can see what Saikou can see, so only add repositories and extensions you trust. Saikou helps
@@ -84,7 +91,8 @@ your progress to this source). See [Migration](migration.md).
 
 ## Searching every source at once
 
-On **Browse**, tap the search icon in the top bar (**Search all sources**). Type a title and Saikou
+On the **Sources** tab of **Browse**, tap the search icon in the top bar (**Search all sources**).
+Type a title and Saikou
 searches every enabled source and shows the results source by source. **More from this source**
 opens the full results of one source.
 

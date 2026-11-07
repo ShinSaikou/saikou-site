@@ -22,7 +22,7 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.1.1</span>
+          <span class="chip">v0.1.2</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
@@ -38,7 +38,7 @@
       <main class="docs-main" id="doc-content">
         <div class="docs-mobile">
           <details class="docs-menu"><summary>Menu</summary><div><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates" aria-current="page">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting">Troubleshooting</a></li></ul></div></nav></div></details>
-          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#updating-by-hand">Updating by hand</a></li><li><a href="#automatic-updates">Automatic updates</a><ul><li><a href="#other-update-settings">Other update settings</a></li></ul></li><li><a href="#how-saikou-treats-the-sites">How Saikou treats the sites</a></li><li><a href="#notifications">Notifications</a></li><li><a href="#the-updates-tab">The Updates tab</a><ul><li><a href="#update-errors">Update errors</a></li></ul></li></ul></div></details>
+          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#updating-by-hand">Updating by hand</a></li><li><a href="#automatic-updates">Automatic updates</a><ul><li><a href="#other-update-settings">Other update settings</a></li></ul></li><li><a href="#an-entrys-update-interval">An entry's update interval</a></li><li><a href="#how-saikou-treats-the-sites">How Saikou treats the sites</a></li><li><a href="#notifications">Notifications</a></li><li><a href="#the-updates-tab">The Updates tab</a><ul><li><a href="#upcoming">Upcoming</a></li><li><a href="#update-errors">Update errors</a></li></ul></li></ul></div></details>
         </div>
         <article class="doc">
 <h1 id="library-updates-and-the-updates-tab">Library updates and the Updates tab</h1>
@@ -99,6 +99,26 @@ way.</li>
 <li><strong>Refresh library covers</strong>: runs a full library update that also refreshes every entry's cover
 and details.</li>
 </ul>
+<h2 id="an-entrys-update-interval">An entry's update interval<a class="anchor" href="#an-entrys-update-interval" aria-label="Link to this section">#</a></h2>
+<p>Every library entry's page has an update interval button (the hourglass). It says when automatic
+updates next check the entry, or why they do not:</p>
+<ul>
+<li><strong>Next check today</strong>, <strong>Next check tomorrow</strong> or <strong>Next check in N days</strong>.</li>
+<li><strong>Skipped while unread</strong>, <strong>Skipped until started</strong> or <strong>Skipped, completed</strong>: a <strong>Smart update</strong>
+rule holds the entry back.</li>
+<li><strong>Not checked by updates</strong>: the entry is only fetched once.</li>
+<li><strong>Checked every update</strong>: <strong>Predict next release time</strong> is off.</li>
+<li><strong>No release predicted</strong>: there is no prediction yet, or the entry is completed.</li>
+<li><strong>Every day</strong> or <strong>Every N days</strong>: you set the interval yourself (see below).</li>
+</ul>
+<p>With <strong>Automatic library update</strong> off, the button shows the predicted next release instead:
+<strong>Next release today</strong>, <strong>Next release tomorrow</strong> or <strong>Next release in N days</strong>.</p>
+<p>Tap the button for the <strong>Update interval</strong> dialog, which gives the reason in full and, when there
+is one, the date of the next check or release. Refreshing an entry always checks it.</p>
+<p>To choose the interval yourself, turn on More &gt; Settings &gt; Experimental &gt; <strong>Custom update interval
+per entry</strong>. The dialog then offers <strong>Check every</strong>: a number of days from 1 to 28, or <strong>Automatic</strong>
+for the estimate. The choice applies at once. The switch stays on this device and is not in backups,
+and turning it off puts every entry back on its estimate.</p>
 <h2 id="how-saikou-treats-the-sites">How Saikou treats the sites<a class="anchor" href="#how-saikou-treats-the-sites" aria-label="Link to this section">#</a></h2>
 <p>Saikou updates several sources at the same time and adjusts how fast it asks each site. When a site
 starts refusing requests or slowing down, Saikou halves its pace for that site, and waits as long
@@ -137,6 +157,10 @@ is also in an included category.</li>
 chapter in between. The bar offers <strong>Mark as read</strong>, <strong>Mark as unread</strong>, <strong>Bookmark chapter</strong>,
 <strong>Unbookmark chapter</strong>, <strong>Select all</strong>, <strong>Invert selection</strong> and <strong>Deselect all</strong>.</li>
 </ul>
+<h3 id="upcoming">Upcoming<a class="anchor" href="#upcoming" aria-label="Link to this section">#</a></h3>
+<p><strong>Upcoming</strong> (the calendar icon in the Updates bar) lists the releases predicted for your library,
+day by day, with how many entries fall on each day. Tap an entry to open it. Predictions come from
+each entry's release dates after a library update, so the list is empty until then.</p>
 <h3 id="update-errors">Update errors<a class="anchor" href="#update-errors" aria-label="Link to this section">#</a></h3>
 <p>When the last update had failures, the Updates tab's top bar shows an error button with the count.
 It opens <strong>Update errors</strong>: the failed entries grouped by source, each with the reason. Tap an
@@ -155,7 +179,7 @@ completed</strong>: see <a href="/docs/troubleshooting">Troubleshooting</a>.</li
         </article>
         <nav class="pager" aria-label="Previous and next page"><a class="prev" href="/docs/entry"><span>Previous page</span>An entry's page</a><a class="next" href="/docs/history"><span>Next page</span>History and statistics</a></nav>
       </main>
-      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#updating-by-hand">Updating by hand</a></li><li><a href="#automatic-updates">Automatic updates</a><ul><li><a href="#other-update-settings">Other update settings</a></li></ul></li><li><a href="#how-saikou-treats-the-sites">How Saikou treats the sites</a></li><li><a href="#notifications">Notifications</a></li><li><a href="#the-updates-tab">The Updates tab</a><ul><li><a href="#update-errors">Update errors</a></li></ul></li></ul></aside>
+      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#updating-by-hand">Updating by hand</a></li><li><a href="#automatic-updates">Automatic updates</a><ul><li><a href="#other-update-settings">Other update settings</a></li></ul></li><li><a href="#an-entrys-update-interval">An entry's update interval</a></li><li><a href="#how-saikou-treats-the-sites">How Saikou treats the sites</a></li><li><a href="#notifications">Notifications</a></li><li><a href="#the-updates-tab">The Updates tab</a><ul><li><a href="#upcoming">Upcoming</a></li><li><a href="#update-errors">Update errors</a></li></ul></li></ul></aside>
     </div>
 
     <footer class="site-footer">

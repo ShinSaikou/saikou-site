@@ -3,10 +3,33 @@
 More > **Settings** lists its sections; on a large screen the list stays beside the open section.
 This page goes through each section row by row and links to the guide that explains it.
 
-The More tab itself has two **Quick controls**, **Incognito** and **Downloaded only**, and the
-**Manage** rows: **Download queue**, **Categories**, **Statistics**, **Data and storage** (opens
-Settings on the Data section), **Extension repositories**, **Backup**, **Settings** and **Crash
-logs**.
+The More tab itself has the logo at the top, which opens [About](#the-about-screen), two **Quick
+controls**, **Incognito** and **Downloaded only**, and the **Manage** rows: **Download queue**,
+**Categories**, **Statistics**, **Data and storage** (opens Settings on the Data section),
+**Extension repositories**, **Backup**, **Settings** and **Crash logs**. Each row has an icon.
+
+## Searching settings
+
+Tap the search button above the section list and type in **Search settings**. Every matching
+setting is listed with the section it is in. Pick one to open that section scrolled to the setting,
+which flashes for a moment so it is easy to spot.
+
+## The About screen
+
+Tap the logo at the top of the More tab to open **About**.
+
+- The version, the build and the commit. Tap them to copy one line for a report.
+- **Check for updates**.
+- **Builds**: the latest release's APKs with their size. Each offers **Update** or **Download**, or
+  says **Installed** for the one you have. **All releases** opens every version with its notes on
+  GitHub.
+- **Help**: **Share bug report**, **Copy device info**, **Report an issue**, **Discord** and
+  **Website**. See [Reporting a problem](troubleshooting.md#reporting-a-problem).
+
+From the release after 0.1.2, every release also carries a debug APK, listed here as **Debug
+build**. It installs beside your app as Shin Saikou Debug, with a library of its own, so you can
+try a fix or send a detailed bug report without touching your library. Its **Check for updates**
+offers the next release's debug APK.
 
 ## Appearance
 
@@ -106,6 +129,8 @@ See [Security and privacy](security-and-privacy.md).
 ## Advanced
 
 - **Version**: the app's version and build. Tap to copy it, for example into a bug report.
+- **Check for updates**: ask GitHub now whether a newer version is out. **Check for updates
+  automatically** does so at most once a day, when the app opens.
 - **Check extension updates**: refresh your repositories in the background.
 - **Extension library versions override**. See
   [Extensions](extensions.md#when-an-extension-does-not-load).
@@ -145,3 +170,8 @@ turning it off again puts things back as they were.
   so the pages ahead are ready sooner. A source that limits how often it may be asked can answer
   more slowly or refuse a page, which then shows its retry button. It applies to chapters opened
   after the change.
+- **Custom update interval per entry**: lets an entry's **Update interval** dialog set how many days
+  apart it is checked, instead of the estimate from its release dates. See
+  [Library updates](updates.md#an-entrys-update-interval). The library's **Custom update interval**
+  filter shows only while this is on. The setting stays on this device and is not in backups, and
+  turning it off puts every entry back on its estimate.

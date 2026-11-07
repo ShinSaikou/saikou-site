@@ -22,7 +22,7 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.1.1</span>
+          <span class="chip">v0.1.2</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
@@ -62,30 +62,44 @@ by hand. It takes effect the next time the app starts; the message offers <stron
 <h2 id="adding-a-repository">Adding a repository<a class="anchor" href="#adding-a-repository" aria-label="Link to this section">#</a></h2>
 <ol>
 <li>Open More &gt; <strong>Extension repositories</strong>. (Browse &gt; Extensions also offers the screen when no
-repository is configured, and the <strong>Repositories (N)</strong> button opens it later.)</li>
+repository is configured, and later <strong>Repositories (N)</strong> in the menu of that page's top bar
+opens it.)</li>
 <li>Under <strong>Add a repository</strong>, paste the address its maintainers publish into <strong>Repository
 address</strong>.</li>
-<li>Tap <strong>Add</strong>. Saikou reads the list and confirms with <strong>Repository added.</strong></li>
+<li>Tap <strong>Add</strong>. Saikou reads the list and confirms with <strong>Repository added.</strong> Its extensions appear
+on the Extensions page right away, without pulling to refresh, and the repository's row shows a
+spinner while they load.</li>
 </ol>
 <p>Some repository pages offer a link that opens Saikou directly. Such a link only fills in the
 address: Saikou still waits for you to read it and tap <strong>Add</strong>.</p>
 <p>The refresh button reloads every repository's list. To remove one, tap <strong>Remove</strong> next to it and
-confirm.</p>
+confirm; its extensions leave the Extensions page the same way. Adding a repository you already
+have, even under another form of its address (with <code>http</code> or a trailing slash), says <strong>That
+repository is already configured</strong>.</p>
 <h2 id="installing-and-updating">Installing and updating<a class="anchor" href="#installing-and-updating" aria-label="Link to this section">#</a></h2>
-<p><strong>Browse &gt; Extensions</strong> lists, in this order: <strong>Update available</strong>, <strong>Needs trust</strong>, <strong>Did not
-load</strong>, <strong>Installed</strong> and <strong>Available</strong>.</p>
+<p><strong>Browse &gt; Extensions</strong> lists, in this order: <strong>Updates pending</strong>, with its <strong>Update all</strong> button
+in the heading, <strong>Installed</strong>, <strong>Needs trust</strong>, <strong>Did not load</strong>, and then what you can install,
+under a heading per language.</p>
+<p>Each row shows the extension's icon, its name, and one line with its language, its version, the
+extension library version (<strong>lib 1.4</strong>) and any warning in red: <strong>18+</strong> for extensions marked as
+mature, <strong>OBSOLETE</strong> or <strong>UNTRUSTED</strong>. Under a language heading the line leaves out the language.</p>
 <ul>
-<li><strong>Install</strong> downloads and installs an extension. The row shows <strong>Pending</strong>, <strong>Downloading</strong> and
-<strong>Installing</strong>; <strong>Cancel install</strong> stops it.</li>
-<li><strong>Update</strong> installs a newer version; <strong>Update all</strong> updates every extension that has one.</li>
-<li><strong>Search extensions</strong> filters the list, and the <strong>Filter</strong> icon chooses which languages appear.</li>
-<li>Each row shows the version (<strong>v1.4.2</strong>), the extension library version (<strong>lib 1.4</strong>), the
-languages, and <strong>18+</strong> for extensions marked as mature.</li>
+<li><strong>Install</strong>, <strong>Update</strong>, <strong>Trust</strong> and the settings of an installed extension are icon buttons at
+the end of the row. Tapping a row you can install installs it too.</li>
+<li>While an extension downloads or installs, a ring turns around its icon, the line shows
+<strong>Pending</strong>, <strong>Downloading</strong> or <strong>Installing</strong>, and the row's button (<strong>Cancel install</strong>) cancels
+it.</li>
+<li><strong>Update all</strong> updates every extension that has an update.</li>
+<li>The top bar has the search button (<strong>Search extensions</strong>), which searches the extensions, and the
+<strong>Filter</strong> icon, which chooses which languages appear. Its menu has <strong>Repositories (N)</strong>. Global
+search is on the <strong>Sources</strong> tab. See <a href="/docs/browse#global-search">Browse and sources</a>.</li>
 </ul>
+<p>The sources of your installed extensions appear on the <strong>Sources</strong> tab and in global search, with
+the Local source after them.</p>
 <p>Saikou installs extensions inside the app. They do not appear in Android's app list and do not need
 the "Install unknown apps" permission.</p>
 <p>More &gt; Settings &gt; Advanced &gt; <strong>Check extension updates</strong> refreshes your repositories in the
-background so the <strong>Update available</strong> section stays current.</p>
+background so the <strong>Updates pending</strong> section stays current.</p>
 <h2 id="an-extensions-page">An extension's page<a class="anchor" href="#an-extensions-page" aria-label="Link to this section">#</a></h2>
 <p>Tap an installed extension to open its page:</p>
 <ul>
@@ -97,10 +111,10 @@ them together.</li>
 <li><strong>Settings</strong> and <strong>Open in WebView</strong> for each source, when the source has them.</li>
 </ul>
 <h2 id="uninstalling">Uninstalling<a class="anchor" href="#uninstalling" aria-label="Link to this section">#</a></h2>
-<p>Tap <strong>Uninstall</strong> on the extension's page or in its row menu (<strong>More actions</strong>), then confirm
-("Remove ... and the sources it provides?"). Entries from its sources stay in your library, marked
-<strong>Source not installed</strong>, with their read chapters and downloads. Install the extension again, or
-<a href="/docs/migration">migrate</a> those entries to another source.</p>
+<p>Long press an installed extension on Browse &gt; Extensions, or tap <strong>Uninstall</strong> on its page, then
+confirm ("Remove ... and the sources it provides?"). Entries from its sources stay in your library,
+marked <strong>Source not installed</strong>, with their read chapters and downloads. Install the extension
+again, or <a href="/docs/migration">migrate</a> those entries to another source.</p>
 <h2 id="when-an-extension-does-not-load">When an extension does not load<a class="anchor" href="#when-an-extension-does-not-load" aria-label="Link to this section">#</a></h2>
 <p>Extensions that cannot run are listed under <strong>Did not load</strong>, with the reason:</p>
 <ul>

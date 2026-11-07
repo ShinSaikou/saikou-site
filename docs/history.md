@@ -10,8 +10,13 @@ opened.
 - Tap a row to open the entry's page.
 - **Search** filters the list by title.
 - Long press to select several rows, then **Remove** them (**Remove N entries from history?**).
-- **Clear** in the top bar empties the whole history after a confirmation: "Every entry leaves the
-  history. Library entries and read chapters stay as they are."
+- **Hide NSFW entries** in the top bar leaves out the entries whose source comes from an installed
+  extension marked NSFW, search results included, and the same button then reads **Show NSFW
+  entries**. Entries from the Local source, or from a source with no installed extension, always
+  stay. When that leaves nothing to show, the tab says **NSFW entries are hidden.**
+- **Clear all** in the top bar (the sweep icon) empties the whole history after a confirmation:
+  "Every entry leaves the history. Library entries and read chapters stay as they are." It clears
+  every entry, hidden ones too.
 
 Removing history never changes which chapters are marked read and never removes anything from your
 library.

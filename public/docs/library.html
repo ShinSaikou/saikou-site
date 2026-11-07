@@ -22,7 +22,7 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.1.1</span>
+          <span class="chip">v0.1.2</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
@@ -46,13 +46,22 @@
 library's own sheet filters, sorts and lays it out.</p>
 <h2 id="the-library-tab">The Library tab<a class="anchor" href="#the-library-tab" aria-label="Link to this section">#</a></h2>
 <ul>
-<li><strong>Search library</strong> (the search icon) filters the current tab by title as you type.</li>
+<li><strong>Search library</strong> (the search icon) filters the current tab by title as you type. A button above
+the results, <strong>Search all sources for "..."</strong>, runs the same words in every source, so an entry
+you do not have yet is one tap away, even while the library is empty. It is offered for plain
+words only, not for a search by genre, author or another field. See
+<a href="/docs/browse#global-search">Global search</a>.</li>
 <li>The <strong>filter</strong> icon opens the library sheet with three tabs: <strong>Filter</strong>, <strong>Sort</strong> and
 <strong>Display</strong>.</li>
 <li>The overflow menu (three dots) has <strong>Update library</strong>, <strong>Update category</strong> for the tab you are
-on, and <strong>Stop update</strong> while an update runs. See <a href="/docs/updates">Library updates</a>.</li>
+on, and <strong>Stop update</strong> while an update runs. See <a href="/docs/updates">Library updates</a>. <strong>Open random
+entry</strong> opens a random entry from the category on screen, after filters and search.</li>
 <li>Tap an entry to open its page. See <a href="/docs/entry">An entry's page</a>.</li>
 </ul>
+<p>The buttons at the top of Library, Updates, History and Browse follow one order: search first, then
+the switches that change what the list shows, then the tab's own action, then the menu. Long press
+any of them to see its name. On Library the update errors button sits first, so the others stay put
+when it appears.</p>
 <p>On a large screen the library can show the tapped entry's chapters in a second pane beside the
 grid. More &gt; Settings &gt; Appearance &gt; <strong>Two pane layout</strong> chooses when:
 <strong>Automatic</strong>, <strong>Always</strong>, <strong>Landscape</strong> or <strong>Never</strong>.</p>
@@ -63,7 +72,8 @@ entries that match). Tap a filter to move to the next state.</p>
 <li><strong>Downloaded</strong>: entries with downloaded chapters. While <strong>Downloaded only</strong> is on in the More
 tab, this filter is forced on.</li>
 <li><strong>Unread</strong>, <strong>Started</strong>, <strong>Bookmarked</strong>, <strong>Completed</strong>.</li>
-<li><strong>Custom update interval</strong>: entries whose update interval you set by hand.</li>
+<li><strong>Custom update interval</strong>: entries whose update interval you set by hand. It shows only while
+More &gt; Settings &gt; Experimental &gt; <strong>Custom update interval per entry</strong> is on.</li>
 <li><strong>Tracked</strong>: entries linked to a tracker. It appears once you are signed in to a tracker. See
 <a href="/docs/tracking">Tracking</a>.</li>
 </ul>

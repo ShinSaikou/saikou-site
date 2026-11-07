@@ -22,7 +22,7 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.1.1</span>
+          <span class="chip">v0.1.2</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
@@ -38,16 +38,35 @@
       <main class="docs-main" id="doc-content">
         <div class="docs-mobile">
           <details class="docs-menu"><summary>Menu</summary><div><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings" aria-current="page">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting">Troubleshooting</a></li></ul></div></nav></div></details>
-          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#appearance">Appearance</a></li><li><a href="#library">Library</a></li><li><a href="#reader">Reader</a></li><li><a href="#downloads">Downloads</a></li><li><a href="#tracking">Tracking</a></li><li><a href="#browse">Browse</a></li><li><a href="#data">Data</a></li><li><a href="#sync">Sync</a></li><li><a href="#security-and-privacy">Security and privacy</a></li><li><a href="#advanced">Advanced</a></li><li><a href="#experimental">Experimental</a></li></ul></div></details>
+          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#searching-settings">Searching settings</a></li><li><a href="#the-about-screen">The About screen</a></li><li><a href="#appearance">Appearance</a></li><li><a href="#library">Library</a></li><li><a href="#reader">Reader</a></li><li><a href="#downloads">Downloads</a></li><li><a href="#tracking">Tracking</a></li><li><a href="#browse">Browse</a></li><li><a href="#data">Data</a></li><li><a href="#sync">Sync</a></li><li><a href="#security-and-privacy">Security and privacy</a></li><li><a href="#advanced">Advanced</a></li><li><a href="#experimental">Experimental</a></li></ul></div></details>
         </div>
         <article class="doc">
 <h1 id="settings-reference">Settings reference</h1>
 <p>More &gt; <strong>Settings</strong> lists its sections; on a large screen the list stays beside the open section.
 This page goes through each section row by row and links to the guide that explains it.</p>
-<p>The More tab itself has two <strong>Quick controls</strong>, <strong>Incognito</strong> and <strong>Downloaded only</strong>, and the
-<strong>Manage</strong> rows: <strong>Download queue</strong>, <strong>Categories</strong>, <strong>Statistics</strong>, <strong>Data and storage</strong> (opens
-Settings on the Data section), <strong>Extension repositories</strong>, <strong>Backup</strong>, <strong>Settings</strong> and <strong>Crash
-logs</strong>.</p>
+<p>The More tab itself has the logo at the top, which opens <a href="#the-about-screen">About</a>, two <strong>Quick
+controls</strong>, <strong>Incognito</strong> and <strong>Downloaded only</strong>, and the <strong>Manage</strong> rows: <strong>Download queue</strong>,
+<strong>Categories</strong>, <strong>Statistics</strong>, <strong>Data and storage</strong> (opens Settings on the Data section),
+<strong>Extension repositories</strong>, <strong>Backup</strong>, <strong>Settings</strong> and <strong>Crash logs</strong>. Each row has an icon.</p>
+<h2 id="searching-settings">Searching settings<a class="anchor" href="#searching-settings" aria-label="Link to this section">#</a></h2>
+<p>Tap the search button above the section list and type in <strong>Search settings</strong>. Every matching
+setting is listed with the section it is in. Pick one to open that section scrolled to the setting,
+which flashes for a moment so it is easy to spot.</p>
+<h2 id="the-about-screen">The About screen<a class="anchor" href="#the-about-screen" aria-label="Link to this section">#</a></h2>
+<p>Tap the logo at the top of the More tab to open <strong>About</strong>.</p>
+<ul>
+<li>The version, the build and the commit. Tap them to copy one line for a report.</li>
+<li><strong>Check for updates</strong>.</li>
+<li><strong>Builds</strong>: the latest release's APKs with their size. Each offers <strong>Update</strong> or <strong>Download</strong>, or
+says <strong>Installed</strong> for the one you have. <strong>All releases</strong> opens every version with its notes on
+GitHub.</li>
+<li><strong>Help</strong>: <strong>Share bug report</strong>, <strong>Copy device info</strong>, <strong>Report an issue</strong>, <strong>Discord</strong> and
+<strong>Website</strong>. See <a href="/docs/troubleshooting#reporting-a-problem">Reporting a problem</a>.</li>
+</ul>
+<p>From the release after 0.1.2, every release also carries a debug APK, listed here as <strong>Debug
+build</strong>. It installs beside your app as Shin Saikou Debug, with a library of its own, so you can
+try a fix or send a detailed bug report without touching your library. Its <strong>Check for updates</strong>
+offers the next release's debug APK.</p>
 <h2 id="appearance">Appearance<a class="anchor" href="#appearance" aria-label="Link to this section">#</a></h2>
 <ul>
 <li><strong>Theme</strong>: <strong>Saikou</strong> (the default), <strong>Dynamic</strong> (colours from your wallpaper, Android 12 and
@@ -129,6 +148,8 @@ fresh.</li>
 <h2 id="advanced">Advanced<a class="anchor" href="#advanced" aria-label="Link to this section">#</a></h2>
 <ul>
 <li><strong>Version</strong>: the app's version and build. Tap to copy it, for example into a bug report.</li>
+<li><strong>Check for updates</strong>: ask GitHub now whether a newer version is out. <strong>Check for updates
+automatically</strong> does so at most once a day, when the app opens.</li>
 <li><strong>Check extension updates</strong>: refresh your repositories in the background.</li>
 <li><strong>Extension library versions override</strong>. See
 <a href="/docs/extensions#when-an-extension-does-not-load">Extensions</a>.</li>
@@ -167,11 +188,16 @@ turning it off again puts things back as they were.</p>
 so the pages ahead are ready sooner. A source that limits how often it may be asked can answer
 more slowly or refuse a page, which then shows its retry button. It applies to chapters opened
 after the change.</li>
+<li><strong>Custom update interval per entry</strong>: lets an entry's <strong>Update interval</strong> dialog set how many days
+apart it is checked, instead of the estimate from its release dates. See
+<a href="/docs/updates#an-entrys-update-interval">Library updates</a>. The library's <strong>Custom update interval</strong>
+filter shows only while this is on. The setting stays on this device and is not in backups, and
+turning it off puts every entry back on its estimate.</li>
 </ul>
         </article>
         <nav class="pager" aria-label="Previous and next page"><a class="prev" href="/docs/security-and-privacy"><span>Previous page</span>Security and privacy</a><a class="next" href="/docs/faq"><span>Next page</span>Frequently asked questions</a></nav>
       </main>
-      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#appearance">Appearance</a></li><li><a href="#library">Library</a></li><li><a href="#reader">Reader</a></li><li><a href="#downloads">Downloads</a></li><li><a href="#tracking">Tracking</a></li><li><a href="#browse">Browse</a></li><li><a href="#data">Data</a></li><li><a href="#sync">Sync</a></li><li><a href="#security-and-privacy">Security and privacy</a></li><li><a href="#advanced">Advanced</a></li><li><a href="#experimental">Experimental</a></li></ul></aside>
+      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#searching-settings">Searching settings</a></li><li><a href="#the-about-screen">The About screen</a></li><li><a href="#appearance">Appearance</a></li><li><a href="#library">Library</a></li><li><a href="#reader">Reader</a></li><li><a href="#downloads">Downloads</a></li><li><a href="#tracking">Tracking</a></li><li><a href="#browse">Browse</a></li><li><a href="#data">Data</a></li><li><a href="#sync">Sync</a></li><li><a href="#security-and-privacy">Security and privacy</a></li><li><a href="#advanced">Advanced</a></li><li><a href="#experimental">Experimental</a></li></ul></aside>
     </div>
 
     <footer class="site-footer">

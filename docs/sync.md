@@ -101,9 +101,9 @@ backup folder, so nothing can be lost by joining. The Sync section names the fil
 until two later sign-ins have each written a newer one.
 
 The notice in More > Settings > Sync ends with **Save a copy**, which opens Android's save dialog
-and copies the file wherever you choose. The file is also listed under More > **Backup** >
-**Automatic backups** as a **Sync safety backup**, to restore or copy. With a **Storage
-location** set, the automatic backup folder is its `autobackup` folder, which you can open
+and copies the file wherever you choose. The file is also listed on the **Restore** tab of More >
+**Backup**, under **Automatic backups**, as a **Sync safety backup**, to restore or copy. With a
+**Storage location** set, the automatic backup folder is its `autobackup` folder, which you can open
 yourself. See [Storage location](backups.md#storage-location).
 
 ## Sync reports

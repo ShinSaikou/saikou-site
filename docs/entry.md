@@ -14,11 +14,19 @@ chapter list and everything you can do with it.
   does not show; use **Share** there.
 - The title, the author (**By ...**), the source (**Source: ...**, or **Source not installed** when
   its extension is missing) and the status (**Ongoing**, **Completed**, **On hiatus** and so on).
+  Tap the title or the author to search every source for it (see
+  [Global search](browse.md#global-search)). A long press copies it.
 - The description. Tap **More** to expand it and **Less** to fold it.
 - **Add to library** or **Remove from library**.
 - The **Tracking** button, which shows how many trackers the entry is linked to. See
   [Tracking](tracking.md).
+- On a library entry, the update interval button (the hourglass), which says when the entry is next
+  checked, or why it is not. Tap it for the details. See
+  [Library updates](updates.md#an-entrys-update-interval).
 - **Continue reading** opens the next unread chapter.
+
+In a narrow pane, such as with **Two pane layout** set to **Always** on a phone, the cover sits
+above the title.
 
 Pull the page down, or use the overflow menu's **Refresh**, to fetch the latest details and
 chapters from the source.

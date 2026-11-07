@@ -47,14 +47,16 @@
   </head>
   <body>
     <h1>Saikou Privacy Policy</h1>
-    <p class="sub">Effective date: 1 November 2026</p>
+    <p class="sub">Effective date: 7 November 2026</p>
 
     <h2>In plain English</h2>
     <p class="lead">
-      Saikou has no account, no server, no ads and no analytics. The developer receives no data from
-      the app. If you turn on Google Drive sync, your library data goes to your own Google Drive and
+      Saikou has no account, no server, no ads and no analytics. The app sends nothing to the
+      developer on its own. If you turn on Google Drive sync, your library data goes to your own Google Drive and
       nowhere else. If you sign in to MyAnimeList or AniList, the reading progress of the titles you
-      choose to link goes to your own list on that site and nowhere else.
+      choose to link goes to your own list on that site and nowhere else. To look for a new version,
+      the app asks GitHub, which sees the request and nothing from your library. A bug report goes
+      only where you choose to send it.
     </p>
 
     <h2>1. Who is responsible</h2>
@@ -66,7 +68,7 @@
     <p>
       Your library, categories, reading progress, reading history, bookmarks, downloaded chapters
       and settings are stored in the app's private storage on your device. Backups you create are
-      files you choose where to save. None of this is sent to the developer.
+      files you choose where to save. The app sends none of this to the developer.
     </p>
     <p>
       If you use MyAnimeList or AniList tracking, the link between a library entry and its entry on
@@ -100,7 +102,24 @@
         <strong>AniList tracking, if you sign in.</strong> Described in section 6. Nothing is sent
         until you sign in, and then only about the titles you choose to link.
       </li>
-      <li><strong>Nothing to the developer.</strong> There is no server run for Saikou.</li>
+      <li>
+        <strong>Checking for updates.</strong> Saikou asks GitHub for its latest release, on its own
+        about once a day when you open the app, and whenever you tap Check for updates or open the
+        About screen. An update you choose to install downloads from GitHub too. GitHub receives
+        these requests and your IP address, as it would from a web browser, and handles them under
+        its own policy. They carry nothing from your library. The automatic check can be turned off
+        in Settings, under Advanced.
+      </li>
+      <li>
+        <strong>Bug reports, if you share one.</strong> Share bug report, on the About screen, makes
+        a text file with the app version, your device and the app's recent log, with sign-in tokens
+        and cookies taken out. It can still name titles and sources from your library. Nothing is
+        sent until you pick where the file goes, and it goes only there. Copy device info copies the
+        same version and device lines without the log.
+      </li>
+      <li>
+        <strong>Nothing to the developer on its own.</strong> There is no server run for Saikou.
+      </li>
     </ul>
 
     <h2>4. Google Drive sync and your Google data</h2>
@@ -273,8 +292,10 @@
 
     <h2>7. What the developer collects</h2>
     <p>
-      Nothing. Saikou contains no analytics, no crash reporting, no advertising and no advertising
-      identifiers, and it has no user accounts.
+      Nothing through the app. Saikou contains no analytics, no crash reporting, no advertising and
+      no advertising identifiers, and it has no user accounts. If you send the developer a bug report
+      or a message, the developer receives what you chose to send, along with your email address if
+      you wrote by email, and uses it only to answer you and to fix the problem.
     </p>
 
     <h2>8. Keeping and deleting data</h2>
@@ -284,7 +305,9 @@
       described in section 4. Data on a WebDAV server stays until you delete it from that server.
       Your MyAnimeList and AniList sign-ins stay on your device until you sign out in Saikou, clear
       the app's storage or uninstall Saikou. Entries on your MyAnimeList or AniList list stay until
-      you delete them there, or from Saikou as described in sections 5 and 6.
+      you delete them there, or from Saikou as described in sections 5 and 6. A message or bug report
+      you send the developer is kept for as long as it is needed to answer you and fix the problem,
+      or until you ask for it to be deleted.
     </p>
 
     <h2>9. Children</h2>
@@ -292,9 +315,9 @@
 
     <h2>10. Your rights</h2>
     <p>
-      The developer holds no personal data about you, so there is nothing for the developer to give
-      you a copy of or delete. Your data is on your devices and in storage you control. If you
-      believe your data is being handled unlawfully, you can complain to the data protection
+      The app gives the developer no personal data about you. Your data is on your devices and in
+      storage you control. If you have sent the developer a message or a bug report, write to the
+      address in section 12 to ask for a copy of it or to have it deleted. If you believe your data is being handled unlawfully, you can complain to the data protection
       authority in your country.
     </p>
 

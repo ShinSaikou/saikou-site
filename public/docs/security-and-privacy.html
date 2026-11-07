@@ -22,7 +22,7 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.1.1</span>
+          <span class="chip">v0.1.2</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
@@ -67,7 +67,9 @@ fresh. Each extension also has its own <strong>Incognito</strong> switch on its 
 and phone-to-phone transfer are turned off for Saikou, so nothing is copied to Google by Android.</li>
 <li>Backups are files you create and place yourself. See <a href="/docs/backups">Backups and restore</a>.</li>
 <li>Crash logs are saved on the device (More &gt; <strong>Crash logs</strong>) and only leave it when you export or
-share one.</li>
+share one. A bug report leaves it only when you share it, with sign-in tokens and cookies taken
+out. It can still name titles and sources from your library. See
+<a href="/docs/troubleshooting#reporting-a-problem">Reporting a problem</a>.</li>
 <li>Downloads stay in Saikou's app storage and are not visible to other apps.</li>
 </ul>
 <h2 id="what-saikou-sends-over-the-network">What Saikou sends over the network<a class="anchor" href="#what-saikou-sends-over-the-network" aria-label="Link to this section">#</a></h2>
@@ -82,6 +84,9 @@ See <a href="/docs/tracking">Tracking</a>.</li>
 <li><strong>Sync</strong> exchanges your library with your Google Drive or your WebDAV server, once you set it up.
 See <a href="/docs/sync">Sync between devices</a>.</li>
 </ul>
+<p>Saikou also asks GitHub for the latest release when you open the About screen, when you tap
+<strong>Check for updates</strong>, and at most once a day when the app opens. Turning off More &gt; Settings &gt;
+Advanced &gt; <strong>Check for updates automatically</strong> stops only the daily check.</p>
 <p>The public privacy policy is at <a href="https://shinsaikou.com/privacy-policy">https://shinsaikou.com/privacy-policy</a>.</p>
 <h2 id="where-sign-ins-are-kept">Where sign-ins are kept<a class="anchor" href="#where-sign-ins-are-kept" aria-label="Link to this section">#</a></h2>
 <ul>

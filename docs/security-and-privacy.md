@@ -29,7 +29,9 @@ fresh. Each extension also has its own **Incognito** switch on its page, which s
   and phone-to-phone transfer are turned off for Saikou, so nothing is copied to Google by Android.
 - Backups are files you create and place yourself. See [Backups and restore](backups.md).
 - Crash logs are saved on the device (More > **Crash logs**) and only leave it when you export or
-  share one.
+  share one. A bug report leaves it only when you share it, with sign-in tokens and cookies taken
+  out. It can still name titles and sources from your library. See
+  [Reporting a problem](troubleshooting.md#reporting-a-problem).
 - Downloads stay in Saikou's app storage and are not visible to other apps.
 
 ## What Saikou sends over the network
@@ -44,6 +46,10 @@ things you set up:
   See [Tracking](tracking.md).
 - **Sync** exchanges your library with your Google Drive or your WebDAV server, once you set it up.
   See [Sync between devices](sync.md).
+
+Saikou also asks GitHub for the latest release when you open the About screen, when you tap
+**Check for updates**, and at most once a day when the app opens. Turning off More > Settings >
+Advanced > **Check for updates automatically** stops only the daily check.
 
 The public privacy policy is at <https://shinsaikou.com/privacy-policy>.
 

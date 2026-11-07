@@ -5,7 +5,7 @@ the first section, then look up the message you see.
 
 ## First steps
 
-1. **Update your extensions.** Browse > Extensions should show nothing under **Update available**.
+1. **Update your extensions.** Browse > Extensions should show nothing under **Updates pending**.
    A broken source is often fixed by an extension update; there is no telling when one will come.
 2. **Refresh the entry.** Pull down on its page.
 3. **Try another entry from the same source**, to tell a problem with one series from a problem
@@ -17,7 +17,7 @@ the first section, then look up the message you see.
 6. **Clear caches.** More > Settings > Data > **Clear chapter cache**, and More > Settings >
    Advanced > **Clear WebView data**.
 7. **Restart Saikou.** Close it from the recent apps view, or force stop it in Android's app
-   settings, and open it again.
+   settings (it is listed there as Shin Saikou), and open it again.
 
 If only you have the problem, the site may be limiting you: see [Sites that push back](#sites-that-push-back).
 If everyone using that source has it, the site or the extension needs fixing, and waiting is the
@@ -120,14 +120,25 @@ screen. Until Saikou restarts, no extension runs, library updates and downloads 
 says so, with **Restart**. The Extensions tab still lists every extension, so you can uninstall or
 update the one at fault.
 
+## Reporting a problem
+
+Tap the logo at the top of the More tab to open **About**. Under **Help**:
+
+- **Share bug report** sends a text file with the version, the device and the app's recent log.
+  Sign-in tokens and cookies are taken out, but it can still name titles and sources from your
+  library.
+- **Copy device info** copies the same lines without the log, for a chat.
+- **Report an issue** opens a new issue on GitHub. **Discord** and **Website** are there too.
+
 When reporting a problem, include:
 
-- The version: More > Settings > Advanced > **Version** (tap to copy).
-- The crash log, if there is one.
+- The version: tap the version block at the top of **About**, which copies the version, the build
+  and the commit in one line. More > Settings > Advanced > **Version** (tap to copy) also works.
+- The bug report, or the crash log if there is one.
 - What you did just before, and whether it happens every time.
 
 For problems that do not crash, turn on More > Settings > Advanced > **Verbose logging**, restart,
-reproduce the problem, then turn it off again.
+reproduce the problem, tap **Share bug report**, then turn it off again.
 
 ## Reinstalling Saikou
 
@@ -143,5 +154,5 @@ uninstalling:
 2. Run More > Settings > Downloads > **Export downloads** to copy your downloads into the storage
    location.
 3. After reinstalling, choose the same folder as the **Storage location**, restore a backup from
-   More > **Backup** > **Automatic backups** (or **Restore backup**), then bring the downloads
-   back with **Copy downloads from a folder**.
+   the **Restore** tab of More > **Backup** (under **Automatic backups**, or with **Restore
+   backup**), then bring the downloads back with **Copy downloads from a folder**.

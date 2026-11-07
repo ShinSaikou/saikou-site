@@ -64,6 +64,30 @@ In More > Settings > Advanced:
 - **Refresh library covers**: runs a full library update that also refreshes every entry's cover
   and details.
 
+## An entry's update interval
+
+Every library entry's page has an update interval button (the hourglass). It says when automatic
+updates next check the entry, or why they do not:
+
+- **Next check today**, **Next check tomorrow** or **Next check in N days**.
+- **Skipped while unread**, **Skipped until started** or **Skipped, completed**: a **Smart update**
+  rule holds the entry back.
+- **Not checked by updates**: the entry is only fetched once.
+- **Checked every update**: **Predict next release time** is off.
+- **No release predicted**: there is no prediction yet, or the entry is completed.
+- **Every day** or **Every N days**: you set the interval yourself (see below).
+
+With **Automatic library update** off, the button shows the predicted next release instead:
+**Next release today**, **Next release tomorrow** or **Next release in N days**.
+
+Tap the button for the **Update interval** dialog, which gives the reason in full and, when there
+is one, the date of the next check or release. Refreshing an entry always checks it.
+
+To choose the interval yourself, turn on More > Settings > Experimental > **Custom update interval
+per entry**. The dialog then offers **Check every**: a number of days from 1 to 28, or **Automatic**
+for the estimate. The choice applies at once. The switch stays on this device and is not in backups,
+and turning it off puts every entry back on its estimate.
+
 ## How Saikou treats the sites
 
 Saikou updates several sources at the same time and adjusts how fast it asks each site. When a site
@@ -107,6 +131,12 @@ automatic download. A chapter the site gives no date counts as already out.
 - Long press to select. As on an entry's page, a second long press further away selects every
   chapter in between. The bar offers **Mark as read**, **Mark as unread**, **Bookmark chapter**,
   **Unbookmark chapter**, **Select all**, **Invert selection** and **Deselect all**.
+
+### Upcoming
+
+**Upcoming** (the calendar icon in the Updates bar) lists the releases predicted for your library,
+day by day, with how many entries fall on each day. Tap an entry to open it. Predictions come from
+each entry's release dates after a library update, so the list is empty until then.
 
 ### Update errors
 

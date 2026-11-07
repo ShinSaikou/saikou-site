@@ -22,7 +22,7 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.1.1</span>
+          <span class="chip">v0.1.2</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
@@ -38,7 +38,7 @@
       <main class="docs-main" id="doc-content">
         <div class="docs-mobile">
           <details class="docs-menu"><summary>Menu</summary><div><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting" aria-current="page">Troubleshooting</a></li></ul></div></nav></div></details>
-          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#first-steps">First steps</a></li><li><a href="#webview">WebView</a></li><li><a href="#browser-checks">Browser checks</a></li><li><a href="#network-errors">Network errors</a><ul><li><a href="#http-errors">HTTP errors</a></li><li><a href="#sites-that-push-back">Sites that push back</a></li></ul></li><li><a href="#updates-or-backups-do-not-run-in-the-background">Updates or backups do not run in the background</a></li><li><a href="#reading-problems">Reading problems</a></li><li><a href="#crash-logs">Crash logs</a></li><li><a href="#reinstalling-saikou">Reinstalling Saikou</a></li></ul></div></details>
+          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#first-steps">First steps</a></li><li><a href="#webview">WebView</a></li><li><a href="#browser-checks">Browser checks</a></li><li><a href="#network-errors">Network errors</a><ul><li><a href="#http-errors">HTTP errors</a></li><li><a href="#sites-that-push-back">Sites that push back</a></li></ul></li><li><a href="#updates-or-backups-do-not-run-in-the-background">Updates or backups do not run in the background</a></li><li><a href="#reading-problems">Reading problems</a></li><li><a href="#crash-logs">Crash logs</a></li><li><a href="#reporting-a-problem">Reporting a problem</a></li><li><a href="#reinstalling-saikou">Reinstalling Saikou</a></li></ul></div></details>
         </div>
         <article class="doc">
 <h1 id="troubleshooting">Troubleshooting</h1>
@@ -46,7 +46,7 @@
 the first section, then look up the message you see.</p>
 <h2 id="first-steps">First steps<a class="anchor" href="#first-steps" aria-label="Link to this section">#</a></h2>
 <ol>
-<li><strong>Update your extensions.</strong> Browse &gt; Extensions should show nothing under <strong>Update available</strong>.
+<li><strong>Update your extensions.</strong> Browse &gt; Extensions should show nothing under <strong>Updates pending</strong>.
 A broken source is often fixed by an extension update; there is no telling when one will come.</li>
 <li><strong>Refresh the entry.</strong> Pull down on its page.</li>
 <li><strong>Try another entry from the same source</strong>, to tell a problem with one series from a problem
@@ -58,7 +58,7 @@ blocking you. Wait for a browser check to pass if one appears.</li>
 <li><strong>Clear caches.</strong> More &gt; Settings &gt; Data &gt; <strong>Clear chapter cache</strong>, and More &gt; Settings &gt;
 Advanced &gt; <strong>Clear WebView data</strong>.</li>
 <li><strong>Restart Saikou.</strong> Close it from the recent apps view, or force stop it in Android's app
-settings, and open it again.</li>
+settings (it is listed there as Shin Saikou), and open it again.</li>
 </ol>
 <p>If only you have the problem, the site may be limiting you: see <a href="#sites-that-push-back">Sites that push back</a>.
 If everyone using that source has it, the site or the extension needs fixing, and waiting is the
@@ -152,14 +152,24 @@ device unless you share them.</p>
 screen. Until Saikou restarts, no extension runs, library updates and downloads wait, and a banner
 says so, with <strong>Restart</strong>. The Extensions tab still lists every extension, so you can uninstall or
 update the one at fault.</p>
+<h2 id="reporting-a-problem">Reporting a problem<a class="anchor" href="#reporting-a-problem" aria-label="Link to this section">#</a></h2>
+<p>Tap the logo at the top of the More tab to open <strong>About</strong>. Under <strong>Help</strong>:</p>
+<ul>
+<li><strong>Share bug report</strong> sends a text file with the version, the device and the app's recent log.
+Sign-in tokens and cookies are taken out, but it can still name titles and sources from your
+library.</li>
+<li><strong>Copy device info</strong> copies the same lines without the log, for a chat.</li>
+<li><strong>Report an issue</strong> opens a new issue on GitHub. <strong>Discord</strong> and <strong>Website</strong> are there too.</li>
+</ul>
 <p>When reporting a problem, include:</p>
 <ul>
-<li>The version: More &gt; Settings &gt; Advanced &gt; <strong>Version</strong> (tap to copy).</li>
-<li>The crash log, if there is one.</li>
+<li>The version: tap the version block at the top of <strong>About</strong>, which copies the version, the build
+and the commit in one line. More &gt; Settings &gt; Advanced &gt; <strong>Version</strong> (tap to copy) also works.</li>
+<li>The bug report, or the crash log if there is one.</li>
 <li>What you did just before, and whether it happens every time.</li>
 </ul>
 <p>For problems that do not crash, turn on More &gt; Settings &gt; Advanced &gt; <strong>Verbose logging</strong>, restart,
-reproduce the problem, then turn it off again.</p>
+reproduce the problem, tap <strong>Share bug report</strong>, then turn it off again.</p>
 <h2 id="reinstalling-saikou">Reinstalling Saikou<a class="anchor" href="#reinstalling-saikou" aria-label="Link to this section">#</a></h2>
 <p>If an update will not install over the version you have (Android reports that the signatures do
 not match), the only way forward is to uninstall and install again. Uninstalling deletes everything
@@ -173,13 +183,13 @@ outside the app (More &gt; <strong>Backup</strong> &gt; <strong>Create backup</s
 <li>Run More &gt; Settings &gt; Downloads &gt; <strong>Export downloads</strong> to copy your downloads into the storage
 location.</li>
 <li>After reinstalling, choose the same folder as the <strong>Storage location</strong>, restore a backup from
-More &gt; <strong>Backup</strong> &gt; <strong>Automatic backups</strong> (or <strong>Restore backup</strong>), then bring the downloads
-back with <strong>Copy downloads from a folder</strong>.</li>
+the <strong>Restore</strong> tab of More &gt; <strong>Backup</strong> (under <strong>Automatic backups</strong>, or with <strong>Restore
+backup</strong>), then bring the downloads back with <strong>Copy downloads from a folder</strong>.</li>
 </ol>
         </article>
         <nav class="pager" aria-label="Previous and next page"><a class="prev" href="/docs/faq"><span>Previous page</span>Frequently asked questions</a></nav>
       </main>
-      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#first-steps">First steps</a></li><li><a href="#webview">WebView</a></li><li><a href="#browser-checks">Browser checks</a></li><li><a href="#network-errors">Network errors</a><ul><li><a href="#http-errors">HTTP errors</a></li><li><a href="#sites-that-push-back">Sites that push back</a></li></ul></li><li><a href="#updates-or-backups-do-not-run-in-the-background">Updates or backups do not run in the background</a></li><li><a href="#reading-problems">Reading problems</a></li><li><a href="#crash-logs">Crash logs</a></li><li><a href="#reinstalling-saikou">Reinstalling Saikou</a></li></ul></aside>
+      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#first-steps">First steps</a></li><li><a href="#webview">WebView</a></li><li><a href="#browser-checks">Browser checks</a></li><li><a href="#network-errors">Network errors</a><ul><li><a href="#http-errors">HTTP errors</a></li><li><a href="#sites-that-push-back">Sites that push back</a></li></ul></li><li><a href="#updates-or-backups-do-not-run-in-the-background">Updates or backups do not run in the background</a></li><li><a href="#reading-problems">Reading problems</a></li><li><a href="#crash-logs">Crash logs</a></li><li><a href="#reporting-a-problem">Reporting a problem</a></li><li><a href="#reinstalling-saikou">Reinstalling Saikou</a></li></ul></aside>
     </div>
 
     <footer class="site-footer">
