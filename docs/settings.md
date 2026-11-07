@@ -26,7 +26,7 @@ Tap the logo at the top of the More tab to open **About**.
 - **Help**: **Share bug report**, **Copy device info**, **Report an issue**, **Discord** and
   **Website**. See [Reporting a problem](troubleshooting.md#reporting-a-problem).
 
-From the release after 0.1.2, every release also carries a debug APK, listed here as **Debug
+From a later release, every release also carries a debug APK, listed here as **Debug
 build**. It installs beside your app as Shin Saikou Debug, with a library of its own, so you can
 try a fix or send a detailed bug report without touching your library. Its **Check for updates**
 offers the next release's debug APK.
@@ -175,3 +175,6 @@ turning it off again puts things back as they were.
   [Library updates](updates.md#an-entrys-update-interval). The library's **Custom update interval**
   filter shows only while this is on. The setting stays on this device and is not in backups, and
   turning it off puts every entry back on its estimate.
+- **Merged entries**: shows one title from several sources as one library entry with one chapter
+  list. See [Merged entries](merged-entries.md). Turning this off shows the entries separately
+  again and keeps your merges. The setting stays on this device and is not in backups.

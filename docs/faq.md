@@ -82,6 +82,11 @@ Library > **Show download badges**).
 - More > Settings > Library > **Mark duplicate read chapter as read**.
 - More > Settings > Downloads > **Skip downloading duplicate read chapters**.
 
+### Can one title use several sources?
+
+Yes, with [Merged entries](merged-entries.md). Turn them on in More > Settings > Experimental. A
+chapter one source lacks then comes from another, in one chapter list.
+
 ### How do I pause reading history?
 
 Turn on **Incognito** in the More tab.

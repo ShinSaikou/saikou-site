@@ -34,6 +34,8 @@ send the file somewhere straight away.
 - Downloaded chapters. See [Downloads](downloads.md#where-downloads-are-kept).
 - Custom covers you set on entries.
 - Your sync settings and sign-ins.
+- [Merged entries](merged-entries.md): every entry and its chapters are kept, but not the merge. A
+  restore brings them back as separate entries.
 
 ## Automatic backups
 
@@ -163,4 +165,4 @@ backup automatically, see [Sync between devices](sync.md#the-safety-backup).
 - Create a backup by hand before big changes: a migration of many entries, a restore, setting up
   sync, or moving to a new phone.
 - Keep at least one backup off the phone.
-- Saikou is young (version 0.1.2). Back up regularly so a problem in a new release costs you nothing.
+- Saikou is young (version 0.1.3). Back up regularly so a problem in a new release costs you nothing.

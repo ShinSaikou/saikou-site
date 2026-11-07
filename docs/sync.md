@@ -14,6 +14,7 @@ server of its own.
 - Chapter progress (read, page reached), reading history, bookmarks and page notes.
 - Tracking links.
 - Each entry's scanlator filter and group ranking.
+- [Merged entries](merged-entries.md).
 
 What stays on each device: settings, extensions and their repositories, source settings, tracker
 sign-ins and downloaded chapters. Install the extensions you need on each device.

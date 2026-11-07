@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Merged entries · Saikou docs</title>
+    <meta name="description" content="A merged entry is one title from several sources: one row in the Library and one chapter list. A chapter the first source lacks comes from the next one, so a…" />
+    <link rel="canonical" href="https://shinsaikou.com/docs/merged-entries" />
+    <link rel="icon" type="image/png" href="/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" />
+    <link rel="stylesheet" href="/docs/docs.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#doc-content">Skip to content</a>
+    <header class="site-header">
+      <div class="page">
+        <a class="brand" href="/">
+          <img src="/icon-192.png" alt="" width="32" height="32" />
+          <span class="wordmark">Saikou</span>
+          <span class="brand-sub">Docs</span>
+        </a>
+        <nav aria-label="Site">
+          <span class="chip">v0.1.3</span>
+          <a href="/#features">Features</a>
+          <a href="/#download">Download</a>
+          <a href="/docs/" aria-current="true">Docs</a>
+          <a href="/privacy-policy">Privacy policy</a>
+          <a href="https://github.com/ShinSaikou/saikou">GitHub</a>
+          <a href="https://discord.gg/VupfVKYquZ">Discord</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="docs-layout page">
+      <aside class="docs-sidebar" aria-label="Documentation"><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/merged-entries" aria-current="page">Merged entries</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting">Troubleshooting</a></li></ul></div></nav></aside>
+      <main class="docs-main" id="doc-content">
+        <div class="docs-mobile">
+          <details class="docs-menu"><summary>Menu</summary><div><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/merged-entries" aria-current="page">Merged entries</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting">Troubleshooting</a></li></ul></div></nav></div></details>
+          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#merging">Merging</a></li><li><a href="#chapters">Chapters</a></li><li><a href="#merged-sources">Merged sources</a></li><li><a href="#everywhere-else">Everywhere else</a></li><li><a href="#sync-and-backups">Sync and backups</a></li><li><a href="#turning-it-off">Turning it off</a></li></ul></div></details>
+        </div>
+        <article class="doc">
+<h1 id="merged-entries">Merged entries</h1>
+<p>A merged entry is one title from several sources: one row in the Library and one chapter list. A
+chapter the first source lacks comes from the next one, so a title keeps working when a source
+falls behind, and if a source's extension is removed, the other sources take over.</p>
+<p>Merged entries are experimental. Turn them on in More &gt; Settings &gt; Experimental &gt; <strong>Merged
+entries</strong>.</p>
+<h2 id="merging">Merging<a class="anchor" href="#merging" aria-label="Link to this section">#</a></h2>
+<p>Any of these merges entries. Each source stays in your library as a whole entry of its own: its
+chapters, downloads and update checks do not change.</p>
+<ul>
+<li><strong>From an entry:</strong> open its menu and tap <strong>Merge with...</strong>. Saikou searches every source for the
+title. Tap a result and confirm with <strong>Merge</strong>. An entry that is not in your library yet is added.</li>
+<li><strong>From the Library:</strong> long press an entry, tap one or more others, then choose <strong>Merge</strong> in the
+bar's menu. Pick the main entry. The entries' chapters are preferred in the order you selected
+them.</li>
+<li><strong>While adding a title:</strong> when Saikou asks whether a title is already in your library, pick the
+entry and tap <strong>Merge</strong>. The entry in your library stays the main one.</li>
+</ul>
+<p>The <strong>main entry</strong> stands for the title: its cover, details, reading mode and tracking.</p>
+<h2 id="chapters">Chapters<a class="anchor" href="#chapters" aria-label="Link to this section">#</a></h2>
+<p>The chapter list shows each chapter number once, from the first source in the order that has it. A
+source whose extension is not installed comes last. Each row names its source. A chapter with no
+recognised number is always listed.</p>
+<ul>
+<li><strong>By source</strong> is not offered as a sort, because each source numbers its own list. A merged entry
+sorts by chapter number.</li>
+<li>A small mark on a row means another source's copy of that chapter is downloaded. With <strong>Downloaded
+only</strong> on, the reader uses that copy.</li>
+<li>A chapter read on one source counts as read on all of them, and marking a chapter unread does the
+same. Bookmarks and the page you reached stay with each copy.</li>
+<li>The reader moves from one source to the next without a break.</li>
+</ul>
+<h2 id="merged-sources">Merged sources<a class="anchor" href="#merged-sources" aria-label="Link to this section">#</a></h2>
+<p>Tap the source line on the entry's page, such as <strong>Source A + 1 more</strong>, to open <strong>Merged sources</strong>.</p>
+<ul>
+<li>Drag a source by its handle to set the order. The first source that has a chapter wins it.</li>
+<li>A source's menu has <strong>Use as main entry</strong>, <strong>Check for updates</strong> and <strong>Remove</strong>. With <strong>Check for
+updates</strong> off, library updates skip that source.</li>
+<li><strong>Show every copy</strong> lists each source's copy of every chapter, for when the one shown is broken.</li>
+<li><strong>Unmerge</strong> puts the sources back as separate entries. Chapters read while merged stay read.</li>
+</ul>
+<h2 id="everywhere-else">Everywhere else<a class="anchor" href="#everywhere-else" aria-label="Link to this section">#</a></h2>
+<ul>
+<li><strong>Library:</strong> one row, in every category any of its sources is in. The unread badge counts each
+chapter number once. <strong>Move to category</strong> changes every source's categories.</li>
+<li><strong>Updates and Upcoming:</strong> one row per chapter or title, under the main entry's title.</li>
+<li><strong>Statistics:</strong> a merged entry counts as one title.</li>
+<li><strong>Downloads:</strong> each chapter downloads to its own source's folder. Automatic downloads take the copy
+the list shows.</li>
+<li><strong>Remove from library:</strong> removes every source of the entry, after asking.</li>
+<li><strong>Migrate:</strong> migrating a merged entry replaces its main entry and keeps the rest merged.</li>
+</ul>
+<h2 id="sync-and-backups">Sync and backups<a class="anchor" href="#sync-and-backups" aria-label="Link to this section">#</a></h2>
+<p>Merges sync between your devices, and every device needs a version of Saikou that knows the new sync
+format. An older device says <strong>Update Saikou on this device to keep syncing</strong>.</p>
+<p>A backup keeps every entry, its chapters and its read marks, but not the merge. After restoring, the
+sources are separate entries until you merge them again.</p>
+<p>A backup from TachiyomiSY keeps its merged entries when restored here, in the same source order.
+Saikou shows them with its own rule: one copy of each chapter number, by source order. A merge set
+to show every chapter in TachiyomiSY comes in with <strong>Show every copy</strong> on. The restore report says
+how many came in, names any source the backup did not hold, and, if the <strong>Merged entries</strong> switch is
+off, says they show as one once you turn it on.</p>
+<h2 id="turning-it-off">Turning it off<a class="anchor" href="#turning-it-off" aria-label="Link to this section">#</a></h2>
+<p>With the switch off, every source shows as its own entry and the Merge actions are gone. Your merges
+are kept: turning the switch back on brings them back, and they still sync. The setting stays on
+this device and is not in backups.</p>
+        </article>
+        <nav class="pager" aria-label="Previous and next page"><a class="prev" href="/docs/migration"><span>Previous page</span>Migration</a><a class="next" href="/docs/local-source"><span>Next page</span>The Local source</a></nav>
+      </main>
+      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#merging">Merging</a></li><li><a href="#chapters">Chapters</a></li><li><a href="#merged-sources">Merged sources</a></li><li><a href="#everywhere-else">Everywhere else</a></li><li><a href="#sync-and-backups">Sync and backups</a></li><li><a href="#turning-it-off">Turning it off</a></li></ul></aside>
+    </div>
+
+    <footer class="site-footer">
+      <div class="page">
+        <div>
+          <p class="wordmark">Saikou</p>
+          <p class="footer-note">An open-source manga reader for Android.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/docs/">Docs</a>
+          <a href="/privacy-policy">Privacy policy</a>
+          <a href="https://github.com/ShinSaikou/saikou">GitHub</a>
+          <a href="https://discord.gg/VupfVKYquZ">Discord</a>
+          <a href="mailto:shinsaikou@proton.me">shinsaikou@proton.me</a>
+          <span>© 2026 Saikou</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

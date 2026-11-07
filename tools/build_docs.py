@@ -321,7 +321,7 @@ class Page:
 # The site around each page
 
 OVERVIEW_LABEL = "Overview"
-VERSION_CHIP = "v0.1.2"  # as in public/index.html's hero; change both together
+VERSION_CHIP = "v0.1.3"  # as in public/index.html's hero; change both together
 FONTS = (
     "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900"
     "&family=Instrument+Sans:wght@400;500;600&display=swap"

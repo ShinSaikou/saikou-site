@@ -1,7 +1,7 @@
 # Saikou documentation
 
 Saikou is an open-source manga reader for Android, called Shin Saikou on your phone. Releases and
-the source code are on GitHub. These pages describe the app as it is built today (version 0.1.2).
+the source code are on GitHub. These pages describe the app as it is built today (version 0.1.3).
 
 Saikou brings no content of its own. You read what is on your device through the Local source, or
 add extensions from repositories you choose.
@@ -37,6 +37,7 @@ Screens and settings are named the way the app labels them. A path such as
   ones from other readers.
 - [Sync between devices](sync.md): Google Drive and WebDAV sync, what it carries, sync reports.
 - [Migration](migration.md): moving entries to another source without losing progress.
+- [Merged entries](merged-entries.md): one title from several sources, with one chapter list.
 - [The Local source](local-source.md): reading files on your device, folder layout, metadata and
   covers.
 - [Security and privacy](security-and-privacy.md): app lock, secure screen, notifications,
