@@ -9,7 +9,9 @@ library's own sheet filters, sorts and lays it out.
   the results, **Search all sources for "..."**, runs the same words in every source, so an entry
   you do not have yet is one tap away, even while the library is empty. It is offered for plain
   words only, not for a search by genre, author or another field. See
-  [Global search](browse.md#global-search).
+  [Global search](browse.md#global-search). An author or artist you set in
+  [Edit details](entry.md#editing-details) matches as well as the source's. Genres you edited
+  replace the source's list, so a genre you removed no longer matches.
 - The **filter** icon opens the library sheet with three tabs: **Filter**, **Sort** and
   **Display**.
 - The overflow menu (three dots) has **Update library**, **Update category** for the tab you are
@@ -19,8 +21,8 @@ library's own sheet filters, sorts and lays it out.
 
 The buttons at the top of Library, Updates, History and Browse follow one order: search first, then
 the switches that change what the list shows, then the tab's own action, then the menu. Long press
-any of them to see its name. On Library the update errors button sits first, so the others stay put
-when it appears.
+any of them to see its name. Update errors show only in the Updates tab; see
+[Update errors](updates.md#update-errors).
 
 On a large screen the library can show the tapped entry's chapters in a second pane beside the
 grid. More > Settings > Appearance > **Two pane layout** chooses when:
@@ -33,7 +35,8 @@ entries that match). Tap a filter to move to the next state.
 
 - **Downloaded**: entries with downloaded chapters. While **Downloaded only** is on in the More
   tab, this filter is forced on.
-- **Unread**, **Started**, **Bookmarked**, **Completed**.
+- **Unread**, **Started**, **Bookmarked**, **Completed**. **Completed** follows the status the entry's
+  page shows, so a status you set in [Edit details](entry.md#editing-details) counts.
 - **Custom update interval**: entries whose update interval you set by hand. It shows only while
   More > Settings > Experimental > **Custom update interval per entry** is on.
 - **Tracked**: entries linked to a tracker. It appears once you are signed in to a tracker. See

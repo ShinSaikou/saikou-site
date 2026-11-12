@@ -9,7 +9,7 @@ Any of these starts an update of the whole library:
 
 - Pull down on the **Library** tab.
 - Library > overflow menu > **Update library**.
-- Pull down on the **Updates** tab.
+- Pull down on the **Updates** tab, or tap **Update library** in its top bar.
 
 **Update category** in the Library's overflow menu updates only the category tab you are on. While
 an update runs, the same menu offers **Stop update**. Starting a second update while one runs only
@@ -38,7 +38,8 @@ Set these in More > Settings > Library.
   to the sites. All four are on by default:
   - **Skip entries with unread chapter(s)**
   - **Skip unstarted entries**
-  - **Skip entries with "Completed" status**
+  - **Skip entries with "Completed" status**: the status the entry's page shows, so a status you
+    set in [Edit details](entry.md#editing-details) counts.
   - **Predict next release time**: skip an entry until the time Saikou expects its next chapter,
     worked out from the gaps between its past chapters.
 
@@ -123,6 +124,10 @@ without chapters), its first update loads the whole list but counts only the cha
 after you added it. The rest go straight to the entry's page, unread, with no notification and no
 automatic download. A chapter the site gives no date counts as already out.
 
+The top bar has **Filter**, **Upcoming** (the calendar icon) and **Update library**, which starts
+the same update as pulling the list down. When the last update had failures, an error button comes
+first (see [Update errors](#update-errors)).
+
 - Tap a chapter to read it, or use its download control to queue it.
 - **Filter** chooses what the list shows: **Downloaded**, **Unread**, **Started**, **Bookmarked**,
   **Filter excluded scanlators** (hide chapters from groups you excluded on an entry's page), and
@@ -134,18 +139,40 @@ automatic download. A chapter the site gives no date counts as already out.
 
 ### Upcoming
 
-**Upcoming** (the calendar icon in the Updates bar) lists the releases predicted for your library,
-day by day, with how many entries fall on each day. Tap an entry to open it. Predictions come from
-each entry's release dates after a library update, so the list is empty until then.
+**Upcoming** (the calendar icon in the Updates bar) shows the releases predicted for your library.
+Predictions come from each entry's release dates after a library update, so there is nothing to show
+until then: the calendar is there, with "No releases are predicted yet" under it.
+
+It opens on a calendar of the current month, with today ringed and earlier days faded. A day with
+releases predicted has a dot for each entry, up to three. Tap that day to jump to it in the list
+below. The arrows beside the month's name show the month before or after.
+
+Under the calendar, the list goes day by day. Each day's heading has a badge with how many entries
+fall on it, and a tap on an entry opens it. Drag the scroller at the edge to move through a long
+list quickly. On a phone the calendar scrolls away with the list; on a tablet it sits beside the
+list.
+
+**Filter** in the top bar picks the categories to show. Tap a category once to include it and again
+to exclude it. With categories included, only their entries are listed and marked on the calendar;
+an entry in an excluded category is left out even when it is also in an included one. The button
+lights up while a filter is set. The help button next to it opens this page.
 
 ### Update errors
 
 When the last update had failures, the Updates tab's top bar shows an error button with the count.
-It opens **Update errors**: the failed entries grouped by source, each with the reason. Tap an
-entry to open its page, where pulling down tries it again.
+Update errors show only here, in the Updates tab. The button opens **Update errors** in a sheet from
+the bottom of the screen: the failed entries grouped by source, each with the reason.
+
+- Tap an entry to open its page, where pulling down tries it again.
+- **Retry** updates every failed entry again.
+- **Migrate**, beside a source's name, starts a migration of that source's failed entries to
+  another source. See [Migration](migration.md).
+
+An entry you migrate, or remove from your library, leaves the list and the error count as soon as
+you are back on the Updates tab.
 
 When the update stopped asking a site, a line above the list says how many entries were not
-checked, with **Open library settings**. The Library tab's error button opens the same list.
+checked, with **Open library settings**.
 
 Common reasons:
 

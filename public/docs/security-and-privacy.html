@@ -22,7 +22,7 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.1.3</span>
+          <span class="chip">v0.1.5</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
@@ -78,9 +78,15 @@ things you set up:</p>
 <ul>
 <li><strong>Extensions</strong> contact the sites they read from, when you browse, update, read or download.</li>
 <li><strong>Repositories</strong> are fetched when you refresh them, or in the background with More &gt; Settings &gt;
-Advanced &gt; <strong>Check extension updates</strong>.</li>
-<li><strong>Tracking</strong> sends the chapters you read to MyAnimeList or AniList, once you sign in to it.
-See <a href="/docs/tracking">Tracking</a>.</li>
+Advanced &gt; <strong>Check extension updates</strong>. With More &gt; Settings &gt; Experimental &gt; <strong>Update extensions
+automatically</strong> on, Saikou also checks them once a day on Wi-Fi (or another unmetered network) and
+downloads the updates they offer. See
+<a href="/docs/extensions#updating-extensions-automatically">Extensions</a>.</li>
+<li><strong>Tracking</strong> sends the chapters you read to MyAnimeList, AniList, MangaBaka or Comick, once you
+sign in to it, and only for the entries you link there. Each tracker receives the search you run
+and, for a linked entry, its status, chapters read and score, plus its start and finish dates on
+MyAnimeList, AniList and MangaBaka, and whether it is private on AniList and MangaBaka. See
+<a href="/docs/tracking">Tracking</a>.</li>
 <li><strong>Sync</strong> exchanges your library with your Google Drive or your WebDAV server, once you set it up.
 See <a href="/docs/sync">Sync between devices</a>.</li>
 </ul>
@@ -92,8 +98,10 @@ Advanced &gt; <strong>Check for updates automatically</strong> stops only the da
 <ul>
 <li>Sync credentials (the Google sign-in, the WebDAV password) are stored encrypted with the Android
 Keystore. Sync, backups and restores never carry them.</li>
-<li>The MyAnimeList and AniList sign-ins are stored in the app's private settings. They enter a
-backup only when you tick <strong>Private settings</strong>, and sync never carries them.</li>
+<li>The MyAnimeList, AniList, MangaBaka and Comick sign-ins are stored in the app's private
+settings. They enter a backup only when you tick <strong>Private settings</strong>, and sync never carries
+them. Signing out deletes the sign-in from the device; signing out of MangaBaka also ends
+Saikou's access on MangaBaka.</li>
 <li>Cookies that sites set, or that you import under a source's <strong>Source settings &gt; Cookies</strong>, stay
 in the app. Remove them per source under <strong>Source settings &gt; Cookies &gt; Clear</strong>, or per site from
 the WebView's menu (<strong>Clear cookies for this site</strong>). More &gt; Settings &gt; Advanced &gt; <strong>Clear WebView
@@ -108,6 +116,10 @@ the app restarts; the message offers <strong>Restart</strong>.</li>
 <li><strong>Default user agent string</strong>: the browser identity Saikou sends to sites. <strong>Reset default user
 agent string</strong> puts it back. Takes effect after the app restarts; the message offers <strong>Restart</strong>.</li>
 </ul>
+<p>More &gt; Settings &gt; Experimental &gt; <strong>Trust certificates you installed</strong> lets sources load through a
+certificate you installed on the device, such as an ad blocker's. Whoever controls that certificate
+can read and change what Saikou loads from sources. See
+<a href="/docs/troubleshooting#sources-fail-behind-an-ad-blocker-a-dns-filter-or-a-work-network">Troubleshooting</a>.</p>
         </article>
         <nav class="pager" aria-label="Previous and next page"><a class="prev" href="/docs/local-source"><span>Previous page</span>The Local source</a><a class="next" href="/docs/settings"><span>Next page</span>Settings reference</a></nav>
       </main>

@@ -22,7 +22,7 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.1.3</span>
+          <span class="chip">v0.1.5</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
@@ -38,7 +38,7 @@
       <main class="docs-main" id="doc-content">
         <div class="docs-mobile">
           <details class="docs-menu"><summary>Menu</summary><div><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse" aria-current="page">Browse and sources</a></li><li><a href="/docs/extensions">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/merged-entries">Merged entries</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting">Troubleshooting</a></li></ul></div></nav></div></details>
-          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#the-sources-tab">The Sources tab</a><ul><li><a href="#choosing-which-sources-show">Choosing which sources show</a></li></ul></li><li><a href="#browsing-a-source">Browsing a source</a><ul><li><a href="#adding-many-entries-at-once">Adding many entries at once</a></li></ul></li><li><a href="#global-search">Global search</a></li><li><a href="#source-settings">Source settings</a></li></ul></div></details>
+          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#the-sources-tab">The Sources tab</a><ul><li><a href="#choosing-which-sources-show">Choosing which sources show</a></li></ul></li><li><a href="#browsing-a-source">Browsing a source</a><ul><li><a href="#adding-many-entries-at-once">Adding many entries at once</a></li></ul></li><li><a href="#global-search">Global search</a></li><li><a href="#searching-from-other-apps">Searching from other apps</a><ul><li><a href="#sharing-a-page-of-a-sources-site">Sharing a page of a source's site</a></li><li><a href="#sharing-words">Sharing words</a></li><li><a href="#searches-from-other-apps">Searches from other apps</a></li></ul></li><li><a href="#source-settings">Source settings</a></li></ul></div></details>
         </div>
         <article class="doc">
 <h1 id="browse-and-sources">Browse and sources</h1>
@@ -107,6 +107,39 @@ searches the extensions instead.</p>
 <p>Two other places start the same search with the words filled in: <strong>Search all sources for "..."</strong>
 above the results of a <a href="/docs/library#the-library-tab">library search</a>, and a tap on the title or
 author on <a href="/docs/entry#the-header">an entry's page</a>.</p>
+<h2 id="searching-from-other-apps">Searching from other apps<a class="anchor" href="#searching-from-other-apps" aria-label="Link to this section">#</a></h2>
+<p>Other apps can send Saikou something to search for: Android's share menu, a voice search, or an
+extension's link handler. This is experimental. Turn it on in More &gt; Settings &gt; Experimental &gt;
+<strong>Open shared text and search requests</strong>.</p>
+<p>While it is off, Shin Saikou is not in the share menu and no other app can send it a search. Web
+pages cannot open a search in Saikou, whether it is on or off.</p>
+<p>Each search another app sends goes to your sources, the same as a search you type. Only enabled
+sources are asked: a source you disabled, or one whose language is turned off, is left out (see
+<a href="#choosing-which-sources-show">Choosing which sources show</a>).</p>
+<h3 id="sharing-a-page-of-a-sources-site">Sharing a page of a source's site<a class="anchor" href="#sharing-a-page-of-a-sources-site" aria-label="Link to this section">#</a></h3>
+<p>In a browser, share a page from a site one of your sources reads, and pick <strong>Shin Saikou</strong>. Saikou
+opens that source's search for the page's address, which many sources answer with the page's entry.</p>
+<p>When several sources of one extension read that site, for example one per language and one for
+<strong>Multiple languages</strong>, Saikou picks one of them:</p>
+<ol>
+<li>the one you pinned;</li>
+<li>otherwise the one you used last;</li>
+<li>otherwise the one for <strong>Multiple languages</strong>.</li>
+</ol>
+<p>When sources of different extensions read the same site, Saikou cannot tell which one you meant. It
+opens <strong>Search all sources</strong> instead, with the shared words, or with the address when the text is
+only that.</p>
+<h3 id="sharing-words">Sharing words<a class="anchor" href="#sharing-words" aria-label="Link to this section">#</a></h3>
+<p>Select some words, such as a title on a web page, share them and pick <strong>Shin Saikou</strong>. Saikou opens
+<a href="#global-search">Search all sources</a> for them. Web addresses in the shared text are left out, and so
+is a pair of quotes around the words, so a selection that a browser shares with a link to it
+searches only the words. Text that is only the address of a site none of your sources reads
+searches for that address. Line breaks become spaces, and only the first 500 characters are used.</p>
+<h3 id="searches-from-other-apps">Searches from other apps<a class="anchor" href="#searches-from-other-apps" aria-label="Link to this section">#</a></h3>
+<p>A voice search, or a link handler that names no extension, opens <strong>Search all sources</strong> with its
+words. An extension's link handler that names its extension opens the search of that extension's
+source, picked the same way as for a shared page. If that extension is not installed, or none of its
+sources is enabled, the search goes to <strong>Search all sources</strong>.</p>
 <h2 id="source-settings">Source settings<a class="anchor" href="#source-settings" aria-label="Link to this section">#</a></h2>
 <p>Browse a source, then overflow &gt; <strong>Source settings</strong>. It shows the settings the source itself
 offers (if any: "This source has no settings of its own") and a <strong>Cookies</strong> section.</p>
@@ -121,7 +154,7 @@ Cookies set there are used by the source afterwards.</li>
         </article>
         <nav class="pager" aria-label="Previous and next page"><a class="prev" href="/docs/history"><span>Previous page</span>History and statistics</a><a class="next" href="/docs/extensions"><span>Next page</span>Extensions and repositories</a></nav>
       </main>
-      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#the-sources-tab">The Sources tab</a><ul><li><a href="#choosing-which-sources-show">Choosing which sources show</a></li></ul></li><li><a href="#browsing-a-source">Browsing a source</a><ul><li><a href="#adding-many-entries-at-once">Adding many entries at once</a></li></ul></li><li><a href="#global-search">Global search</a></li><li><a href="#source-settings">Source settings</a></li></ul></aside>
+      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#the-sources-tab">The Sources tab</a><ul><li><a href="#choosing-which-sources-show">Choosing which sources show</a></li></ul></li><li><a href="#browsing-a-source">Browsing a source</a><ul><li><a href="#adding-many-entries-at-once">Adding many entries at once</a></li></ul></li><li><a href="#global-search">Global search</a></li><li><a href="#searching-from-other-apps">Searching from other apps</a><ul><li><a href="#sharing-a-page-of-a-sources-site">Sharing a page of a source's site</a></li><li><a href="#sharing-words">Sharing words</a></li><li><a href="#searches-from-other-apps">Searches from other apps</a></li></ul></li><li><a href="#source-settings">Source settings</a></li></ul></aside>
     </div>
 
     <footer class="site-footer">

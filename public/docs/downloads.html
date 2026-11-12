@@ -22,7 +22,7 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.1.3</span>
+          <span class="chip">v0.1.5</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
@@ -38,7 +38,7 @@
       <main class="docs-main" id="doc-content">
         <div class="docs-mobile">
           <details class="docs-menu"><summary>Menu</summary><div><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions">Extensions and repositories</a></li><li><a href="/docs/downloads" aria-current="page">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/merged-entries">Merged entries</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting">Troubleshooting</a></li></ul></div></nav></div></details>
-          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#downloading-chapters">Downloading chapters</a></li><li><a href="#the-download-queue">The download queue</a></li><li><a href="#download-settings">Download settings</a><ul><li><a href="#delete-chapters">Delete chapters</a></li><li><a href="#automatic-downloads">Automatic downloads</a></li></ul></li><li><a href="#where-downloads-are-kept">Where downloads are kept</a><ul><li><a href="#downloads-not-in-library">Downloads not in library</a></li><li><a href="#unmatched-downloads">Unmatched downloads</a></li><li><a href="#downloads-after-a-source-or-title-change">Downloads after a source or title change</a></li></ul></li><li><a href="#copying-downloads-from-a-folder">Copying downloads from a folder</a></li><li><a href="#downloaded-only">Downloaded only</a></li></ul></div></details>
+          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#downloading-chapters">Downloading chapters</a></li><li><a href="#the-download-queue">The download queue</a><ul><li><a href="#several-sources-at-once">Several sources at once</a></li></ul></li><li><a href="#download-settings">Download settings</a><ul><li><a href="#delete-chapters">Delete chapters</a></li><li><a href="#automatic-downloads">Automatic downloads</a></li></ul></li><li><a href="#where-downloads-are-kept">Where downloads are kept</a><ul><li><a href="#downloads-not-in-library">Downloads not in library</a></li><li><a href="#unmatched-downloads">Unmatched downloads</a></li><li><a href="#downloads-after-a-source-or-title-change">Downloads after a source or title change</a></li></ul></li><li><a href="#saving-chapters-as-cbz-files">Saving chapters as CBZ files</a></li><li><a href="#copying-downloads-from-a-folder">Copying downloads from a folder</a></li><li><a href="#downloaded-only">Downloaded only</a></li></ul></div></details>
         </div>
         <article class="doc">
 <h1 id="downloads">Downloads</h1>
@@ -62,16 +62,40 @@ them.</li>
 <li><strong>Cancel download</strong> removes one chapter; <strong>Clear queue</strong> removes them all.</li>
 <li>Each row shows <strong>Queued</strong>, <strong>Starting</strong>, <strong>N of M pages</strong>, or <strong>Failed</strong> with the reason.</li>
 </ul>
-<p>Chapters download one at a time, in the order they were added. Within a chapter, several pages
+<p>Chapters download one at a time, in the order they were added, unless
+<a href="#several-sources-at-once">several sources at once</a> is turned on. Within a chapter, several pages
 download at once: More &gt; Settings &gt; Downloads &gt; <strong>Pages downloaded at once</strong> (1 to 15, 5 by
 default). Each page goes through the source's own rate limit, so a higher number speeds up only
 sources that allow it.</p>
 <p>Download progress and failures appear as notifications (<strong>Download progress</strong> and <strong>Download
 errors</strong> channels).</p>
+<h3 id="several-sources-at-once">Several sources at once<a class="anchor" href="#several-sources-at-once" aria-label="Link to this section">#</a></h3>
+<p>A queue that mixes sources can finish sooner when chapters from different sources download side by
+side. This is experimental. Turn it on in More &gt; Settings &gt; Experimental &gt; <strong>Download from several
+sources at once</strong>.</p>
+<ul>
+<li>Saikou then downloads one chapter from each of several sources at the same time. More &gt; Settings &gt;
+Downloads &gt; <strong>Sources downloaded at once</strong> sets how many sources, from 1 to 10 (5 by default). The
+row shows only while the switch is on.</li>
+<li>Chapters from one source still download one after another, in queue order, so a site never gets
+more than one chapter at a time from Saikou. <strong>Pages downloaded at once</strong> still applies to each
+chapter.</li>
+<li>Every running chapter shows its own progress in the queue. The notification reads <strong>Downloading N
+chapters at once</strong>, with one bar for all of them.</li>
+<li><strong>Pause</strong> stops every running chapter, and <strong>Cancel download</strong> stops only the one you pick. Moving
+chapters in the queue and adding new ones decide what starts next. When storage runs low, no new
+chapter starts, and the running ones finish.</li>
+<li>A change to the switch or to <strong>Sources downloaded at once</strong> applies from the next chapter to
+start.</li>
+</ul>
+<p>It uses more data, memory and battery while downloads run. Turned off, chapters download one at a
+time again.</p>
 <h2 id="download-settings">Download settings<a class="anchor" href="#download-settings" aria-label="Link to this section">#</a></h2>
 <p>In More &gt; Settings &gt; Downloads:</p>
 <ul>
 <li><strong>Only download over Wi-Fi</strong> (on by default). Takes effect the next time downloads start.</li>
+<li><strong>Sources downloaded at once</strong>, shown only while <a href="#several-sources-at-once">several sources at once</a>
+is turned on.</li>
 <li><strong>Pages downloaded at once</strong>, above.</li>
 </ul>
 <h3 id="delete-chapters">Delete chapters<a class="anchor" href="#delete-chapters" aria-label="Link to this section">#</a></h3>
@@ -134,6 +158,22 @@ check the list first.</p>
 <p>Saikou finds a download even when the source has renamed itself or the entry's title has changed,
 and whichever way <strong>Disallow non-ASCII filenames</strong> (More &gt; Settings &gt; Advanced) is set. You never
 need to rename anything by hand.</p>
+<h2 id="saving-chapters-as-cbz-files">Saving chapters as CBZ files<a class="anchor" href="#saving-chapters-as-cbz-files" aria-label="Link to this section">#</a></h2>
+<p>Saikou normally saves each downloaded chapter as a folder of images. It can save each one as a
+single <code>.cbz</code> file instead (the pages in order, with the chapter's details), which other readers and
+file managers open more easily once you <a href="#where-downloads-are-kept">export your downloads</a>. This is
+experimental. Turn it on in More &gt; Settings &gt; Experimental &gt; <strong>Save chapters as CBZ files</strong>.</p>
+<ul>
+<li>It applies to new downloads. Each chapter takes a moment longer to finish while its pages are
+packed into the file.</li>
+<li>Chapters you already downloaded stay folders. One entry can hold both kinds, and both read,
+delete, migrate and export the same way.</li>
+<li>Turning it off saves new downloads as folders again. The <code>.cbz</code> files you have stay as they are.</li>
+<li>The setting is in backups, with the app settings. Restoring a backup in which it is on, Saikou's
+or another reader's, turns it on when <strong>App settings</strong> is ticked on the Restore tab. Other readers
+often save CBZ files by default, so check the switch after restoring one of their backups. A
+backup you restored before this version does not turn it on now.</li>
+</ul>
 <h2 id="copying-downloads-from-a-folder">Copying downloads from a folder<a class="anchor" href="#copying-downloads-from-a-folder" aria-label="Link to this section">#</a></h2>
 <p>Saikou can copy the chapters you downloaded in another reader that uses the same layout, or exported
 from Saikou with <strong>Export downloads</strong>, so you do not download them again.</p>
@@ -163,7 +203,7 @@ for reading offline. While it is on, the library's <strong>Downloaded</strong> f
         </article>
         <nav class="pager" aria-label="Previous and next page"><a class="prev" href="/docs/extensions"><span>Previous page</span>Extensions and repositories</a><a class="next" href="/docs/reader"><span>Next page</span>The reader</a></nav>
       </main>
-      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#downloading-chapters">Downloading chapters</a></li><li><a href="#the-download-queue">The download queue</a></li><li><a href="#download-settings">Download settings</a><ul><li><a href="#delete-chapters">Delete chapters</a></li><li><a href="#automatic-downloads">Automatic downloads</a></li></ul></li><li><a href="#where-downloads-are-kept">Where downloads are kept</a><ul><li><a href="#downloads-not-in-library">Downloads not in library</a></li><li><a href="#unmatched-downloads">Unmatched downloads</a></li><li><a href="#downloads-after-a-source-or-title-change">Downloads after a source or title change</a></li></ul></li><li><a href="#copying-downloads-from-a-folder">Copying downloads from a folder</a></li><li><a href="#downloaded-only">Downloaded only</a></li></ul></aside>
+      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#downloading-chapters">Downloading chapters</a></li><li><a href="#the-download-queue">The download queue</a><ul><li><a href="#several-sources-at-once">Several sources at once</a></li></ul></li><li><a href="#download-settings">Download settings</a><ul><li><a href="#delete-chapters">Delete chapters</a></li><li><a href="#automatic-downloads">Automatic downloads</a></li></ul></li><li><a href="#where-downloads-are-kept">Where downloads are kept</a><ul><li><a href="#downloads-not-in-library">Downloads not in library</a></li><li><a href="#unmatched-downloads">Unmatched downloads</a></li><li><a href="#downloads-after-a-source-or-title-change">Downloads after a source or title change</a></li></ul></li><li><a href="#saving-chapters-as-cbz-files">Saving chapters as CBZ files</a></li><li><a href="#copying-downloads-from-a-folder">Copying downloads from a folder</a></li><li><a href="#downloaded-only">Downloaded only</a></li></ul></aside>
     </div>
 
     <footer class="site-footer">

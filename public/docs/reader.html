@@ -22,7 +22,7 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.1.3</span>
+          <span class="chip">v0.1.5</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
@@ -38,7 +38,7 @@
       <main class="docs-main" id="doc-content">
         <div class="docs-mobile">
           <details class="docs-menu"><summary>Menu</summary><div><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader" aria-current="page">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/merged-entries">Merged entries</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting">Troubleshooting</a></li></ul></div></nav></div></details>
-          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#the-readers-menu">The reader's menu</a></li><li><a href="#reading-modes">Reading modes</a></li><li><a href="#the-readers-settings-sheet">The reader's settings sheet</a><ul><li><a href="#reading-mode">Reading mode</a></li><li><a href="#general">General</a></li><li><a href="#custom-filter">Custom filter</a></li></ul></li><li><a href="#reader-settings-in-settings">Reader settings in Settings</a></li><li><a href="#page-actions">Page actions</a></li><li><a href="#bookmarks-and-page-notes">Bookmarks and page notes</a></li><li><a href="#when-a-page-does-not-load">When a page does not load</a></li></ul></div></details>
+          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#the-readers-menu">The reader's menu</a></li><li><a href="#reading-modes">Reading modes</a></li><li><a href="#auto-scroll">Auto-scroll</a></li><li><a href="#two-pages-side-by-side">Two pages side by side</a></li><li><a href="#the-readers-settings-sheet">The reader's settings sheet</a><ul><li><a href="#reading-mode">Reading mode</a></li><li><a href="#general">General</a></li><li><a href="#custom-filter">Custom filter</a></li></ul></li><li><a href="#reader-settings-in-settings">Reader settings in Settings</a></li><li><a href="#page-actions">Page actions</a></li><li><a href="#bookmarks-and-page-notes">Bookmarks and page notes</a></li><li><a href="#when-a-page-does-not-load">When a page does not load</a></li></ul></div></details>
         </div>
         <article class="doc">
 <h1 id="the-reader">The reader</h1>
@@ -50,7 +50,10 @@ put the menu) to show the reader's menu.</p>
 overflow with <strong>Open in WebView</strong>, <strong>Open in browser</strong> and <strong>Share</strong>. When the page on screen has
 a note, the bar says <strong>This page has a note</strong>.</li>
 <li><strong>Bottom bar</strong>: <strong>Previous chapter</strong> and <strong>Next chapter</strong>, the page slider, and buttons for
-<strong>Reading mode</strong>, <strong>Rotation</strong>, <strong>Crop borders</strong> and <strong>Settings</strong>.</li>
+<strong>Reading mode</strong>, <strong>Rotation</strong>, <strong>Crop borders</strong> and <strong>Settings</strong>. In the long strip modes, with
+<a href="#auto-scroll">auto-scroll</a> turned on, a play button comes before <strong>Settings</strong>. While
+<a href="#two-pages-side-by-side">two pages show side by side</a>, a <strong>Shift pages</strong> button comes after
+<strong>Crop borders</strong>.</li>
 </ul>
 <h2 id="reading-modes">Reading modes<a class="anchor" href="#reading-modes" aria-label="Link to this section">#</a></h2>
 <ul>
@@ -68,6 +71,65 @@ reader's <strong>Settings</strong> under <strong>For this series</strong>, or fr
 portrait</strong>), or per entry.</p>
 <p>To put every entry back on the defaults, use More &gt; Settings &gt; Advanced &gt; <strong>Reset per-series reader
 settings</strong>. With sync on, this resets them on every synced device.</p>
+<h2 id="auto-scroll">Auto-scroll<a class="anchor" href="#auto-scroll" aria-label="Link to this section">#</a></h2>
+<p>In the long strip modes the reader can scroll the pages down by itself, for reading without
+swiping. Auto-scroll is experimental. Turn it on in More &gt; Settings &gt; Experimental &gt; <strong>Auto-scroll
+in long strip</strong>.</p>
+<ol>
+<li>Open a chapter in <strong>Long strip</strong> or <strong>Long strip with gaps</strong>. To switch an entry to one of them,
+use the reader's <strong>Reading mode</strong> button (see <a href="#reading-modes">Reading modes</a>).</li>
+<li>Show the reader's menu and tap the play button (<strong>Start auto-scroll</strong>), just before <strong>Settings</strong>
+in the bottom bar. The menu closes and the pages start moving.</li>
+</ol>
+<p>It carries on into the next chapter, the way the strip does when you scroll by hand, and the pages
+ahead load as they would. The screen stays on while it runs, whatever <strong>Keep screen on</strong> is set to.
+The paged modes have no play button.</p>
+<p>Auto-scroll stops when:</p>
+<ul>
+<li>you touch the screen. The touch still does what it always does, so a tap where the menu opens
+also opens the menu;</li>
+<li>the menu, the settings sheet or a dialog opens;</li>
+<li>you leave the reader or switch to another app;</li>
+<li>you jump to another page;</li>
+<li>you switch to a paged mode;</li>
+<li>it reaches the end of the last chapter.</li>
+</ul>
+<p>Tap the play button again to carry on.</p>
+<p><strong>Scroll speed</strong> sets how fast it goes, from 1 (slowest) to 10 (fastest), 4 by default. It is at the
+end of the long strip options on the <strong>Reading mode</strong> tab of the reader's settings sheet, and at
+the end of <strong>Long strip</strong> in More &gt; Settings &gt; Reader. Both show it only while the switch is on. A
+level moves the pages at the same speed on every screen.</p>
+<h2 id="two-pages-side-by-side">Two pages side by side<a class="anchor" href="#two-pages-side-by-side" aria-label="Link to this section">#</a></h2>
+<p>In the paged modes <strong>Paged (left to right)</strong> and <strong>Paged (right to left)</strong>, the reader can show two
+pages at once, as a printed book does. This is experimental. Turn it on in More &gt; Settings &gt;
+Experimental &gt; <strong>Two pages side by side</strong>.</p>
+<p>Then choose when in <strong>Two pages side by side</strong>, on the <strong>Reading mode</strong> tab of the reader's settings
+sheet or under <strong>Paged</strong> in More &gt; Settings &gt; Reader:</p>
+<ul>
+<li><strong>Never</strong>: one page at a time, as before.</li>
+<li><strong>In landscape</strong> (the default): two pages while the screen is in landscape, one in portrait.</li>
+<li><strong>Always</strong>: two pages either way.</li>
+</ul>
+<p>How pages pair up:</p>
+<ul>
+<li>In right to left the earlier page is on the right; in left to right it is on the left.</li>
+<li>The first page of a chapter stands alone, unless you shift the pages (below).</li>
+<li>A wide page, an animated page, a tall page cut into parts and a page that cannot be read always
+stand alone, and the pairing starts again after them. A wide page shows whole, not split or
+rotated, whatever <strong>Split wide pages</strong> and <strong>Rotate wide pages to fit</strong> are set to.</li>
+<li>Until a page has loaded, Saikou guesses its size, so a pair can change when a page turns out to be
+wide. The page on screen stays in view when that happens.</li>
+</ul>
+<p>Taps, swipes and keys turn a whole spread. Zoom acts on the spread as one picture. The page number
+shows both pages, for example 5-6 / 20.</p>
+<p>When the pages pair the wrong way round, so the two halves of a drawing land on different spreads,
+show the reader's menu and tap <strong>Shift pages</strong>. It moves the pairing by one page, for that entry, on
+this device only; tap it again to move it back. It moves only the chapter's first run of pages, up
+to the first page that always stands alone. Pages after that one keep their pairing. In a chapter
+that opens on such a page, the run after it moves instead.</p>
+<p>The switch and <strong>Shift pages</strong> stay on this device and are not in backups. The choice of
+<strong>Never</strong>, <strong>In landscape</strong> or <strong>Always</strong> is an app setting, which a backup with <strong>App settings</strong>
+keeps.</p>
 <h2 id="the-readers-settings-sheet">The reader's settings sheet<a class="anchor" href="#the-readers-settings-sheet" aria-label="Link to this section">#</a></h2>
 <p>The <strong>Settings</strong> button in the reader opens a sheet with three tabs. Changes apply at once.</p>
 <h3 id="reading-mode">Reading mode<a class="anchor" href="#reading-mode" aria-label="Link to this section">#</a></h3>
@@ -76,10 +138,12 @@ settings</strong>. With sync on, this resets them on every synced device.</p>
 <li>For paged modes: <strong>Scale type</strong> (<strong>Fit screen</strong>, <strong>Stretch</strong>, <strong>Fit width</strong>, <strong>Fit height</strong>,
 <strong>Original size</strong>, <strong>Smart fit</strong>), <strong>Zoom start position</strong> (<strong>Automatic</strong>, <strong>Left</strong>, <strong>Right</strong>,
 <strong>Center</strong>), <strong>Crop borders</strong>, <strong>Automatically zoom into wide images</strong>, <strong>Pan wide images</strong>,
-<strong>Split wide pages</strong> with <strong>Invert split page placement</strong>, and <strong>Rotate wide pages to fit</strong> with
-<strong>Flip orientation of rotated wide pages</strong>.</li>
+<strong>Split wide pages</strong> with <strong>Invert split page placement</strong>, <strong>Rotate wide pages to fit</strong> with
+<strong>Flip orientation of rotated wide pages</strong>, and <strong>Two pages side by side</strong> while
+<a href="#two-pages-side-by-side">that switch</a> is on.</li>
 <li>For long strip modes: <strong>Side padding</strong>, <strong>Crop borders</strong>, <strong>Split wide pages</strong>, <strong>Rotate wide
-pages to fit</strong>, <strong>Double tap to zoom</strong> and <strong>Disable zoom out</strong>.</li>
+pages to fit</strong>, <strong>Double tap to zoom</strong>, <strong>Disable zoom out</strong>, and <strong>Scroll speed</strong> while
+<a href="#auto-scroll">auto-scroll</a> is turned on.</li>
 <li><strong>Tap zones</strong>: <strong>Default</strong>, <strong>L shaped</strong>, <strong>Kindle-ish</strong>, <strong>Edge</strong>, <strong>Right and Left</strong> or
 <strong>Disabled</strong>, and <strong>Invert tap zones</strong> (<strong>None</strong>, <strong>Horizontal</strong>, <strong>Vertical</strong>, <strong>Both</strong>).</li>
 </ul>
@@ -160,7 +224,7 @@ Settings &gt; Advanced &gt; <strong>Custom hardware bitmap threshold</strong> st
         </article>
         <nav class="pager" aria-label="Previous and next page"><a class="prev" href="/docs/downloads"><span>Previous page</span>Downloads</a><a class="next" href="/docs/tracking"><span>Next page</span>Tracking</a></nav>
       </main>
-      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#the-readers-menu">The reader's menu</a></li><li><a href="#reading-modes">Reading modes</a></li><li><a href="#the-readers-settings-sheet">The reader's settings sheet</a><ul><li><a href="#reading-mode">Reading mode</a></li><li><a href="#general">General</a></li><li><a href="#custom-filter">Custom filter</a></li></ul></li><li><a href="#reader-settings-in-settings">Reader settings in Settings</a></li><li><a href="#page-actions">Page actions</a></li><li><a href="#bookmarks-and-page-notes">Bookmarks and page notes</a></li><li><a href="#when-a-page-does-not-load">When a page does not load</a></li></ul></aside>
+      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#the-readers-menu">The reader's menu</a></li><li><a href="#reading-modes">Reading modes</a></li><li><a href="#auto-scroll">Auto-scroll</a></li><li><a href="#two-pages-side-by-side">Two pages side by side</a></li><li><a href="#the-readers-settings-sheet">The reader's settings sheet</a><ul><li><a href="#reading-mode">Reading mode</a></li><li><a href="#general">General</a></li><li><a href="#custom-filter">Custom filter</a></li></ul></li><li><a href="#reader-settings-in-settings">Reader settings in Settings</a></li><li><a href="#page-actions">Page actions</a></li><li><a href="#bookmarks-and-page-notes">Bookmarks and page notes</a></li><li><a href="#when-a-page-does-not-load">When a page does not load</a></li></ul></aside>
     </div>
 
     <footer class="site-footer">

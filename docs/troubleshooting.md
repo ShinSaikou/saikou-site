@@ -65,11 +65,13 @@ When it fails:
 - If you know your router well, its security settings may be blocking the site. If you do not,
   stick to the steps above.
 - Certificate errors: check that the device's date and time are right, clear WebView data, and try
-  another network.
+  another network. If sources fail with "Trust anchor for certification path not found", see
+  [below](#sources-fail-behind-an-ad-blocker-a-dns-filter-or-a-work-network).
 
 Some settings, such as DNS over HTTPS, the user agent, **Verbose logging** and **Revoke trusted
 unknown extensions**, say "Requires app restart to take effect" and offer **Restart**, which
-restarts Saikou and brings you back to Settings > Advanced.
+restarts Saikou and brings you back to Settings > Advanced (or to Settings > Experimental, for
+**Trust certificates you installed**).
 
 ### HTTP errors
 
@@ -92,6 +94,35 @@ Every site has its own limits and does not publish them. If one source keeps fai
   once**.
 - Keep fewer entries from it in your automatic updates (put rarely read ones in a category you
   exclude). See [Library updates](updates.md#how-saikou-treats-the-sites).
+
+### Sources fail behind an ad blocker, a DNS filter or a work network
+
+One or more sources fail with "**Trust anchor for certification path not found**", while the same
+sites open in your browser. This happens when an ad blocker, a DNS filter, or a work or school
+network inspects secure connections with a certificate you installed on the device. Your browser
+trusts that certificate; Saikou, by default, trusts only the certificates Android ships with.
+
+If you installed the certificate yourself and trust whoever controls it, you can let sources load
+through it:
+
+1. Turn on More > Settings > Experimental > **Trust certificates you installed**.
+2. Tap **Restart** on "Requires app restart to take effect". Saikou restarts and brings you back to
+   Settings > Experimental. The switch takes effect only after a restart.
+
+The risk: whoever controls that certificate can read and change everything Saikou loads from
+sources, including pages, covers and the cookies you use to sign in to a site. Sync, tracking,
+extension stores and app updates keep trusting only the certificates Android ships with, so the
+certificate never sees your sync or tracker sign-ins and cannot change an extension or an app
+update. Behind such a network, those may fail to connect instead. Turn the switch off when you no
+longer need it.
+
+The switch covers browsing, the reader, covers and downloads. **Open in WebView** and a site's
+browser check accept such a certificate only on Android 10 and later, and only when it signs the
+site's certificate directly. On Android 9 and older, or behind a filter that signs through an
+intermediate certificate, they still refuse the site.
+
+If you did not install a certificate, or do not know who controls it, leave the switch off and try
+another network instead.
 
 ## Updates or backups do not run in the background
 

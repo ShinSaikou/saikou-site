@@ -73,11 +73,12 @@ overlay**, **Animate page transitions**, then:
 - **Paged**: **Tap zones**, **Invert tap zones**, **Scale type**, **Zoom start position**, **Crop
   borders**, **Automatically zoom into wide images**, **Pan wide images**, **Split wide pages**,
   **Invert split page placement**, **Rotate wide pages to fit**, **Flip orientation of rotated wide
-  pages**.
+  pages**, and **Two pages side by side** while [that switch](#experimental) is on.
 - **Long strip**: **Tap zones**, **Invert tap zones**, **Side padding**, **Sensitivity for hiding
   menu on scroll**, **Crop borders**, **Split wide pages**, **Invert split page placement**,
   **Rotate wide pages to fit**, **Flip orientation of rotated wide pages**, **Double tap to zoom**,
-  **Disable zoom out**.
+  **Disable zoom out**, and **Scroll speed** while [Auto-scroll in long strip](#experimental) is
+  on.
 - **Navigation**: **Volume keys**, **Invert volume keys**, **Use vertical chapter navigator in**,
   **Place vertical navigator on the left side**, **Vertical navigator height**.
 - **Actions**: **Show actions on long tap**, **Save pages into separate folders**.
@@ -86,9 +87,10 @@ overlay**, **Animate page transitions**, then:
 
 See [Downloads](downloads.md).
 
-**Only download over Wi-Fi**, **Pages downloaded at once**, the **Delete chapters** group, **Download
-new chapters** with its two sub-rows, **Auto download while reading**, **Unmatched downloads**,
-**Export downloads**, **Copy downloads from a folder** and **Last copy from a folder**.
+**Only download over Wi-Fi**, **Sources downloaded at once** (only while [Download from several
+sources at once](#experimental) is on), **Pages downloaded at once**, the **Delete chapters** group,
+**Download new chapters** with its two sub-rows, **Auto download while reading**, **Unmatched
+downloads**, **Export downloads**, **Copy downloads from a folder** and **Last copy from a folder**.
 
 ## Tracking
 
@@ -178,3 +180,43 @@ turning it off again puts things back as they were.
 - **Merged entries**: shows one title from several sources as one library entry with one chapter
   list. See [Merged entries](merged-entries.md). Turning this off shows the entries separately
   again and keeps your merges. The setting stays on this device and is not in backups.
+- **Auto-scroll in long strip**: adds a play button to the reader's menu in the long strip modes.
+  It scrolls the pages down by itself, on into the next chapter, until a touch stops it. **Scroll
+  speed**, under Long strip in the reader's settings, sets how fast, and shows only while this is
+  on. See [The reader](reader.md#auto-scroll). The setting stays on this device and is not in
+  backups.
+- **Two pages side by side**: lets the left to right and right to left paged modes show two pages
+  at once, as a printed book does. **Two pages side by side**, in the reader's settings and under
+  Paged in Settings > Reader, chooses **Never**, **In landscape** (the default) or **Always**, and
+  shows only while this is on. The first page and wide pages stand alone, wide pages whole rather
+  than split or rotated, and **Shift pages** in the reader's menu moves the pairing by one page for
+  that entry. Until a page has loaded its size is a guess, so a pair can change as wide pages turn
+  up. See [The reader](reader.md#two-pages-side-by-side). The setting stays on this device and is
+  not in backups.
+- **Open shared text and search requests**: adds Shin Saikou to Android's share menu, so sharing a
+  title or a page of a source's site searches your sources for it, and lets other apps, such as an
+  extension's link handler, open a search in Saikou. See
+  [Browse and sources](browse.md#searching-from-other-apps). While it is off, no other app can send
+  Saikou a search. The setting stays on this device and is not in backups.
+- **Update extensions automatically**: once a day on Wi-Fi or another unmetered network, Saikou
+  checks your extension repositories and installs the updates it finds, and a notification says what
+  it did. An update signed with a different key still waits for you. A new version can change how a
+  source behaves or break it. See [Extensions](extensions.md#updating-extensions-automatically). The
+  setting stays on this device and is not in backups.
+- **Download from several sources at once**: downloads one chapter from each of several sources at
+  the same time. Chapters from one source still download one after another, in queue order. While
+  it is on, More > Settings > Downloads shows **Sources downloaded at once**, which sets how many.
+  Downloads use more data, memory and battery while it is on. See
+  [Downloads](downloads.md#several-sources-at-once). The setting stays on this device and is not in
+  backups.
+- **Trust certificates you installed**: lets sources load through an ad blocker, a DNS filter or a
+  network that inspects secure connections with a certificate you installed on the device. Whoever
+  controls that certificate can read and change what Saikou loads from sources. Sync, tracking,
+  extension stores and app updates keep trusting only the certificates Android ships with. Takes
+  effect after a restart; the message offers **Restart**. See
+  [Troubleshooting](troubleshooting.md#sources-fail-behind-an-ad-blocker-a-dns-filter-or-a-work-network).
+  The setting stays on this device and is not in backups.
+- **Save chapters as CBZ files**: saves each new download as one `.cbz` file instead of a folder of
+  images. Chapters you already downloaded stay as they are, and turning it off saves new downloads
+  as folders again without changing the files. See
+  [Downloads](downloads.md#saving-chapters-as-cbz-files). This setting is in backups.

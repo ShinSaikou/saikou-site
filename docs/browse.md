@@ -77,6 +77,50 @@ Two other places start the same search with the words filled in: **Search all so
 above the results of a [library search](library.md#the-library-tab), and a tap on the title or
 author on [an entry's page](entry.md#the-header).
 
+## Searching from other apps
+
+Other apps can send Saikou something to search for: Android's share menu, a voice search, or an
+extension's link handler. This is experimental. Turn it on in More > Settings > Experimental >
+**Open shared text and search requests**.
+
+While it is off, Shin Saikou is not in the share menu and no other app can send it a search. Web
+pages cannot open a search in Saikou, whether it is on or off.
+
+Each search another app sends goes to your sources, the same as a search you type. Only enabled
+sources are asked: a source you disabled, or one whose language is turned off, is left out (see
+[Choosing which sources show](#choosing-which-sources-show)).
+
+### Sharing a page of a source's site
+
+In a browser, share a page from a site one of your sources reads, and pick **Shin Saikou**. Saikou
+opens that source's search for the page's address, which many sources answer with the page's entry.
+
+When several sources of one extension read that site, for example one per language and one for
+**Multiple languages**, Saikou picks one of them:
+
+1. the one you pinned;
+2. otherwise the one you used last;
+3. otherwise the one for **Multiple languages**.
+
+When sources of different extensions read the same site, Saikou cannot tell which one you meant. It
+opens **Search all sources** instead, with the shared words, or with the address when the text is
+only that.
+
+### Sharing words
+
+Select some words, such as a title on a web page, share them and pick **Shin Saikou**. Saikou opens
+[Search all sources](#global-search) for them. Web addresses in the shared text are left out, and so
+is a pair of quotes around the words, so a selection that a browser shares with a link to it
+searches only the words. Text that is only the address of a site none of your sources reads
+searches for that address. Line breaks become spaces, and only the first 500 characters are used.
+
+### Searches from other apps
+
+A voice search, or a link handler that names no extension, opens **Search all sources** with its
+words. An extension's link handler that names its extension opens the search of that extension's
+source, picked the same way as for a shared page. If that extension is not installed, or none of its
+sources is enabled, the search goes to **Search all sources**.
+
 ## Source settings
 
 Browse a source, then overflow > **Source settings**. It shows the settings the source itself

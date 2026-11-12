@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Saikou Privacy Policy | ShinSaikou</title>
-    <meta name="description" content="Privacy policy for Saikou, a personal Android reading app with optional Google Drive sync and optional MyAnimeList and AniList tracking." />
+    <meta name="description" content="Privacy policy for Saikou, a personal Android reading app with optional Google Drive sync and optional MyAnimeList, AniList, MangaBaka and Comick tracking." />
     <link rel="icon" type="image/png" href="/icon-192.png" />
     <style>
       :root {
@@ -47,14 +47,14 @@
   </head>
   <body>
     <h1>Saikou Privacy Policy</h1>
-    <p class="sub">Effective date: 7 November 2026</p>
+    <p class="sub">Effective date: 12 November 2026</p>
 
     <h2>In plain English</h2>
     <p class="lead">
       Saikou has no account, no server, no ads and no analytics. The app sends nothing to the
       developer on its own. If you turn on Google Drive sync, your library data goes to your own Google Drive and
-      nowhere else. If you sign in to MyAnimeList or AniList, the reading progress of the titles you
-      choose to link goes to your own list on that site and nowhere else. To look for a new version,
+      nowhere else. If you sign in to MyAnimeList, AniList, MangaBaka or Comick, the reading progress
+      of the titles you choose to link goes to your own list on that site and nowhere else. To look for a new version,
       the app asks GitHub, which sees the request and nothing from your library. A bug report goes
       only where you choose to send it.
     </p>
@@ -71,10 +71,11 @@
       files you choose where to save. The app sends none of this to the developer.
     </p>
     <p>
-      If you use MyAnimeList or AniList tracking, the link between a library entry and its entry on
-      that site, with the status, chapter count, score and dates the site last answered, is stored on
-      your device too. So is each sign-in: a token, and the account name shown in Settings, plus, for
-      AniList, the account's AniList id and the scoring system your list uses. A backup file includes
+      If you use MyAnimeList, AniList, MangaBaka or Comick tracking, the link between a library entry
+      and its entry on that site, with the status, chapter count, score and dates the site last
+      answered, is stored on your device too. So is each sign-in: a token, and the account name shown
+      in Settings, plus, for AniList, MangaBaka and Comick, the account's id on that site, and for
+      AniList and MangaBaka, the scoring system or rating steps your list uses. A backup file includes
       those sign-ins only when you tick "Private settings" when creating it; otherwise the file holds
       no tracker login.
     </p>
@@ -103,12 +104,38 @@
         until you sign in, and then only about the titles you choose to link.
       </li>
       <li>
+        <strong>MangaBaka tracking, if you sign in.</strong> Described in section 7. Nothing is sent
+        until you sign in, and then only about the titles you choose to link.
+      </li>
+      <li>
+        <strong>Comick tracking, if you sign in.</strong> Described in section 8. Nothing is sent
+        until you sign in, and then only about the titles you choose to link.
+      </li>
+      <li>
         <strong>Checking for updates.</strong> Saikou asks GitHub for its latest release, on its own
         about once a day when you open the app, and whenever you tap Check for updates or open the
         About screen. An update you choose to install downloads from GitHub too. GitHub receives
         these requests and your IP address, as it would from a web browser, and handles them under
         its own policy. They carry nothing from your library. The automatic check can be turned off
         in Settings, under Advanced.
+      </li>
+      <li>
+        <strong>Extension stores you added.</strong> Saikou asks them for their lists when you refresh
+        them in Extensions, and in the background while "Check extension updates" is on (in Settings,
+        under Advanced). Installing or updating an extension downloads it from its store. Those stores
+        receive these requests and your IP address, as they would from a web browser, and handle them
+        under their own policies. They carry nothing from your library, though a download shows the
+        store which of its extensions you have.
+      </li>
+      <li>
+        <strong>Updating extensions automatically, if you turn it on.</strong> While "Update
+        extensions automatically" is on (in Settings, under Experimental), Saikou asks the extension
+        stores you added for their lists once a day, on Wi-Fi or another unmetered network, and
+        downloads the updates they offer from them. Those stores receive these requests and your IP
+        address, as they would from a web
+        browser, and handle them under their own policies. They carry nothing from your library,
+        though a download shows the store which of its extensions you have. The switch is off until
+        you turn it on.
       </li>
       <li>
         <strong>Bug reports, if you share one.</strong> Share bug report, on the About screen, makes
@@ -132,8 +159,8 @@
       </li>
       <li>
         <strong>What is stored there.</strong> Your library with each entry's notes, display
-        settings and any title or description you edited, your categories, chapter progress,
-        reading history, bookmarks and tracking entries. Settings, passwords, logins, installed
+        settings and any details you edited (title, description, author, artist, status and
+        genres), your categories, chapter progress, reading history, bookmarks and tracking entries. Settings, passwords, logins, installed
         extensions, custom covers and downloaded chapters are not synced.
       </li>
       <li>
@@ -184,7 +211,8 @@
         sent as a new chapter count, in the background once the device has a connection, with
         retries if it fails. Edits you make in an entry's tracking sheet (status, chapters, score,
         dates) are sent at once. Both automatic updates can be turned off in Settings, under
-        Tracking. Nothing is sent about titles you have not linked.
+        Tracking. A search you start in Add tracking is sent even if you then link nothing; apart
+        from that, nothing is sent about titles you have not linked.
       </li>
       <li>
         <strong>What is read from MyAnimeList.</strong> Search results, with their cover images
@@ -248,8 +276,9 @@
         count, together with the entry's status, score, dates and privacy, in the background once the
         device has a connection, with retries if it fails. Edits you make in an entry's tracking
         sheet (status, chapters, score, dates, and "Track privately" or "Track publicly") are sent at
-        once. Both automatic updates can be turned off in Settings, under Tracking. Nothing is sent
-        about titles you have not linked.
+        once. Both automatic updates can be turned off in Settings, under Tracking. A search you
+        start in Add tracking is sent even if you then link nothing; apart from that,
+        nothing is sent about titles you have not linked.
       </li>
       <li>
         <strong>What is read from AniList.</strong> Search results, with their cover images loaded
@@ -290,7 +319,149 @@
       </li>
     </ul>
 
-    <h2>7. What the developer collects</h2>
+    <h2>7. MangaBaka tracking</h2>
+    <ul>
+      <li>
+        <strong>Off until you sign in.</strong> MangaBaka tracking does nothing, and sends nothing,
+        until you sign in to MangaBaka in Saikou's Tracking settings. Signing in to another tracker
+        does not sign you in to MangaBaka.
+      </li>
+      <li>
+        <strong>Signing in.</strong> Saikou opens MangaBaka's sign-in page in your browser, which may
+        first show a Cloudflare browser check. You sign in there, on MangaBaka's own site, never in
+        Saikou. Saikou asks for permission to read and change your MangaBaka library, to stay signed
+        in, and to read your profile. The browser hands a one-time code back to Saikou on the device
+        itself. Saikou exchanges it with MangaBaka for a sign-in token and asks MangaBaka for the
+        account's id, name and the rating steps your account uses, so the Tracking settings can show
+        who is signed in and scores appear in your steps.
+      </li>
+      <li>
+        <strong>What is sent to MangaBaka.</strong> When you link a title: the search text (the
+        entry's title, or what you type), sent without your sign-in, and then, for the entry you
+        pick, its status, the number of chapters read, the start and finish dates and whether the
+        entry is private on your list; if the entry is already on your list, its score is sent back
+        with it. After that, each chapter you finish in the reader, and each chapter you mark as
+        read, is sent as a new chapter count, together with the entry's status, score, dates and
+        privacy, in the background once the device has a connection, with retries if it fails.
+        Edits you make in an entry's tracking sheet (status, chapters, score, dates, and "Track
+        privately" or "Track publicly") are sent at once. Both automatic updates can be turned off
+        in Settings, under Tracking. A search you start in Add tracking is sent even if you then
+        link nothing; apart from that, nothing is sent about titles you have not linked.
+      </li>
+      <li>
+        <strong>What is read from MangaBaka.</strong> Search results, with their cover images, and the
+        current state of a linked entry on your list, with the series' title and chapter count, when
+        you link it, open its tracking sheet or an automatic update runs. If a linked entry is no
+        longer on your MangaBaka list, that reading adds it back with the status and progress Saikou
+        holds.
+      </li>
+      <li>
+        <strong>Your IP address.</strong> Every request goes from your device straight to MangaBaka,
+        which receives your IP address as it would from a web browser and handles it under its own
+        policies.
+      </li>
+      <li>
+        <strong>The sign-in token.</strong> MangaBaka issues Saikou a token that lets it reach your
+        list without asking you to sign in each time. It is stored in the app's private storage on
+        your device, alongside its settings, and is sent to no one but MangaBaka. Like the MyAnimeList
+        token, it is not additionally encrypted with an Android Keystore key. When it expires, Saikou
+        renews it with MangaBaka, which issues a new one each time; if MangaBaka refuses the renewal,
+        Saikou stops sending until you sign in again.
+      </li>
+      <li>
+        <strong>Sync and backups.</strong> Google Drive sync and WebDAV sync carry your tracking
+        entries between your devices, as section 4 says, but never the MangaBaka sign-in, which stays
+        on each device. A backup file includes the sign-in only when you tick "Private settings" when
+        creating it.
+      </li>
+      <li>
+        <strong>Nothing to the developer.</strong> Tracking calls go from your device to MangaBaka and
+        nowhere else. The developer sees none of them.
+      </li>
+      <li>
+        <strong>Stopping tracking.</strong> Sign out in Saikou's Tracking settings. That deletes the
+        token and the account's id from your device and Saikou stops sending. Saikou then asks
+        MangaBaka to cancel its access, which ends the sign-in on MangaBaka's side too; if the device
+        cannot reach MangaBaka at that moment, the access is not cancelled there, though the app keeps
+        no copy of the token to use it. A backup you saved with Private settings ticked still holds
+        the token, so delete such a backup, or keep it safe, if you no longer want that access. A
+        copy of the account name and its rating steps may
+        stay in the app's settings until you sign in again or clear the app's storage. Your entries
+        on MangaBaka stay as they are. Removing a title's tracking in Saikou deletes the link on the
+        device only, unless you tick "Also remove from MangaBaka", which also deletes that entry from
+        your MangaBaka list.
+      </li>
+    </ul>
+
+    <h2>8. Comick tracking</h2>
+    <ul>
+      <li>
+        <strong>Off until you sign in.</strong> Comick tracking, with the tracking site at
+        comick.dev, does nothing, and sends nothing, until you sign in to Comick in Saikou's Tracking
+        settings. Signing in to another tracker does not sign you in to Comick.
+      </li>
+      <li>
+        <strong>Signing in.</strong> Saikou opens Comick's sign-in page in your browser. You sign in
+        there, on Comick's own site, never in Saikou. Saikou asks for permission to read and change
+        your Comick library and to stay signed in. Comick's page leaves the permission to change your
+        library off; if you leave it off, or turn off the permission to stay signed in, Saikou refuses
+        the sign-in and stores nothing. The browser hands a one-time code back to Saikou on the
+        device itself. Saikou exchanges it with Comick for a sign-in token and asks Comick for the
+        account's id and user name, so the Tracking settings can show who is signed in.
+      </li>
+      <li>
+        <strong>What is sent to Comick.</strong> When you link a title: the search text (the entry's
+        title, or what you type) and then, for the entry you pick, its status and the number of
+        chapters read; if the entry is already on your list, its score is sent back with it. After
+        that, each chapter you finish in the reader, and each chapter you mark as read, is sent as a
+        new chapter count, together with the entry's status and score, in the background once the
+        device has a connection, with retries if it fails. Edits you make in an entry's tracking
+        sheet (status, chapters, score) are sent at once. Both automatic updates can be turned off in
+        Settings, under Tracking. A search you start in Add tracking is sent even if you then link
+        nothing; apart from that, nothing is sent about titles you have not linked.
+      </li>
+      <li>
+        <strong>What is read from Comick.</strong> Search results, with their cover images, and the
+        current state of a linked entry on your list when you link it, open its tracking sheet or an
+        automatic update runs. If a linked entry is no longer on your Comick list, that reading adds
+        it back with the status and progress Saikou holds.
+      </li>
+      <li>
+        <strong>Your IP address.</strong> Every request goes from your device straight to Comick,
+        which receives your IP address as it would from a web browser and handles it under its own
+        policies.
+      </li>
+      <li>
+        <strong>The sign-in token.</strong> Comick issues Saikou a token that lets it reach your list
+        without asking you to sign in each time. It is stored in the app's private storage on your
+        device, alongside its settings, and is sent to no one but Comick. Like the MyAnimeList token,
+        it is not additionally encrypted with an Android Keystore key. When it expires, Saikou renews
+        it with Comick; if Comick refuses the renewal, Saikou stops sending until you sign in again.
+      </li>
+      <li>
+        <strong>Sync and backups.</strong> Google Drive sync and WebDAV sync carry your tracking
+        entries between your devices, as section 4 says, but never the Comick sign-in, which stays on
+        each device. A backup file includes the sign-in only when you tick "Private settings" when
+        creating it.
+      </li>
+      <li>
+        <strong>Nothing to the developer.</strong> Tracking calls go from your device to Comick and
+        nowhere else. The developer sees none of them.
+      </li>
+      <li>
+        <strong>Stopping tracking.</strong> Sign out in Saikou's Tracking settings. That deletes the
+        token and the account's id from your device and Saikou stops sending. Saikou has no way to
+        cancel its access on Comick's side, though the app keeps no copy of the token to use it. A
+        backup you saved with Private settings ticked still holds the token, so delete such a backup,
+        or keep it safe, while the token is still valid.
+        A copy of the account name may stay in the app's settings until you sign in again or clear
+        the app's storage. Your entries on Comick stay as they are. Removing a title's tracking in
+        Saikou deletes the link on the device only, unless you tick "Also remove from Comick", which
+        also deletes that entry from your Comick list.
+      </li>
+    </ul>
+
+    <h2>9. What the developer collects</h2>
     <p>
       Nothing through the app. Saikou contains no analytics, no crash reporting, no advertising and
       no advertising identifiers, and it has no user accounts. If you send the developer a bug report
@@ -298,35 +469,36 @@
       you wrote by email, and uses it only to answer you and to fix the problem.
     </p>
 
-    <h2>8. Keeping and deleting data</h2>
+    <h2>10. Keeping and deleting data</h2>
     <p>
       Data on your device stays until you delete it in the app, clear the app's storage, or
       uninstall Saikou. Data in your Google Drive app data folder stays until you delete it as
       described in section 4. Data on a WebDAV server stays until you delete it from that server.
-      Your MyAnimeList and AniList sign-ins stay on your device until you sign out in Saikou, clear
-      the app's storage or uninstall Saikou. Entries on your MyAnimeList or AniList list stay until
-      you delete them there, or from Saikou as described in sections 5 and 6. A message or bug report
+      Your MyAnimeList, AniList, MangaBaka and Comick sign-ins stay on your device until you sign out
+      in Saikou, clear the app's storage or uninstall Saikou. Entries on your MyAnimeList, AniList,
+      MangaBaka or Comick list stay until you delete them there, or from Saikou as described in
+      sections 5 to 8. A message or bug report
       you send the developer is kept for as long as it is needed to answer you and fix the problem,
       or until you ask for it to be deleted.
     </p>
 
-    <h2>9. Children</h2>
+    <h2>11. Children</h2>
     <p>Saikou is not directed at children and does not knowingly collect data from them.</p>
 
-    <h2>10. Your rights</h2>
+    <h2>12. Your rights</h2>
     <p>
       The app gives the developer no personal data about you. Your data is on your devices and in
       storage you control. If you have sent the developer a message or a bug report, write to the
-      address in section 12 to ask for a copy of it or to have it deleted. If you believe your data is being handled unlawfully, you can complain to the data protection
+      address in section 14 to ask for a copy of it or to have it deleted. If you believe your data is being handled unlawfully, you can complain to the data protection
       authority in your country.
     </p>
 
-    <h2>11. Changes</h2>
+    <h2>13. Changes</h2>
     <p>
       If this policy changes, the new version is published on this page with a new effective date.
     </p>
 
-    <h2>12. Contact</h2>
+    <h2>14. Contact</h2>
     <p>
       <a href="mailto:shinsaikou@proton.me">shinsaikou@proton.me</a>
     </p>

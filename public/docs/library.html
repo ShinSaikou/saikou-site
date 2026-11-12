@@ -22,7 +22,7 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.1.3</span>
+          <span class="chip">v0.1.5</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
@@ -50,7 +50,9 @@ library's own sheet filters, sorts and lays it out.</p>
 the results, <strong>Search all sources for "..."</strong>, runs the same words in every source, so an entry
 you do not have yet is one tap away, even while the library is empty. It is offered for plain
 words only, not for a search by genre, author or another field. See
-<a href="/docs/browse#global-search">Global search</a>.</li>
+<a href="/docs/browse#global-search">Global search</a>. An author or artist you set in
+<a href="/docs/entry#editing-details">Edit details</a> matches as well as the source's. Genres you edited
+replace the source's list, so a genre you removed no longer matches.</li>
 <li>The <strong>filter</strong> icon opens the library sheet with three tabs: <strong>Filter</strong>, <strong>Sort</strong> and
 <strong>Display</strong>.</li>
 <li>The overflow menu (three dots) has <strong>Update library</strong>, <strong>Update category</strong> for the tab you are
@@ -60,8 +62,8 @@ entry</strong> opens a random entry from the category on screen, after filters a
 </ul>
 <p>The buttons at the top of Library, Updates, History and Browse follow one order: search first, then
 the switches that change what the list shows, then the tab's own action, then the menu. Long press
-any of them to see its name. On Library the update errors button sits first, so the others stay put
-when it appears.</p>
+any of them to see its name. Update errors show only in the Updates tab; see
+<a href="/docs/updates#update-errors">Update errors</a>.</p>
 <p>On a large screen the library can show the tapped entry's chapters in a second pane beside the
 grid. More &gt; Settings &gt; Appearance &gt; <strong>Two pane layout</strong> chooses when:
 <strong>Automatic</strong>, <strong>Always</strong>, <strong>Landscape</strong> or <strong>Never</strong>.</p>
@@ -71,7 +73,8 @@ entries that match). Tap a filter to move to the next state.</p>
 <ul>
 <li><strong>Downloaded</strong>: entries with downloaded chapters. While <strong>Downloaded only</strong> is on in the More
 tab, this filter is forced on.</li>
-<li><strong>Unread</strong>, <strong>Started</strong>, <strong>Bookmarked</strong>, <strong>Completed</strong>.</li>
+<li><strong>Unread</strong>, <strong>Started</strong>, <strong>Bookmarked</strong>, <strong>Completed</strong>. <strong>Completed</strong> follows the status the entry's
+page shows, so a status you set in <a href="/docs/entry#editing-details">Edit details</a> counts.</li>
 <li><strong>Custom update interval</strong>: entries whose update interval you set by hand. It shows only while
 More &gt; Settings &gt; Experimental &gt; <strong>Custom update interval per entry</strong> is on.</li>
 <li><strong>Tracked</strong>: entries linked to a tracker. It appears once you are signed in to a tracker. See

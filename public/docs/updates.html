@@ -22,7 +22,7 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.1.3</span>
+          <span class="chip">v0.1.5</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
@@ -49,7 +49,7 @@ chapters appear in the <strong>Updates</strong> tab and, if you want, download o
 <ul>
 <li>Pull down on the <strong>Library</strong> tab.</li>
 <li>Library &gt; overflow menu &gt; <strong>Update library</strong>.</li>
-<li>Pull down on the <strong>Updates</strong> tab.</li>
+<li>Pull down on the <strong>Updates</strong> tab, or tap <strong>Update library</strong> in its top bar.</li>
 </ul>
 <p><strong>Update category</strong> in the Library's overflow menu updates only the category tab you are on. While
 an update runs, the same menu offers <strong>Stop update</strong>. Starting a second update while one runs only
@@ -75,7 +75,8 @@ to the sites. All four are on by default:
 <ul>
 <li><strong>Skip entries with unread chapter(s)</strong></li>
 <li><strong>Skip unstarted entries</strong></li>
-<li><strong>Skip entries with "Completed" status</strong></li>
+<li><strong>Skip entries with "Completed" status</strong>: the status the entry's page shows, so a status you
+set in <a href="/docs/entry#editing-details">Edit details</a> counts.</li>
 <li><strong>Predict next release time</strong>: skip an entry until the time Saikou expects its next chapter,
 worked out from the gaps between its past chapters.</li>
 </ul></li>
@@ -147,6 +148,9 @@ library before its chapters are loaded (added from a source's list, or restored 
 without chapters), its first update loads the whole list but counts only the chapters released
 after you added it. The rest go straight to the entry's page, unread, with no notification and no
 automatic download. A chapter the site gives no date counts as already out.</p>
+<p>The top bar has <strong>Filter</strong>, <strong>Upcoming</strong> (the calendar icon) and <strong>Update library</strong>, which starts
+the same update as pulling the list down. When the last update had failures, an error button comes
+first (see <a href="#update-errors">Update errors</a>).</p>
 <ul>
 <li>Tap a chapter to read it, or use its download control to queue it.</li>
 <li><strong>Filter</strong> chooses what the list shows: <strong>Downloaded</strong>, <strong>Unread</strong>, <strong>Started</strong>, <strong>Bookmarked</strong>,
@@ -158,15 +162,34 @@ chapter in between. The bar offers <strong>Mark as read</strong>, <strong>Mark a
 <strong>Unbookmark chapter</strong>, <strong>Select all</strong>, <strong>Invert selection</strong> and <strong>Deselect all</strong>.</li>
 </ul>
 <h3 id="upcoming">Upcoming<a class="anchor" href="#upcoming" aria-label="Link to this section">#</a></h3>
-<p><strong>Upcoming</strong> (the calendar icon in the Updates bar) lists the releases predicted for your library,
-day by day, with how many entries fall on each day. Tap an entry to open it. Predictions come from
-each entry's release dates after a library update, so the list is empty until then.</p>
+<p><strong>Upcoming</strong> (the calendar icon in the Updates bar) shows the releases predicted for your library.
+Predictions come from each entry's release dates after a library update, so there is nothing to show
+until then: the calendar is there, with "No releases are predicted yet" under it.</p>
+<p>It opens on a calendar of the current month, with today ringed and earlier days faded. A day with
+releases predicted has a dot for each entry, up to three. Tap that day to jump to it in the list
+below. The arrows beside the month's name show the month before or after.</p>
+<p>Under the calendar, the list goes day by day. Each day's heading has a badge with how many entries
+fall on it, and a tap on an entry opens it. Drag the scroller at the edge to move through a long
+list quickly. On a phone the calendar scrolls away with the list; on a tablet it sits beside the
+list.</p>
+<p><strong>Filter</strong> in the top bar picks the categories to show. Tap a category once to include it and again
+to exclude it. With categories included, only their entries are listed and marked on the calendar;
+an entry in an excluded category is left out even when it is also in an included one. The button
+lights up while a filter is set. The help button next to it opens this page.</p>
 <h3 id="update-errors">Update errors<a class="anchor" href="#update-errors" aria-label="Link to this section">#</a></h3>
 <p>When the last update had failures, the Updates tab's top bar shows an error button with the count.
-It opens <strong>Update errors</strong>: the failed entries grouped by source, each with the reason. Tap an
-entry to open its page, where pulling down tries it again.</p>
+Update errors show only here, in the Updates tab. The button opens <strong>Update errors</strong> in a sheet from
+the bottom of the screen: the failed entries grouped by source, each with the reason.</p>
+<ul>
+<li>Tap an entry to open its page, where pulling down tries it again.</li>
+<li><strong>Retry</strong> updates every failed entry again.</li>
+<li><strong>Migrate</strong>, beside a source's name, starts a migration of that source's failed entries to
+another source. See <a href="/docs/migration">Migration</a>.</li>
+</ul>
+<p>An entry you migrate, or remove from your library, leaves the list and the error count as soon as
+you are back on the Updates tab.</p>
 <p>When the update stopped asking a site, a line above the list says how many entries were not
-checked, with <strong>Open library settings</strong>. The Library tab's error button opens the same list.</p>
+checked, with <strong>Open library settings</strong>.</p>
 <p>Common reasons:</p>
 <ul>
 <li><strong>Not checked: ... refused or timed out three times during this update</strong>: the site pushed back,

@@ -22,7 +22,7 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.1.3</span>
+          <span class="chip">v0.1.5</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
@@ -38,7 +38,7 @@
       <main class="docs-main" id="doc-content">
         <div class="docs-mobile">
           <details class="docs-menu"><summary>Menu</summary><div><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry" aria-current="page">An entry's page</a></li><li><a href="/docs/updates">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/merged-entries">Merged entries</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting">Troubleshooting</a></li></ul></div></nav></div></details>
-          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#the-header">The header</a></li><li><a href="#the-top-bar">The top bar</a></li><li><a href="#the-chapter-list">The chapter list</a></li><li><a href="#chapter-settings">Chapter settings</a></li><li><a href="#downloading-from-an-entry-outside-your-library">Downloading from an entry outside your library</a></li></ul></div></details>
+          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#the-header">The header</a></li><li><a href="#the-top-bar">The top bar</a></li><li><a href="#editing-details">Editing details</a></li><li><a href="#the-chapter-list">The chapter list</a></li><li><a href="#chapter-settings">Chapter settings</a></li><li><a href="#downloading-from-an-entry-outside-your-library">Downloading from an entry outside your library</a></li></ul></div></details>
         </div>
         <article class="doc">
 <h1 id="an-entrys-page">An entry's page</h1>
@@ -48,15 +48,17 @@ chapter list and everything you can do with it.</p>
 <ul>
 <li>The <strong>cover</strong>. Tap it to view it full size, with <strong>Share</strong> and <strong>Save</strong>. For library entries and
 Local source entries there is also <strong>Edit cover</strong>: <strong>Choose an image</strong> (pick any picture on the
-device as the cover) and <strong>Delete custom cover</strong> (go back to the source's cover). A custom cover
-stays on this device: backups and sync do not carry it. A saved cover goes to your gallery's
+device as the cover) and <strong>Delete custom cover</strong> (go back to the source's cover). Sync does not
+carry a custom cover. A Saikou backup does, except on a Local source entry, whose cover lives in
+the entry's own folder (see <a href="/docs/backups#what-a-saikou-backup-keeps">Backups and restore</a>). A saved cover goes to your gallery's
 <strong>Pictures/Saikou</strong> folder, never into an entry's sub-folder. On Android 8 and 9 it goes to
 Saikou's own pictures folder instead (<code>Android/data/com.shinsaikou/files/Pictures</code>), which the gallery
 does not show; use <strong>Share</strong> there.</li>
-<li>The title, the author (<strong>By ...</strong>), the source (<strong>Source: ...</strong>, or <strong>Source not installed</strong> when
-its extension is missing) and the status (<strong>Ongoing</strong>, <strong>Completed</strong>, <strong>On hiatus</strong> and so on).
-Tap the title or the author to search every source for it (see
-<a href="/docs/browse#global-search">Global search</a>). A long press copies it.</li>
+<li>The title, the author (<strong>By ...</strong>), the artist (<strong>Art by ...</strong>, when it differs from the
+author), the source (<strong>Source: ...</strong>, or <strong>Source not installed</strong> when its extension is missing)
+and the status (<strong>Ongoing</strong>, <strong>Completed</strong>, <strong>On hiatus</strong> and so on). Each shows your own value
+where you <a href="#editing-details">edited it</a>. Tap the title, the author or the artist to search every
+source for it (see <a href="/docs/browse#global-search">Global search</a>). A long press copies it.</li>
 <li>The description. Tap <strong>More</strong> to expand it and <strong>Less</strong> to fold it.</li>
 <li><strong>Add to library</strong> or <strong>Remove from library</strong>.</li>
 <li>The <strong>Tracking</strong> button, which shows how many trackers the entry is linked to. See
@@ -80,16 +82,36 @@ chapters</strong>, <strong>Next 25 chapters</strong>, <strong>Unread</strong> or
 <li><strong>Refresh</strong>: the same as pulling down.</li>
 <li><strong>Reading mode</strong>: this entry's own reading mode and rotation, which override the defaults in
 More &gt; Settings &gt; Reader. See <a href="/docs/reader">The reader</a>.</li>
-<li><strong>Edit details</strong>: your own <strong>Title</strong> and <strong>Description</strong> for this entry. <strong>Reset</strong> brings back
-the source's text.</li>
+<li><strong>Edit details</strong>: your own title, description, author, artist, status and genres for this
+entry. See <a href="#editing-details">Editing details</a>.</li>
 <li><strong>Migrate</strong>: move the entry to another source, keeping your progress. Shown for library
 entries. See <a href="/docs/migration">Migration</a>.</li>
 <li><strong>Open in WebView</strong>: open the entry's page on the source's site, inside Saikou. Shown when the
 source has a website.</li>
 </ul></li>
 </ul>
-<p>Your edited title and description stay when the source changes its own. Saving the source's text
-again removes the edit.</p>
+<h2 id="editing-details">Editing details<a class="anchor" href="#editing-details" aria-label="Link to this section">#</a></h2>
+<p>Overflow menu &gt; <strong>Edit details</strong> opens one dialog with the entry's details as the page shows them,
+your edits included:</p>
+<ul>
+<li><strong>Title</strong> and <strong>Description</strong>. A title cannot be left empty.</li>
+<li><strong>Author</strong> and <strong>Artist</strong>.</li>
+<li><strong>Status</strong>: a menu that starts with <strong>From source</strong>, which names the source's status, followed by
+the statuses to choose from.</li>
+<li><strong>Genres</strong>, as chips. Tap a chip to remove that genre. Type in <strong>Add a genre</strong> and tap the plus
+button to add one, or several separated by commas.</li>
+</ul>
+<p>Tap <strong>Save</strong> to keep your changes. Your edits stay when the source changes its own details. A value
+set back to the source's, <strong>From source</strong>, an empty <strong>Author</strong> or <strong>Artist</strong> field, or removing
+every genre shows the source's value again. An empty <strong>Description</strong> is an edit of its own: the
+entry then shows no description.</p>
+<p><strong>Reset all</strong> asks first (<strong>Reset all details?</strong>), then brings back every detail the source gives.
+It is offered only while the entry has an edit.</p>
+<p>Your edits show on the entry's page, in <a href="/docs/library#the-library-tab">library search</a> and the
+<strong>Completed</strong> filter, and in Upcoming. An edited status also decides <strong>Skip entries with "Completed"
+status</strong> in <a href="/docs/updates#automatic-updates">library updates</a>. <a href="/docs/sync">Sync</a> carries your edits to
+your other devices, and a <a href="/docs/backups#what-a-saikou-backup-keeps">Saikou backup</a> keeps them, except
+a description you emptied, which a restore shows as the source's again.</p>
 <h2 id="the-chapter-list">The chapter list<a class="anchor" href="#the-chapter-list" aria-label="Link to this section">#</a></h2>
 <p>Each row shows the chapter's name or number, its date, its scanlator group, and <strong>Page: N</strong> when
 you stopped part of the way through. Read chapters are dimmed, bookmarked chapters are marked.</p>
@@ -138,7 +160,7 @@ More &gt; Settings &gt; Data &gt; <strong>Downloads not in library</strong>.</p>
         </article>
         <nav class="pager" aria-label="Previous and next page"><a class="prev" href="/docs/library"><span>Previous page</span>Library and categories</a><a class="next" href="/docs/updates"><span>Next page</span>Library updates and the Updates tab</a></nav>
       </main>
-      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#the-header">The header</a></li><li><a href="#the-top-bar">The top bar</a></li><li><a href="#the-chapter-list">The chapter list</a></li><li><a href="#chapter-settings">Chapter settings</a></li><li><a href="#downloading-from-an-entry-outside-your-library">Downloading from an entry outside your library</a></li></ul></aside>
+      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#the-header">The header</a></li><li><a href="#the-top-bar">The top bar</a></li><li><a href="#editing-details">Editing details</a></li><li><a href="#the-chapter-list">The chapter list</a></li><li><a href="#chapter-settings">Chapter settings</a></li><li><a href="#downloading-from-an-entry-outside-your-library">Downloading from an entry outside your library</a></li></ul></aside>
     </div>
 
     <footer class="site-footer">

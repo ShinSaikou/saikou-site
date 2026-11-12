@@ -62,8 +62,16 @@ Tap the source line on the entry's page, such as **Source A + 1 more**, to open 
 Merges sync between your devices, and every device needs a version of Saikou that knows the new sync
 format. An older device says **Update Saikou on this device to keep syncing**.
 
-A backup keeps every entry, its chapters and its read marks, but not the merge. After restoring, the
-sources are separate entries until you merge them again.
+Marking a chapter unread syncs too, with one exception: when another device has a source in the
+merged title that this device lacks, and holds that source's copy of the chapter as read, the
+chapter can come back as read after a sync. See [Sync format](sync.md#sync-format).
+
+A Saikou backup keeps your merges: every entry, its chapters and read marks, and the merge itself,
+with its source order, main entry, the sources you stopped checking for updates and **Show every
+copy**. A restore brings the merged entries back as merged; they show as one while the **Merged
+entries** switch is on. Backups made before Saikou 0.1.5 hold no merges, so their sources come back
+as separate entries until you merge them again. See
+[Backups and restore](backups.md#what-a-saikou-backup-keeps).
 
 A backup from TachiyomiSY keeps its merged entries when restored here, in the same source order.
 Saikou shows them with its own rule: one copy of each chapter number, by source order. A merge set

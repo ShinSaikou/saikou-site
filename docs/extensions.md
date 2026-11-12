@@ -70,6 +70,37 @@ the "Install unknown apps" permission.
 More > Settings > Advanced > **Check extension updates** refreshes your repositories in the
 background so the **Updates pending** section stays current.
 
+### Updating extensions automatically
+
+Saikou can install extension updates on its own. This is experimental, because a new version can
+change how a source behaves or break it. Turn it on in More > Settings > Experimental > **Update
+extensions automatically**.
+
+- Once a day, while the device is on Wi-Fi (or another network that is not metered) and its battery
+  and storage are not low, Saikou refreshes your repositories and installs the updates it finds, one
+  at a time, the same way **Update** does. The first check runs soon after you turn it on.
+- It waits for an extension you are installing, and for a backup being restored, to finish first.
+- Refreshing Browse > Extensions yourself still only lists updates; it installs nothing.
+- Turning the switch off stops the daily check.
+
+It installs an update only when your copy of the extension is signed with the key of a repository
+that offers that update, so the new version is trusted without a question. It never installs, and
+leaves under **Updates pending** for you:
+
+- an update for an extension you trusted by hand;
+- an update from a repository whose key differs from the one that signed your copy;
+- a download whose signer Saikou refuses.
+
+Extensions under **Needs trust** or **Did not load**, and those marked **OBSOLETE** or
+**UNTRUSTED**, are never touched.
+
+After a check that did something, a notification on the **Extension updates** channel says what.
+Its title is **Extensions updated**, or **Extension updates not installed** when nothing could be
+installed. Its lines name the extensions under **Updated**, **Could not update** (for example, when
+the download failed; the update stays pending) and **Signed with a different key, waiting for you**. With **Hide notification
+content** on (More > Settings > Security and privacy), it shows counts instead of names. A check
+that finds nothing posts nothing. Tap the notification to open Browse > Extensions.
+
 ## An extension's page
 
 Tap an installed extension to open its page:

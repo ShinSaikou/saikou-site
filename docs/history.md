@@ -5,11 +5,14 @@
 **History** lists the entries you have read, most recent first, each with the last chapter you
 opened.
 
-- **Resume** opens that chapter where you left off.
-- The delete button removes the entry from the history (**Entry removed from history**).
-- Tap a row to open the entry's page.
+- Tap a row to resume reading: it opens that chapter where you left off, or the next chapter once
+  you have finished it. When there is none yet, Saikou says **There's no next chapter yet**.
+- Tap the cover to open the entry's page.
+- The delete button, the row's only button, removes the entry from the history (**Entry removed
+  from history**).
 - **Search** filters the list by title.
-- Long press to select several rows, then **Remove** them (**Remove N entries from history?**).
+- Long press a row (or its cover) to select it, tap others to add them, then **Remove** them
+  (**Remove N entries from history?**).
 - **Hide NSFW entries** in the top bar leaves out the entries whose source comes from an installed
   extension marked NSFW, search results included, and the same button then reads **Show NSFW
   entries**. Entries from the Local source, or from a source with no installed extension, always

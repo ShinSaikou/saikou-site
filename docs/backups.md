@@ -5,7 +5,8 @@ settings. Keep a recent one somewhere other than your phone: it is what brings e
 after a lost phone, a reinstall or a mistake.
 
 Saikou's backups use the common `.tachibk` format: Saikou restores backups from other readers that use
-it, and those readers can restore Saikou's.
+it, and those readers can restore Saikou's. What you made in Saikou travels inside the same file
+(see [What a Saikou backup keeps](#what-a-saikou-backup-keeps)).
 
 The **Backup** screen has two tabs, **Create** and **Restore**.
 
@@ -27,15 +28,35 @@ A moving bar under the button shows for as long as the backup is waiting or work
 then says whether it finished or failed. A notification says **Backup created**, with **Share** to
 send the file somewhere straight away.
 
+### What a Saikou backup keeps
+
+A backup made by Saikou also carries what you made in Saikou, each part with the **Create** option
+that holds it:
+
+- With **Library entries**: the library's manual order, each entry's scanlator priority (the
+  ranking from **Filter scanlator groups**), custom covers you set on entries,
+  [merged entries](merged-entries.md) with their source order and main entry, and the details you
+  [edited](entry.md#editing-details): title, description, author, artist, status and genres.
+- With **Categories**: sub-categories.
+- With **Chapters**: page notes and chapter volumes.
+
+It all goes inside the same `.tachibk` file. Other readers that use `.tachibk` files still restore
+it as before: they skip what they do not know. TachiyomiSY and the readers built on it also restore
+the edited details.
+
+A restore fills in only what the device does not have yet, so the edits, covers and notes you
+already have on the device stay as they are. A backup from another reader that carries edited
+details restores them too.
+
 ### What a backup does not contain
 
 - The extensions themselves (only the list of repositories, with **Extension stores**). A restore
   can install them again, see [Install extensions](#install-extensions).
 - Downloaded chapters. See [Downloads](downloads.md#where-downloads-are-kept).
-- Custom covers you set on entries.
+- The cover of a [Local source](local-source.md) entry, which lives in the entry's own folder.
+- A description you emptied on purpose. The restore treats it as no edit, so the entry shows the
+  source's description.
 - Your sync settings and sign-ins.
-- [Merged entries](merged-entries.md): every entry and its chapters are kept, but not the merge. A
-  restore brings them back as separate entries.
 
 ## Automatic backups
 
@@ -127,7 +148,8 @@ When a restore ends, the notification says **Restore complete**, how many entrie
 restored, how many extensions were installed or wait for **Install all**, or how many sources need
 an extension. Tap it, or tap **Restore report** on the **Restore** tab, for:
 
-- The counts: entries restored, merged with entries already in the library, and not restored.
+- The counts: entries restored, merged with entries already in the library, and not restored, and
+  how many custom covers were restored.
 - **Extensions**, when **Install extensions** was on: what was installed (**Installed**), what
   could not be (**Could not be installed**), the sources no repository lists, by name, so you know
   what to search for (**Not in any extension store**), and the extensions waiting under **From
@@ -165,4 +187,4 @@ backup automatically, see [Sync between devices](sync.md#the-safety-backup).
 - Create a backup by hand before big changes: a migration of many entries, a restore, setting up
   sync, or moving to a new phone.
 - Keep at least one backup off the phone.
-- Saikou is young (version 0.1.3). Back up regularly so a problem in a new release costs you nothing.
+- Saikou is young (version 0.1.5). Back up regularly so a problem in a new release costs you nothing.

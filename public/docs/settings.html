@@ -22,7 +22,7 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.1.3</span>
+          <span class="chip">v0.1.5</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
@@ -106,20 +106,22 @@ chapters</strong>, <strong>Always show chapter transition</strong>.</li>
 <li><strong>Paged</strong>: <strong>Tap zones</strong>, <strong>Invert tap zones</strong>, <strong>Scale type</strong>, <strong>Zoom start position</strong>, <strong>Crop
 borders</strong>, <strong>Automatically zoom into wide images</strong>, <strong>Pan wide images</strong>, <strong>Split wide pages</strong>,
 <strong>Invert split page placement</strong>, <strong>Rotate wide pages to fit</strong>, <strong>Flip orientation of rotated wide
-pages</strong>.</li>
+pages</strong>, and <strong>Two pages side by side</strong> while <a href="#experimental">that switch</a> is on.</li>
 <li><strong>Long strip</strong>: <strong>Tap zones</strong>, <strong>Invert tap zones</strong>, <strong>Side padding</strong>, <strong>Sensitivity for hiding
 menu on scroll</strong>, <strong>Crop borders</strong>, <strong>Split wide pages</strong>, <strong>Invert split page placement</strong>,
 <strong>Rotate wide pages to fit</strong>, <strong>Flip orientation of rotated wide pages</strong>, <strong>Double tap to zoom</strong>,
-<strong>Disable zoom out</strong>.</li>
+<strong>Disable zoom out</strong>, and <strong>Scroll speed</strong> while <a href="#experimental">Auto-scroll in long strip</a> is
+on.</li>
 <li><strong>Navigation</strong>: <strong>Volume keys</strong>, <strong>Invert volume keys</strong>, <strong>Use vertical chapter navigator in</strong>,
 <strong>Place vertical navigator on the left side</strong>, <strong>Vertical navigator height</strong>.</li>
 <li><strong>Actions</strong>: <strong>Show actions on long tap</strong>, <strong>Save pages into separate folders</strong>.</li>
 </ul>
 <h2 id="downloads">Downloads<a class="anchor" href="#downloads" aria-label="Link to this section">#</a></h2>
 <p>See <a href="/docs/downloads">Downloads</a>.</p>
-<p><strong>Only download over Wi-Fi</strong>, <strong>Pages downloaded at once</strong>, the <strong>Delete chapters</strong> group, <strong>Download
-new chapters</strong> with its two sub-rows, <strong>Auto download while reading</strong>, <strong>Unmatched downloads</strong>,
-<strong>Export downloads</strong>, <strong>Copy downloads from a folder</strong> and <strong>Last copy from a folder</strong>.</p>
+<p><strong>Only download over Wi-Fi</strong>, <strong>Sources downloaded at once</strong> (only while <a href="#experimental">Download from several
+sources at once</a> is on), <strong>Pages downloaded at once</strong>, the <strong>Delete chapters</strong> group,
+<strong>Download new chapters</strong> with its two sub-rows, <strong>Auto download while reading</strong>, <strong>Unmatched
+downloads</strong>, <strong>Export downloads</strong>, <strong>Copy downloads from a folder</strong> and <strong>Last copy from a folder</strong>.</p>
 <h2 id="tracking">Tracking<a class="anchor" href="#tracking" aria-label="Link to this section">#</a></h2>
 <p>See <a href="/docs/tracking">Tracking</a>. Shown when this build offers a tracker.</p>
 <p><strong>Trackers</strong> (sign in and out), <strong>Update progress after reading</strong>, <strong>Update progress when marked as
@@ -196,6 +198,46 @@ turning it off puts every entry back on its estimate.</li>
 <li><strong>Merged entries</strong>: shows one title from several sources as one library entry with one chapter
 list. See <a href="/docs/merged-entries">Merged entries</a>. Turning this off shows the entries separately
 again and keeps your merges. The setting stays on this device and is not in backups.</li>
+<li><strong>Auto-scroll in long strip</strong>: adds a play button to the reader's menu in the long strip modes.
+It scrolls the pages down by itself, on into the next chapter, until a touch stops it. <strong>Scroll
+speed</strong>, under Long strip in the reader's settings, sets how fast, and shows only while this is
+on. See <a href="/docs/reader#auto-scroll">The reader</a>. The setting stays on this device and is not in
+backups.</li>
+<li><strong>Two pages side by side</strong>: lets the left to right and right to left paged modes show two pages
+at once, as a printed book does. <strong>Two pages side by side</strong>, in the reader's settings and under
+Paged in Settings &gt; Reader, chooses <strong>Never</strong>, <strong>In landscape</strong> (the default) or <strong>Always</strong>, and
+shows only while this is on. The first page and wide pages stand alone, wide pages whole rather
+than split or rotated, and <strong>Shift pages</strong> in the reader's menu moves the pairing by one page for
+that entry. Until a page has loaded its size is a guess, so a pair can change as wide pages turn
+up. See <a href="/docs/reader#two-pages-side-by-side">The reader</a>. The setting stays on this device and is
+not in backups.</li>
+<li><strong>Open shared text and search requests</strong>: adds Shin Saikou to Android's share menu, so sharing a
+title or a page of a source's site searches your sources for it, and lets other apps, such as an
+extension's link handler, open a search in Saikou. See
+<a href="/docs/browse#searching-from-other-apps">Browse and sources</a>. While it is off, no other app can send
+Saikou a search. The setting stays on this device and is not in backups.</li>
+<li><strong>Update extensions automatically</strong>: once a day on Wi-Fi or another unmetered network, Saikou
+checks your extension repositories and installs the updates it finds, and a notification says what
+it did. An update signed with a different key still waits for you. A new version can change how a
+source behaves or break it. See <a href="/docs/extensions#updating-extensions-automatically">Extensions</a>. The
+setting stays on this device and is not in backups.</li>
+<li><strong>Download from several sources at once</strong>: downloads one chapter from each of several sources at
+the same time. Chapters from one source still download one after another, in queue order. While
+it is on, More &gt; Settings &gt; Downloads shows <strong>Sources downloaded at once</strong>, which sets how many.
+Downloads use more data, memory and battery while it is on. See
+<a href="/docs/downloads#several-sources-at-once">Downloads</a>. The setting stays on this device and is not in
+backups.</li>
+<li><strong>Trust certificates you installed</strong>: lets sources load through an ad blocker, a DNS filter or a
+network that inspects secure connections with a certificate you installed on the device. Whoever
+controls that certificate can read and change what Saikou loads from sources. Sync, tracking,
+extension stores and app updates keep trusting only the certificates Android ships with. Takes
+effect after a restart; the message offers <strong>Restart</strong>. See
+<a href="/docs/troubleshooting#sources-fail-behind-an-ad-blocker-a-dns-filter-or-a-work-network">Troubleshooting</a>.
+The setting stays on this device and is not in backups.</li>
+<li><strong>Save chapters as CBZ files</strong>: saves each new download as one <code>.cbz</code> file instead of a folder of
+images. Chapters you already downloaded stay as they are, and turning it off saves new downloads
+as folders again without changing the files. See
+<a href="/docs/downloads#saving-chapters-as-cbz-files">Downloads</a>. This setting is in backups.</li>
 </ul>
         </article>
         <nav class="pager" aria-label="Previous and next page"><a class="prev" href="/docs/security-and-privacy"><span>Previous page</span>Security and privacy</a><a class="next" href="/docs/faq"><span>Next page</span>Frequently asked questions</a></nav>

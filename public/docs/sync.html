@@ -22,7 +22,7 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.1.3</span>
+          <span class="chip">v0.1.5</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
@@ -38,7 +38,7 @@
       <main class="docs-main" id="doc-content">
         <div class="docs-mobile">
           <details class="docs-menu"><summary>Menu</summary><div><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync" aria-current="page">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/merged-entries">Merged entries</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting">Troubleshooting</a></li></ul></div></nav></div></details>
-          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#what-sync-carries">What sync carries</a></li><li><a href="#setting-it-up">Setting it up</a><ul><li><a href="#google-drive">Google Drive</a></li><li><a href="#webdav">WebDAV</a></li></ul></li><li><a href="#when-sync-runs">When sync runs</a></li><li><a href="#the-first-sync">The first sync</a><ul><li><a href="#the-safety-backup">The safety backup</a></li></ul></li><li><a href="#sync-reports">Sync reports</a></li><li><a href="#checking-that-two-devices-agree">Checking that two devices agree</a></li><li><a href="#signing-out">Signing out</a></li><li><a href="#messages-you-may-see">Messages you may see</a></li></ul></div></details>
+          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#what-sync-carries">What sync carries</a></li><li><a href="#setting-it-up">Setting it up</a><ul><li><a href="#google-drive">Google Drive</a></li><li><a href="#webdav">WebDAV</a></li></ul></li><li><a href="#when-sync-runs">When sync runs</a></li><li><a href="#the-first-sync">The first sync</a><ul><li><a href="#the-safety-backup">The safety backup</a></li></ul></li><li><a href="#sync-reports">Sync reports</a></li><li><a href="#checking-that-two-devices-agree">Checking that two devices agree</a></li><li><a href="#signing-out">Signing out</a></li><li><a href="#sync-format">Sync format</a></li><li><a href="#messages-you-may-see">Messages you may see</a></li></ul></div></details>
         </div>
         <article class="doc">
 <h1 id="sync-between-devices">Sync between devices</h1>
@@ -49,9 +49,10 @@ server of its own.</p>
 <h2 id="what-sync-carries">What sync carries<a class="anchor" href="#what-sync-carries" aria-label="Link to this section">#</a></h2>
 <ul>
 <li>Your library entries, with each entry's notes, manual order, reading mode and chapter list
-settings.</li>
+settings, and the details you <a href="/docs/entry#editing-details">edited</a>.</li>
 <li>Categories.</li>
-<li>Chapter progress (read, page reached), reading history, bookmarks and page notes.</li>
+<li>Chapter progress (read and unread, page reached), reading history, bookmarks and page notes.
+Marking a chapter unread and removing a bookmark reach your other devices too.</li>
 <li>Tracking links.</li>
 <li>Each entry's scanlator filter and group ranking.</li>
 <li><a href="/docs/merged-entries">Merged entries</a>.</li>
@@ -115,8 +116,12 @@ it into its own library, then uploads its whole library once. After that, each s
 receives only what changed.</p>
 <p>When two devices change the same thing between syncs, both end up with the same result:</p>
 <ul>
-<li>Reading progress takes the side that got further. A chapter read on either device stays read.</li>
-<li>Settings you choose on an entry (its categories, reading mode, notes) take the most recent change.</li>
+<li>A chapter's read mark and its bookmark take the most recent change. Mark a chapter unread on one
+device and it is unread on the others after their next sync; the same goes for a bookmark you
+remove.</li>
+<li>The page reached in a chapter takes the side that got further.</li>
+<li>Settings you choose on an entry (its categories, reading mode, notes, edited details) take the
+most recent change.</li>
 <li>Details that come from the source are settled by the same rule on every device, so both end up
 with the same copy.</li>
 </ul>
@@ -148,9 +153,18 @@ For Google Drive, signing out also revokes Saikou's access to your account.</p>
 <p>If you sign in again later, this device joins as a new device: it pulls everything from that
 account or server, then uploads its whole library once. A different Google account, server or
 user name works the same way.</p>
+<h2 id="sync-format">Sync format<a class="anchor" href="#sync-format" aria-label="Link to this section">#</a></h2>
+<p>Saikou 0.1.5 syncs in a new format, the one that carries unread marks and removed bookmarks. Once
+one device runs 0.1.5, every device that syncs with it needs 0.1.5 to keep syncing. Until it is
+updated, an older device says <strong>Update Saikou on this device to keep syncing</strong>, and it syncs again
+once it runs 0.1.5.</p>
+<p>One case still brings a read mark back, with <a href="/docs/merged-entries">Merged entries</a> on. When another
+device has a source in a merged title that this device lacks, and holds that source's copy of a
+chapter as read, the chapter can come back as read here after a sync.</p>
 <h2 id="messages-you-may-see">Messages you may see<a class="anchor" href="#messages-you-may-see" aria-label="Link to this section">#</a></h2>
 <ul>
-<li><strong>Update Saikou on this device to keep syncing</strong>: another device wrote a newer sync format.</li>
+<li><strong>Update Saikou on this device to keep syncing</strong>: another device wrote a newer sync format. See
+<a href="#sync-format">Sync format</a>.</li>
 <li><strong>Signed out of the sync server. Sign in again to keep syncing.</strong> / <strong>The server refused the saved
 password.</strong>: enter the password again; the device keeps its place on the server.</li>
 <li><strong>Google no longer accepts this device's sign-in</strong>: tap <strong>Sign in with Google again</strong>.</li>
@@ -163,7 +177,7 @@ free space on the device, then sync again.</li>
         </article>
         <nav class="pager" aria-label="Previous and next page"><a class="prev" href="/docs/backups"><span>Previous page</span>Backups and restore</a><a class="next" href="/docs/migration"><span>Next page</span>Migration</a></nav>
       </main>
-      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#what-sync-carries">What sync carries</a></li><li><a href="#setting-it-up">Setting it up</a><ul><li><a href="#google-drive">Google Drive</a></li><li><a href="#webdav">WebDAV</a></li></ul></li><li><a href="#when-sync-runs">When sync runs</a></li><li><a href="#the-first-sync">The first sync</a><ul><li><a href="#the-safety-backup">The safety backup</a></li></ul></li><li><a href="#sync-reports">Sync reports</a></li><li><a href="#checking-that-two-devices-agree">Checking that two devices agree</a></li><li><a href="#signing-out">Signing out</a></li><li><a href="#messages-you-may-see">Messages you may see</a></li></ul></aside>
+      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#what-sync-carries">What sync carries</a></li><li><a href="#setting-it-up">Setting it up</a><ul><li><a href="#google-drive">Google Drive</a></li><li><a href="#webdav">WebDAV</a></li></ul></li><li><a href="#when-sync-runs">When sync runs</a></li><li><a href="#the-first-sync">The first sync</a><ul><li><a href="#the-safety-backup">The safety backup</a></li></ul></li><li><a href="#sync-reports">Sync reports</a></li><li><a href="#checking-that-two-devices-agree">Checking that two devices agree</a></li><li><a href="#signing-out">Signing out</a></li><li><a href="#sync-format">Sync format</a></li><li><a href="#messages-you-may-see">Messages you may see</a></li></ul></aside>
     </div>
 
     <footer class="site-footer">

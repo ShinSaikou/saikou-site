@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Tracking · Saikou docs</title>
-    <meta name="description" content="Tracking keeps your list on a tracking site up to date as you read. Saikou supports MyAnimeList and AniList. You can sign in to either or both, and link each…" />
+    <meta name="description" content="Tracking keeps your list on a tracking site up to date as you read. Saikou supports MyAnimeList, AniList, MangaBaka and Comick (the tracking site at…" />
     <link rel="canonical" href="https://shinsaikou.com/docs/tracking" />
     <link rel="icon" type="image/png" href="/icon-192.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,7 +22,7 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.1.3</span>
+          <span class="chip">v0.1.5</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
@@ -43,12 +43,13 @@
         <article class="doc">
 <h1 id="tracking">Tracking</h1>
 <p>Tracking keeps your list on a tracking site up to date as you read. Saikou supports
-<strong>MyAnimeList</strong> and <strong>AniList</strong>. You can sign in to either or both, and link each entry to each.</p>
+<strong>MyAnimeList</strong>, <strong>AniList</strong>, <strong>MangaBaka</strong> and <strong>Comick</strong> (the tracking site at comick.dev). You can
+sign in to any of them, and link each entry to each.</p>
 <p>The Tracking section appears in More &gt; Settings when this build of Saikou offers a tracker.</p>
 <h2 id="signing-in">Signing in<a class="anchor" href="#signing-in" aria-label="Link to this section">#</a></h2>
 <ol>
 <li>Open More &gt; Settings &gt; <strong>Tracking</strong>.</li>
-<li>Under <strong>Trackers</strong>, tap <strong>Sign in</strong> next to MyAnimeList or AniList.</li>
+<li>Under <strong>Trackers</strong>, tap <strong>Sign in</strong> next to the tracker.</li>
 <li>Your browser opens that site's sign-in page. While you sign in there, Saikou shows "Waiting
 for the browser. Finish signing in there, then switch back to Saikou", and a notification lets
 you jump back.</li>
@@ -56,28 +57,50 @@ you jump back.</li>
 Saikou to finish." Tap <strong>Return to Saikou</strong> on that page, or the <strong>Signed in, tap to return</strong>
 notification. The row now says <strong>Signed in as</strong> your name.</li>
 </ol>
+<p>MangaBaka's sign-in page may first show a Cloudflare browser check. Finish it in the browser, then
+sign in.</p>
+<p>Comick's page that asks you to approve Saikou leaves the permission to change your library off.
+Turn it on, and keep the permission to stay signed in on, before you approve. If either is off,
+the sign-in stops and the Comick row says which one to turn on, for example "The sign-in left out
+permission to change your library (library:write). Sign in again and turn it on".</p>
 <p>If sign-in is not finished in the browser within five minutes, start again. If Saikou says
 "Another app is using port N on this device", close that app (the sign-in needs the port for a
 moment to hear back from the browser) and sign in again. <strong>Sign out</strong> stops Saikou
-from sending progress to that tracker; your list on the site stays as it is.</p>
+from sending progress to that tracker; your list on the site stays as it is. Signing out of
+MangaBaka also ends Saikou's access on MangaBaka, when the device can reach it.</p>
 <h2 id="linking-an-entry">Linking an entry<a class="anchor" href="#linking-an-entry" aria-label="Link to this section">#</a></h2>
 <ol>
 <li>Open the entry's page and tap the <strong>Tracking</strong> button in the header.</li>
-<li>Tap <strong>Add tracking</strong> for MyAnimeList or AniList.</li>
+<li>Tap <strong>Add tracking</strong> for the tracker.</li>
 <li>Search, then tap the right result.</li>
 </ol>
 <p>If the search finds nothing, try another title (romanized, English, or shorter). You can also look
-the series up on the site and paste its address, or search for <code>id:</code> followed by the number in its
-address. On MyAnimeList you can also search your own list with <code>my:</code> followed by part of the title.</p>
+the series up on the site:</p>
+<ul>
+<li>On MyAnimeList, AniList and MangaBaka, paste the series' address (on MangaBaka, its address on
+mangabaka.org), or search for <code>id:</code> followed by the number in its address.</li>
+<li>On Comick, search for <code>id:</code> followed by the title's Comick ID.</li>
+</ul>
+<p>On MyAnimeList you can also search your own list with <code>my:</code> followed by part of the title.</p>
 <p>Once linked, the tracking sheet shows the entry's <strong>Status</strong>, <strong>Chapters</strong>, <strong>Score</strong>, <strong>Start
-date</strong> and <strong>Finish date</strong> on the tracker. Tap any of them to change it. On AniList the score uses
-the scoring system your AniList list is set to (for example 100 points, 10 points or 5 stars). The
-sheet's menu has <strong>Open in browser</strong> and <strong>Copy link</strong> for the entry's address on the tracker, and,
-for AniList, <strong>Track privately</strong> or <strong>Track publicly</strong>, which sets whether the entry is private on
-your AniList list.</p>
-<p>To unlink, remove the tracking from the sheet. <strong>Remove MyAnimeList tracking?</strong> (or <strong>Remove
-AniList tracking?</strong>) removes the link in Saikou; tick <strong>Also remove from MyAnimeList</strong> (or <strong>Also
-remove from AniList</strong>) to delete the entry from your list there as well.</p>
+date</strong> and <strong>Finish date</strong> on the tracker. Tap any of them to change it. Comick keeps no dates, so
+its sheet has no date rows.</p>
+<ul>
+<li>On AniList the score uses the scoring system your AniList list is set to (for example 100
+points, 10 points or 5 stars).</li>
+<li>On MangaBaka the score runs from 0 to 100 in the rating steps your MangaBaka account is set to
+(steps of 1, 5, 10, 20 or 25). Saikou reads the steps when you sign in, so sign in again after
+you change them on MangaBaka. The statuses include MangaBaka's <strong>Considering</strong>, <strong>Paused</strong> and
+<strong>Rereading</strong>.</li>
+<li>On Comick the score runs from 0 to 10, and the statuses are <strong>Reading</strong>, <strong>Completed</strong>, <strong>On
+hold</strong>, <strong>Dropped</strong> and <strong>Plan to read</strong>.</li>
+</ul>
+<p>The sheet's menu has <strong>Open in browser</strong> and <strong>Copy link</strong> for the entry's address on the tracker,
+and, for AniList and MangaBaka, <strong>Track privately</strong> or <strong>Track publicly</strong>, which sets whether the
+entry is private on your list there.</p>
+<p>To unlink, remove the tracking from the sheet. The dialog, for example <strong>Remove AniList tracking?</strong>,
+removes the link in Saikou; tick <strong>Also remove from AniList</strong> (with your tracker's name) to delete
+the entry from your list there as well.</p>
 <h2 id="what-saikou-sends">What Saikou sends<a class="anchor" href="#what-saikou-sends" aria-label="Link to this section">#</a></h2>
 <p>Tracking goes one way, from Saikou to your trackers, except when you run a comparison (below).</p>
 <ul>
@@ -87,7 +110,8 @@ reader, its number is sent to the entry's trackers.</li>
 read by hand. With <strong>Ask</strong>, Saikou offers <strong>Update trackers to chapter N?</strong> after you mark them.</li>
 <li>Only progress forward is sent. Reading an earlier chapter again changes nothing on the tracker.</li>
 <li>The first chapter sent sets the status to <strong>Reading</strong>. Reaching the last chapter the tracker
-knows sets it to <strong>Completed</strong>, with today as the finish date.</li>
+knows sets it to <strong>Completed</strong>, with today as the finish date. Saikou does not know Comick's
+chapter count, so on Comick you set <strong>Completed</strong> yourself.</li>
 <li>Without a connection, the update waits and is sent once you are online ("Updating trackers to
 chapter N").</li>
 </ul>
@@ -97,7 +121,7 @@ chapter N").</li>
 <p>Reading on several apps or devices can leave MyAnimeList and Saikou disagreeing. More &gt; Settings &gt;
 Tracking &gt; <strong>Compare with MyAnimeList</strong> finds those entries and lets you choose, entry by entry,
 which side to keep. Nothing changes until you confirm. Comparing is available for MyAnimeList only,
-not for AniList.</p>
+not for AniList, MangaBaka or Comick.</p>
 <p>If sync is set up, Saikou first syncs with your other devices ("Syncing with your other device"),
 so their reading counts. Then it reads your MyAnimeList list and checks each tracked library entry.
 The result is grouped:</p>

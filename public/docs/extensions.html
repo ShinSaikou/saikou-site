@@ -22,7 +22,7 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.1.3</span>
+          <span class="chip">v0.1.5</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
@@ -38,7 +38,7 @@
       <main class="docs-main" id="doc-content">
         <div class="docs-mobile">
           <details class="docs-menu"><summary>Menu</summary><div><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions" aria-current="page">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/merged-entries">Merged entries</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting">Troubleshooting</a></li></ul></div></nav></div></details>
-          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#safety">Safety</a></li><li><a href="#adding-a-repository">Adding a repository</a></li><li><a href="#installing-and-updating">Installing and updating</a></li><li><a href="#an-extensions-page">An extension's page</a></li><li><a href="#uninstalling">Uninstalling</a></li><li><a href="#when-an-extension-does-not-load">When an extension does not load</a></li></ul></div></details>
+          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#safety">Safety</a></li><li><a href="#adding-a-repository">Adding a repository</a></li><li><a href="#installing-and-updating">Installing and updating</a><ul><li><a href="#updating-extensions-automatically">Updating extensions automatically</a></li></ul></li><li><a href="#an-extensions-page">An extension's page</a></li><li><a href="#uninstalling">Uninstalling</a></li><li><a href="#when-an-extension-does-not-load">When an extension does not load</a></li></ul></div></details>
         </div>
         <article class="doc">
 <h1 id="extensions-and-repositories">Extensions and repositories</h1>
@@ -100,6 +100,34 @@ the Local source after them.</p>
 the "Install unknown apps" permission.</p>
 <p>More &gt; Settings &gt; Advanced &gt; <strong>Check extension updates</strong> refreshes your repositories in the
 background so the <strong>Updates pending</strong> section stays current.</p>
+<h3 id="updating-extensions-automatically">Updating extensions automatically<a class="anchor" href="#updating-extensions-automatically" aria-label="Link to this section">#</a></h3>
+<p>Saikou can install extension updates on its own. This is experimental, because a new version can
+change how a source behaves or break it. Turn it on in More &gt; Settings &gt; Experimental &gt; <strong>Update
+extensions automatically</strong>.</p>
+<ul>
+<li>Once a day, while the device is on Wi-Fi (or another network that is not metered) and its battery
+and storage are not low, Saikou refreshes your repositories and installs the updates it finds, one
+at a time, the same way <strong>Update</strong> does. The first check runs soon after you turn it on.</li>
+<li>It waits for an extension you are installing, and for a backup being restored, to finish first.</li>
+<li>Refreshing Browse &gt; Extensions yourself still only lists updates; it installs nothing.</li>
+<li>Turning the switch off stops the daily check.</li>
+</ul>
+<p>It installs an update only when your copy of the extension is signed with the key of a repository
+that offers that update, so the new version is trusted without a question. It never installs, and
+leaves under <strong>Updates pending</strong> for you:</p>
+<ul>
+<li>an update for an extension you trusted by hand;</li>
+<li>an update from a repository whose key differs from the one that signed your copy;</li>
+<li>a download whose signer Saikou refuses.</li>
+</ul>
+<p>Extensions under <strong>Needs trust</strong> or <strong>Did not load</strong>, and those marked <strong>OBSOLETE</strong> or
+<strong>UNTRUSTED</strong>, are never touched.</p>
+<p>After a check that did something, a notification on the <strong>Extension updates</strong> channel says what.
+Its title is <strong>Extensions updated</strong>, or <strong>Extension updates not installed</strong> when nothing could be
+installed. Its lines name the extensions under <strong>Updated</strong>, <strong>Could not update</strong> (for example, when
+the download failed; the update stays pending) and <strong>Signed with a different key, waiting for you</strong>. With <strong>Hide notification
+content</strong> on (More &gt; Settings &gt; Security and privacy), it shows counts instead of names. A check
+that finds nothing posts nothing. Tap the notification to open Browse &gt; Extensions.</p>
 <h2 id="an-extensions-page">An extension's page<a class="anchor" href="#an-extensions-page" aria-label="Link to this section">#</a></h2>
 <p>Tap an installed extension to open its page:</p>
 <ul>
@@ -132,7 +160,7 @@ Update or reinstall it; if that does not help, the extension itself needs fixing
         </article>
         <nav class="pager" aria-label="Previous and next page"><a class="prev" href="/docs/browse"><span>Previous page</span>Browse and sources</a><a class="next" href="/docs/downloads"><span>Next page</span>Downloads</a></nav>
       </main>
-      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#safety">Safety</a></li><li><a href="#adding-a-repository">Adding a repository</a></li><li><a href="#installing-and-updating">Installing and updating</a></li><li><a href="#an-extensions-page">An extension's page</a></li><li><a href="#uninstalling">Uninstalling</a></li><li><a href="#when-an-extension-does-not-load">When an extension does not load</a></li></ul></aside>
+      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#safety">Safety</a></li><li><a href="#adding-a-repository">Adding a repository</a></li><li><a href="#installing-and-updating">Installing and updating</a><ul><li><a href="#updating-extensions-automatically">Updating extensions automatically</a></li></ul></li><li><a href="#an-extensions-page">An extension's page</a></li><li><a href="#uninstalling">Uninstalling</a></li><li><a href="#when-an-extension-does-not-load">When an extension does not load</a></li></ul></aside>
     </div>
 
     <footer class="site-footer">

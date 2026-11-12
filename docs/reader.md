@@ -9,7 +9,10 @@ put the menu) to show the reader's menu.
   overflow with **Open in WebView**, **Open in browser** and **Share**. When the page on screen has
   a note, the bar says **This page has a note**.
 - **Bottom bar**: **Previous chapter** and **Next chapter**, the page slider, and buttons for
-  **Reading mode**, **Rotation**, **Crop borders** and **Settings**.
+  **Reading mode**, **Rotation**, **Crop borders** and **Settings**. In the long strip modes, with
+  [auto-scroll](#auto-scroll) turned on, a play button comes before **Settings**. While
+  [two pages show side by side](#two-pages-side-by-side), a **Shift pages** button comes after
+  **Crop borders**.
 
 ## Reading modes
 
@@ -29,6 +32,74 @@ portrait**), or per entry.
 To put every entry back on the defaults, use More > Settings > Advanced > **Reset per-series reader
 settings**. With sync on, this resets them on every synced device.
 
+## Auto-scroll
+
+In the long strip modes the reader can scroll the pages down by itself, for reading without
+swiping. Auto-scroll is experimental. Turn it on in More > Settings > Experimental > **Auto-scroll
+in long strip**.
+
+1. Open a chapter in **Long strip** or **Long strip with gaps**. To switch an entry to one of them,
+   use the reader's **Reading mode** button (see [Reading modes](#reading-modes)).
+2. Show the reader's menu and tap the play button (**Start auto-scroll**), just before **Settings**
+   in the bottom bar. The menu closes and the pages start moving.
+
+It carries on into the next chapter, the way the strip does when you scroll by hand, and the pages
+ahead load as they would. The screen stays on while it runs, whatever **Keep screen on** is set to.
+The paged modes have no play button.
+
+Auto-scroll stops when:
+
+- you touch the screen. The touch still does what it always does, so a tap where the menu opens
+  also opens the menu;
+- the menu, the settings sheet or a dialog opens;
+- you leave the reader or switch to another app;
+- you jump to another page;
+- you switch to a paged mode;
+- it reaches the end of the last chapter.
+
+Tap the play button again to carry on.
+
+**Scroll speed** sets how fast it goes, from 1 (slowest) to 10 (fastest), 4 by default. It is at the
+end of the long strip options on the **Reading mode** tab of the reader's settings sheet, and at
+the end of **Long strip** in More > Settings > Reader. Both show it only while the switch is on. A
+level moves the pages at the same speed on every screen.
+
+## Two pages side by side
+
+In the paged modes **Paged (left to right)** and **Paged (right to left)**, the reader can show two
+pages at once, as a printed book does. This is experimental. Turn it on in More > Settings >
+Experimental > **Two pages side by side**.
+
+Then choose when in **Two pages side by side**, on the **Reading mode** tab of the reader's settings
+sheet or under **Paged** in More > Settings > Reader:
+
+- **Never**: one page at a time, as before.
+- **In landscape** (the default): two pages while the screen is in landscape, one in portrait.
+- **Always**: two pages either way.
+
+How pages pair up:
+
+- In right to left the earlier page is on the right; in left to right it is on the left.
+- The first page of a chapter stands alone, unless you shift the pages (below).
+- A wide page, an animated page, a tall page cut into parts and a page that cannot be read always
+  stand alone, and the pairing starts again after them. A wide page shows whole, not split or
+  rotated, whatever **Split wide pages** and **Rotate wide pages to fit** are set to.
+- Until a page has loaded, Saikou guesses its size, so a pair can change when a page turns out to be
+  wide. The page on screen stays in view when that happens.
+
+Taps, swipes and keys turn a whole spread. Zoom acts on the spread as one picture. The page number
+shows both pages, for example 5-6 / 20.
+
+When the pages pair the wrong way round, so the two halves of a drawing land on different spreads,
+show the reader's menu and tap **Shift pages**. It moves the pairing by one page, for that entry, on
+this device only; tap it again to move it back. It moves only the chapter's first run of pages, up
+to the first page that always stands alone. Pages after that one keep their pairing. In a chapter
+that opens on such a page, the run after it moves instead.
+
+The switch and **Shift pages** stay on this device and are not in backups. The choice of
+**Never**, **In landscape** or **Always** is an app setting, which a backup with **App settings**
+keeps.
+
 ## The reader's settings sheet
 
 The **Settings** button in the reader opens a sheet with three tabs. Changes apply at once.
@@ -39,10 +110,12 @@ The **Settings** button in the reader opens a sheet with three tabs. Changes app
 - For paged modes: **Scale type** (**Fit screen**, **Stretch**, **Fit width**, **Fit height**,
   **Original size**, **Smart fit**), **Zoom start position** (**Automatic**, **Left**, **Right**,
   **Center**), **Crop borders**, **Automatically zoom into wide images**, **Pan wide images**,
-  **Split wide pages** with **Invert split page placement**, and **Rotate wide pages to fit** with
-  **Flip orientation of rotated wide pages**.
+  **Split wide pages** with **Invert split page placement**, **Rotate wide pages to fit** with
+  **Flip orientation of rotated wide pages**, and **Two pages side by side** while
+  [that switch](#two-pages-side-by-side) is on.
 - For long strip modes: **Side padding**, **Crop borders**, **Split wide pages**, **Rotate wide
-  pages to fit**, **Double tap to zoom** and **Disable zoom out**.
+  pages to fit**, **Double tap to zoom**, **Disable zoom out**, and **Scroll speed** while
+  [auto-scroll](#auto-scroll) is turned on.
 - **Tap zones**: **Default**, **L shaped**, **Kindle-ish**, **Edge**, **Right and Left** or
   **Disabled**, and **Invert tap zones** (**None**, **Horizontal**, **Vertical**, **Both**).
 

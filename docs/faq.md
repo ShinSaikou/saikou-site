@@ -38,6 +38,12 @@ No. Restore its `.tachibk` backup in Saikou, then copy its downloads. See
 
 Yes, through your Google Drive or a WebDAV server. See [Sync between devices](sync.md).
 
+### My other device says "Update Saikou on this device to keep syncing". Why?
+
+Another device that syncs with it runs a newer Saikou, which writes a newer sync format. Update
+Saikou on this device too. Since 0.1.5, sync also carries chapters marked unread and bookmarks you
+remove, so every syncing device needs 0.1.5. See [Sync format](sync.md#sync-format).
+
 ### Does Saikou collect data about me?
 
 No. Saikou has no analytics, no crash reporting and no server of its own. See
@@ -103,9 +109,19 @@ Turn on **Downloaded only** in the More tab.
 
 ### Can I download several chapters at the same time?
 
-Chapters download one after another, while several pages of each chapter download at once (More >
-Settings > Downloads > **Pages downloaded at once**). Going one chapter at a time keeps sites from
-blocking you.
+By default, chapters download one after another, while several pages of each chapter download at
+once (More > Settings > Downloads > **Pages downloaded at once**). Going one chapter at a time keeps
+sites from blocking you.
+
+To download chapters from different sources side by side, turn on More > Settings > Experimental >
+**Download from several sources at once**. Each source still gets one chapter at a time. See
+[Downloads](downloads.md#several-sources-at-once).
+
+### Can downloads be saved as CBZ files?
+
+Yes. Turn on More > Settings > Experimental > **Save chapters as CBZ files**. New downloads are then
+one `.cbz` file per chapter; the ones you have stay folders. See
+[Downloads](downloads.md#saving-chapters-as-cbz-files).
 
 ### Why did my downloads stop?
 
@@ -121,8 +137,14 @@ gallery. See [Downloads](downloads.md#where-downloads-are-kept).
 
 ### Can I see two pages side by side?
 
-Not yet. **Split wide pages** and **Rotate wide pages to fit** in the reader's settings help with
-double-page spreads. See [The reader](reader.md).
+Yes, in the left to right and right to left paged modes. Turn on More > Settings > Experimental >
+**Two pages side by side**, then choose **In landscape** or **Always** in the reader's settings. See
+[The reader](reader.md#two-pages-side-by-side).
+
+### Can the reader scroll by itself?
+
+Yes, in the long strip modes. Turn on More > Settings > Experimental > **Auto-scroll in long
+strip**, then tap the play button in the reader's menu. See [The reader](reader.md#auto-scroll).
 
 ### What do all the reader settings do?
 
@@ -141,6 +163,26 @@ See [The reader](reader.md).
 ### Do I need to allow installing unknown apps, or set an installer?
 
 No. Saikou installs extensions inside the app, without Android's package installer.
+
+### Can extensions update themselves?
+
+Yes, once a day on Wi-Fi or another unmetered network, with More > Settings > Experimental >
+**Update extensions automatically**. An update signed with a different key still waits for you. See
+[Extensions](extensions.md#updating-extensions-automatically).
+
+### Can I search Saikou from another app?
+
+Yes, once you turn on More > Settings > Experimental > **Open shared text and search requests**.
+Share a title or a page of a source's site to Shin Saikou. See
+[Browse and sources](browse.md#searching-from-other-apps).
+
+### Why do sources fail behind my ad blocker or at work?
+
+If they fail with "Trust anchor for certification path not found" while the same sites open in your
+browser, the network inspects secure connections with a certificate installed on your device, and
+Saikou does not trust that certificate for sources by default. See
+[Troubleshooting](troubleshooting.md#sources-fail-behind-an-ad-blocker-a-dns-filter-or-a-work-network)
+before turning on **Trust certificates you installed**.
 
 ### How do I uninstall an extension?
 

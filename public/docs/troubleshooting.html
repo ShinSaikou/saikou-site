@@ -22,7 +22,7 @@
           <span class="brand-sub">Docs</span>
         </a>
         <nav aria-label="Site">
-          <span class="chip">v0.1.3</span>
+          <span class="chip">v0.1.5</span>
           <a href="/#features">Features</a>
           <a href="/#download">Download</a>
           <a href="/docs/" aria-current="true">Docs</a>
@@ -38,7 +38,7 @@
       <main class="docs-main" id="doc-content">
         <div class="docs-mobile">
           <details class="docs-menu"><summary>Menu</summary><div><nav aria-label="Documentation pages"><div class="nav-group"><ul><li><a href="/docs/">Overview</a></li></ul></div><div class="nav-group"><p class="label">Getting started</p><ul><li><a href="/docs/getting-started">Getting started</a></li></ul></div><div class="nav-group"><p class="label">Guides</p><ul><li><a href="/docs/library">Library and categories</a></li><li><a href="/docs/entry">An entry's page</a></li><li><a href="/docs/updates">Library updates and the Updates tab</a></li><li><a href="/docs/history">History and statistics</a></li><li><a href="/docs/browse">Browse and sources</a></li><li><a href="/docs/extensions">Extensions and repositories</a></li><li><a href="/docs/downloads">Downloads</a></li><li><a href="/docs/reader">The reader</a></li><li><a href="/docs/tracking">Tracking</a></li><li><a href="/docs/backups">Backups and restore</a></li><li><a href="/docs/sync">Sync between devices</a></li><li><a href="/docs/migration">Migration</a></li><li><a href="/docs/merged-entries">Merged entries</a></li><li><a href="/docs/local-source">The Local source</a></li><li><a href="/docs/security-and-privacy">Security and privacy</a></li><li><a href="/docs/settings">Settings reference</a></li></ul></div><div class="nav-group"><p class="label">Help</p><ul><li><a href="/docs/faq">Frequently asked questions</a></li><li><a href="/docs/troubleshooting" aria-current="page">Troubleshooting</a></li></ul></div></nav></div></details>
-          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#first-steps">First steps</a></li><li><a href="#webview">WebView</a></li><li><a href="#browser-checks">Browser checks</a></li><li><a href="#network-errors">Network errors</a><ul><li><a href="#http-errors">HTTP errors</a></li><li><a href="#sites-that-push-back">Sites that push back</a></li></ul></li><li><a href="#updates-or-backups-do-not-run-in-the-background">Updates or backups do not run in the background</a></li><li><a href="#reading-problems">Reading problems</a></li><li><a href="#crash-logs">Crash logs</a></li><li><a href="#reporting-a-problem">Reporting a problem</a></li><li><a href="#reinstalling-saikou">Reinstalling Saikou</a></li></ul></div></details>
+          <details class="docs-toc-mobile"><summary>On this page</summary><div><ul><li><a href="#first-steps">First steps</a></li><li><a href="#webview">WebView</a></li><li><a href="#browser-checks">Browser checks</a></li><li><a href="#network-errors">Network errors</a><ul><li><a href="#http-errors">HTTP errors</a></li><li><a href="#sites-that-push-back">Sites that push back</a></li><li><a href="#sources-fail-behind-an-ad-blocker-a-dns-filter-or-a-work-network">Sources fail behind an ad blocker, a DNS filter or a work network</a></li></ul></li><li><a href="#updates-or-backups-do-not-run-in-the-background">Updates or backups do not run in the background</a></li><li><a href="#reading-problems">Reading problems</a></li><li><a href="#crash-logs">Crash logs</a></li><li><a href="#reporting-a-problem">Reporting a problem</a></li><li><a href="#reinstalling-saikou">Reinstalling Saikou</a></li></ul></div></details>
         </div>
         <article class="doc">
 <h1 id="troubleshooting">Troubleshooting</h1>
@@ -102,11 +102,13 @@ it is already on, or turn it off. Then tap <strong>Restart</strong> on the messa
 <li>If you know your router well, its security settings may be blocking the site. If you do not,
 stick to the steps above.</li>
 <li>Certificate errors: check that the device's date and time are right, clear WebView data, and try
-another network.</li>
+another network. If sources fail with "Trust anchor for certification path not found", see
+<a href="#sources-fail-behind-an-ad-blocker-a-dns-filter-or-a-work-network">below</a>.</li>
 </ul>
 <p>Some settings, such as DNS over HTTPS, the user agent, <strong>Verbose logging</strong> and <strong>Revoke trusted
 unknown extensions</strong>, say "Requires app restart to take effect" and offer <strong>Restart</strong>, which
-restarts Saikou and brings you back to Settings &gt; Advanced.</p>
+restarts Saikou and brings you back to Settings &gt; Advanced (or to Settings &gt; Experimental, for
+<strong>Trust certificates you installed</strong>).</p>
 <h3 id="http-errors">HTTP errors<a class="anchor" href="#http-errors" aria-label="Link to this section">#</a></h3>
 <ul>
 <li><strong>HTTP error 400 / 401</strong>: the request was refused. Open the page in WebView to check it. For
@@ -128,6 +130,30 @@ once</strong>.</li>
 <li>Keep fewer entries from it in your automatic updates (put rarely read ones in a category you
 exclude). See <a href="/docs/updates#how-saikou-treats-the-sites">Library updates</a>.</li>
 </ul>
+<h3 id="sources-fail-behind-an-ad-blocker-a-dns-filter-or-a-work-network">Sources fail behind an ad blocker, a DNS filter or a work network<a class="anchor" href="#sources-fail-behind-an-ad-blocker-a-dns-filter-or-a-work-network" aria-label="Link to this section">#</a></h3>
+<p>One or more sources fail with "<strong>Trust anchor for certification path not found</strong>", while the same
+sites open in your browser. This happens when an ad blocker, a DNS filter, or a work or school
+network inspects secure connections with a certificate you installed on the device. Your browser
+trusts that certificate; Saikou, by default, trusts only the certificates Android ships with.</p>
+<p>If you installed the certificate yourself and trust whoever controls it, you can let sources load
+through it:</p>
+<ol>
+<li>Turn on More &gt; Settings &gt; Experimental &gt; <strong>Trust certificates you installed</strong>.</li>
+<li>Tap <strong>Restart</strong> on "Requires app restart to take effect". Saikou restarts and brings you back to
+Settings &gt; Experimental. The switch takes effect only after a restart.</li>
+</ol>
+<p>The risk: whoever controls that certificate can read and change everything Saikou loads from
+sources, including pages, covers and the cookies you use to sign in to a site. Sync, tracking,
+extension stores and app updates keep trusting only the certificates Android ships with, so the
+certificate never sees your sync or tracker sign-ins and cannot change an extension or an app
+update. Behind such a network, those may fail to connect instead. Turn the switch off when you no
+longer need it.</p>
+<p>The switch covers browsing, the reader, covers and downloads. <strong>Open in WebView</strong> and a site's
+browser check accept such a certificate only on Android 10 and later, and only when it signs the
+site's certificate directly. On Android 9 and older, or behind a filter that signs through an
+intermediate certificate, they still refuse the site.</p>
+<p>If you did not install a certificate, or do not know who controls it, leave the switch off and try
+another network instead.</p>
 <h2 id="updates-or-backups-do-not-run-in-the-background">Updates or backups do not run in the background<a class="anchor" href="#updates-or-backups-do-not-run-in-the-background" aria-label="Link to this section">#</a></h2>
 <ol>
 <li>More &gt; Settings &gt; Advanced &gt; <strong>Allow background work</strong>, and allow it.</li>
@@ -189,7 +215,7 @@ backup</strong>), then bring the downloads back with <strong>Copy downloads from
         </article>
         <nav class="pager" aria-label="Previous and next page"><a class="prev" href="/docs/faq"><span>Previous page</span>Frequently asked questions</a></nav>
       </main>
-      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#first-steps">First steps</a></li><li><a href="#webview">WebView</a></li><li><a href="#browser-checks">Browser checks</a></li><li><a href="#network-errors">Network errors</a><ul><li><a href="#http-errors">HTTP errors</a></li><li><a href="#sites-that-push-back">Sites that push back</a></li></ul></li><li><a href="#updates-or-backups-do-not-run-in-the-background">Updates or backups do not run in the background</a></li><li><a href="#reading-problems">Reading problems</a></li><li><a href="#crash-logs">Crash logs</a></li><li><a href="#reporting-a-problem">Reporting a problem</a></li><li><a href="#reinstalling-saikou">Reinstalling Saikou</a></li></ul></aside>
+      <aside class="docs-toc" aria-label="On this page"><p class="label">On this page</p><ul><li><a href="#first-steps">First steps</a></li><li><a href="#webview">WebView</a></li><li><a href="#browser-checks">Browser checks</a></li><li><a href="#network-errors">Network errors</a><ul><li><a href="#http-errors">HTTP errors</a></li><li><a href="#sites-that-push-back">Sites that push back</a></li><li><a href="#sources-fail-behind-an-ad-blocker-a-dns-filter-or-a-work-network">Sources fail behind an ad blocker, a DNS filter or a work network</a></li></ul></li><li><a href="#updates-or-backups-do-not-run-in-the-background">Updates or backups do not run in the background</a></li><li><a href="#reading-problems">Reading problems</a></li><li><a href="#crash-logs">Crash logs</a></li><li><a href="#reporting-a-problem">Reporting a problem</a></li><li><a href="#reinstalling-saikou">Reinstalling Saikou</a></li></ul></aside>
     </div>
 
     <footer class="site-footer">

@@ -9,9 +9,10 @@ server of its own.
 ## What sync carries
 
 - Your library entries, with each entry's notes, manual order, reading mode and chapter list
-  settings.
+  settings, and the details you [edited](entry.md#editing-details).
 - Categories.
-- Chapter progress (read, page reached), reading history, bookmarks and page notes.
+- Chapter progress (read and unread, page reached), reading history, bookmarks and page notes.
+  Marking a chapter unread and removing a bookmark reach your other devices too.
 - Tracking links.
 - Each entry's scanlator filter and group ranking.
 - [Merged entries](merged-entries.md).
@@ -90,8 +91,12 @@ receives only what changed.
 
 When two devices change the same thing between syncs, both end up with the same result:
 
-- Reading progress takes the side that got further. A chapter read on either device stays read.
-- Settings you choose on an entry (its categories, reading mode, notes) take the most recent change.
+- A chapter's read mark and its bookmark take the most recent change. Mark a chapter unread on one
+  device and it is unread on the others after their next sync; the same goes for a bookmark you
+  remove.
+- The page reached in a chapter takes the side that got further.
+- Settings you choose on an entry (its categories, reading mode, notes, edited details) take the
+  most recent change.
 - Details that come from the source are settled by the same rule on every device, so both end up
   with the same copy.
 
@@ -131,9 +136,21 @@ If you sign in again later, this device joins as a new device: it pulls everythi
 account or server, then uploads its whole library once. A different Google account, server or
 user name works the same way.
 
+## Sync format
+
+Saikou 0.1.5 syncs in a new format, the one that carries unread marks and removed bookmarks. Once
+one device runs 0.1.5, every device that syncs with it needs 0.1.5 to keep syncing. Until it is
+updated, an older device says **Update Saikou on this device to keep syncing**, and it syncs again
+once it runs 0.1.5.
+
+One case still brings a read mark back, with [Merged entries](merged-entries.md) on. When another
+device has a source in a merged title that this device lacks, and holds that source's copy of a
+chapter as read, the chapter can come back as read here after a sync.
+
 ## Messages you may see
 
-- **Update Saikou on this device to keep syncing**: another device wrote a newer sync format.
+- **Update Saikou on this device to keep syncing**: another device wrote a newer sync format. See
+  [Sync format](#sync-format).
 - **Signed out of the sync server. Sign in again to keep syncing.** / **The server refused the saved
   password.**: enter the password again; the device keeps its place on the server.
 - **Google no longer accepts this device's sign-in**: tap **Sign in with Google again**.

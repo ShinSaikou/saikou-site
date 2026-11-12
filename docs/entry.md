@@ -7,15 +7,17 @@ chapter list and everything you can do with it.
 
 - The **cover**. Tap it to view it full size, with **Share** and **Save**. For library entries and
   Local source entries there is also **Edit cover**: **Choose an image** (pick any picture on the
-  device as the cover) and **Delete custom cover** (go back to the source's cover). A custom cover
-  stays on this device: backups and sync do not carry it. A saved cover goes to your gallery's
+  device as the cover) and **Delete custom cover** (go back to the source's cover). Sync does not
+  carry a custom cover. A Saikou backup does, except on a Local source entry, whose cover lives in
+  the entry's own folder (see [Backups and restore](backups.md#what-a-saikou-backup-keeps)). A saved cover goes to your gallery's
   **Pictures/Saikou** folder, never into an entry's sub-folder. On Android 8 and 9 it goes to
   Saikou's own pictures folder instead (`Android/data/com.shinsaikou/files/Pictures`), which the gallery
   does not show; use **Share** there.
-- The title, the author (**By ...**), the source (**Source: ...**, or **Source not installed** when
-  its extension is missing) and the status (**Ongoing**, **Completed**, **On hiatus** and so on).
-  Tap the title or the author to search every source for it (see
-  [Global search](browse.md#global-search)). A long press copies it.
+- The title, the author (**By ...**), the artist (**Art by ...**, when it differs from the
+  author), the source (**Source: ...**, or **Source not installed** when its extension is missing)
+  and the status (**Ongoing**, **Completed**, **On hiatus** and so on). Each shows your own value
+  where you [edited it](#editing-details). Tap the title, the author or the artist to search every
+  source for it (see [Global search](browse.md#global-search)). A long press copies it.
 - The description. Tap **More** to expand it and **Less** to fold it.
 - **Add to library** or **Remove from library**.
 - The **Tracking** button, which shows how many trackers the entry is linked to. See
@@ -40,15 +42,38 @@ chapters from the source.
   - **Refresh**: the same as pulling down.
   - **Reading mode**: this entry's own reading mode and rotation, which override the defaults in
     More > Settings > Reader. See [The reader](reader.md).
-  - **Edit details**: your own **Title** and **Description** for this entry. **Reset** brings back
-    the source's text.
+  - **Edit details**: your own title, description, author, artist, status and genres for this
+    entry. See [Editing details](#editing-details).
   - **Migrate**: move the entry to another source, keeping your progress. Shown for library
     entries. See [Migration](migration.md).
   - **Open in WebView**: open the entry's page on the source's site, inside Saikou. Shown when the
     source has a website.
 
-Your edited title and description stay when the source changes its own. Saving the source's text
-again removes the edit.
+## Editing details
+
+Overflow menu > **Edit details** opens one dialog with the entry's details as the page shows them,
+your edits included:
+
+- **Title** and **Description**. A title cannot be left empty.
+- **Author** and **Artist**.
+- **Status**: a menu that starts with **From source**, which names the source's status, followed by
+  the statuses to choose from.
+- **Genres**, as chips. Tap a chip to remove that genre. Type in **Add a genre** and tap the plus
+  button to add one, or several separated by commas.
+
+Tap **Save** to keep your changes. Your edits stay when the source changes its own details. A value
+set back to the source's, **From source**, an empty **Author** or **Artist** field, or removing
+every genre shows the source's value again. An empty **Description** is an edit of its own: the
+entry then shows no description.
+
+**Reset all** asks first (**Reset all details?**), then brings back every detail the source gives.
+It is offered only while the entry has an edit.
+
+Your edits show on the entry's page, in [library search](library.md#the-library-tab) and the
+**Completed** filter, and in Upcoming. An edited status also decides **Skip entries with "Completed"
+status** in [library updates](updates.md#automatic-updates). [Sync](sync.md) carries your edits to
+your other devices, and a [Saikou backup](backups.md#what-a-saikou-backup-keeps) keeps them, except
+a description you emptied, which a restore shows as the source's again.
 
 ## The chapter list
 

@@ -41,9 +41,15 @@ things you set up:
 
 - **Extensions** contact the sites they read from, when you browse, update, read or download.
 - **Repositories** are fetched when you refresh them, or in the background with More > Settings >
-  Advanced > **Check extension updates**.
-- **Tracking** sends the chapters you read to MyAnimeList or AniList, once you sign in to it.
-  See [Tracking](tracking.md).
+  Advanced > **Check extension updates**. With More > Settings > Experimental > **Update extensions
+  automatically** on, Saikou also checks them once a day on Wi-Fi (or another unmetered network) and
+  downloads the updates they offer. See
+  [Extensions](extensions.md#updating-extensions-automatically).
+- **Tracking** sends the chapters you read to MyAnimeList, AniList, MangaBaka or Comick, once you
+  sign in to it, and only for the entries you link there. Each tracker receives the search you run
+  and, for a linked entry, its status, chapters read and score, plus its start and finish dates on
+  MyAnimeList, AniList and MangaBaka, and whether it is private on AniList and MangaBaka. See
+  [Tracking](tracking.md).
 - **Sync** exchanges your library with your Google Drive or your WebDAV server, once you set it up.
   See [Sync between devices](sync.md).
 
@@ -57,8 +63,10 @@ The public privacy policy is at <https://shinsaikou.com/privacy-policy>.
 
 - Sync credentials (the Google sign-in, the WebDAV password) are stored encrypted with the Android
   Keystore. Sync, backups and restores never carry them.
-- The MyAnimeList and AniList sign-ins are stored in the app's private settings. They enter a
-  backup only when you tick **Private settings**, and sync never carries them.
+- The MyAnimeList, AniList, MangaBaka and Comick sign-ins are stored in the app's private
+  settings. They enter a backup only when you tick **Private settings**, and sync never carries
+  them. Signing out deletes the sign-in from the device; signing out of MangaBaka also ends
+  Saikou's access on MangaBaka.
 - Cookies that sites set, or that you import under a source's **Source settings > Cookies**, stay
   in the app. Remove them per source under **Source settings > Cookies > Clear**, or per site from
   the WebView's menu (**Clear cookies for this site**). More > Settings > Advanced > **Clear WebView
@@ -73,3 +81,8 @@ More > Settings > Advanced:
   the app restarts; the message offers **Restart**.
 - **Default user agent string**: the browser identity Saikou sends to sites. **Reset default user
   agent string** puts it back. Takes effect after the app restarts; the message offers **Restart**.
+
+More > Settings > Experimental > **Trust certificates you installed** lets sources load through a
+certificate you installed on the device, such as an ad blocker's. Whoever controls that certificate
+can read and change what Saikou loads from sources. See
+[Troubleshooting](troubleshooting.md#sources-fail-behind-an-ad-blocker-a-dns-filter-or-a-work-network).

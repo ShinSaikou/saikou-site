@@ -23,7 +23,8 @@ More > **Download queue** lists the chapters waiting to download and any that fa
 - **Cancel download** removes one chapter; **Clear queue** removes them all.
 - Each row shows **Queued**, **Starting**, **N of M pages**, or **Failed** with the reason.
 
-Chapters download one at a time, in the order they were added. Within a chapter, several pages
+Chapters download one at a time, in the order they were added, unless
+[several sources at once](#several-sources-at-once) is turned on. Within a chapter, several pages
 download at once: More > Settings > Downloads > **Pages downloaded at once** (1 to 15, 5 by
 default). Each page goes through the source's own rate limit, so a higher number speeds up only
 sources that allow it.
@@ -31,11 +32,36 @@ sources that allow it.
 Download progress and failures appear as notifications (**Download progress** and **Download
 errors** channels).
 
+### Several sources at once
+
+A queue that mixes sources can finish sooner when chapters from different sources download side by
+side. This is experimental. Turn it on in More > Settings > Experimental > **Download from several
+sources at once**.
+
+- Saikou then downloads one chapter from each of several sources at the same time. More > Settings >
+  Downloads > **Sources downloaded at once** sets how many sources, from 1 to 10 (5 by default). The
+  row shows only while the switch is on.
+- Chapters from one source still download one after another, in queue order, so a site never gets
+  more than one chapter at a time from Saikou. **Pages downloaded at once** still applies to each
+  chapter.
+- Every running chapter shows its own progress in the queue. The notification reads **Downloading N
+  chapters at once**, with one bar for all of them.
+- **Pause** stops every running chapter, and **Cancel download** stops only the one you pick. Moving
+  chapters in the queue and adding new ones decide what starts next. When storage runs low, no new
+  chapter starts, and the running ones finish.
+- A change to the switch or to **Sources downloaded at once** applies from the next chapter to
+  start.
+
+It uses more data, memory and battery while downloads run. Turned off, chapters download one at a
+time again.
+
 ## Download settings
 
 In More > Settings > Downloads:
 
 - **Only download over Wi-Fi** (on by default). Takes effect the next time downloads start.
+- **Sources downloaded at once**, shown only while [several sources at once](#several-sources-at-once)
+  is turned on.
 - **Pages downloaded at once**, above.
 
 ### Delete chapters
@@ -106,6 +132,23 @@ check the list first.
 Saikou finds a download even when the source has renamed itself or the entry's title has changed,
 and whichever way **Disallow non-ASCII filenames** (More > Settings > Advanced) is set. You never
 need to rename anything by hand.
+
+## Saving chapters as CBZ files
+
+Saikou normally saves each downloaded chapter as a folder of images. It can save each one as a
+single `.cbz` file instead (the pages in order, with the chapter's details), which other readers and
+file managers open more easily once you [export your downloads](#where-downloads-are-kept). This is
+experimental. Turn it on in More > Settings > Experimental > **Save chapters as CBZ files**.
+
+- It applies to new downloads. Each chapter takes a moment longer to finish while its pages are
+  packed into the file.
+- Chapters you already downloaded stay folders. One entry can hold both kinds, and both read,
+  delete, migrate and export the same way.
+- Turning it off saves new downloads as folders again. The `.cbz` files you have stay as they are.
+- The setting is in backups, with the app settings. Restoring a backup in which it is on, Saikou's
+  or another reader's, turns it on when **App settings** is ticked on the Restore tab. Other readers
+  often save CBZ files by default, so check the switch after restoring one of their backups. A
+  backup you restored before this version does not turn it on now.
 
 ## Copying downloads from a folder
 
